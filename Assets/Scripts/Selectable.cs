@@ -11,7 +11,7 @@ namespace FragileReflection
         }
 
         public void Deselect(){
-            GetComponent<Renderer>().material.color = Color.gray;
+            GetComponent<Renderer>().material.color = Color.white;
         }
     }
 }
