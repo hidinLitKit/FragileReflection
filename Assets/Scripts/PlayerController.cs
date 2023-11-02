@@ -34,17 +34,11 @@ namespace FragileReflection
 
             _mouseLook = _playerMap.FindAction("Look");
             _rotation = Vector2.zero;
-
-            //var move = _moveAction.ReadValue<Vector2>();
-            //в старой равносильно var horiz = Input.GetAxis("Horizontal") + vertical (тут два в одном).
         }
 
         private void OnEnable()
         {
             _playerMap.Enable();
-
-            //можна на встроенный ивент подписать функции (оч полезно)
-            //_moveAction.canceled += onMoveActionStarted;
         }
 
         private void OnDisable()
@@ -64,8 +58,6 @@ namespace FragileReflection
 
         private void Update()
         {
-            //типа геймпад 
-            //var b = Gamepad.current.leftStick.ReadValue<Vector2>();
             var move = _moveAction.ReadValue<Vector2>();
             if (move != Vector2.zero)
             {
@@ -86,10 +78,16 @@ namespace FragileReflection
 
             var scaledRotateSpeed = rotateSpeed * Time.deltaTime;
             _rotation.y += rotate.x * scaledRotateSpeed;
-            _rotation.x = Mathf.Clamp(_rotation.x - rotate.y * scaledRotateSpeed, -30, 10);
-
-            _transformPlayer.localEulerAngles = _rotation;
+            if (_camera.m_Lens.FieldOfView == 40)
+            {
+                _rotation.x = Mathf.Clamp(_rotation.x - rotate.y * scaledRotateSpeed, -30, 10);
+                _transformPlayer.localEulerAngles = _rotation;
+            }
+            else
+            {
+                _rotation.x = Mathf.Clamp(_rotation.x - rotate.y * scaledRotateSpeed, -20, 10);
+                _transformPlayer.localEulerAngles = _rotation;
+            }
         }
-
     } 
 }
