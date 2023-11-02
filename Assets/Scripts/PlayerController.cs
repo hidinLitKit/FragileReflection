@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 namespace ShadowChimera
 {
     public class PlayerController : MonoBehaviour
@@ -13,6 +14,7 @@ namespace ShadowChimera
 
         private InputActionMap m_playerMap;
         private InputAction m_moveAction;
+
         private void Awake()
         {
             m_playerMap = m_inputActionAsset.FindActionMap("Player");
@@ -21,16 +23,19 @@ namespace ShadowChimera
             var move = m_moveAction.ReadValue<Vector2>();
             //в старой равносильно var horiz = Input.GetAxis("Horizontal") + vertical (тут два в одном).
         }
+
         private void OnEnable()
         {
             m_playerMap.Enable();
             //можна на встроенный ивент подписать функции (оч полезно)
             //m_moveAction.canceled += onMoveActionStarted;
         }
+
         private void OnDisable()
         {
             m_playerMap.Disable();
         }
+
         private void Update()
         {
             //типа геймпад 
@@ -41,7 +46,7 @@ namespace ShadowChimera
             {
                 Console.WriteLine(move);
                 var dir = new Vector3(move.x, 0, move.y);
-                m_characterController.SimpleMove(dir*moveSpeed);
+                m_characterController.SimpleMove(dir * moveSpeed);
             }
         }
     } 
