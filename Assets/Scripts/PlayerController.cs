@@ -10,12 +10,18 @@ namespace FragileReflection
         [SerializeField] private InputActionAsset _inputActionAsset;
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private CinemachineVirtualCamera _camera;
+        [SerializeField] private Transform _transformPlayer;
         [SerializeField] private float moveSpeed = 5f;
+        [SerializeField] private float rotateSpeed = 40f;
+
         private float zoomSpeed = 20f;
 
         private InputActionMap _playerMap;
         private InputAction _moveAction;
         private InputAction _zoomAction;
+
+        private InputAction _mouseLook;
+        private Vector2 _rotation;
 
         private void Awake()
         {
@@ -25,6 +31,9 @@ namespace FragileReflection
             _zoomAction = _playerMap.FindAction("Zoom");
             _zoomAction.performed += OnMouseRightClickPerformed;
             _zoomAction.canceled += OnMouseRightClickCanceled;
+
+            _mouseLook = _playerMap.FindAction("Look");
+            _rotation = Vector2.zero;
 
             //var move = _moveAction.ReadValue<Vector2>();
             //в старой равносильно var horiz = Input.GetAxis("Horizontal") + vertical (тут два в одном).
@@ -65,6 +74,21 @@ namespace FragileReflection
                 _characterController.SimpleMove(dir * moveSpeed);
             }
 
+            var look = _mouseLook.ReadValue<Vector2>();
+            Look(look);
+        }
+
+        private void Look(Vector2 rotate)
+        {
+            //для предотвращения случайного поворота камеры
+            if (rotate.sqrMagnitude < 0.01)
+                return;
+
+            var scaledRotateSpeed = rotateSpeed * Time.deltaTime;
+            _rotation.y += rotate.x * scaledRotateSpeed;
+            _rotation.x = Mathf.Clamp(_rotation.x - rotate.y * scaledRotateSpeed, -30, 10);
+
+            _transformPlayer.localEulerAngles = _rotation;
         }
 
     } 
