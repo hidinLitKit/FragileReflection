@@ -1,5 +1,5 @@
 {
-    "name": "DefaultInputActions",
+    "name": "SC_InputActions",
     "maps": [
         {
             "name": "Player",
