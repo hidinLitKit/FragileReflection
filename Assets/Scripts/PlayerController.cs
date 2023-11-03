@@ -23,6 +23,12 @@ namespace FragileReflection
         private InputAction _mouseLook;
         private Vector2 _rotation;
 
+        private void Start()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
         private void Awake()
         {
             _playerMap = _inputActionAsset.FindActionMap("Player");
