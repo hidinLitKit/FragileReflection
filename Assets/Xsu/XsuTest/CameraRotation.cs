@@ -23,6 +23,8 @@ namespace XsuTest
 
         private CinemachineOrbitalTransposer _transposer;
 
+        private bool _canMove;
+
         private void Awake()
         {
             _map = _inputActionAsset.FindActionMap("Player");
@@ -40,15 +42,19 @@ namespace XsuTest
         private void OnEnable()
         {
             _map.Enable();
+            GameEvents.onChangePriority += SetCanMove;
         }
 
         private void OnDisable()
         {
             _map.Disable();
+            GameEvents.onChangePriority -= SetCanMove;
         }
 
         private void Update()
         {
+            if (!_canMove)
+                return;
             if(_hold.ReadValue<float>() > 0.1f)
             {
                 if(prevcam == Vector2.zero)
@@ -84,6 +90,11 @@ namespace XsuTest
                 prevcam = Vector2.zero;
             }
             
+        }
+
+        private void SetCanMove(bool movingCameraOn)
+        {
+            _canMove = movingCameraOn;
         }
     }
 }
