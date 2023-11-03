@@ -19,6 +19,7 @@ namespace XsuTest
 
         private Vector2 startPosOnScreen;
         private bool _pressed;
+        private Vector2 prevcam = Vector2.zero;
 
         private CinemachineOrbitalTransposer _transposer;
 
@@ -50,7 +51,11 @@ namespace XsuTest
         {
             if(_hold.ReadValue<float>() > 0.1f)
             {
+                if(prevcam == Vector2.zero)
+                     prevcam = _moveCamera.ReadValue<Vector2>();
+
                 Vector2 cam = _moveCamera.ReadValue<Vector2>();
+
                 if (!_pressed)
                 {
                     _pressed = true;
@@ -58,22 +63,25 @@ namespace XsuTest
                 }
 
                 Vector2 diff = (startPosOnScreen - cam).normalized;
-                float newVal = _transposer.m_Heading.m_Bias + diff.x;
 
-                if(newVal < -180)
+                if(Mathf.Abs(cam.x-prevcam.x) > 0.01f)
                 {
-                    newVal = 180;
+                    float newVal = _transposer.m_Heading.m_Bias + diff.x * cameraSpeed;
+
+                    newVal = newVal < -180 ? 180 : newVal;
+                    newVal = newVal > 180 ? -180 : newVal;
+
+                    if (startPosOnScreen.y > Screen.height * 0.2f)
+                        _transposer.m_Heading.m_Bias = newVal;
                 }
-                else if(newVal > 180)
-                {
-                    newVal = -180;
-                }
-                if(startPosOnScreen.y > 200)
-                    _transposer.m_Heading.m_Bias = newVal;
+                
+
+                prevcam = cam;
             }
             else
             {
                 _pressed = false;
+                prevcam = Vector2.zero;
             }
             
         }
