@@ -10,8 +10,7 @@ namespace Dan
         public enum InteractionType
         {
             Click,
-            Hold,
-            Read
+            Hold
         }
         float holdTime;
         public InteractionType interactionType;
