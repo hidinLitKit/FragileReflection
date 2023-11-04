@@ -7,11 +7,24 @@ namespace FragileReflection
     public class Selectable : MonoBehaviour
     {
         public void Select(){
-            GetComponent<Renderer>().material.color = Color.yellow;
+            var renderer = GetComponent<Renderer>();
+            if(renderer == null)
+            {
+                Debug.Log("No renderer on selectable object " + gameObject.name);
+                return;
+            }
+            renderer.material.color = Color.yellow;
         }
 
         public void Deselect(){
-            GetComponent<Renderer>().material.color = Color.white;
+
+            var renderer = GetComponent<Renderer>();
+            if (renderer == null)
+            {
+                Debug.Log("No renderer on selectable object " + gameObject.name);
+                return;
+            }
+            renderer.material.color = Color.white;
         }
     }
 }

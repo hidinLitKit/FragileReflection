@@ -37733,6 +37733,7 @@ GameObject:
   - component: {fileID: 1745188088}
   - component: {fileID: 1745188089}
   - component: {fileID: 1745188090}
+  - component: {fileID: 1745188091}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -37768,12 +37769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4713aafbbdda924469d438f042685d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputActionAsset: {fileID: -944628639613478452, guid: b4e4171e11fe31f4d958fe0338b14dfa, type: 3}
-  _characterController: {fileID: 486619963}
-  _camera: {fileID: 1745188090}
-  _transformPlayer: {fileID: 486619964}
-  moveSpeed: 5
-  rotateSpeed: 40
 --- !u!114 &1745188090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37813,6 +37808,24 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 38059579}
+--- !u!114 &1745188091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745188087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f92b8be7927e244add79c44a57c54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputActionAsset: {fileID: -944628639613478452, guid: b4e4171e11fe31f4d958fe0338b14dfa, type: 3}
+  _characterController: {fileID: 486619963}
+  _camera: {fileID: 1745188090}
+  _transformPlayer: {fileID: 486619964}
+  moveSpeed: 5
+  rotateSpeed: 40
 --- !u!1 &1853626536
 GameObject:
   m_ObjectHideFlags: 0

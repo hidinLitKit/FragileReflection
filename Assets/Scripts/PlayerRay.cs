@@ -12,13 +12,13 @@ namespace FragileReflection
         private void LateUpdate()
         {
             Ray ray = new Ray(transform.position, transform.forward);
-            //ray.origin = transform.position;
-            //ray.direction = transform.forward;
             Debug.DrawRay(transform.position, transform.forward * 10f, Color.yellow);
 
             RaycastHit hit;
+
             if (Physics.Raycast(ray, out hit))
             {
+                pointer.transform.gameObject.SetActive(true);
                 pointer.position = hit.point;
 
                 Selectable selectable = hit.collider.gameObject.GetComponent<Selectable>();
@@ -27,10 +27,7 @@ namespace FragileReflection
                     // Если объект был выбран, перекрашиваем его и обновляем текущий выбранный объект
                     if (selectable != currentlySelected)
                     {
-                        if (currentlySelected != null)
-                        {
-                            currentlySelected.Deselect();
-                        }
+                        DisableSelect();
 
                         selectable.Select();
                         currentlySelected = selectable;
@@ -39,21 +36,23 @@ namespace FragileReflection
                 else
                 {
                     // Если объект не выбран, перекрашиваем текущий выбранный объект в белый
-                    if (currentlySelected != null)
-                    {
-                        currentlySelected.Deselect();
-                        currentlySelected = null;
-                    }
+                    DisableSelect();
                 }
             }
             else
             {
+                pointer.transform.gameObject.SetActive(false);
                 // Если луч не попадает ни в какой объект, перекрашиваем текущий выбранный объект в белый
-                if (currentlySelected != null)
-                {
-                    currentlySelected.Deselect();
-                    currentlySelected = null;
-                }
+                DisableSelect();
+            }
+        }
+
+        private void DisableSelect()
+        {
+            if (currentlySelected != null)
+            {
+                currentlySelected.Deselect();
+                currentlySelected = null;
             }
         }
 
