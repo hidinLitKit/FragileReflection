@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using XsuTest;
 
 namespace ShadowChimera
 {
@@ -24,12 +23,6 @@ namespace ShadowChimera
             _switch.canceled += ctx => m_Pressed = false;
         }
 
-        protected void OnDisable()
-        {
-            _switch.performed -= ctx => m_Pressed = true;
-            _switch.canceled -= ctx => m_Pressed = false;
-        }
-
         void Awake()
         {
 
@@ -38,17 +31,10 @@ namespace ShadowChimera
 
         void Update()
         {
-            if (m_Pressed)
+            if(m_Pressed)
             {
-                (_camMove.Priority, _camAim.Priority) = (_camAim.Priority, _camMove.Priority);
-                bool movingCameraOn = GetMovePriority();
-                GameEvents.ChangePriority(movingCameraOn);
+                (_camMove.Priority,_camAim.Priority) = (_camAim.Priority, _camMove.Priority);
             }
-        }
-
-        private bool GetMovePriority()
-        {
-            return _camMove.Priority > _camAim.Priority;
         }
     }
 }
