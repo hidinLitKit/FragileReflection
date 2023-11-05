@@ -33,31 +33,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "CameraRotation",
-                    "type": "Value",
-                    "id": "14eba9b7-1347-4b8f-9ee4-86577d0083d6",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "HoldingCam",
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "bdb0b477-9a18-4017-beea-cadfacf188b0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SwitchCamera",
-                    "type": "Value",
-                    "id": "1bf1e97c-70ab-4b6d-9efc-8afe5cb41af0",
+                    "id": "f50054cf-34bc-443f-9407-92b1f60cdae0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -283,34 +265,12 @@
                 },
                 {
                     "name": "",
-                    "id": "28da64d5-82a5-4b88-8b14-d3c66cf6ea69",
-                    "path": "<Mouse>/position",
+                    "id": "e8673bc9-73ed-4c4e-84c6-51d5f49f46db",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d9e92a97-6a77-4f90-8cde-c7af8f8c6a36",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HoldingCam",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f636e5ae-7ab3-4f12-b33c-0c4799f38155",
-                    "path": "<Keyboard>/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SwitchCamera",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
