@@ -28,6 +28,13 @@ namespace FragileReflection
         [SerializeField] private CinemachineVirtualCamera _camAim;
 
         private bool aiming = false;
+
+        private void Start()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
         private void Awake()
         {
             playerTransform = characterController.gameObject.transform;

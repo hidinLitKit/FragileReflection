@@ -31,12 +31,14 @@ namespace FragileReflection
 
                         selectable.Select();
                         currentlySelected = selectable;
-                    }
+                        pointer.gameObject.SetActive(true);
+                    }         
                 }
                 else
                 {
                     // Если объект не выбран, перекрашиваем текущий выбранный объект в белый
                     DisableSelect();
+                    pointer.gameObject.SetActive(false);
                 }
             }
             else

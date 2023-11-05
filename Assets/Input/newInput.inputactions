@@ -316,8 +316,30 @@
                 },
                 {
                     "name": "",
-                    "id": "d78659ba-4187-4a9a-961e-42005c9b93ba",
-                    "path": "<Keyboard>/y",
+                    "id": "8b60538a-7ab1-4cb4-878a-e1d21c8b7a32",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af069271-ce6b-4f8b-a60e-9d71db607867",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62fe4c53-72b7-4959-b471-627c127d9071",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
