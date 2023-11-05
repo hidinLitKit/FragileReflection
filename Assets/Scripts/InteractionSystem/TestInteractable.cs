@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace ShadowChimera
+namespace FragileReflection
 {
     public class TestInteractable : Interactable
     {

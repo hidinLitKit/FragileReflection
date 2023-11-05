@@ -5,11 +5,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
-namespace ShadowChimera
+namespace FragileReflection
 {
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private CharacterController characterController;
+        private Transform playerTransform;
         public Vector2 _move;
         public Vector2 _look;
         public float aimValue;
@@ -27,6 +28,10 @@ namespace ShadowChimera
         [SerializeField] private CinemachineVirtualCamera _camAim;
 
         private bool aiming = false;
+        private void Awake()
+        {
+            playerTransform = characterController.gameObject.transform;
+        }
 
         public void OnMove(InputValue value)
         {
@@ -85,34 +90,39 @@ namespace ShadowChimera
 
             nextRotation = Quaternion.Lerp(followTransform.transform.rotation, nextRotation, Time.deltaTime * rotationLerp);
 
+
+            if (aimValue == 1)
+            {
+                SwitchCamera(true);
+                //Set the player rotation based on the look transform
+                playerTransform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
+                //reset the y rotation of the look transform
+                followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
+            }
+            else if (aimValue == 0)
+            {
+                SwitchCamera(false);
+            }
+
+            Vector3 vertical = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);
+            characterController.Move(vertical);
+
             if (_move.x == 0 && _move.y == 0)
             {
-                nextPosition = transform.position;
-
-                if (aimValue == 1)
-                {
-                    SwitchCamera(true);
-                    //Set the player rotation based on the look transform
-                    transform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
-                    //reset the y rotation of the look transform
-                    followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
-                }
-                else if(aimValue == 0)
-                {
-                    SwitchCamera(false);
-                }
-
+                nextPosition = playerTransform.position;
                 return;
             }
+
+            
             float moveSpeed = speed / 100f;
-            Vector3 vertical = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);
-            Vector3 position = (transform.forward * _move.y * moveSpeed) + (transform.right * _move.x * moveSpeed) + vertical;
+            //Vector3 vertical = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);
+            Vector3 position = (playerTransform.forward * _move.y * moveSpeed) + (playerTransform.right * _move.x * moveSpeed) ;
             
             characterController.Move(position);
 
 
             //Set the player rotation based on the look transform
-            transform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
+            playerTransform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
             //reset the y rotation of the look transform
             followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
         }

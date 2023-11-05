@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace ShadowChimera
+namespace FragileReflection
 {
     public class InteractionCast : MonoBehaviour
     {

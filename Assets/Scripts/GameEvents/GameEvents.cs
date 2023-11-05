@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace ShadowChimera
+namespace FragileReflection
 {
     public static class GameEvents
     {
