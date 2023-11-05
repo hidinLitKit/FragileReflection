@@ -1,5 +1,5 @@
 {
-    "name": "SC_InputActions",
+    "name": "newInput",
     "maps": [
         {
             "name": "Player",
@@ -36,6 +36,15 @@
                     "name": "Zoom",
                     "type": "Button",
                     "id": "29c119d9-b72a-4d9a-9044-48359c62eecf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "1af27e57-c5bc-4469-b674-076ea4fc04b4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -282,6 +291,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d5284fa-17d9-4925-9b77-acfc7b5acf7f",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
