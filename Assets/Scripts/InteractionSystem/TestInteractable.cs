@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Dan
+namespace ShadowChimera
 {
     public class TestInteractable : Interactable
     {

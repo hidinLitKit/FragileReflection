@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Dan
+namespace ShadowChimera
 {
     public abstract class Interactable : MonoBehaviour
     {

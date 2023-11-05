@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-namespace Dan
+namespace ShadowChimera
 {
     public class InteractionText : MonoBehaviour
     {
