@@ -10,6 +10,7 @@ namespace FragileReflection
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private CharacterController characterController;
+        [SerializeField] private PlayerAnimController playerAnimController;
         private Transform playerTransform;
         public Vector2 _move;
         public Vector2 _look;
@@ -46,6 +47,7 @@ namespace FragileReflection
         public void OnAim(InputValue value)
         {
             aimValue = value.Get<float>();
+            playerAnimController.Aiming(aimValue);
         }
 
         //public void OnFire(InputValue value)
