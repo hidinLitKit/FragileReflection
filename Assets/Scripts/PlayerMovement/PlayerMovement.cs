@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using WeaponSystem;
 
 namespace FragileReflection
 {
     public class PlayerMovement : MonoBehaviour
     {
+        //mine
+        public Weapon[] weapon;
+
         [SerializeField] private CharacterController characterController;
         private Transform playerTransform;
         public Vector2 _move;
@@ -28,9 +32,13 @@ namespace FragileReflection
         [SerializeField] private CinemachineVirtualCamera _camAim;
 
         private bool aiming = false;
+
         private void Awake()
         {
             playerTransform = characterController.gameObject.transform;
+
+            //mine
+            WeaponManager.ChangeWeapon(weapon[0]);
         }
 
         public void OnMove(InputValue value)
@@ -48,10 +56,29 @@ namespace FragileReflection
             aimValue = value.Get<float>();
         }
 
-        //public void OnFire(InputValue value)
-        //{
-        //    fireValue = value.Get<float>();
-        //}
+        public void OnFire(InputValue value)
+        {
+            fireValue = value.Get<float>();
+            GameEvents.Fire();
+        }
+
+        public void OnChangeWeapon1(InputValue value)
+        {
+            if(value.isPressed)
+            {
+                WeaponManager.ChangeWeapon(weapon[0]);
+            }
+            
+        }
+
+        public void OnChangeWeapon2(InputValue value)
+        {
+            if (value.isPressed)
+            {
+                WeaponManager.ChangeWeapon(weapon[1]);
+            }
+
+        }
 
         public GameObject followTransform;
 
@@ -93,15 +120,25 @@ namespace FragileReflection
 
             if (aimValue == 1)
             {
+                if (!aiming)
+                    GameEvents.Aim(true);
+
+
                 SwitchCamera(true);
                 //Set the player rotation based on the look transform
                 playerTransform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
                 //reset the y rotation of the look transform
                 followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
+
+                aiming = true;
             }
             else if (aimValue == 0)
             {
+                if (aiming)
+                    GameEvents.Aim(false);
+
                 SwitchCamera(false);
+                aiming = false;
             }
 
             Vector3 vertical = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);

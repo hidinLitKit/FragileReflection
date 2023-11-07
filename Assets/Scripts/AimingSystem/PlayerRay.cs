@@ -8,7 +8,17 @@ namespace FragileReflection
     {
         public Transform pointer;
         private Selectable currentlySelected;
-        
+
+        private void OnEnable()
+        {
+            GameEvents.onFire += TakeShot;
+        }
+
+        private void OnDisable()
+        {
+            GameEvents.onFire -= TakeShot;
+        }
+
         private void LateUpdate()
         {
             Ray ray = new Ray(transform.position, transform.forward);
@@ -54,6 +64,31 @@ namespace FragileReflection
                 currentlySelected.Deselect();
                 currentlySelected = null;
             }
+        }
+
+        private void TakeShot()
+        {
+            Ray ray = new Ray(transform.position, transform.forward);
+            Debug.DrawRay(transform.position, transform.forward * 10f, Color.yellow);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Selectable selectable = hit.collider.gameObject.GetComponent<Selectable>();
+                if (selectable)
+                {
+                    // Если объект был выбран, перекрашиваем его и обновляем текущий выбранный объект
+                    if (selectable != currentlySelected)
+                    {
+                        DisableSelect();
+
+                        selectable.Select();
+                        currentlySelected = selectable;
+                    }
+                }
+            }
+
         }
 
     }
