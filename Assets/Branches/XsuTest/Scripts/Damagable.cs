@@ -19,14 +19,21 @@ namespace FragileReflection
 
         public void TakeDamage(float damage)
         {
-            health -= damage;
+            
             if (health < 0)
                 Die();
+            else
+                health -= damage;
         }
 
         private void Die()
         {
             var renderer = GetComponent<Renderer>();
+            if (renderer == null)
+            {
+                Debug.Log($"No renderer but {this.name} died");
+                return;
+            }
             renderer.material.color = Color.red;
         }
     }
