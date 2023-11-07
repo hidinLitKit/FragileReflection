@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using WeaponSystem;
 
 namespace FragileReflection
 {
     public class PlayerRay : MonoBehaviour
     {
+        [Header("Показывать места попаданий")]
+        [SerializeField] private bool showShots;
+        [SerializeField] private GameObject shotMark;
+
+        [Space]
         public Transform pointer;
         private Selectable currentlySelected;
 
@@ -75,21 +82,24 @@ namespace FragileReflection
 
             if (Physics.Raycast(ray, out hit))
             {
-                Selectable selectable = hit.collider.gameObject.GetComponent<Selectable>();
-                if (selectable)
+                Damagable enemyHealth = hit.collider.gameObject.GetComponent<Damagable>();
+                if (enemyHealth)
                 {
-                    // Если объект был выбран, перекрашиваем его и обновляем текущий выбранный объект
-                    if (selectable != currentlySelected)
-                    {
-                        DisableSelect();
-
-                        selectable.Select();
-                        currentlySelected = selectable;
-                    }
+                    enemyHealth.TakeDamage(WeaponManager.currentWeapon.WeaponType.BodyDamage);
+                    ShowShotPlace(hit);
                 }
             }
 
         }
+
+        private void ShowShotPlace(RaycastHit hit)
+        {
+            if(showShots)
+            {
+                Instantiate(shotMark, hit.point, Quaternion.identity);
+            }
+        }
+
 
     }
 }

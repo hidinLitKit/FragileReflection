@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Dan
+namespace FragileReflection
 {
     public class Damagable : MonoBehaviour
     {
         [Range(0,200)]
-        [SerializeField] private int maxHealth;
+        [SerializeField] private float maxHealth;
 
-        private int health;
+        private float health;
 
         private void Start()
         {
             health = maxHealth;
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             health -= damage;
             if (health < 0)
