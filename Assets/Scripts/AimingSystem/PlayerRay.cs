@@ -85,6 +85,7 @@ namespace FragileReflection
                 Damagable enemyHealth = hit.collider.gameObject.GetComponent<Damagable>();
                 if (enemyHealth)
                 {
+                    
                     enemyHealth.TakeDamage(WeaponManager.currentWeapon.WeaponType.BodyDamage);
                     ShowShotPlace(hit);
                 }
