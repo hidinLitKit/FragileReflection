@@ -1,17 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace FragileReflection
 {
-    public class Damagable: MonoBehaviour
+    public class PlayerParam : MonoBehaviour
     {
-        [Range(0,200)]
-        [SerializeField] private float maxHealth;
-
-        private float health;
-
+        [Range(0, 100)][SerializeField] private float health;
 
         public void TakeDamage(float damage)
         {
@@ -19,7 +14,7 @@ namespace FragileReflection
                 Die();
             else
                 health -= damage;
-           Debug.Log("Damage taken! "+ damage);
+            Debug.Log("Damage taken! " + damage);
         }
 
         private void Die()
@@ -31,7 +26,9 @@ namespace FragileReflection
                 return;
             }
             renderer.material.color = Color.red;
-           
+
         }
+
+       
     }
 }
