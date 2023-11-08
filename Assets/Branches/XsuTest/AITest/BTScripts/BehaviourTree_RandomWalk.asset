@@ -38,14 +38,14 @@ MonoBehaviour:
     target: {fileID: 0}
     moveToPosition: {x: 100, y: 0, z: 0}
     isStruggled: 0
-    viewRadius: 5
+    viewRadius: 10
     viewAngle: 60
     attackDistance: 2
     moveSpeed: 2
     chaseSpeed: 5
     game: {fileID: 2544586986200610659, guid: e66b88a183747854f84b39818838edcd, type: 3}
-  viewPosition: {x: -594, y: 213, z: 0}
-  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
+  viewPosition: {x: -227, y: 314, z: 0}
+  viewScale: {x: 0.375937, y: 0.375937, z: 1}
   references:
     version: 2
     RefIds:
