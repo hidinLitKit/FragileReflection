@@ -15,11 +15,10 @@ namespace WeaponSystem
         [Space]
         public float RateOfFire;
         public float RechargeSpeed;
-        public float XRecoil;
-        public float YRecoil;
+        public float RecoilRadius;
 
         [Space]
-        public int ShotAmount;
+        public int Magazine;
 
         public Sprite CrossHair;
 

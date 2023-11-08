@@ -6,7 +6,7 @@ using WeaponSystem;
 
 namespace FragileReflection
 {
-    public class PlayerRay : MonoBehaviour
+    public class WeaponRay : MonoBehaviour
     {
         [Header("Показывать места попаданий")]
         [SerializeField] private bool showShots;

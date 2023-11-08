@@ -11,7 +11,7 @@ namespace FragileReflection
     public class PlayerMovement : MonoBehaviour
     {
         //mine
-        public Weapon[] weapon;
+        
 
         [SerializeField] private CharacterController characterController;
         [SerializeField] private PlayerAnimController playerAnimController;
@@ -37,9 +37,10 @@ namespace FragileReflection
         private void Awake()
         {
             playerTransform = characterController.gameObject.transform;
-
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             //mine
-            WeaponManager.ChangeWeapon(weapon[0]);
+            //WeaponManager.ChangeWeapon(weapon[0]);
         }
 
         public void OnMove(InputValue value)
@@ -54,21 +55,28 @@ namespace FragileReflection
 
         public void OnAim(InputValue value)
         {
+            if (WeaponManager.currentWeapon == null) return;
             aimValue = value.Get<float>();
             playerAnimController.Aiming(aimValue);
         }
 
         public void OnFire(InputValue value)
         {
-            fireValue = value.Get<float>();
-            GameEvents.Fire();
+            if (!aiming) return;
+            WeaponManager.currentWeapon.Fire();
+            //GameEvents.Fire();
+        }
+        public void OnReload(InputValue value)
+        {
+            if (!aiming) return;
+            WeaponManager.currentWeapon.Reload();
         }
 
         public void OnChangeWeapon1(InputValue value)
         {
             if(value.isPressed)
             {
-                WeaponManager.ChangeWeapon(weapon[0]);
+                WeaponManager.SwitchWeapon(WeaponManager.weapons[0]);
             }
             
         }
@@ -77,7 +85,7 @@ namespace FragileReflection
         {
             if (value.isPressed)
             {
-                WeaponManager.ChangeWeapon(weapon[1]);
+                WeaponManager.SwitchWeapon(WeaponManager.weapons[1]);
             }
 
         }

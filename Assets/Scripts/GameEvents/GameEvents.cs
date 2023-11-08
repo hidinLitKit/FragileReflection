@@ -7,9 +7,11 @@ namespace FragileReflection
 {
     public static class GameEvents
     {
+        //interaction
         public static event System.Action<Interactable> onInteractionEnter;
         public static event System.Action onInteractionExit;
 
+        //Weapon
         public static event System.Action onFire;
         public static event System.Action onWeaponChanged;
         public static event System.Action<bool> onAiming;

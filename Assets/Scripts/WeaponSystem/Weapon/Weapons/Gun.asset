@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65e5b6cbeea6ea64286b0eb11795ab25, type: 3}
-  m_Name: Gun 1
+  m_Name: Gun
   m_EditorClassIdentifier: 
   HeadDamage: 20
   BodyDamage: 10
-  RateOfFire: 3
-  RechargeSpeed: 10
-  XRecoil: 1
-  YRecoil: 0.3
-  ShotAmount: 8
-  CrossHair: {fileID: 21300000, guid: 6f42106a9aaf6dc49b77bb9186e02eb8, type: 3}
+  RateOfFire: 0.7
+  RechargeSpeed: 2
+  RecoilRadius: 0
+  Magazine: 12
+  CrossHair: {fileID: 21300000, guid: 92ab743f0e766f94ca92801ff37caecb, type: 3}
