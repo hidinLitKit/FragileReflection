@@ -17,7 +17,6 @@ public class EnemyChase : ActionNode
         player = blackboard.game.GetPlayer();
         context.agent.destination = player.position;
         animator = context.gameObject.GetComponent<Animator>();
-        player = blackboard.game.GetPlayer();
     }
 
     protected override void OnStop()
@@ -27,6 +26,8 @@ public class EnemyChase : ActionNode
 
     protected override State OnUpdate()
     {
+        context.agent.destination = player.position;
+
         if (context.agent.pathPending)
         {
             return State.Running;

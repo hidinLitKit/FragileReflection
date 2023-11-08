@@ -19,6 +19,10 @@ namespace TheKiwiCoder {
 
         protected override State OnUpdate() 
         {
+            if(blackboard.isStruggled)
+            {
+                return State.Failure;
+            }
             float timeRemaining = Time.time - startTime;
             if (timeRemaining > duration) {
                 return State.Success;

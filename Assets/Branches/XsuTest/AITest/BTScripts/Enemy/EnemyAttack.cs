@@ -24,6 +24,10 @@ public class EnemyAttack : ActionNode
 
     protected override State OnUpdate()
     {
+        if(blackboard.isStruggled)
+        {
+            return State.Failure;
+        }
         if (blackboard.CanAttackPlayer(context.transform))
         {
             animator.SetBool("Attack", true);
