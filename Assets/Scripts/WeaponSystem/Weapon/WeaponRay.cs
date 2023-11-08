@@ -1,14 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using WeaponSystem;
 
 namespace FragileReflection
 {
-    public class PlayerRay : MonoBehaviour
+    public class WeaponRay : MonoBehaviour
     {
+        [Header("Показывать места попаданий")]
+        [SerializeField] private bool showShots;
+        [SerializeField] private GameObject shotMark;
+
+        [Space]
         public Transform pointer;
         private Selectable currentlySelected;
-        
+
+        private void OnEnable()
+        {
+            GameEvents.onFire += TakeShot;
+        }
+
+        private void OnDisable()
+        {
+            GameEvents.onFire -= TakeShot;
+        }
+
         private void LateUpdate()
         {
             Ray ray = new Ray(transform.position, transform.forward);
@@ -57,6 +74,34 @@ namespace FragileReflection
                 currentlySelected = null;
             }
         }
+
+        private void TakeShot()
+        {
+            Ray ray = new Ray(transform.position, transform.forward);
+            Debug.DrawRay(transform.position, transform.forward * 10f, Color.yellow);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Damagable enemyHealth = hit.collider.gameObject.GetComponent<Damagable>();
+                if (enemyHealth)
+                {
+                    enemyHealth.TakeDamage(WeaponManager.currentWeapon.WeaponType.BodyDamage);
+                    ShowShotPlace(hit);
+                }
+            }
+
+        }
+
+        private void ShowShotPlace(RaycastHit hit)
+        {
+            if(showShots)
+            {
+                Instantiate(shotMark, hit.point, Quaternion.identity);
+            }
+        }
+
 
     }
 }

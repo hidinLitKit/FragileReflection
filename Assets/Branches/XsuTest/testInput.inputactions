@@ -1,5 +1,5 @@
 {
-    "name": "newInput",
+    "name": "testInput",
     "maps": [
         {
             "name": "Player",
@@ -51,15 +51,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Reload",
-                    "type": "Button",
-                    "id": "7c37b243-89f4-4de7-b0b8-fc8484e34e85",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Aim",
                     "type": "Value",
                     "id": "6a99f7fc-44a6-4642-9189-1ba1f1aa9b84",
@@ -70,21 +61,21 @@
                 },
                 {
                     "name": "ChangeWeapon1",
-                    "type": "Button",
-                    "id": "c06fbda5-f00e-41f4-927e-61aaf2845b0d",
+                    "type": "Value",
+                    "id": "e917729d-ab95-4c47-be80-27cc948b77e6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "ChangeWeapon2",
-                    "type": "Button",
-                    "id": "1448ba6e-e47a-4ecd-a740-10b675c6d32d",
+                    "type": "Value",
+                    "id": "0ef33008-af90-4eba-8e7b-9200e971dbdb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -344,17 +335,17 @@
                 {
                     "name": "",
                     "id": "d78659ba-4187-4a9a-961e-42005c9b93ba",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/y",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "",
                     "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "13e8e2f9-e054-4ee6-9455-95886d11144c",
+                    "id": "9ade658f-5d9c-42b6-b0eb-7d04cb17d2b1",
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
@@ -365,23 +356,12 @@
                 },
                 {
                     "name": "",
-                    "id": "af8524a4-4ae0-4b28-a470-28c6642487d0",
+                    "id": "0bfb671d-8cc4-4b6a-8667-4eb9588aa3f5",
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "ChangeWeapon2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c3b47e52-b78b-4ce2-a6f3-9d2aa5b183cd",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
