@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace FragileReflection
 {
@@ -8,27 +9,45 @@ namespace FragileReflection
     {
         [Range(0, 100)][SerializeField] private float health;
 
+        public float Health => health;
+
+        [SerializeField] private GameObject deathPanel;
+
+        private void Update()
+        {
+            var keyboard = Keyboard.current;
+
+            if (health > 0 && keyboard != null && keyboard.yKey.wasPressedThisFrame)
+            {
+                TakeDamage(5f);
+            }
+
+            if (keyboard != null && keyboard.tabKey.wasPressedThisFrame)
+            {
+                deathPanel.SetActive(false);
+                health = 100f;
+            }
+        }
+
         public void TakeDamage(float damage)
         {
+
+            health -= damage;
+
             if (health <= 0)
                 Die();
-            else
-                health -= damage;
-            Debug.Log("Damage taken! " + damage);
+
+            Debug.Log($"Damage talen: {damage}! Health: {health}");
         }
 
         private void Die()
         {
-            var renderer = GetComponent<Renderer>();
-            if (renderer == null)
-            {
-                Debug.Log($"No renderer but {this.name} died");
-                return;
-            }
-            renderer.material.color = Color.red;
+            Debug.Log("Player died!");
 
+            if (deathPanel != null)
+                deathPanel.SetActive(true);
         }
 
-       
+
     }
 }
