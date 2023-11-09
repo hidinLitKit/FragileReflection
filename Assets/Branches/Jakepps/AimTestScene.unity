@@ -37393,7 +37393,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  deathPanel: {fileID: 1522958827}
+  _deathPanel: {fileID: 1522958827}
+  _heal: 2
+  _powerHeal: 0
 --- !u!114 &1488766453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37584,7 +37586,7 @@ GameObject:
   - component: {fileID: 1522958830}
   - component: {fileID: 1522958829}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: DeathPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
