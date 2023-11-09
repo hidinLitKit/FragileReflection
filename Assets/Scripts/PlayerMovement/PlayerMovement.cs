@@ -28,6 +28,7 @@ namespace FragileReflection
         public float rotationLerp = 0.5f;
 
         public float speed = 1f;
+        public float sprintSpeed = 2f;
 
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
@@ -163,7 +164,8 @@ namespace FragileReflection
             }
 
             
-            float moveSpeed = speed / 100f;
+            //float moveSpeed = speed / 100f;
+            float moveSpeed = (Keyboard.current.shiftKey.isPressed) ? (sprintSpeed / 100f) : (speed / 100f);
             //Vector3 vertical = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);
             Vector3 position = (playerTransform.forward * _move.y * moveSpeed) + (playerTransform.right * _move.x * moveSpeed) ;
             
