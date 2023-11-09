@@ -20,6 +20,7 @@ namespace FragileReflection
         public Vector2 _look;
         public float aimValue;
         public float fireValue;
+        public float walkValue;
 
         private Vector3 nextPosition;
         private Quaternion nextRotation;
@@ -47,6 +48,9 @@ namespace FragileReflection
         public void OnMove(InputValue value)
         {
             _move = value.Get<Vector2>();
+
+            float walkValue = (_move.x != 0 || _move.y != 0) ? 1 : 0;
+            playerAnimController.Walking(walkValue);
         }
 
         public void OnLook(InputValue value)
@@ -56,7 +60,8 @@ namespace FragileReflection
 
         public void OnAim(InputValue value)
         {
-            if (WeaponManager.currentWeapon == null) return;
+            if (WeaponManager.currentWeapon == null) 
+                return;
             aimValue = value.Get<float>();
             playerAnimController.Aiming(aimValue);
         }

@@ -13,5 +13,13 @@ namespace FragileReflection
             if (aim == 1) playerAnim.SetBool("isAiming", true);
             else playerAnim.SetBool("isAiming", false);
         }
+
+        public void Walking(float walk)
+        {
+            if (walk == 1) 
+                playerAnim.SetBool("isWalk", true);
+            else 
+                playerAnim.SetBool("isWalk", false);
+        }
     }
 }
