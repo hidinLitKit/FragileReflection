@@ -30,6 +30,7 @@ namespace FragileReflection
 
         public float speed = 1f;
         public float sprintSpeed = 2f;
+        public float sitdownSpeed = 0.5f;
 
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
@@ -162,20 +163,29 @@ namespace FragileReflection
             Vector3 vertical = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);
             characterController.Move(vertical);
 
+            if (Keyboard.current.ctrlKey.isPressed)
+            {
+                float moveSpeed = sitdownSpeed / 100f;
+                MoveCharacter(moveSpeed, angles);
+            }
+            else
+            {
+                float moveSpeed = (Keyboard.current.shiftKey.isPressed) ? (sprintSpeed / 100f) : (speed / 100f);
+                MoveCharacter(moveSpeed, angles);
+            }
+
+        }
+
+        private void MoveCharacter(float moveSpeed, Vector3 angles)
+        {
             if (_move.x == 0 && _move.y == 0)
             {
                 nextPosition = playerTransform.position;
                 return;
             }
 
-            
-            //float moveSpeed = speed / 100f;
-            float moveSpeed = (Keyboard.current.shiftKey.isPressed) ? (sprintSpeed / 100f) : (speed / 100f);
-            //Vector3 vertical = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);
-            Vector3 position = (playerTransform.forward * _move.y * moveSpeed) + (playerTransform.right * _move.x * moveSpeed) ;
-            
+            Vector3 position = (playerTransform.forward * _move.y * moveSpeed) + (playerTransform.right * _move.x * moveSpeed);
             characterController.Move(position);
-
 
             //Set the player rotation based on the look transform
             playerTransform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
