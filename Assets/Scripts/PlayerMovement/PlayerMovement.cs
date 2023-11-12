@@ -29,8 +29,8 @@ namespace FragileReflection
         public float rotationLerp = 0.5f;
 
         public float speed = 1f;
-        public float sprintSpeed = 2f;
-        public float sitdownSpeed = 0.5f;
+        [SerializeField] private float _sprintSpeed = 2f;
+        [SerializeField] private float _sitdownSpeed = 0.5f;
 
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
@@ -69,13 +69,15 @@ namespace FragileReflection
 
         public void OnFire(InputValue value)
         {
-            if (!aiming) return;
+            if (!aiming) 
+                return;
             WeaponManager.currentWeapon.Fire();
             //GameEvents.Fire();
         }
         public void OnReload(InputValue value)
         {
-            if (!aiming) return;
+            if (!aiming) 
+                return;
             WeaponManager.currentWeapon.Reload();
         }
 
@@ -165,12 +167,12 @@ namespace FragileReflection
 
             if (Keyboard.current.ctrlKey.isPressed)
             {
-                float moveSpeed = sitdownSpeed / 100f;
+                float moveSpeed = _sitdownSpeed / 100f;
                 MoveCharacter(moveSpeed, angles);
             }
             else
             {
-                float moveSpeed = (Keyboard.current.shiftKey.isPressed) ? (sprintSpeed / 100f) : (speed / 100f);
+                float moveSpeed = (Keyboard.current.shiftKey.isPressed) ? (_sprintSpeed / 100f) : (speed / 100f);
                 MoveCharacter(moveSpeed, angles);
             }
 

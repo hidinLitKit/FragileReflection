@@ -31,7 +31,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestAnimContr
+  m_Name: JakeTestAnimContr
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isAiming
@@ -116,7 +116,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: stay
+  m_Name: 'Idle '
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

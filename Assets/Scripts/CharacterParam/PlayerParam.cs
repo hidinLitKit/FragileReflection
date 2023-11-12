@@ -80,17 +80,13 @@ namespace FragileReflection
 
         private float GetHealingRate(HealingPower power)
         {
-            switch (power)
+            return power switch
             {
-                case HealingPower.Low:
-                    return 2f;
-                case HealingPower.Medium:
-                    return 1.5f;
-                case HealingPower.High:
-                    return 1f;
-                default:
-                    return 1;
-            }
+                HealingPower.Low => 2f,
+                HealingPower.Medium => 1.5f,
+                HealingPower.High => 1f,
+                _ => 1,
+            };
         }
 
         private IEnumerator HealOverTime(int iterations, float healingRate)
