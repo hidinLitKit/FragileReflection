@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace FragileReflection
 {
-    public class PlayerParam : MonoBehaviour
+    public class PlayerParam : MonoBehaviour, IDamagable 
     {
         [Range(0, 100)][SerializeField] private float health;
 
@@ -50,14 +50,14 @@ namespace FragileReflection
 
         public void TakeDamage(float damage)
         {
-
             health -= damage;
 
             if (health <= 0)
                 Die();
 
-            Debug.Log($"Damage talen: {damage}! Health: {health}");
+            Debug.Log($"Player taken damage: {damage}! Health: {health}");
         }
+
 
         private void Die()
         {
@@ -104,5 +104,6 @@ namespace FragileReflection
                 }
             }
         }
+
     }
 }
