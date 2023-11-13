@@ -37408,7 +37408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08278cafcae78e94fb08db3f371a9fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 1282552591}
+  _healthText: {fileID: 1282552591}
 --- !u!43 &1492575996
 Mesh:
   m_ObjectHideFlags: 0
