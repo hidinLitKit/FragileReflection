@@ -8,11 +8,11 @@ namespace FragileReflection
     public class HealthDisplay : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI healthText;
-        private PlayerParam playerParam;
+        private PlayerInfo playerParam;
 
         private void Start()
         {
-            playerParam = GetComponent<PlayerParam>();
+            playerParam = GetComponent<PlayerInfo>();
 
             if (healthText == null)
             {

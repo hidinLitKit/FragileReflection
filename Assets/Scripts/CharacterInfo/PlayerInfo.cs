@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace FragileReflection
 {
-    public class PlayerParam : MonoBehaviour, IDamagable 
+    public class PlayerInfo : MonoBehaviour, IDamagable 
     {
         [Range(0, 100)][SerializeField] private float health;
 
