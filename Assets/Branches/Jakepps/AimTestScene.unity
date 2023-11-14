@@ -606,15 +606,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2840953327743074083, guid: 1c85074f3262d0441a11430e37f38a9c, type: 3}
       propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2840953327743074083, guid: 1c85074f3262d0441a11430e37f38a9c, type: 3}
-      propertyPath: _sprintSpeed
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2840953327743074083, guid: 1c85074f3262d0441a11430e37f38a9c, type: 3}
+      propertyPath: _sprintSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840953327743074083, guid: 1c85074f3262d0441a11430e37f38a9c, type: 3}
       propertyPath: _sitdownSpeed
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2935555738506397008, guid: 1c85074f3262d0441a11430e37f38a9c, type: 3}
       propertyPath: m_LocalPosition.x

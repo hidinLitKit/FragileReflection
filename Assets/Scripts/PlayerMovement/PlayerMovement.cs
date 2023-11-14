@@ -37,6 +37,9 @@ namespace FragileReflection
 
         private bool aiming = false;
 
+        private float sprintValue;
+        private float sitdownValue;
+
         private void Awake()
         {
             playerTransform = characterController.gameObject.transform;
@@ -97,7 +100,15 @@ namespace FragileReflection
 
         }
 
+        public void OnSprint(InputValue value)
+        {
+            sprintValue = value.Get<float>();
+        }
 
+        public void OnSitdown(InputValue value)
+        {
+            sitdownValue = value.Get<float>();
+        }
 
         public GameObject followTransform;
 
@@ -170,14 +181,19 @@ namespace FragileReflection
                 return;
             }
 
-            if (Keyboard.current.ctrlKey.isPressed)
+            if (sprintValue == 1)
+            {
+                float moveSpeed = _sprintSpeed / 100f;
+                MoveCharacter(moveSpeed, angles);
+            }
+            else if (sitdownValue == 1)
             {
                 float moveSpeed = _sitdownSpeed / 100f;
                 MoveCharacter(moveSpeed, angles);
             }
-            else
+            else if (sitdownValue == 0 || sprintValue == 0)
             {
-                float moveSpeed = (Keyboard.current.shiftKey.isPressed) ? (_sprintSpeed / 100f) : (speed / 100f);
+                float moveSpeed = speed / 100f;
                 MoveCharacter(moveSpeed, angles);
             }
 
