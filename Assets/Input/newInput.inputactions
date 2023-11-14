@@ -96,7 +96,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Sitdown",
+                    "name": "Crouch",
                     "type": "Value",
                     "id": "b34e2548-fa61-4479-bbe3-2f8e21bd9e84",
                     "expectedControlType": "",
@@ -421,7 +421,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Sitdown",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

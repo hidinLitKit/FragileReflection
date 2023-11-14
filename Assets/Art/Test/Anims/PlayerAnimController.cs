@@ -18,7 +18,7 @@ namespace FragileReflection
         {
             playerAnim.SetBool(walkingAnimation, walk != 0);
         }
-        public void Running(float run)
+        public void Sprinting(float run)
         {
             playerAnim.SetBool(sprintAnimation, run == 1);
         }

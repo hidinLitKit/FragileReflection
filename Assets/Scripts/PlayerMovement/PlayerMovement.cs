@@ -38,7 +38,7 @@ namespace FragileReflection
         private bool aiming = false;
 
         private float sprintValue;
-        private float sitdownValue;
+        private float crouchValue;
 
         private void Awake()
         {
@@ -104,11 +104,12 @@ namespace FragileReflection
         public void OnSprint(InputValue value)
         {
             sprintValue = value.Get<float>();
+            playerAnimController.Sprinting(sprintValue);
         }
 
-        public void OnSitdown(InputValue value)
+        public void OnCrouch(InputValue value)
         {
-            sitdownValue = value.Get<float>();
+            crouchValue = value.Get<float>();
         }
 
         public GameObject followTransform;
@@ -182,21 +183,18 @@ namespace FragileReflection
                 return;
             }
 
+            float moveSpeed = speed / 100f;
+            
             if (sprintValue == 1)
             {
-                float moveSpeed = _sprintSpeed / 100f;
-                MoveCharacter(moveSpeed, angles);
+                moveSpeed = _sprintSpeed / 100f;
             }
-            else if (sitdownValue == 1)
+            if (crouchValue == 1)
             {
-                float moveSpeed = _sitdownSpeed / 100f;
-                MoveCharacter(moveSpeed, angles);
+                moveSpeed = _sitdownSpeed / 100f;
             }
-            else if (sitdownValue == 0 || sprintValue == 0)
-            {
-                float moveSpeed = speed / 100f;
-                MoveCharacter(moveSpeed, angles);
-            }
+            
+            MoveCharacter(moveSpeed, angles);
 
         }
 
