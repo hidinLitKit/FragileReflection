@@ -49,9 +49,7 @@ namespace FragileReflection
         public void OnMove(InputValue value)
         {
             _move = value.Get<Vector2>();
-
-            float walkValue = (_move.x != 0 || _move.y != 0) ? 1 : 0;
-            playerAnimController.Walking(walkValue);
+            playerAnimController.Walking(_move.x +_move.y);
         }
 
         public void OnLook(InputValue value)
@@ -182,6 +180,7 @@ namespace FragileReflection
         {
             if (_move.x == 0 && _move.y == 0)
             {
+                playerAnimController.Walking(0);
                 nextPosition = playerTransform.position;
                 return;
             }
