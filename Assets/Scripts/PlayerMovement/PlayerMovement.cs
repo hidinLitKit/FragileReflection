@@ -163,6 +163,13 @@ namespace FragileReflection
             Vector3 vertical = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);
             characterController.Move(vertical);
 
+            if (_move.x == 0 && _move.y == 0)
+            {
+                playerAnimController.Walking(0);
+                nextPosition = playerTransform.position;
+                return;
+            }
+
             if (Keyboard.current.ctrlKey.isPressed)
             {
                 float moveSpeed = _sitdownSpeed / 100f;
@@ -178,13 +185,6 @@ namespace FragileReflection
 
         private void MoveCharacter(float moveSpeed, Vector3 angles)
         {
-            if (_move.x == 0 && _move.y == 0)
-            {
-                playerAnimController.Walking(0);
-                nextPosition = playerTransform.position;
-                return;
-            }
-
             Vector3 position = (playerTransform.forward * _move.y * moveSpeed) + (playerTransform.right * _move.x * moveSpeed);
             characterController.Move(position);
 
