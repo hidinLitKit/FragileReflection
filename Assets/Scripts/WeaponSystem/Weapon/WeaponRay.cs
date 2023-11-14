@@ -48,12 +48,14 @@ namespace FragileReflection
 
                         selectable.Select();
                         currentlySelected = selectable;
-                    }
+                        pointer.gameObject.SetActive(true);
+                    }         
                 }
                 else
                 {
                     // Если объект не выбран, перекрашиваем текущий выбранный объект в белый
                     DisableSelect();
+                    pointer.gameObject.SetActive(false);
                 }
             }
             else
@@ -82,8 +84,8 @@ namespace FragileReflection
 
             if (Physics.Raycast(ray, out hit))
             {
-                Damagable enemyHealth = hit.collider.gameObject.GetComponent<Damagable>();
-                if (enemyHealth)
+                IDamagable enemyHealth = hit.collider.gameObject.GetComponent<IDamagable>();
+                if (enemyHealth != null)
                 {
                     enemyHealth.TakeDamage(WeaponManager.currentWeapon.WeaponType.BodyDamage);
                     ShowShotPlace(hit);

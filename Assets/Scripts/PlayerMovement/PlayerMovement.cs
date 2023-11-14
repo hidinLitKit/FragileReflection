@@ -20,6 +20,7 @@ namespace FragileReflection
         public Vector2 _look;
         public float aimValue;
         public float fireValue;
+        public float walkValue;
 
         private Vector3 nextPosition;
         private Quaternion nextRotation;
@@ -28,11 +29,16 @@ namespace FragileReflection
         public float rotationLerp = 0.5f;
 
         public float speed = 1f;
+        [SerializeField] private float _sprintSpeed = 2f;
+        [SerializeField] private float _sitdownSpeed = 0.5f;
 
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
 
         private bool aiming = false;
+
+        private float sprintValue;
+        private float sitdownValue;
 
         private void Awake()
         {
@@ -56,20 +62,23 @@ namespace FragileReflection
 
         public void OnAim(InputValue value)
         {
-            if (WeaponManager.currentWeapon == null) return;
+            if (WeaponManager.currentWeapon == null) 
+                return;
             aimValue = value.Get<float>();
             playerAnimController.Aiming(aimValue);
         }
 
         public void OnFire(InputValue value)
         {
-            if (!aiming) return;
+            if (!aiming) 
+                return;
             WeaponManager.currentWeapon.Fire();
             //GameEvents.Fire();
         }
         public void OnReload(InputValue value)
         {
-            if (!aiming) return;
+            if (!aiming) 
+                return;
             WeaponManager.currentWeapon.Reload();
         }
         
@@ -90,6 +99,16 @@ namespace FragileReflection
                 WeaponManager.SwitchWeapon(WeaponManager.weapons[1]);
             }
 
+        }
+
+        public void OnSprint(InputValue value)
+        {
+            sprintValue = value.Get<float>();
+        }
+
+        public void OnSitdown(InputValue value)
+        {
+            sitdownValue = value.Get<float>();
         }
 
         public GameObject followTransform;
@@ -163,13 +182,28 @@ namespace FragileReflection
                 return;
             }
 
-            
-            float moveSpeed = speed / 100f;
-            //Vector3 vertical = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);
-            Vector3 position = (playerTransform.forward * _move.y * moveSpeed) + (playerTransform.right * _move.x * moveSpeed) ;
-            
-            characterController.Move(position);
+            if (sprintValue == 1)
+            {
+                float moveSpeed = _sprintSpeed / 100f;
+                MoveCharacter(moveSpeed, angles);
+            }
+            else if (sitdownValue == 1)
+            {
+                float moveSpeed = _sitdownSpeed / 100f;
+                MoveCharacter(moveSpeed, angles);
+            }
+            else if (sitdownValue == 0 || sprintValue == 0)
+            {
+                float moveSpeed = speed / 100f;
+                MoveCharacter(moveSpeed, angles);
+            }
 
+        }
+
+        private void MoveCharacter(float moveSpeed, Vector3 angles)
+        {
+            Vector3 position = (playerTransform.forward * _move.y * moveSpeed) + (playerTransform.right * _move.x * moveSpeed);
+            characterController.Move(position);
 
             //Set the player rotation based on the look transform
             playerTransform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
