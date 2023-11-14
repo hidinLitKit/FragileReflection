@@ -7,21 +7,20 @@ namespace FragileReflection
     public class PlayerAnimController : MonoBehaviour
     {
         [SerializeField] Animator playerAnim;
-        
+        private const string aimingAnimation = "isAiming";
+        private const string walkingAnimation = "isWalking";
+        private const string sprintAnimation = "isRunning";
         public void Aiming(float aim)
         {
-            if (aim == 1) playerAnim.SetBool("isAiming", true);
-            else playerAnim.SetBool("isAiming", false);
+            playerAnim.SetBool(aimingAnimation, aim == 1);
         }
         public void Walking(float walk)
         {
-            if (walk > 0) playerAnim.SetBool("isWalking", true);
-            else playerAnim.SetBool("isWalking", false);
+            playerAnim.SetBool(walkingAnimation, walk != 0);
         }
         public void Running(float run)
         {
-            if (run == 1) playerAnim.SetBool("isRunning", true);
-            else playerAnim.SetBool("isRunning", false);
+            playerAnim.SetBool(sprintAnimation, run == 1);
         }
     }
 }

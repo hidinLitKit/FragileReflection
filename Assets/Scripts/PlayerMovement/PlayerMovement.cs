@@ -72,6 +72,7 @@ namespace FragileReflection
             if (!aiming) return;
             WeaponManager.currentWeapon.Reload();
         }
+        
 
         public void OnChangeWeapon1(InputValue value)
         {
