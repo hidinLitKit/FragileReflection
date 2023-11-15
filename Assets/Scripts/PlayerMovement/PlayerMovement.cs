@@ -84,7 +84,18 @@ namespace FragileReflection
                 return;
             WeaponManager.currentWeapon.Reload();
         }
-        
+        public void OnSprint(InputValue value)
+        {
+            sprintValue = value.Get<float>();
+            _sprinting = sprintValue != 0;
+        }
+
+        public void OnCrouch(InputValue value)
+        {
+            crouchValue = value.Get<float>();
+            _crouching = crouchValue != 0;
+        }
+
 
         public void OnChangeWeapon1(InputValue value)
         {
@@ -104,16 +115,7 @@ namespace FragileReflection
 
         }
 
-        public void OnSprint(InputValue value)
-        {
-            sprintValue = value.Get<float>();
-            _sprinting = sprintValue != 0;
-        }
-
-        public void OnCrouch(InputValue value)
-        {
-            crouchValue = value.Get<float>();
-        }
+        
 
         public GameObject followTransform;
 
