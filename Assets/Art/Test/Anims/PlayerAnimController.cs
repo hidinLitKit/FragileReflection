@@ -10,17 +10,22 @@ namespace FragileReflection
         private const string aimingAnimation = "isAiming";
         private const string walkingAnimation = "isWalking";
         private const string sprintAnimation = "isRunning";
-        public void Aiming(float aim)
+        public void Aiming(bool aim)
         {
-            playerAnim.SetBool(aimingAnimation, aim == 1);
+            playerAnim.SetBool(aimingAnimation, aim );
         }
-        public void Walking(float walk)
+        public void Walking(bool walk)
         {
-            playerAnim.SetBool(walkingAnimation, walk != 0);
+            playerAnim.SetBool(walkingAnimation, walk);
         }
-        public void Sprinting(float run)
+        public void Sprinting(bool run)
         {
-            playerAnim.SetBool(sprintAnimation, run == 1);
+            playerAnim.SetBool(sprintAnimation, run);
+        }
+
+        public void HandleAnimations()
+        {
+
         }
     }
 }

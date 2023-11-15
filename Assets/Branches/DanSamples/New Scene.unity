@@ -2067,9 +2067,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2987824019374300317, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.4853897
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987824019374300317, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.34180212
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987824019374300317, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.636499
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625643087023694281, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.47184
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625643087023694281, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.245146
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625643087023694281, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -33.323704
+      objectReference: {fileID: 0}
     - target: {fileID: 8617273312728289811, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
       propertyPath: m_Name
       value: PlayerPrefabAnimation2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727808688070377951, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
+      propertyPath: ShoulderOffset.y
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727808688070377951, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
+      propertyPath: ShoulderOffset.z
+      value: -2.41
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
