@@ -7,7 +7,8 @@ namespace FragileReflection
 {
     public class NarrativeData : MonoBehaviour
     {
-       [HideInInspector] public static NarrativeData instance = null;
+        [HideInInspector] public static NarrativeData instance = null;
+        [Header("Монолог")]
         public GameObject monologueUI;
         public TextMeshProUGUI monologueTextField;
         void Start ()

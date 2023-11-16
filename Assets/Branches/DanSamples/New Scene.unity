@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23865655, g: 0.21531114, b: 0.16048738, a: 1}
+  m_IndirectSpecularColor: {r: 0.2373412, g: 0.21387395, b: 0.159192, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 583852150}
   - component: {fileID: 583852149}
   m_Layer: 0
-  m_Name: vvvvvv
+  m_Name: MonologueTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,8 +619,9 @@ MonoBehaviour:
   NarrativeText:
   - Hello
   - World
-  - 
+  - '!'
   textSpeedPerSeconds: 0.1
+  txtCD: 2
 --- !u!135 &583852150
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1910,15 +1911,15 @@ RectTransform:
   m_GameObject: {fileID: 1365869875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.2007, y: 3.2007, z: 3.2007}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1498880622}
   m_Father: {fileID: 6713444548471447169}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -165}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1498880621
@@ -2041,7 +2042,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -107.78957, y: 0, z: -102.75453, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2330,10 +2331,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2395,7 +2396,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2424,7 +2425,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -238.88245, y: 0, z: -209.88182, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2622,7 +2623,7 @@ RectTransform:
   m_GameObject: {fileID: 5435742452493999563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.4407, y: 2.4407, z: 2.4407}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 809452662285732902}
@@ -2630,7 +2631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -259}
+  m_AnchoredPosition: {x: 0, y: -452}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &7373534589234546268
@@ -2758,19 +2759,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1054609242803472216, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
       propertyPath: speed
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1054609242803472216, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
       propertyPath: _sprintSpeed
-      value: 1.5
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609242803472216, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
+      propertyPath: _sitdownSpeed
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2987824019374300317, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.032999992
+      value: -0.64699996
       objectReference: {fileID: 0}
     - target: {fileID: 3625643087023694281, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.936343
+      value: 8.256344
       objectReference: {fileID: 0}
     - target: {fileID: 6291280291722479301, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2787,6 +2792,10 @@ PrefabInstance:
     - target: {fileID: 8617273312728289811, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
       propertyPath: m_Name
       value: PlayerPrefabAnimation2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727808688070377951, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
+      propertyPath: ShoulderOffset.y
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 8823329084983838688, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
       propertyPath: m_LocalPosition.y

@@ -20,6 +20,7 @@ namespace FragileReflection
         [Range(0f, 2f)]
         public float textSpeedPerSeconds;
 
+
         protected bool isFinished;
 
         protected int textIndex;
@@ -39,9 +40,9 @@ namespace FragileReflection
             isFinished = true;
             StopAllCoroutines();
         }
-        public void NextLine(GameObject controllerUI,List<string> textArray, TextMeshProUGUI textField)
+        public void NextLine(GameObject controllerUI, List<string> textArray, TextMeshProUGUI textField)
         {
-            if (textIndex < textArray.Count-1)
+            if (textIndex < textArray.Count - 1)
             {
                 textIndex++;
                 textField.text = string.Empty;
@@ -52,7 +53,7 @@ namespace FragileReflection
                 EndNarration(controllerUI, textField);
             }
         }
-        private IEnumerator TypeLine(List<string> textArray, TextMeshProUGUI textField)
+        public IEnumerator TypeLine(List<string> textArray, TextMeshProUGUI textField)
         {
             foreach (char c in textArray[textIndex].ToCharArray())
             {
@@ -60,5 +61,6 @@ namespace FragileReflection
                 yield return new WaitForSeconds(textSpeedPerSeconds);
             }
         }
+
     }
 }

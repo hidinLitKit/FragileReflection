@@ -30,7 +30,7 @@ namespace FragileReflection
 
         public float speed = 1f;
         [SerializeField] private float _sprintSpeed = 2f;
-        [SerializeField] private float _sitdownSpeed = 0.5f;
+        [SerializeField] private float _crouchSpeed = 0.5f;
 
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
@@ -86,12 +86,14 @@ namespace FragileReflection
         }
         public void OnSprint(InputValue value)
         {
+            if (aiming) return;
             sprintValue = value.Get<float>();
             _sprinting = sprintValue != 0;
         }
 
         public void OnCrouch(InputValue value)
         {
+            if (aiming) return;
             crouchValue = value.Get<float>();
             _crouching = crouchValue != 0;
         }
@@ -196,7 +198,7 @@ namespace FragileReflection
             }
             if (crouchValue == 1)
             {
-                moveSpeed = _sitdownSpeed / 100f;
+                moveSpeed = _crouchSpeed / 100f;
             }
             
             MoveCharacter(moveSpeed, angles);
@@ -227,6 +229,7 @@ namespace FragileReflection
             playerAnimController.Sprinting(_sprinting);
             playerAnimController.Walking(_moving);
             playerAnimController.Aiming(aiming);
+            playerAnimController.Crouching(_crouching);
         }
         private void CharacterRotation()
         {
