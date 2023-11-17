@@ -9,15 +9,16 @@ public class EnemyChase : ActionNode
 {
     Animator animator;
     Transform player;
-
+    EnemyController enemyController;
 
     protected override void OnStart()
     {
         context.agent.isStopped = false;
         context.agent.speed = blackboard.chaseSpeed;
-        player = context.gameObject.GetComponent<EnemyController>().player;
+        enemyController = context.gameObject.GetComponent<EnemyController>();
+        player = enemyController.player;
         context.agent.destination = player.position;
-        animator = context.gameObject.GetComponent<EnemyController>().animator;
+        animator = enemyController.animator;
         animator.SetBool("Run", true);
     }
 
@@ -39,16 +40,16 @@ public class EnemyChase : ActionNode
         //{
         //    return State.Success;
         //}
-        //if (blackboard.CanSeePlayer(context.agent.transform))
-        //{
-        //    return State.Running;
-        //}
+        if (enemyController.CanAttackPlayer())
+        {
+            return State.Success;
+        }
         if (context.agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathInvalid)
         {
             return State.Failure;
         }
 
-        return State.Failure;
+        return State.Running;
     }
 }
 

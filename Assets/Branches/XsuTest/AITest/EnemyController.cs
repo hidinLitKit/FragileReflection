@@ -94,23 +94,33 @@ public class EnemyController : MonoBehaviour
 
     private void AttackPlayer(bool available)
     {
-        if (available == tree.blackboard.canAttack)
-            return;
+        //if (available == tree.blackboard.canAttack)
+        //    return;
 
-        Debug.Log("attack " + available);
+        //Debug.Log("attack " + available);
 
-        //transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, Objects[0].transform.position, speedRotation * Time.deltaTime, 0f));
+        ////transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, Objects[0].transform.position, speedRotation * Time.deltaTime, 0f));
 
-        tree.blackboard.canAttack = available;
-        animator.SetTrigger("Attack");
+        //tree.blackboard.canAttack = available;
+        //animator.SetTrigger("Attack");
+    }
+
+    public bool CanSee()
+    {
+        return Objects.Count>0;
+    }
+
+    public bool CanAttackPlayer()
+    {
+        return Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) < attackDistance);
     }
 
     private void DetectPlayer(bool available)
     {
-        if (available == tree.blackboard.canSeePlayer)
-            return;
+        //if (available == tree.blackboard.canSeePlayer)
+        //    return;
 
-        tree.blackboard.canSeePlayer = available;
+        //tree.blackboard.canSeePlayer = available;
         //animator.SetBool("Run", available);
     }
 

@@ -16,8 +16,8 @@ public class WaitPatrolling : ActionNode
     }
 
     protected override State OnUpdate() {
-        //if(blackboard.CanAttackPlayer(context.transform) || blackboard.CanSeePlayer(context.transform))
-        //    return State.Failure;
+        if (blackboard.canSeePlayer)
+            return State.Failure;
 
         float timeRemaining = Time.time - startTime;
         if (timeRemaining > duration)

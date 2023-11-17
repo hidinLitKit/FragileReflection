@@ -18,6 +18,8 @@ namespace TheKiwiCoder {
         public bool isStruggled;
         public bool canAttack;
         public bool canSeePlayer;
+        //public bool canAttack;
+        //public bool canSeePlayer;
         public float moveSpeed;
         public float chaseSpeed;
 

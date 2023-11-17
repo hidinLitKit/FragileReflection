@@ -8,14 +8,16 @@ public class MoveToPosition : ActionNode
 {
 	public float stoppingDistance = 0.1f;
 	Animator animator;
-
+	EnemyController enemyController;
 	protected override void OnStart()
 	{
 		context.agent.isStopped = false;
 		context.agent.speed = blackboard.moveSpeed;
 		context.agent.stoppingDistance = stoppingDistance;
 		context.agent.destination = blackboard.moveToPosition;
-		animator = context.gameObject.GetComponent<EnemyController>().animator;
+		enemyController = context.gameObject.GetComponent<EnemyController>();
+		animator = enemyController.animator;
+
 		if(animator.GetBool("Move") != true)
 			animator.SetBool("Move", true);
     }
@@ -29,14 +31,10 @@ public class MoveToPosition : ActionNode
 
 	protected override State OnUpdate()
 	{
-		//if(blackboard.CanAttackPlayer(context.transform) || blackboard.CanSeePlayer(context.transform))
-		//{
-		//	return State.Failure;
-		//}
-		
-		if (context.agent.pathPending)
+        if (enemyController.CanSee())
 		{
-			return State.Running;
+			Debug.Log("Can see on moving");
+			return State.Failure;
 		}
 
 		if (context.agent.remainingDistance < stoppingDistance)
