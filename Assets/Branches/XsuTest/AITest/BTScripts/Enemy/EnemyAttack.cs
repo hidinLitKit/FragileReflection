@@ -13,8 +13,8 @@ public class EnemyAttack : ActionNode
     protected override void OnStart()
     {
         context.agent.isStopped = true;
-        animator = context.gameObject.GetComponent<Animator>();
         controller = context.gameObject.GetComponent<EnemyController>();
+        animator = controller.animator;
     }
 
     protected override void OnStop()
@@ -28,12 +28,12 @@ public class EnemyAttack : ActionNode
         {
             return State.Failure;
         }
-        if (blackboard.CanAttackPlayer(context.transform))
-        {
-            animator.SetBool("Attack", true);
-            controller.Attack();
-            return State.Success;
-        }
+        //if (blackboard.CanAttackPlayer(context.transform))
+        //{
+        //    animator.SetBool("Attack", true);
+        //    controller.Attack();
+        //    return State.Success;
+        //}
         else
         {
             animator.SetBool("Attack", false);

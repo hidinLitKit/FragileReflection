@@ -14,8 +14,8 @@ public class ChooseEndpoint : ActionNode
 
     protected override void OnStart()
     {
-        animator = context.gameObject.GetComponent<Animator>();
         controller = context.gameObject.GetComponent<EnemyController>();
+        animator = controller.animator;
 
         currentIndex = UnityEngine.Random.Range(0, controller.patrolEndpoints.Length-1);
     }

@@ -1,3 +1,4 @@
+using Dan;
 using System.Collections;
 using System.Collections.Generic;
 using TheKiwiCoder;
@@ -12,7 +13,7 @@ public class Struggle : ActionNode
     protected override void OnStart()
     {
         context.agent.isStopped = true;
-        animator = context.gameObject.GetComponent<Animator>();
+        animator = context.gameObject.GetComponent<EnemyController>().animator;
     }
 
     protected override void OnStop()

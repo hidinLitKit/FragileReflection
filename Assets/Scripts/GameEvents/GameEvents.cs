@@ -17,6 +17,7 @@ namespace FragileReflection
         public static event System.Action<bool> onAiming;
         public static event System.Action onHealthImg;
 
+
         public static void InteractionEnter(Interactable interactable)
         {
             onInteractionEnter?.Invoke(interactable);
@@ -40,6 +41,8 @@ namespace FragileReflection
         {
             onAiming?.Invoke(aiming);
         }
+
+
 
         //может понадобится, хз
         public static void HealthImage() 

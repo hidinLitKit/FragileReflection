@@ -16,34 +16,10 @@ namespace TheKiwiCoder {
 		public Transform target;
 		public Vector3 moveToPosition;
         public bool isStruggled;
-        public float viewRadius;
-        public float viewAngle;
-        public float attackDistance;
+        public bool canAttack;
+        public bool canSeePlayer;
         public float moveSpeed;
         public float chaseSpeed;
 
-        [Space]
-        public GameCore game;
-
-        public bool CanSeePlayer(Transform pos)
-        {
-            Vector3 direction = game.GetPlayer().transform.position - pos.position;
-            float angle = Vector3.Angle(direction, pos.forward);
-            if (direction.magnitude < viewRadius && angle < viewAngle)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public bool CanAttackPlayer(Transform pos)
-        {
-            Vector3 direction = game.GetPlayer().transform.position - pos.position;
-            if (direction.magnitude < attackDistance)
-            {
-                return true;
-            }
-            return false;
-        }
     }
 }

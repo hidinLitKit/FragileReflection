@@ -33,22 +33,60 @@ MonoBehaviour:
   - rid: 5943290449937825799
   - rid: 5943290451585400832
   - rid: 5943290451585400833
+  - rid: 1767988666881277952
+  - rid: 1767988666881277953
   treeState: 0
   blackboard:
     target: {fileID: 0}
     moveToPosition: {x: 100, y: 0, z: 0}
     isStruggled: 0
-    viewRadius: 10
-    viewAngle: 60
-    attackDistance: 2
-    moveSpeed: 2
-    chaseSpeed: 5
-    game: {fileID: 2544586986200610659, guid: e66b88a183747854f84b39818838edcd, type: 3}
-  viewPosition: {x: -227, y: 314, z: 0}
-  viewScale: {x: 0.375937, y: 0.375937, z: 1}
+    canAttack: 0
+    canSeePlayer: 0
+    moveSpeed: 1
+    chaseSpeed: 1.7
+  viewPosition: {x: -474, y: 277, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
+    - rid: 1767988666881277952
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 3ec3cf2972f3e5248b5cbcaf2c10751e
+        position: {x: 1285.1626, y: 48.99998}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          canAttack: 0
+          canSeePlayer: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 1767988666881277953
+        - rid: 5943290449937825793
+    - rid: 1767988666881277953
+      type: {class: Log, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 73804e36efedbd14abb518937ac81f40
+        position: {x: 1285.0002, y: 346.00003}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          canAttack: 0
+          canSeePlayer: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+        description: 
+        drawGizmos: 0
+        message: chasing
     - rid: 4200190926137589867
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -60,12 +98,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: Where it all begins!
         drawGizmos: 0
         child:
@@ -81,12 +117,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: Repeat forever
         drawGizmos: 0
         child:
@@ -104,18 +138,16 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
         children:
         - rid: 5943290448998301698
         - rid: 5943290449937825797
-        - rid: 5943290449937825793
+        - rid: 1767988666881277952
         - rid: 5943290449937825792
     - rid: 5943290448998301698
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
@@ -128,12 +160,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
         children:
@@ -152,12 +182,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
     - rid: 5943290448998301700
@@ -171,12 +199,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
         duration: 2
@@ -191,12 +217,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: struggled end
         drawGizmos: 0
         message: 
@@ -211,12 +235,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: struggled start
         drawGizmos: 0
         message: struggled start
@@ -231,12 +253,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
     - rid: 5943290449937825792
@@ -250,12 +270,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
         children:
@@ -269,17 +287,15 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: e0974cf3aedbc5f48a567b1d7e2067b4
-        position: {x: 1304.3862, y: 218.75}
+        position: {x: 1435.0001, y: 346.00003}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
     - rid: 5943290449937825795
@@ -293,12 +309,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
         stoppingDistance: 0.1
@@ -313,12 +327,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
     - rid: 5943290449937825797
@@ -332,12 +344,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
         children:
@@ -355,12 +365,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
         duration: 2
@@ -375,12 +383,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
         duration: 3
@@ -395,12 +401,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
         message: attack
@@ -415,12 +419,10 @@ MonoBehaviour:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           isStruggled: 0
-          viewRadius: 0
-          viewAngle: 0
-          attackDistance: 0
+          canAttack: 0
+          canSeePlayer: 0
           moveSpeed: 0
           chaseSpeed: 0
-          game: {fileID: 0}
         description: 
         drawGizmos: 0
         message: patrol
