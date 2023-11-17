@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2373412, g: 0.21387395, b: 0.159192, a: 1}
+  m_IndirectSpecularColor: {r: 0.23865655, g: 0.21531114, b: 0.16048738, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -617,10 +617,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NarrativeText:
-  - Hello
-  - World
+  - "\u043C\u044B \u0432\u043E\u0448\u043B\u0438 \u0432 \u0442\u0440\u0438\u0433\u0433\u0435\u0440
+    \u0437\u043E\u043D\u0443"
+  - "\u0438 \u043D\u0430\u043C \u043D\u0430 \u044D\u043A\u0440\u0430\u043D \u043D\u0430\u0447\u0430\u043B
+    \u0432\u044B\u0432\u043E\u0434\u0438\u0442\u044C\u0441\u044F \u0442\u0435\u043A\u0441\u0442"
   - '!'
-  textSpeedPerSeconds: 0.1
+  textSpeedPerSeconds: 0.08
   txtCD: 2
 --- !u!135 &583852150
 SphereCollider:
@@ -2759,7 +2761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1054609242803472216, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
       propertyPath: speed
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 1054609242803472216, guid: cf3bd22e7ec60474ebc413974a7cd204, type: 3}
       propertyPath: _sprintSpeed
