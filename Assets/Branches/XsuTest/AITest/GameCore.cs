@@ -9,7 +9,7 @@ namespace FragileReflection
         private Transform player;
         private GameCore instance;
 
-        private GameCore() {}
+        private GameCore() { }
 
         public Transform GetPlayer()
         {

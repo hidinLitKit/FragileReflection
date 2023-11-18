@@ -15,6 +15,8 @@ public class Struggle : ActionNode
         context.agent.isStopped = true;
         controller = context.gameObject.GetComponent<EnemyController>();
         animator = controller.animator;
+        animator.SetTrigger("Stuggle");
+        controller.DetectPlayer();
     }
 
     protected override void OnStop()
@@ -24,16 +26,7 @@ public class Struggle : ActionNode
 
     protected override State OnUpdate()
     {
-        if (!controller.IsStuggled())
-        {
-            animator.SetBool("Struggle", false);
-            return State.Failure;
-        }
-        else
-        {
-            animator.SetBool("Struggle", true);
-            return State.Success;
-        }
+        return State.Success;
     }
 }
 

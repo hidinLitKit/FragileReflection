@@ -9,9 +9,12 @@ using UnityEngine.UIElements;
 [ExecuteInEditMode]
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] private EnemyAttackDetector attackArea;
+
     public Transform[] patrolEndpoints;
     public Animator animator;
     public Transform player;
+    public float attackDamage;
     public float viewRadius;
     public float viewAngle;
     public float height;
@@ -102,7 +105,12 @@ public class EnemyController : MonoBehaviour
 
     private void AttackPlayer()
     {
-        
+        if(attackArea.hasAttacked)
+        {
+            IDamagable damage = player.gameObject.GetComponent<IDamagable>();
+            damage.TakeDamage(attackDamage);
+            Debug.Log($"Take damage {attackDamage}");
+        }
     }
 
     public bool CanSee()
@@ -112,10 +120,10 @@ public class EnemyController : MonoBehaviour
 
     public bool CanAttackPlayer()
     {
-        bool canAttack = Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) < attackDistance);
-        if(canAttack)
-            AttackPlayer();
-        return canAttack;
+        //bool canAttack = (Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) < attackDistance));
+        //if(canAttack)
+        //    AttackPlayer();
+        return (Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) < attackDistance));
     }
 
 
@@ -212,6 +220,12 @@ public class EnemyController : MonoBehaviour
             Gizmos.color = meshColor;
             Gizmos.DrawMesh(mesh, transform.position, transform.rotation);
        }
+    }
+
+    public void DetectPlayer()
+    {
+        Objects.Add(player.gameObject);
+        scanTimer = scanDelay;
     }
 
 }

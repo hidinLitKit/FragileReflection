@@ -23,11 +23,11 @@ namespace FragileReflection
 
         void IDamagable.TakeDamage(float damage)
         {
+            if (health - damage <= 0)
+                return;
+            health -= damage;
             if (health <= 0)
                 Die();
-            else
-                health -= damage;
-
             Debug.Log("Damage taken! " + damage);
         }
 
