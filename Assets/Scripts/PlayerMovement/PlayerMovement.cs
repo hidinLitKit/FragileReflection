@@ -49,6 +49,7 @@ namespace FragileReflection
             playerTransform = characterController.gameObject.transform;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
             //mine
             //WeaponManager.ChangeWeapon(weapon[0]);
         }

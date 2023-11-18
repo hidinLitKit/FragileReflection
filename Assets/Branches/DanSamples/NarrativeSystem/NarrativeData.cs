@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FragileReflection
 {
@@ -11,6 +12,12 @@ namespace FragileReflection
         [Header("Монолог")]
         public GameObject monologueUI;
         public TextMeshProUGUI monologueTextField;
+        [Header("Записки")]
+        public GameObject letterUI;
+        public Image letterBackGround;
+        public TextMeshProUGUI letterTextField;
+        public TextMeshProUGUI letterPageCount;
+
         void Start ()
         {
             if (instance == null) instance = this;
