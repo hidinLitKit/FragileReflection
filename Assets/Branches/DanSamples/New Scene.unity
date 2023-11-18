@@ -875,50 +875,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &597399472
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 597399474}
-  - component: {fileID: 597399473}
-  m_Layer: 0
-  m_Name: InputActionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &597399473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597399472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 401eb005c335d7e409c0166552b4d4b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &597399474
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597399472}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.9513817, y: -0.26482663, z: 31.53492}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &618957939
 Mesh:
   m_ObjectHideFlags: 0
@@ -1751,7 +1707,7 @@ GameObject:
   - component: {fileID: 766143851}
   - component: {fileID: 766143850}
   - component: {fileID: 766143849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Letter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1771,8 +1727,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 0
-  letter: {fileID: 0}
-  col: {fileID: 0}
 --- !u!114 &766143850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1810,7 +1764,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 618957939}
+  m_Mesh: {fileID: 448848441}
 --- !u!33 &766143852
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -3433,4 +3387,3 @@ SceneRoots:
   - {fileID: 7373534589234546268}
   - {fileID: 583852153}
   - {fileID: 766143856}
-  - {fileID: 597399474}
