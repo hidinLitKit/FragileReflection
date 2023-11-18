@@ -16,6 +16,8 @@ namespace FragileReflection
         [SerializeField] private float maxHealth;
 
         private float health;
+        EnemyController enemyController;
+
         void Start()
         {
             health = maxHealth;
@@ -25,21 +27,42 @@ namespace FragileReflection
         {
             if (health - damage <= 0)
                 return;
+
+            if(enemyController != null)
+            {
+                enemyController.stuggled = true;
+                StartCoroutine("ResetStuggle");
+            }
             health -= damage;
             if (health <= 0)
+            {
                 Die();
+            }
+                
             Debug.Log("Damage taken! " + damage);
+
         }
 
         private void Die()
         {
-            var renderer = GetComponent<Renderer>();
-            if (renderer == null)
+            if(enemyController != null)
             {
-                Debug.Log($"No renderer but {this.name} died");
-                return;
+                enemyController.Die();
             }
-            renderer.material.color = Color.red;
+            Debug.Log($"{gameObject.name} died");
+            //var renderer = GetComponent<Renderer>();
+            //if (renderer == null)
+            //{
+            //    Debug.Log($"No renderer but {gameObject.name} died");
+            //    return;
+            //}
+            //renderer.material.color = Color.red;
+        }
+
+        IEnumerator ResetStuggle()
+        {
+            yield return new WaitForSeconds(2f);
+            enemyController.stuggled = true;
         }
     }
 }

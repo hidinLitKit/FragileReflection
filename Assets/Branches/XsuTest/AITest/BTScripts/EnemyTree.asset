@@ -47,8 +47,8 @@ MonoBehaviour:
     moveSpeed: 1
     chaseSpeed: 3
     attackDistance: 2
-  viewPosition: {x: -18, y: -224, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: -131, y: -68, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
     RefIds:
@@ -233,7 +233,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2c5b18427dfd09f4381ad6f7bb41d5dd
-        position: {x: -384.9999, y: 1033.9999}
+        position: {x: -459.99994, y: 1033.9998}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -248,7 +248,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 84a9137653ffb0741b5abf1781461205
-        position: {x: -504.99988, y: 929}
+        position: {x: -609.9997, y: 922.96576}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -257,7 +257,7 @@ MonoBehaviour:
           attackDistance: 0
         description: 
         drawGizmos: 0
-        message: stuggle
+        message: stuggled
     - rid: 5943290654267801611
       type: {class: TakeDamageDecorator, ns: , asm: Assembly-CSharp}
       data:

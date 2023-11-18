@@ -84,7 +84,6 @@ namespace FragileReflection
 
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.collider.gameObject.name);
                 IDamagable enemyHealth = hit.collider.gameObject.GetComponent<IDamagable>();
                 if (enemyHealth != null)
                 {

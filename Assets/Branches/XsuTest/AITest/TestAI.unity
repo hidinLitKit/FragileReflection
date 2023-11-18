@@ -43524,6 +43524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036122921}
   - component: {fileID: 1036122922}
+  - component: {fileID: 1036122923}
   m_Layer: 0
   m_Name: AttackArea
   m_TagString: Untagged
@@ -43561,12 +43562,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.4072113, y: 1.9114704, z: 1.4619064}
   m_Center: {x: -0.008911133, y: -0.2680056, z: -0.12517738}
+--- !u!114 &1036122923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036122920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186cf2ab0aa90814395241b61a711fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasAttacked: 0
 --- !u!1 &1110558009
 GameObject:
   m_ObjectHideFlags: 0
@@ -46166,7 +46180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b041096ce8d3b14b8d4564d6915538d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackArea: {fileID: 0}
+  attackArea: {fileID: 1036122923}
   patrolEndpoints:
   - {fileID: 978795630}
   - {fileID: 1357570449}
@@ -52985,7 +52999,6 @@ GameObject:
   - component: {fileID: 5901332403497272514}
   - component: {fileID: 1054609242226658859}
   - component: {fileID: 3623385352259124553}
-  - component: {fileID: 7717807556437940580}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -52993,22 +53006,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7717807556437940580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7717807556437940579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 674ba3aaa684be64ebbb30ecf566ec30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  _deathPanel: {fileID: 0}
-  _heal: 2
-  _powerHeal: 0
 --- !u!1 &7740147266338989647
 GameObject:
   m_ObjectHideFlags: 0
@@ -53329,6 +53326,7 @@ GameObject:
   - component: {fileID: 8181900199902802032}
   - component: {fileID: 3552966548279108111}
   - component: {fileID: 1896521198335850784}
+  - component: {fileID: 8405355431696418930}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -53336,6 +53334,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8405355431696418930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8405355431696418929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674ba3aaa684be64ebbb30ecf566ec30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  _deathPanel: {fileID: 0}
+  _heal: 2
+  _powerHeal: 0
 --- !u!1 &8409362638721327730
 GameObject:
   m_ObjectHideFlags: 0

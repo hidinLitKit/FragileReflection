@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
     public float attackDistance;
     public float moveSpeed;
     public float chaseSpeed;
+    public bool stuggled = false;
     [SerializeField] private float speedRotation;
     [SerializeField] private BehaviourTree tree;
 
@@ -77,7 +78,7 @@ public class EnemyController : MonoBehaviour
 
     public bool IsStuggled()
     {
-        return false;
+        return stuggled;
     }
 
     public bool IsInSight(GameObject obj)
@@ -103,7 +104,7 @@ public class EnemyController : MonoBehaviour
         return true;
     }
 
-    private void AttackPlayer()
+    public void AttackPlayer()
     {
         if(attackArea.hasAttacked)
         {
@@ -120,10 +121,8 @@ public class EnemyController : MonoBehaviour
 
     public bool CanAttackPlayer()
     {
-        //bool canAttack = (Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) < attackDistance));
-        //if(canAttack)
-        //    AttackPlayer();
-        return (Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) < attackDistance));
+        bool canAttack = (Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) < attackDistance));
+        return canAttack;
     }
 
 
@@ -228,5 +227,16 @@ public class EnemyController : MonoBehaviour
         scanTimer = scanDelay;
     }
 
+    public void Die()
+    {
+        StartCoroutine("DieTimer");
+    }
+
+    private IEnumerator DieTimer()
+    {
+        animator.SetTrigger("Death");
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+    }
 }
 

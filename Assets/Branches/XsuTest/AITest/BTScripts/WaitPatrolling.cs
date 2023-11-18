@@ -23,6 +23,10 @@ public class WaitPatrolling : ActionNode
     }
 
     protected override State OnUpdate() {
+        if(controller.IsStuggled())
+        {
+            return State.Failure;
+        }
         if (controller.CanSee())
             return State.Failure;
 

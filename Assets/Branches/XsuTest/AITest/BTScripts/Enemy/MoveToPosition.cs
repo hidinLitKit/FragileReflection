@@ -31,6 +31,10 @@ public class MoveToPosition : ActionNode
 
 	protected override State OnUpdate()
 	{
+        if (enemyController.IsStuggled())
+        {
+            return State.Failure;
+        }
         if (enemyController.CanSee())
 		{
 			return State.Failure;
