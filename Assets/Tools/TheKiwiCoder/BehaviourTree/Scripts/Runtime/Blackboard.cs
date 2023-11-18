@@ -15,13 +15,9 @@ namespace TheKiwiCoder {
         [Header("Monster 1")]
 		public Transform target;
 		public Vector3 moveToPosition;
-        public bool isStruggled;
-        public bool canAttack;
-        public bool canSeePlayer;
-        //public bool canAttack;
-        //public bool canSeePlayer;
         public float moveSpeed;
         public float chaseSpeed;
+        public float attackDistance;
 
     }
 }

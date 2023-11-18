@@ -7,13 +7,14 @@ using UnityEngine;
 [System.Serializable]
 public class Struggle : ActionNode
 {
-
+    EnemyController controller;
     Animator animator;
 
     protected override void OnStart()
     {
         context.agent.isStopped = true;
-        animator = context.gameObject.GetComponent<EnemyController>().animator;
+        controller = context.gameObject.GetComponent<EnemyController>();
+        animator = controller.animator;
     }
 
     protected override void OnStop()
@@ -23,7 +24,7 @@ public class Struggle : ActionNode
 
     protected override State OnUpdate()
     {
-        if (!blackboard.isStruggled)
+        if (!controller.IsStuggled())
         {
             animator.SetBool("Struggle", false);
             return State.Failure;

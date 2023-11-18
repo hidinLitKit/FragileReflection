@@ -33,7 +33,6 @@ public class MoveToPosition : ActionNode
 	{
         if (enemyController.CanSee())
 		{
-			Debug.Log("Can see on moving");
 			return State.Failure;
 		}
 

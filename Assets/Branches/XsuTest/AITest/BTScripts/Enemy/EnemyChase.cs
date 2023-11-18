@@ -15,17 +15,20 @@ public class EnemyChase : ActionNode
     {
         context.agent.isStopped = false;
         context.agent.speed = blackboard.chaseSpeed;
+        context.agent.stoppingDistance = 0.1f;
         enemyController = context.gameObject.GetComponent<EnemyController>();
         player = enemyController.player;
         context.agent.destination = player.position;
         animator = enemyController.animator;
-        animator.SetBool("Run", true);
+        if (animator.GetBool("Run") != true)
+            animator.SetBool("Run", true);
     }
 
     protected override void OnStop()
     {
         context.agent.isStopped = true;
-        animator.SetBool("Run", false);
+        if (animator.GetBool("Run") != false)
+            animator.SetBool("Run", false);
     }
 
     protected override State OnUpdate()
@@ -44,7 +47,15 @@ public class EnemyChase : ActionNode
         {
             return State.Success;
         }
+        if(!enemyController.CanSee())
+        {
+            return State.Failure;
+        }
         if (context.agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathInvalid)
+        {
+            return State.Failure;
+        }
+        if (enemyController.IsStuggled())
         {
             return State.Failure;
         }

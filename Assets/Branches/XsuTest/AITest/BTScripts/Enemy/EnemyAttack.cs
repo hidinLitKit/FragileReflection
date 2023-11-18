@@ -9,36 +9,36 @@ public class EnemyAttack : ActionNode
 {
     Animator animator;
     EnemyController controller;
+    bool isAttacking;
 
     protected override void OnStart()
     {
-        context.agent.isStopped = true;
+        //context.agent.isStopped = true;
+        context.agent.speed = 0;
+        context.agent.stoppingDistance = blackboard.attackDistance;
         controller = context.gameObject.GetComponent<EnemyController>();
+        context.agent.destination = controller.player.position;
         animator = controller.animator;
+        if(animator.GetBool("Attack") != true)
+            animator.SetBool("Attack", true);
+        
     }
 
     protected override void OnStop()
     {
-        context.agent.isStopped = false;
     }
 
     protected override State OnUpdate()
     {
-        if(blackboard.isStruggled)
+        if(controller.IsStuggled() || !controller.CanSee())
         {
             return State.Failure;
         }
-        //if (blackboard.CanAttackPlayer(context.transform))
-        //{
-        //    animator.SetBool("Attack", true);
-        //    controller.Attack();
-        //    return State.Success;
-        //}
+
+        if(isAttacking)
+            return State.Running;
         else
-        {
-            animator.SetBool("Attack", false);
-            return State.Failure;
-        }
+            return State.Success;
     }
 }
 

@@ -6,14 +6,17 @@ using TheKiwiCoder;
 [System.Serializable]
 public class TakeDamageDecorator : DecoratorNode
 {
+    EnemyController controller;
+
     protected override void OnStart() {
+        controller = context.agent.GetComponent<EnemyController>();
     }
 
     protected override void OnStop() {
     }
 
     protected override State OnUpdate() {
-        if (!blackboard.isStruggled)
+        if (!controller.IsStuggled())
         {
             if (child is { state: State.Running })
             {

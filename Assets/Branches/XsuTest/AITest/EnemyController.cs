@@ -25,6 +25,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Color meshColor;
 
     public int scanFrequency = 30;
+    public float scanDelay = 5f;
     public LayerMask layers;
     public LayerMask obstacleLayers;
 
@@ -39,6 +40,7 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         tree.blackboard.chaseSpeed = chaseSpeed;
         tree.blackboard.moveSpeed = moveSpeed;
+        tree.blackboard.attackDistance = attackDistance;
 
         scanInterval = 1.0f / scanFrequency;
     }
@@ -51,9 +53,6 @@ public class EnemyController : MonoBehaviour
             scanTimer += scanInterval;
             Scan();
         }
-
-        DetectPlayer(Objects.Count > 0);
-        AttackPlayer(Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) < attackDistance));
     }
 
     private void Scan()
@@ -65,8 +64,17 @@ public class EnemyController : MonoBehaviour
         {
             GameObject obj = colliders[i].gameObject;
             if(IsInSight(obj))
+            {
                 Objects.Add(obj);
+                scanTimer = scanDelay;
+            }
+                
         }
+    }
+
+    public bool IsStuggled()
+    {
+        return false;
     }
 
     public bool IsInSight(GameObject obj)
@@ -75,7 +83,7 @@ public class EnemyController : MonoBehaviour
         Vector3 dest = obj.transform.position;
         Vector3 direction = dest - origin;
 
-        if(direction.y < 0 || direction.y> height)
+        if(direction.y < 0 || direction.y > height)
             return false;
 
         direction.y = 0;
@@ -92,17 +100,9 @@ public class EnemyController : MonoBehaviour
         return true;
     }
 
-    private void AttackPlayer(bool available)
+    private void AttackPlayer()
     {
-        //if (available == tree.blackboard.canAttack)
-        //    return;
-
-        //Debug.Log("attack " + available);
-
-        ////transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, Objects[0].transform.position, speedRotation * Time.deltaTime, 0f));
-
-        //tree.blackboard.canAttack = available;
-        //animator.SetTrigger("Attack");
+        
     }
 
     public bool CanSee()
@@ -112,17 +112,12 @@ public class EnemyController : MonoBehaviour
 
     public bool CanAttackPlayer()
     {
-        return Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) < attackDistance);
+        bool canAttack = Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) < attackDistance);
+        if(canAttack)
+            AttackPlayer();
+        return canAttack;
     }
 
-    private void DetectPlayer(bool available)
-    {
-        //if (available == tree.blackboard.canSeePlayer)
-        //    return;
-
-        //tree.blackboard.canSeePlayer = available;
-        //animator.SetBool("Run", available);
-    }
 
     private Mesh CreateWedgeMesh()
     {
@@ -217,12 +212,6 @@ public class EnemyController : MonoBehaviour
             Gizmos.color = meshColor;
             Gizmos.DrawMesh(mesh, transform.position, transform.rotation);
        }
-
-        Gizmos.color = Color.white;
-        foreach (var obj in Objects)
-        {
-            Gizmos.DrawSphere(obj.transform.position, 0.2f);
-        }
     }
 
 }

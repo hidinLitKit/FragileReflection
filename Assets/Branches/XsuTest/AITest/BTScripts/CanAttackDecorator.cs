@@ -15,6 +15,7 @@ public class CanAttackDecorator : DecoratorNode
     }
 
     protected override State OnUpdate() {
+
         if (!enemyController.CanAttackPlayer())
         {
             if (child is { state: State.Running })
