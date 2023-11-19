@@ -25,7 +25,7 @@ namespace FragileReflection
             Debug.Log("Started monologue");
             while (!isFinished)
             {
-                Debug.Log("Loop");
+                //Debug.Log("Loop");
                 yield return new WaitForEndOfFrame();
                 if (NarrativeData.instance.monologueTextField.text == NarrativeText[textIndex] && !_isCD)
                 {

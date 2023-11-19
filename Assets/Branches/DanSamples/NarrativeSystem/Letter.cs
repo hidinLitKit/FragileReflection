@@ -8,7 +8,7 @@ namespace FragileReflection
     {
         public void letterOpen()
         {
-           //InputManager.ToogleActionMaps(InputManager.inputActions.UI);
+           InputManager.ToogleActionMaps(InputManager.inputActions.UI);
         }
 
         public void buttonNext()

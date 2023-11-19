@@ -26,7 +26,7 @@ namespace FragileReflection
             p2 = p1 + _characterController.height * Vector3.up;
             if (Physics.CapsuleCast(p1, p2, _characterController.radius+0.5f, transform.forward, out hit, 2f, _layerMask))
             {
-                Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.name);
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
 
                 if (interactable == null) return;
