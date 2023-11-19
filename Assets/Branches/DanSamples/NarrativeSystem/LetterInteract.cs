@@ -8,20 +8,32 @@ namespace FragileReflection
     {
         private Letter letter;
         private Collider col;
+        
         private void Awake()
         {
             letter = GetComponent<Letter>();
             col = GetComponent<Collider>();
         }
-
+        private void OnEnable()
+        {
+            Letter.letterAction += manageCollider;
+        }
+        private void OnDisable()
+        {
+            Letter.letterAction -= manageCollider;
+        }
         public override void Interact()
         {
             letter.letterOpen();
-            col.enabled = false;
+            
         }
         public override string GetDescription()
         {
             return "читать";
+        }
+        private void manageCollider(bool colBool)
+        {
+            col.enabled = colBool;
         }
     }
 }
