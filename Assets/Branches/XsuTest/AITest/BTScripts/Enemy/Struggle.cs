@@ -15,8 +15,12 @@ public class Struggle : ActionNode
         context.agent.isStopped = true;
         controller = context.gameObject.GetComponent<EnemyController>();
         animator = controller.animator;
-        animator.SetTrigger("Stuggle");
+        if(!controller.CanSee())
+            animator.SetTrigger("Stuggle");
+        else if(Random.Range(1,3) == 2)
+            animator.SetTrigger("Stuggle");
         controller.DetectPlayer();
+        blackboard.wasStuggled = true;
     }
 
     protected override void OnStop()

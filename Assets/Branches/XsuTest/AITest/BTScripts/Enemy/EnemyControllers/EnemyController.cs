@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     public float viewAngle;
     public float height;
     public float attackDistance;
+    public float attackStoppingDistance = 1f;
     public float moveSpeed;
     public float chaseSpeed;
     public bool stuggled = false;
@@ -44,7 +45,7 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         tree.blackboard.chaseSpeed = chaseSpeed;
         tree.blackboard.moveSpeed = moveSpeed;
-        tree.blackboard.attackDistance = attackDistance;
+        tree.blackboard.attackDistance = attackStoppingDistance;
 
         scanInterval = 1.0f / scanFrequency;
     }
@@ -69,8 +70,7 @@ public class EnemyController : MonoBehaviour
             GameObject obj = colliders[i].gameObject;
             if(IsInSight(obj))
             {
-                Objects.Add(obj);
-                scanTimer = scanDelay;
+                DetectPlayer();
             }
                 
         }
@@ -121,7 +121,7 @@ public class EnemyController : MonoBehaviour
 
     public bool CanAttackPlayer()
     {
-        bool canAttack = (Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) < attackDistance));
+        bool canAttack = (Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) <= attackDistance));
         return canAttack;
     }
 
@@ -235,6 +235,10 @@ public class EnemyController : MonoBehaviour
     private IEnumerator DieTimer()
     {
         animator.SetTrigger("Death");
+        if (gameObject.TryGetComponent<BehaviourTreeRunner>(out BehaviourTreeRunner runner))
+        {
+            runner.enabled = false;
+        }
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }

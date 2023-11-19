@@ -28,7 +28,7 @@ public class WaitPatrolling : ActionNode
             return State.Failure;
         }
         if (controller.CanSee())
-            return State.Failure;
+            return State.Success;
 
         float timeRemaining = Time.time - startTime;
         if (timeRemaining > duration)

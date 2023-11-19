@@ -15,8 +15,7 @@ namespace FragileReflection
         [Range(0, 200)]
         [SerializeField] private float maxHealth;
 
-        private float health;
-        EnemyController enemyController;
+        [SerializeField] private float health;
 
         void Start()
         {
@@ -25,44 +24,37 @@ namespace FragileReflection
 
         void IDamagable.TakeDamage(float damage)
         {
-            if (health - damage <= 0)
-                return;
-
-            if(enemyController != null)
-            {
-                enemyController.stuggled = true;
-                StartCoroutine("ResetStuggle");
-            }
+            Debug.Log("Damage taken! " + damage);
             health -= damage;
             if (health <= 0)
             {
                 Die();
             }
-                
-            Debug.Log("Damage taken! " + damage);
+            else if (gameObject.TryGetComponent<EnemyController>(out EnemyController enemyController))
+            {
+                enemyController.stuggled = true;
+                StartCoroutine("ResetStuggle");
+            }
 
         }
 
         private void Die()
         {
-            if(enemyController != null)
+            if(gameObject.TryGetComponent<EnemyController>(out EnemyController enemyController))
             {
                 enemyController.Die();
             }
             Debug.Log($"{gameObject.name} died");
-            //var renderer = GetComponent<Renderer>();
-            //if (renderer == null)
-            //{
-            //    Debug.Log($"No renderer but {gameObject.name} died");
-            //    return;
-            //}
-            //renderer.material.color = Color.red;
         }
 
         IEnumerator ResetStuggle()
         {
-            yield return new WaitForSeconds(2f);
-            enemyController.stuggled = true;
+            yield return new WaitForSeconds(0.4f);
+            if (gameObject.TryGetComponent<EnemyController>(out EnemyController enemyController))
+            {
+                enemyController.stuggled = false;
+            }
+            
         }
     }
 }

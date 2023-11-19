@@ -13,15 +13,17 @@ public class EnemyAttack : ActionNode
 
     protected override void OnStart()
     {
-        //context.agent.isStopped = true;
+        context.agent.isStopped = true;
         context.agent.speed = 0;
         context.agent.stoppingDistance = blackboard.attackDistance;
         controller = context.gameObject.GetComponent<EnemyController>();
         context.agent.destination = controller.player.position;
         animator = controller.animator;
-        if(animator.GetBool("Attack") != true)
-            animator.SetBool("Attack", true);
+        //if(animator.GetBool("Attack") != true)
+        //    animator.SetBool("Attack", true);
+        animator.SetTrigger("Attack");
         controller.AttackPlayer();
+        controller.DetectPlayer();
     }
 
     protected override void OnStop()

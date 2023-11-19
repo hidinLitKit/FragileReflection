@@ -15,7 +15,7 @@ public class EnemyChase : ActionNode
     {
         context.agent.isStopped = false;
         context.agent.speed = blackboard.chaseSpeed;
-        context.agent.stoppingDistance = 0.1f;
+        context.agent.stoppingDistance = blackboard.attackDistance;
         enemyController = context.gameObject.GetComponent<EnemyController>();
         player = enemyController.player;
         context.agent.destination = player.position;
@@ -35,14 +35,6 @@ public class EnemyChase : ActionNode
     {
         context.agent.destination = player.position;
 
-        //if (context.agent.pathPending)
-        //{
-        //    return State.Running;
-        //}
-        //if ( blackboard.CanAttackPlayer(context.agent.transform))
-        //{
-        //    return State.Success;
-        //}
         if (enemyController.CanAttackPlayer())
         {
             return State.Success;

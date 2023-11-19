@@ -18,6 +18,6 @@ namespace TheKiwiCoder {
         public float moveSpeed;
         public float chaseSpeed;
         public float attackDistance;
-
+        public bool wasStuggled;
     }
 }

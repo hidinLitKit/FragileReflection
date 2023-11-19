@@ -31,24 +31,24 @@ MonoBehaviour:
   - rid: 5943290654267801619
   - rid: 5943290654267801620
   - rid: 5943290654267801622
-  - rid: 5943290655019892737
   - rid: 5943290655019892739
   - rid: 1767988711686144001
-  - rid: 1767988711686144002
   - rid: 1767988728344608768
   - rid: 1767988728344608770
   - rid: 1767988728344608771
-  - rid: 1767988728344608772
   - rid: 1767988728344608773
+  - rid: 1767988750702870528
+  - rid: 1767988750702870529
   treeState: 0
   blackboard:
     target: {fileID: 0}
     moveToPosition: {x: 0, y: 0, z: 0}
     moveSpeed: 1
     chaseSpeed: 3
-    attackDistance: 2
-  viewPosition: {x: -131, y: -68, z: 0}
-  viewScale: {x: 0.25, y: 0.25, z: 1}
+    attackDistance: 1.8
+    wasStuggled: 0
+  viewPosition: {x: 332, y: -267, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -65,24 +65,9 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
-    - rid: 1767988711686144002
-      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 1993c58f17f22584b9f9d9f34e99a2e2
-        position: {x: 191, y: 906}
-        blackboard:
-          target: {fileID: 0}
-          moveToPosition: {x: 0, y: 0, z: 0}
-          moveSpeed: 0
-          chaseSpeed: 0
-          attackDistance: 0
-        description: 
-        drawGizmos: 0
-        duration: 2.5
     - rid: 1767988728344608768
       type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -96,6 +81,7 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         child:
@@ -115,63 +101,84 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         children:
         - rid: 5943290654267801612
-        - rid: 5943290654267801617
-        - rid: 1767988728344608772
+        - rid: 1767988750702870529
     - rid: 1767988728344608771
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: d8b5d72345cc9eb49b514f119a09a2f9
-        position: {x: 190.99998, y: 688.6064}
+        position: {x: 190.99997, y: 688.9999}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         children:
         - rid: 1767988711686144001
-        - rid: 1767988711686144002
         - rid: 1767988728344608768
-    - rid: 1767988728344608772
-      type: {class: WaitPatrolling, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: f88ba4789e833ba4e9e07e0ef1b358d4
-        position: {x: 704, y: 1230}
-        blackboard:
-          target: {fileID: 0}
-          moveToPosition: {x: 0, y: 0, z: 0}
-          moveSpeed: 0
-          chaseSpeed: 0
-          attackDistance: 0
-        description: 
-        drawGizmos: 0
-        duration: 1
     - rid: 1767988728344608773
       type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 3bf27d85b7330234aabdfe3ea0f7f977
-        position: {x: -206.9999, y: 1033.9999}
+        position: {x: -178.38622, y: 922.9999}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         duration: 0.4
+    - rid: 1767988750702870528
+      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 9d67bd2bf44ef3243bf022525d2ba74e
+        position: {x: 423.84375, y: 1335.5209}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          moveSpeed: 0
+          chaseSpeed: 0
+          attackDistance: 0
+          wasStuggled: 0
+        description: 
+        drawGizmos: 0
+        duration: 2
+    - rid: 1767988750702870529
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 673d4e9204abb9f46a0d3d718a9ee9cd
+        position: {x: 559, y: 1203.7125}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          moveSpeed: 0
+          chaseSpeed: 0
+          attackDistance: 0
+          wasStuggled: 0
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 1767988750702870528
+        - rid: 5943290654267801617
     - rid: 5943290654267801601
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -185,6 +192,7 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         child:
@@ -202,6 +210,7 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         child:
@@ -221,6 +230,7 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         children:
@@ -233,13 +243,14 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2c5b18427dfd09f4381ad6f7bb41d5dd
-        position: {x: -459.99994, y: 1033.9998}
+        position: {x: -400.95358, y: 922.9999}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
     - rid: 5943290654267801608
@@ -255,6 +266,7 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         message: stuggled
@@ -271,6 +283,7 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         child:
@@ -281,13 +294,14 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 36f9cadad6d3efd45ae8bdeeedd1d6f1
-        position: {x: 307, y: 1230}
+        position: {x: 157.00008, y: 1217.833}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         child:
@@ -298,13 +312,14 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1a71bb8a7d95b7a4db515304af2540ed
-        position: {x: 308, y: 1362}
+        position: {x: 157.99998, y: 1354}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         children:
@@ -316,13 +331,14 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6548313a76668484bafdbc05a7031f70
-        position: {x: 217, y: 1511}
+        position: {x: 65.999985, y: 1532.2924}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
     - rid: 5943290654267801615
@@ -331,16 +347,17 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1ea4c404ee287ce43be093fe8b7b2d29
-        position: {x: 410, y: 1511}
+        position: {x: 259, y: 1532.2924}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
-        duration: 3
+        duration: 2
     - rid: 5943290654267801616
       type: {class: CanSeePlayer, ns: , asm: Assembly-CSharp}
       data:
@@ -354,6 +371,7 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         child:
@@ -364,13 +382,14 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 67b2d66c70c89534fbb3f96175d0cd90
-        position: {x: 504, y: 1230}
+        position: {x: 730.6802, y: 1334.0675}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
     - rid: 5943290654267801618
@@ -386,6 +405,7 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         children:
@@ -405,6 +425,7 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
     - rid: 5943290654267801620
@@ -420,6 +441,7 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         stoppingDistance: 0.1
@@ -436,27 +458,10 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         duration: 2
-    - rid: 5943290655019892737
-      type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 8218db2c2426628488bb5601b0735b93
-        position: {x: -119.41279, y: 440.4175}
-        blackboard:
-          target: {fileID: 0}
-          moveToPosition: {x: 0, y: 0, z: 0}
-          moveSpeed: 0
-          chaseSpeed: 0
-          attackDistance: 0
-        description: 
-        drawGizmos: 0
-        children:
-        - rid: 5943290654267801611
-        - rid: 5943290654267801616
     - rid: 5943290655019892739
       type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -470,8 +475,10 @@ MonoBehaviour:
           moveSpeed: 0
           chaseSpeed: 0
           attackDistance: 0
+          wasStuggled: 0
         description: 
         drawGizmos: 0
         children:
-        - rid: 5943290655019892737
+        - rid: 5943290654267801611
+        - rid: 5943290654267801616
         - rid: 5943290654267801618

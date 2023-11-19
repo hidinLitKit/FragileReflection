@@ -13,6 +13,7 @@ namespace TheKiwiCoder {
         Animator animator;
 
         protected override void OnStart() {
+
             startTime = Time.time;
             controller = context.agent.GetComponent<EnemyController>();
             animator = controller.animator;

@@ -17,7 +17,10 @@ public class PreAgreeState : ActionNode
         player = enemyController.player;
         context.agent.destination = player.position;
         animator = enemyController.animator;
-        animator.SetTrigger("Angree");
+        if(blackboard.wasStuggled)
+            blackboard.wasStuggled = false;
+        else
+            animator.SetTrigger("Angree");
     }
 
     protected override void OnStop()
