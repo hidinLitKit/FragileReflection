@@ -18,6 +18,9 @@ namespace FragileReflection
             Item newItem = new Item(this);
             return newItem;
         }
+        public abstract void Use(); //Action that happens when you click use in Inventory
+        public abstract void Examine(); //Action that happens when you click examine in Inventory
+
     }
     [System.Serializable]
     public class Item
