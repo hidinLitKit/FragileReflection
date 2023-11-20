@@ -30,12 +30,16 @@ namespace FragileReflection
 
         public float speed = 1f;
         [SerializeField] private float _sprintSpeed = 2f;
-        [SerializeField] private float _sitdownSpeed = 0.5f;
+        [SerializeField] private float _crouchSpeed = 0.5f;
 
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
 
         private bool aiming = false;
+        private bool _moving = false;
+        private bool _sprinting = false;
+        private bool _crouching = false;
+
 
         private float sprintValue;
         private float crouchValue;
@@ -45,6 +49,7 @@ namespace FragileReflection
             playerTransform = characterController.gameObject.transform;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
             //mine
             //WeaponManager.ChangeWeapon(weapon[0]);
         }
@@ -52,7 +57,7 @@ namespace FragileReflection
         public void OnMove(InputValue value)
         {
             _move = value.Get<Vector2>();
-            playerAnimController.Walking(_move.x +_move.y);
+            _moving = _move.x != 0 || _move.y != 0;
         }
 
         public void OnLook(InputValue value)
@@ -65,7 +70,6 @@ namespace FragileReflection
             if (WeaponManager.currentWeapon == null) 
                 return;
             aimValue = value.Get<float>();
-            playerAnimController.Aiming(aimValue);
         }
 
         public void OnFire(InputValue value)
@@ -81,7 +85,20 @@ namespace FragileReflection
                 return;
             WeaponManager.currentWeapon.Reload();
         }
-        
+        public void OnSprint(InputValue value)
+        {
+            if (aiming) return;
+            sprintValue = value.Get<float>();
+            _sprinting = sprintValue != 0;
+        }
+
+        public void OnCrouch(InputValue value)
+        {
+            if (aiming) return;
+            crouchValue = value.Get<float>();
+            _crouching = crouchValue != 0;
+        }
+
 
         public void OnChangeWeapon1(InputValue value)
         {
@@ -101,21 +118,13 @@ namespace FragileReflection
 
         }
 
-        public void OnSprint(InputValue value)
-        {
-            sprintValue = value.Get<float>();
-            playerAnimController.Sprinting(sprintValue);
-        }
-
-        public void OnCrouch(InputValue value)
-        {
-            crouchValue = value.Get<float>();
-        }
+        
 
         public GameObject followTransform;
 
         private void Update()
         {
+            HandleAnimations();
 
             #region Follow Transform Rotation
 
@@ -178,7 +187,6 @@ namespace FragileReflection
 
             if (_move.x == 0 && _move.y == 0)
             {
-                playerAnimController.Walking(0);
                 nextPosition = playerTransform.position;
                 return;
             }
@@ -191,10 +199,11 @@ namespace FragileReflection
             }
             if (crouchValue == 1)
             {
-                moveSpeed = _sitdownSpeed / 100f;
+                moveSpeed = _crouchSpeed / 100f;
             }
             
             MoveCharacter(moveSpeed, angles);
+            
 
         }
 
@@ -205,6 +214,7 @@ namespace FragileReflection
 
             //Set the player rotation based on the look transform
             playerTransform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
+           
             //reset the y rotation of the look transform
             followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
         }
@@ -214,6 +224,28 @@ namespace FragileReflection
             aiming = aim;
             _camMove.gameObject.SetActive(!aiming);
             _camAim.gameObject.SetActive(aiming);
+        }
+        private void HandleAnimations()
+        {
+            playerAnimController.Sprinting(_sprinting);
+            playerAnimController.Walking(_moving);
+            playerAnimController.Aiming(aiming);
+            playerAnimController.Crouching(_crouching);
+        }
+        private void CharacterRotation()
+        {
+            Vector3 rotationPivot;
+            rotationPivot.x = _move.x;
+            rotationPivot.y = 0;
+            rotationPivot.z = _move.y;
+
+            Quaternion currentRotation = playerTransform.rotation;
+            if(_moving)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(rotationPivot);
+                playerTransform.rotation = Quaternion.Slerp(currentRotation, targetRotation, 30f*Time.deltaTime);
+            }
+
         }
     }
 

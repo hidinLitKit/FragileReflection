@@ -1,0 +1,426 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: BehaviourTree_RandomWalk
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 4200190926137589867
+  nodes:
+  - rid: 4200190926137589867
+  - rid: 4200190926137589870
+  - rid: 5943290448998301697
+  - rid: 5943290448998301698
+  - rid: 5943290448998301699
+  - rid: 5943290448998301700
+  - rid: 5943290448998301701
+  - rid: 5943290448998301702
+  - rid: 5943290449859706880
+  - rid: 5943290449937825792
+  - rid: 5943290449937825793
+  - rid: 5943290449937825795
+  - rid: 5943290449937825796
+  - rid: 5943290449937825797
+  - rid: 5943290449937825798
+  - rid: 5943290449937825799
+  - rid: 5943290451585400832
+  - rid: 5943290451585400833
+  treeState: 0
+  blackboard:
+    target: {fileID: 0}
+    moveToPosition: {x: 100, y: 0, z: 0}
+    isStruggled: 0
+    viewRadius: 10
+    viewAngle: 60
+    attackDistance: 2
+    moveSpeed: 2
+    chaseSpeed: 5
+    game: {fileID: 2544586986200610659, guid: e66b88a183747854f84b39818838edcd, type: 3}
+  viewPosition: {x: -227, y: 314, z: 0}
+  viewScale: {x: 0.375937, y: 0.375937, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4200190926137589867
+      type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 08babbf2-251b-4019-9d8e-2f9fc5bc6b8b
+        position: {x: 725.0112, y: -391.99994}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: Where it all begins!
+        drawGizmos: 0
+        child:
+          rid: 4200190926137589870
+    - rid: 4200190926137589870
+      type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: dcafe99d707d250419e5d8ff0ada012e
+        position: {x: 741.0112, y: -260.0341}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: Repeat forever
+        drawGizmos: 0
+        child:
+          rid: 5943290448998301697
+        restartOnSuccess: 1
+        restartOnFailure: 1
+    - rid: 5943290448998301697
+      type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a36283607967f8b41be3a9db585e902e
+        position: {x: 739.93176, y: -116.658714}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 5943290448998301698
+        - rid: 5943290449937825797
+        - rid: 5943290449937825793
+        - rid: 5943290449937825792
+    - rid: 5943290448998301698
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 216e4b4f21d20894e86d4808e0783407
+        position: {x: 617.93176, y: 49.341286}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 5943290448998301702
+        - rid: 5943290448998301699
+        - rid: 5943290448998301700
+        - rid: 5943290448998301701
+    - rid: 5943290448998301699
+      type: {class: Struggle, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f6426863c45055247af473353d0281a9
+        position: {x: 532.9318, y: 219.34128}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+    - rid: 5943290448998301700
+      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 84bd80496b9cc3b4aa8fbb25949f3713
+        position: {x: 733.9318, y: 214.34125}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+        duration: 2
+    - rid: 5943290448998301701
+      type: {class: Log, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 64cf18f0b31bbd743bc58d805432f822
+        position: {x: 924.9318, y: 211.34128}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: struggled end
+        drawGizmos: 0
+        message: 
+    - rid: 5943290448998301702
+      type: {class: Log, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 55bf05ef6624aae44a7191e5df7a2114
+        position: {x: 345.93173, y: 214.34125}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: struggled start
+        drawGizmos: 0
+        message: struggled start
+    - rid: 5943290449859706880
+      type: {class: EnemyAttack, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ed3cb92888961b9479931d948ffe4881
+        position: {x: 1004.93176, y: 426.34128}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+    - rid: 5943290449937825792
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 99b5bc101b3aa6246909aac94ec2dd67
+        position: {x: 1670.9318, y: 37.341274}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 5943290451585400833
+        - rid: 5943290449937825796
+        - rid: 5943290449937825795
+        - rid: 5943290449937825799
+    - rid: 5943290449937825793
+      type: {class: EnemyChase, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e0974cf3aedbc5f48a567b1d7e2067b4
+        position: {x: 1304.3862, y: 218.75}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+    - rid: 5943290449937825795
+      type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 50fb17a92c21e6e4bbbcd60d71ef1e27
+        position: {x: 1838.9318, y: 250.34128}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+        stoppingDistance: 0.1
+    - rid: 5943290449937825796
+      type: {class: ChooseEndpoint, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 85051818cac209d4a8a5d3a43f92bcca
+        position: {x: 1663.9318, y: 246.34128}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+    - rid: 5943290449937825797
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b7a7d2990c9597e41b78cf82bdb6ca47
+        position: {x: 1099.9316, y: 213.34122}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 5943290451585400832
+        - rid: 5943290449859706880
+        - rid: 5943290449937825798
+    - rid: 5943290449937825798
+      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 0ba597f4a581d3940bff9b7356b6888e
+        position: {x: 1192.9316, y: 425.34125}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+        duration: 2
+    - rid: 5943290449937825799
+      type: {class: WaitPatrolling, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 9bc899740166dab4d9cb3eaa0e50bce8
+        position: {x: 2007.9318, y: 247.34131}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+        duration: 3
+    - rid: 5943290451585400832
+      type: {class: Log, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 837dff7c8d8c0c045ab97c8a3cdd8cb6
+        position: {x: 797.93176, y: 415.3413}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+        message: attack
+    - rid: 5943290451585400833
+      type: {class: Log, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 80fb9a48b2c0d364b90b8e21327b6646
+        position: {x: 1505.9316, y: 244.34116}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          isStruggled: 0
+          viewRadius: 0
+          viewAngle: 0
+          attackDistance: 0
+          moveSpeed: 0
+          chaseSpeed: 0
+          game: {fileID: 0}
+        description: 
+        drawGizmos: 0
+        message: patrol

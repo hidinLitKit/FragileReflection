@@ -16,6 +16,10 @@ namespace FragileReflection
         [SerializeField] private float maxHealth;
 
         private float health;
+        void Start()
+        {
+            health = maxHealth;
+        }
 
         void IDamagable.TakeDamage(float damage)
         {
