@@ -10,13 +10,13 @@ namespace FragileReflection
 
         public override string GetDescription()
         {
-            throw new System.NotImplementedException();
+            return "Âחÿעü ןנוהלוע";
         }
 
         public override void Interact()
         {
-
-            throw new System.NotImplementedException();
+            Item _item = new Item(item);
+            GameInventory.instance.inventory.AddItem(_item, 1);
         }
 
     }
