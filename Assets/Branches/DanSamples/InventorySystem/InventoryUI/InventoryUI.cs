@@ -1,21 +1,109 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 namespace FragileReflection
-{
+{   
+    public class ItemUI
+    {
+        public GameObject slot;
+        public InventorySlot inventorySlot;
+        public ItemUI(GameObject obj, InventorySlot inv)
+        {
+            slot = obj;
+            inventorySlot = inv;
+        }
+    }
     public class InventoryUI : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        //С помощью этого скрипта мы перемещаемся внутри инвентаря и взаимодействуем с предметами
+        [Header("Поля инвентаря")]
+        public InventoryObject inventory; //Ссылка на инвентарь
+        private ItemDatabaseObject _database; //Датабаза всех предметов в игре - доступ к предмету по ID - содержит имя, описание, картинку
+        private InventorySlot _currentItem; //текущий выбранный предмет
+        private int _currentIndex;
+        private List<ItemUI> _inventorySlots; //отображение инвентаря UI
+        //GameObject здесь - это сам объект UI
+
+        [Header("Настройки UI")] //здесь настраиваются позиции всех слотов инвентаря
+        public GameObject inventoryPrefab; //Префаб слота инвентаря на UI 
+        public int X_START;
+        public int Y_START;
+        public int X_SPACE_BETWEEN_ITEM;
+        public int NUMBER_OF_COLUMN;
+        public int Y_SPACE_BETWEEN_ITEMS;
+
+        private void Awake()
         {
-        
+            _database = inventory.database;
+        }
+        public void CreateSlots()
+        {
+            _inventorySlots = new List<ItemUI>();
+            //пример метода для создания линии слотов предмета (нужно как то доделать)
+            for (int i = 0; i < inventory.Container.Items.Count; i++)
+            {
+                var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
+                obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+                ItemUI itm = new ItemUI(obj, inventory.Container.Items[i]);
+               
+                _inventorySlots.Add(itm);
+            }
+        }
+        public void UpdateSlots()
+        {
+            //Обновляет информацию на UI 
+            foreach(ItemUI _slot in _inventorySlots)
+            {
+                if (_slot.inventorySlot.ID >= 0)
+                {
+                    //Вот так в UI выводится инфа о предмете, но GetChild как то не серьезно
+                    _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.GetItem[_slot.inventorySlot.item.ID].image;
+                    _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
+                    _slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = _slot.inventorySlot.amount == 1 ? "" : _slot.inventorySlot.amount.ToString("n0");
+                }
+                else
+                {
+                    //это нам не подходит, у нас вообще все слоты на любой момент времени будут иметь предмет, не будет такого что там будет ID = -1
+                    _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
+                    _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0);
+                    _slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = "";
+                }
+            }
+        }
+        //Гайд как вывести на экран любой предмет из инвентаря
+        void howToDisplayItem()
+        {
+            GameObject slot; //это типа слот UI
+            InventorySlot item = inventory.Container.Items[0]; //Мы взяли тут просто первый предмет который есть
+            // закомментил т.к. генерит ошибку, я не назначил slot
+           // slot.GetComponent<Image>().sprite = _database.GetItem[item.item.ID].image; 
+        }
+        void useItem()
+        {
+            //если мы кликнули по кнопке вызывается этот метод
+            _database.GetItem[ _currentItem.item.ID].Use();
+        }
+        void examineItem()
+        {
+            _database.GetItem[_currentItem.item.ID].Examine();
+        }
+        public Vector3 GetPosition(int i)
+        {
+            return new Vector3(X_START + (X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN)), Y_START + (-Y_SPACE_BETWEEN_ITEMS * (i / NUMBER_OF_COLUMN)), 0f);
+        }
+        void moveRight()
+        {
+            // у нас при нажатии на стрелку вправо выбирается следующий предмет то есть
+            _currentItem = _inventorySlots[_currentIndex].inventorySlot;
+        }
+        void moveLeft()
+        {
+
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+
+
     }
 }

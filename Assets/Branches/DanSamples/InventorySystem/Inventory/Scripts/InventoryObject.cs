@@ -8,6 +8,7 @@ namespace FragileReflection
     public class InventoryObject : ScriptableObject
     {
         public Inventory Container;
+        public ItemDatabaseObject database;
         public void AddItem(Item _item, int _amount)
         {
             //Checking if this type of item is exists in Inventory
@@ -55,7 +56,7 @@ namespace FragileReflection
     [System.Serializable]
     public class InventorySlot
     {
-        public int ID = -1;
+        public int ID = -1; //ID тут дублируется с Item чтобы мы могли добавить amount
         public Item item;
         public int amount;
         private bool unique;
