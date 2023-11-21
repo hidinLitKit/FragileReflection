@@ -42,7 +42,7 @@ namespace FragileReflection
         {
             if (_playerParam != null)
             {
-                Debug.Log("Current Health" + Mathf.RoundToInt(_playerParam.Health));
+                //Debug.Log("Current Health" + Mathf.RoundToInt(_playerParam.Health));
 
                 if (_playerParam.Health >= 60)
                 {
@@ -57,7 +57,7 @@ namespace FragileReflection
                 else
                 {
                     _healthText.color = Color.red;
-                    _healthText.text ="DANGEROUS";
+                    _healthText.text ="DANGER";
                 }
             }
         }

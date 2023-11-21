@@ -22,8 +22,8 @@ namespace FragileReflection
         public float fireValue;
         public float walkValue;
 
-        private Vector3 nextPosition;
-        private Quaternion nextRotation;
+        private Vector3 _nextPosition;
+        private Quaternion _nextRotation;
 
         public float rotationPower = 3f;
         public float rotationLerp = 0.5f;
@@ -35,18 +35,18 @@ namespace FragileReflection
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
 
-        private bool aiming = false;
+        private bool _aiming = false;
         private bool _moving = false;
         private bool _sprinting = false;
         private bool _crouching = false;
 
 
-        private float sprintValue;
-        private float crouchValue;
+        private float _sprintValue;
+        private float _crouchValue;
 
-        private float inventValue;
-        private bool isCursorVisible = false;
-        private bool isCameraControlEnabled = true;
+        private float _inventValue;
+        private bool _isCursorVisible = false;
+        private bool _isCameraControlEnabled = true;
 
         private void Awake()
         {
@@ -58,9 +58,13 @@ namespace FragileReflection
             //WeaponManager.ChangeWeapon(weapon[0]);
         }
 
+        public void OnExit(InputValue value)
+        {
+            Debug.Log("Exit");
+        }
         public void OnMove(InputValue value)
         {
-            if (isCursorVisible)
+            if (_isCursorVisible)
                 return;
 
             _move = value.Get<Vector2>();
@@ -69,7 +73,7 @@ namespace FragileReflection
 
         public void OnLook(InputValue value)
         {
-            if (isCursorVisible)
+            if (_isCursorVisible)
                 return;
 
             _look = value.Get<Vector2>();
@@ -84,29 +88,29 @@ namespace FragileReflection
 
         public void OnFire(InputValue value)
         {
-            if (!aiming) 
+            if (!_aiming) 
                 return;
             WeaponManager.currentWeapon.Fire();
             //GameEvents.Fire();
         }
         public void OnReload(InputValue value)
         {
-            if (!aiming) 
+            if (!_aiming) 
                 return;
             WeaponManager.currentWeapon.Reload();
         }
         public void OnSprint(InputValue value)
         {
-            if (aiming) return;
-            sprintValue = value.Get<float>();
-            _sprinting = sprintValue != 0;
+            if (_aiming) return;
+            _sprintValue = value.Get<float>();
+            _sprinting = _sprintValue != 0;
         }
 
         public void OnCrouch(InputValue value)
         {
-            if (aiming) return;
-            crouchValue = value.Get<float>();
-            _crouching = crouchValue != 0;
+            if (_aiming) return;
+            _crouchValue = value.Get<float>();
+            _crouching = _crouchValue != 0;
         }
 
 
@@ -130,13 +134,13 @@ namespace FragileReflection
 
         public void OnInventory(InputValue value)
         {
-            inventValue = value.Get<float>();
+            _inventValue = value.Get<float>();
 
-            if (inventValue > 0)
+            if (_inventValue > 0)
             {
-                isCursorVisible = !isCursorVisible;
+                _isCursorVisible = !_isCursorVisible;
 
-                if (isCursorVisible)
+                if (_isCursorVisible)
                 {
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
@@ -156,9 +160,9 @@ namespace FragileReflection
 
         private void ToggleControls(bool enable)
         {
-            isCameraControlEnabled = enable;
+            _isCameraControlEnabled = enable;
 
-            if (!isCameraControlEnabled)
+            if (!_isCameraControlEnabled)
             {
                 _camMove.m_Follow = null;
                 _camMove.m_LookAt = null;
@@ -206,12 +210,12 @@ namespace FragileReflection
             #endregion
 
 
-            nextRotation = Quaternion.Lerp(followTransform.transform.rotation, nextRotation, Time.deltaTime * rotationLerp);
+            _nextRotation = Quaternion.Lerp(followTransform.transform.rotation, _nextRotation, Time.deltaTime * rotationLerp);
 
 
             if (aimValue == 1)
             {
-                if (!aiming)
+                if (!_aiming)
                     GameEvents.Aim(true);
 
 
@@ -221,15 +225,15 @@ namespace FragileReflection
                 //reset the y rotation of the look transform
                 followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
 
-                aiming = true;
+                _aiming = true;
             }
             else if (aimValue == 0)
             {
-                if (aiming)
+                if (_aiming)
                     GameEvents.Aim(false);
 
                 SwitchCamera(false);
-                aiming = false;
+                _aiming = false;
             }
 
             Vector3 vertical = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);
@@ -237,17 +241,17 @@ namespace FragileReflection
 
             if (_move.x == 0 && _move.y == 0)
             {
-                nextPosition = playerTransform.position;
+                _nextPosition = playerTransform.position;
                 return;
             }
 
             float moveSpeed = speed / 100f;
             
-            if (sprintValue == 1)
+            if (_sprintValue == 1)
             {
                 moveSpeed = _sprintSpeed / 100f;
             }
-            if (crouchValue == 1)
+            if (_crouchValue == 1)
             {
                 moveSpeed = _crouchSpeed / 100f;
             }
@@ -271,15 +275,15 @@ namespace FragileReflection
 
         private void SwitchCamera(bool aim)
         {
-            aiming = aim;
-            _camMove.gameObject.SetActive(!aiming);
-            _camAim.gameObject.SetActive(aiming);
+            _aiming = aim;
+            _camMove.gameObject.SetActive(!_aiming);
+            _camAim.gameObject.SetActive(_aiming);
         }
         private void HandleAnimations()
         {
             playerAnimController.Sprinting(_sprinting);
             playerAnimController.Walking(_moving);
-            playerAnimController.Aiming(aiming);
+            playerAnimController.Aiming(_aiming);
             playerAnimController.Crouching(_crouching);
         }
         private void CharacterRotation()
