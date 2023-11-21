@@ -44,6 +44,10 @@ namespace FragileReflection
         private float sprintValue;
         private float crouchValue;
 
+        private float inventValue;
+        private bool isCursorVisible = false;
+        private bool isCameraControlEnabled = true;
+
         private void Awake()
         {
             playerTransform = characterController.gameObject.transform;
@@ -56,12 +60,18 @@ namespace FragileReflection
 
         public void OnMove(InputValue value)
         {
+            if (isCursorVisible)
+                return;
+
             _move = value.Get<Vector2>();
             _moving = _move.x != 0 || _move.y != 0;
         }
 
         public void OnLook(InputValue value)
         {
+            if (isCursorVisible)
+                return;
+
             _look = value.Get<Vector2>();
         }
 
@@ -118,7 +128,47 @@ namespace FragileReflection
 
         }
 
-        
+        public void OnInventory(InputValue value)
+        {
+            inventValue = value.Get<float>();
+
+            if (inventValue > 0)
+            {
+                isCursorVisible = !isCursorVisible;
+
+                if (isCursorVisible)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+
+                    ToggleControls(false);
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+
+                    ToggleControls(true);
+                }
+
+            }
+        }
+
+        private void ToggleControls(bool enable)
+        {
+            isCameraControlEnabled = enable;
+
+            if (!isCameraControlEnabled)
+            {
+                _camMove.m_Follow = null;
+                _camMove.m_LookAt = null;
+            }
+            else
+            {
+                _camMove.m_Follow = followTransform.transform;
+                _camMove.m_LookAt = followTransform.transform;
+            }
+        }
 
         public GameObject followTransform;
 

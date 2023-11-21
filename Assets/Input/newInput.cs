@@ -127,6 +127,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Value"",
+                    ""id"": ""d85fc9a5-3637-4760-86dc-efcc90156e4b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -446,6 +455,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""023e3e96-1889-4e1a-8516-b41deb5de0fd"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1064,6 +1084,7 @@ namespace UnityEngine.InputSystem
             m_Player_ChangeWeapon2 = m_Player.FindAction("ChangeWeapon2", throwIfNotFound: true);
             m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
             m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
+            m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1149,6 +1170,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_ChangeWeapon2;
         private readonly InputAction m_Player_Sprint;
         private readonly InputAction m_Player_Crouch;
+        private readonly InputAction m_Player_Inventory;
         public struct PlayerActions
         {
             private @NewInput m_Wrapper;
@@ -1164,6 +1186,7 @@ namespace UnityEngine.InputSystem
             public InputAction @ChangeWeapon2 => m_Wrapper.m_Player_ChangeWeapon2;
             public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
             public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
+            public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1206,6 +1229,9 @@ namespace UnityEngine.InputSystem
                 @Crouch.started += instance.OnCrouch;
                 @Crouch.performed += instance.OnCrouch;
                 @Crouch.canceled += instance.OnCrouch;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1243,6 +1269,9 @@ namespace UnityEngine.InputSystem
                 @Crouch.started -= instance.OnCrouch;
                 @Crouch.performed -= instance.OnCrouch;
                 @Crouch.canceled -= instance.OnCrouch;
+                @Inventory.started -= instance.OnInventory;
+                @Inventory.performed -= instance.OnInventory;
+                @Inventory.canceled -= instance.OnInventory;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1444,6 +1473,7 @@ namespace UnityEngine.InputSystem
             void OnChangeWeapon2(InputAction.CallbackContext context);
             void OnSprint(InputAction.CallbackContext context);
             void OnCrouch(InputAction.CallbackContext context);
+            void OnInventory(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
