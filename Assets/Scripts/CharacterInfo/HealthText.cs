@@ -14,7 +14,7 @@ namespace FragileReflection
         private void OnEnable()
         {
             GameEvents.onHealthImg += ShowUI;
-            GameEvents.onHealthImg += ShowUI;
+            GameEvents.onHealthImg += UpdateUI;
         }
 
         private void OnDisable()
@@ -35,9 +35,30 @@ namespace FragileReflection
 
         private void Update()
         {
+            UpdateUI();
+        }
+
+        private void UpdateUI()
+        {
             if (_playerParam != null)
             {
-                _healthText.text = "Health: " + Mathf.RoundToInt(_playerParam.Health);
+                Debug.Log("Current Health" + Mathf.RoundToInt(_playerParam.Health));
+
+                if (_playerParam.Health >= 60)
+                {
+                    _healthText.color = Color.green;
+                    _healthText.text = "FINE";
+                }
+                else if (_playerParam.Health >= 40)
+                {
+                    _healthText.color = Color.yellow;
+                    _healthText.text ="BAD";
+                }
+                else
+                {
+                    _healthText.color = Color.red;
+                    _healthText.text ="DANGEROUS";
+                }
             }
         }
 
