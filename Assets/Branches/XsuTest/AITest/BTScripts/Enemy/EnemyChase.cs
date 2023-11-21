@@ -1,3 +1,4 @@
+using Dan;
 using System.Collections;
 using System.Collections.Generic;
 using TheKiwiCoder;
@@ -8,44 +9,50 @@ public class EnemyChase : ActionNode
 {
     Animator animator;
     Transform player;
-
+    EnemyController enemyController;
 
     protected override void OnStart()
     {
         context.agent.isStopped = false;
         context.agent.speed = blackboard.chaseSpeed;
-        player = blackboard.game.GetPlayer();
+        context.agent.stoppingDistance = blackboard.attackDistance;
+        enemyController = context.gameObject.GetComponent<EnemyController>();
+        player = enemyController.player;
         context.agent.destination = player.position;
-        animator = context.gameObject.GetComponent<Animator>();
+        animator = enemyController.animator;
+        if (animator.GetBool("Run") != true)
+            animator.SetBool("Run", true);
     }
 
     protected override void OnStop()
     {
         context.agent.isStopped = true;
+        if (animator.GetBool("Run") != false)
+            animator.SetBool("Run", false);
     }
 
     protected override State OnUpdate()
     {
         context.agent.destination = player.position;
 
-        if (context.agent.pathPending)
-        {
-            return State.Running;
-        }
-        if ( blackboard.CanAttackPlayer(context.agent.transform))
+        if (enemyController.CanAttackPlayer())
         {
             return State.Success;
         }
-        if (blackboard.CanSeePlayer(context.agent.transform))
+        if(!enemyController.CanSee())
         {
-            return State.Running;
+            return State.Failure;
         }
         if (context.agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathInvalid)
         {
             return State.Failure;
         }
+        if (enemyController.IsStuggled())
+        {
+            return State.Failure;
+        }
 
-        return State.Failure;
+        return State.Running;
     }
 }
 

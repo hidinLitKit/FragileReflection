@@ -7,30 +7,37 @@ using TheKiwiCoder;
 public class MoveToPosition : ActionNode
 {
 	public float stoppingDistance = 0.1f;
-
+	Animator animator;
+	EnemyController enemyController;
 	protected override void OnStart()
 	{
 		context.agent.isStopped = false;
 		context.agent.speed = blackboard.moveSpeed;
 		context.agent.stoppingDistance = stoppingDistance;
 		context.agent.destination = blackboard.moveToPosition;
+		enemyController = context.gameObject.GetComponent<EnemyController>();
+		animator = enemyController.animator;
+
+		if(animator.GetBool("Move") != true)
+			animator.SetBool("Move", true);
     }
 
 	protected override void OnStop()
 	{
 		context.agent.isStopped = true;
-	}
+		if(animator.GetBool("Move") != false)
+			animator.SetBool("Move", false);
+    }
 
 	protected override State OnUpdate()
 	{
-		if(blackboard.CanAttackPlayer(context.transform) || blackboard.CanSeePlayer(context.transform))
+        if (enemyController.IsStuggled())
+        {
+            return State.Failure;
+        }
+        if (enemyController.CanSee())
 		{
 			return State.Failure;
-		}
-		
-		if (context.agent.pathPending)
-		{
-			return State.Running;
 		}
 
 		if (context.agent.remainingDistance < stoppingDistance)

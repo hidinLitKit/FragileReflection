@@ -84,10 +84,9 @@ namespace FragileReflection
 
             if (Physics.Raycast(ray, out hit))
             {
-                IDamagable enemyHealth = hit.collider.gameObject.GetComponent<IDamagable>();
-                if (enemyHealth != null)
+                Debug.Log(hit.collider.gameObject.name);
+                if (hit.collider.gameObject.TryGetComponent<IDamagable>(out IDamagable enemyHealth))
                 {
-                    
                     enemyHealth.TakeDamage(WeaponManager.currentWeapon.WeaponType.BodyDamage);
                     ShowShotPlace(hit);
                 }
@@ -102,7 +101,5 @@ namespace FragileReflection
                 Instantiate(shotMark, hit.point, Quaternion.identity);
             }
         }
-
-
     }
 }

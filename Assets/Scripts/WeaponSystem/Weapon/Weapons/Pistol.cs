@@ -19,7 +19,7 @@ namespace FragileReflection
             _canReload = true;
             
             _bulletsLeft--;
-            Debug.Log(_bulletsLeft);
+            Debug.Log("Bullets left: " + _bulletsLeft);
             
             StartCoroutine(RateCD(_weaponType.RateOfFire));
             if (_bulletsLeft == 0) _canShoot = false;

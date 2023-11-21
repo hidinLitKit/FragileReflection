@@ -8,16 +8,27 @@ public class WaitPatrolling : ActionNode
 {
     public float duration = 1;
     float startTime;
+    EnemyController controller;
+    Animator animator;
+
     protected override void OnStart() {
         startTime = Time.time;
+        controller = context.agent.GetComponent<EnemyController>();
+        animator = controller.animator;
+        animator.SetBool("Run", false);
+        animator.SetBool("Move", false);
     }
 
     protected override void OnStop() {
     }
 
     protected override State OnUpdate() {
-        if(blackboard.CanAttackPlayer(context.transform) || blackboard.CanSeePlayer(context.transform))
+        if(controller.IsStuggled())
+        {
             return State.Failure;
+        }
+        if (controller.CanSee())
+            return State.Success;
 
         float timeRemaining = Time.time - startTime;
         if (timeRemaining > duration)
