@@ -9,6 +9,8 @@ namespace FragileReflection
     public class NarrativeData : MonoBehaviour
     {
         [HideInInspector] public static NarrativeData instance = null;
+        //[SerializeField] private _monologueUI;
+        // public monologueUI => _monologueUI; //это просто геттер
         [Header("Монолог")]
         public GameObject monologueUI;
         public TextMeshProUGUI monologueTextField;

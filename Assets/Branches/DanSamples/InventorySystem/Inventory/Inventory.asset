@@ -13,4 +13,11 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   Container:
-    Items: []
+    Items:
+    - ID: 0
+      item:
+        Name: freferf
+        ID: 0
+        unique: 0
+      amount: 7
+  database: {fileID: 11400000, guid: f3f6581fb61f6664f94fbc5ad4d20d84, type: 2}
