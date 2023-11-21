@@ -716,6 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  health: 0
 --- !u!1 &158079670
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,7 +913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &214577617
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39204,6 +39205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  health: 0
 --- !u!224 &1180988628 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 242282531685626220, guid: 0adb527ca529b5147bbdabc5a8b39cd5, type: 3}
@@ -41125,6 +41127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  health: 0
 --- !u!1 &1879552185
 GameObject:
   m_ObjectHideFlags: 0
@@ -41492,6 +41495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  health: 0
 --- !u!1 &1898846318
 GameObject:
   m_ObjectHideFlags: 0
@@ -43182,6 +43186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
+  health: 0
 --- !u!1 &2119947098
 GameObject:
   m_ObjectHideFlags: 0
