@@ -30,7 +30,7 @@ namespace FragileReflection
 
         public float speed = 1f;
         [SerializeField] private float _sprintSpeed = 2f;
-        [SerializeField] private float _sitdownSpeed = 0.5f;
+        [SerializeField] private float _crouchSpeed = 0.5f;
 
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
@@ -44,23 +44,34 @@ namespace FragileReflection
         private float sprintValue;
         private float crouchValue;
 
+        private float inventValue;
+        private bool isCursorVisible = false;
+        private bool isCameraControlEnabled = true;
+
         private void Awake()
         {
             playerTransform = characterController.gameObject.transform;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
             //mine
             //WeaponManager.ChangeWeapon(weapon[0]);
         }
 
         public void OnMove(InputValue value)
         {
+            if (isCursorVisible)
+                return;
+
             _move = value.Get<Vector2>();
             _moving = _move.x != 0 || _move.y != 0;
         }
 
         public void OnLook(InputValue value)
         {
+            if (isCursorVisible)
+                return;
+
             _look = value.Get<Vector2>();
         }
 
@@ -84,7 +95,20 @@ namespace FragileReflection
                 return;
             WeaponManager.currentWeapon.Reload();
         }
-        
+        public void OnSprint(InputValue value)
+        {
+            if (aiming) return;
+            sprintValue = value.Get<float>();
+            _sprinting = sprintValue != 0;
+        }
+
+        public void OnCrouch(InputValue value)
+        {
+            if (aiming) return;
+            crouchValue = value.Get<float>();
+            _crouching = crouchValue != 0;
+        }
+
 
         public void OnChangeWeapon1(InputValue value)
         {
@@ -104,15 +128,46 @@ namespace FragileReflection
 
         }
 
-        public void OnSprint(InputValue value)
+        public void OnInventory(InputValue value)
         {
-            sprintValue = value.Get<float>();
-            _sprinting = sprintValue != 0;
+            inventValue = value.Get<float>();
+
+            if (inventValue > 0)
+            {
+                isCursorVisible = !isCursorVisible;
+
+                if (isCursorVisible)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+
+                    ToggleControls(false);
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+
+                    ToggleControls(true);
+                }
+
+            }
         }
 
-        public void OnCrouch(InputValue value)
+        private void ToggleControls(bool enable)
         {
-            crouchValue = value.Get<float>();
+            isCameraControlEnabled = enable;
+
+            if (!isCameraControlEnabled)
+            {
+                _camMove.m_Follow = null;
+                _camMove.m_LookAt = null;
+            }
+            else
+            {
+                _camMove.m_Follow = followTransform.transform;
+                _camMove.m_LookAt = followTransform.transform;
+            }
         }
 
         public GameObject followTransform;
@@ -194,7 +249,7 @@ namespace FragileReflection
             }
             if (crouchValue == 1)
             {
-                moveSpeed = _sitdownSpeed / 100f;
+                moveSpeed = _crouchSpeed / 100f;
             }
             
             MoveCharacter(moveSpeed, angles);
@@ -225,6 +280,7 @@ namespace FragileReflection
             playerAnimController.Sprinting(_sprinting);
             playerAnimController.Walking(_moving);
             playerAnimController.Aiming(aiming);
+            playerAnimController.Crouching(_crouching);
         }
         private void CharacterRotation()
         {
