@@ -7,6 +7,7 @@ namespace FragileReflection
     public class ItemPickable : Interactable
     {
         [SerializeField] private ItemObject item;
+        [SerializeField] private int _amount;
 
         public override string GetDescription()
         {
@@ -16,7 +17,8 @@ namespace FragileReflection
         public override void Interact()
         {
             Item _item = new Item(item);
-            GameInventory.instance.inventory.AddItem(_item, 1);
+            GameInventory.instance.inventory.AddItem(_item, _amount);
+            
         }
 
     }

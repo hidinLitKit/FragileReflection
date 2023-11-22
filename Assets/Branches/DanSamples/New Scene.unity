@@ -457,6 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionType: 0
   item: {fileID: 11400000, guid: 012d317072cc94440ba26c635acc67c8, type: 2}
+  _amount: 0
 --- !u!65 &296781433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5128,6 +5129,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7545330993325749723, guid: f85ebe34dfe81ad40af31b3595eb9375, type: 3}
+      propertyPath: wpItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 4e7431a2ca1cba3419c0b6721ff9995c, type: 2}
     - target: {fileID: 8431980283517450239, guid: f85ebe34dfe81ad40af31b3595eb9375, type: 3}
       propertyPath: m_Name
       value: Pistol
@@ -5315,10 +5320,10 @@ SceneRoots:
   - {fileID: 6713444548471447169}
   - {fileID: 1829506037}
   - {fileID: 1680434550}
-  - {fileID: 7373534589234546268}
   - {fileID: 583852153}
   - {fileID: 766143856}
   - {fileID: 1957976035}
   - {fileID: 456096454}
   - {fileID: 148173588}
   - {fileID: 296781436}
+  - {fileID: 7373534589234546268}

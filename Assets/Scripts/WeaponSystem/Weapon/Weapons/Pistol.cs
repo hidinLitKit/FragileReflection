@@ -29,6 +29,7 @@ namespace FragileReflection
         public override void Reload()
         {
             if (_bulletsLeft == WeaponType.Magazine) return;
+            StopAllCoroutines();
             _isReloading = true;
             _canReload = false;
             _canShoot = false;

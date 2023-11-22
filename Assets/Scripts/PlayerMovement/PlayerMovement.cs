@@ -104,7 +104,8 @@ namespace FragileReflection
         {
             if(value.isPressed)
             {
-                WeaponManager.SwitchWeapon(WeaponManager.weapons[0]);
+                GameInventory.instance.inventory.database.GetItem[1].Use();
+                //WeaponManager.SwitchWeapon(WeaponManager.weapons[0]);
             }
             
         }

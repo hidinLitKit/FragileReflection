@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 934b277fdda06994f86800fabe6e6e61, type: 3}
-  m_Name: Database
+  m_Script: {fileID: 11500000, guid: 5f8f3cac1b5025b4caedfafc5b552815, type: 3}
+  m_Name: PistolItem
   m_EditorClassIdentifier: 
-  Items:
-  - {fileID: 11400000, guid: 012d317072cc94440ba26c635acc67c8, type: 2}
-  - {fileID: 11400000, guid: 4e7431a2ca1cba3419c0b6721ff9995c, type: 2}
+  ID: 1
+  unique: 1
+  Name: Pistol
+  Description: 
+  image: {fileID: 0}
+  weaponType: {fileID: 11400000, guid: 07295905c33819d4b92a51f9390e912b, type: 2}
