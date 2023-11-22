@@ -7,6 +7,8 @@ namespace FragileReflection
 {
     public class Pistol : Weapon //–азделить огнестрел и неогнестрел
     {
+        public int ammoLeft = 0;
+        [SerializeField] private WeaponObject _inventoryWeapon;
         private void Awake()
         {
             _bulletsLeft = WeaponType.Magazine;
@@ -28,16 +30,34 @@ namespace FragileReflection
         }
         public override void Reload()
         {
-            if (_bulletsLeft == WeaponType.Magazine) return;
+            if (_bulletsLeft == WeaponType.Magazine || !IsLeftAmmo()) { Debug.Log("No ammo or Full"); return; }
             StopAllCoroutines();
             _isReloading = true;
             _canReload = false;
             _canShoot = false;
+
             //какой то GameEvents reload
-            StartCoroutine(ReloadCD(_weaponType.RechargeSpeed));
+            int needBullets = WeaponType.Magazine - _bulletsLeft;
+            if (_inventoryWeapon.AmmoLeft() >=WeaponType.Magazine)
+            {
+                Debug.Log("Loading " + needBullets);
+                StartCoroutine(ReloadCD(_weaponType.RechargeSpeed, needBullets));
+                _inventoryWeapon.AmmoSet(needBullets);
+                
+            }
+            else
+            {
+                Debug.Log("Loading partial magazine");
+                StartCoroutine(ReloadCD(_weaponType.RechargeSpeed, _inventoryWeapon.AmmoLeft()));
+                _inventoryWeapon.AmmoSet(_inventoryWeapon.AmmoLeft());
+            }
+        }
+
+        public bool IsLeftAmmo()
+        {
+            Debug.Log(_inventoryWeapon.AmmoLeft());
+            return _inventoryWeapon.AmmoLeft() > 0;
             
-
-
         }
 
     }

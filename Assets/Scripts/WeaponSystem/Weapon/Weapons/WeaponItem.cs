@@ -10,6 +10,7 @@ namespace FragileReflection
     {
         [SerializeField] private Weapon wp;
         [SerializeField] private WeaponObject wpItem;
+       
         public override string GetDescription()
         {
             return "взять оружие";

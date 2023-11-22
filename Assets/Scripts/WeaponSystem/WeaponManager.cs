@@ -40,6 +40,12 @@ namespace WeaponSystem
             currentWeapon = null;
             GameEvents.ChangeWeapon();
         }
+        public static int GetAmmo(ScriptableWeapon type)
+        {
+            
+           // GameInventory.instance.inventory.;
+            return 0;
+        }
         //избавляться от оружия не планируется
     }
 }

@@ -7,15 +7,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f8f3cac1b5025b4caedfafc5b552815, type: 3}
-  m_Name: PistolItem
+  m_Script: {fileID: 11500000, guid: 8d8737adf5bf05943925c9e2459065a6, type: 3}
+  m_Name: PistolAmmo
   m_EditorClassIdentifier: 
-  ID: 1
-  unique: 1
-  Name: Pistol
+  ID: 2
+  unique: 0
+  Name: Pistol Ammo
   Description: 
   image: {fileID: 0}
   weaponType: {fileID: 11400000, guid: 07295905c33819d4b92a51f9390e912b, type: 2}
-  ammo: {fileID: 11400000, guid: 0d50cb341e17c9a4084e52ae139325df, type: 2}
