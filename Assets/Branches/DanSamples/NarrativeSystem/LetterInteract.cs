@@ -33,7 +33,7 @@ namespace FragileReflection
         }
         private void manageCollider(bool colBool)
         {
-            col.enabled = colBool;
+            col.enabled = !colBool;
         }
     }
 }
