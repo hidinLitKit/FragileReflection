@@ -7,11 +7,13 @@ namespace FragileReflection
     public class Letter : NarrativeTalker
     {
         public static event System.Action<bool> letterAction;
+        private bool _isActive = false;
         public void letterOpen()
         {
+            _isActive = true;
             GameEvents.SwitchMap("UI");
             letterAction?.Invoke(true);
-            StopAllCoroutines();
+            base.StopAllCoroutines();
             textIndex = 0;
             NarrativeData.instance.letterTextField.text = "";
             StartCoroutine(TypeLine(NarrativeText, NarrativeData.instance.letterTextField));
@@ -20,6 +22,7 @@ namespace FragileReflection
         }
         public void letterClose()
         {
+            _isActive = false;
             GameEvents.SwitchMap("Player");
             letterAction?.Invoke(false);
         }
@@ -43,17 +46,17 @@ namespace FragileReflection
         
         public void buttonNext()
         {
-            if (textIndex == NarrativeText.Count - 1) return;
+            if (textIndex == NarrativeText.Count - 1 || !_isActive) return;
             textIndex++;
-            StopAllCoroutines();
+            base.StopAllCoroutines();
             NarrativeData.instance.letterTextField.text = "";
             StartCoroutine(TypeLine(NarrativeText, NarrativeData.instance.letterTextField));
         }
         public void buttonBack() 
         {
-            if (textIndex == 0) return;
+            if (textIndex == 0 || !_isActive) return;
             textIndex--;
-            StopAllCoroutines();
+            base.StopAllCoroutines();
             NarrativeData.instance.letterTextField.text = "";
             StartCoroutine(TypeLine(NarrativeText, NarrativeData.instance.letterTextField));
         }
