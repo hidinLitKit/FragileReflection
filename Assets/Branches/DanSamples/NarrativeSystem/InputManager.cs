@@ -7,25 +7,46 @@ namespace FragileReflection
 {
     public class InputManager : MonoBehaviour
     {
-        public static NewInput inputActions;
+        public PlayerInput playerInput;
+        [SerializeField] private static PlayerInput _playerInput;
         private void Awake()
         {
-            inputActions = new NewInput();
+            _playerInput = playerInput;
+            GameEvents.SwitchMap("Player");
         }
-        private void Start()
+        private void OnEnable()
         {
-            inputActions.Player.Enable();
+            GameEvents.onMapSwitched += ToogleActionMaps;
+            GameEvents.onMapSwitched += CursorController;
         }
-        public static void ToogleActionMaps(InputActionMap inputMap)
+        private void OnDisable()
         {
-            if (inputMap.enabled) return;
+            GameEvents.onMapSwitched -= ToogleActionMaps;
+            GameEvents.onMapSwitched -= CursorController;
+        }
+        public static void ToogleActionMaps(string inputMap)
+        {
             Debug.Log(inputMap + "enabled");
-            inputActions.Disable();
-            inputMap.Enable();
+            _playerInput.SwitchCurrentActionMap(inputMap);
         }
         public void OnExit(InputValue value)
         {
-            ToogleActionMaps(inputActions.Player);
+            ToogleActionMaps("Player");
+
+        }
+        private void CursorController(string inputMap)
+        {
+            switch(inputMap)
+            {
+                case ("UI"):
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    break;
+                default:
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    break;
+            }
         }
     }
 }

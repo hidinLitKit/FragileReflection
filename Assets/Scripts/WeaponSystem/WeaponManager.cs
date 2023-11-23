@@ -18,6 +18,14 @@ namespace WeaponSystem
             currentWeapon = weapon;
             GameEvents.ChangeWeapon();
         }
+        public static void SwitchWeapon(ScriptableWeapon weapon)
+        {
+            for(int i = 0; i<weapons.Count;i++)
+            {
+                if (weapons[i].WeaponType == weapon) currentWeapon = weapons[i];
+            }
+            GameEvents.ChangeWeapon();
+        }
         public static void AddWeapon(Weapon weapon)
         {
             weapons.Add(weapon);
@@ -31,6 +39,12 @@ namespace WeaponSystem
         {
             currentWeapon = null;
             GameEvents.ChangeWeapon();
+        }
+        public static int GetAmmo(ScriptableWeapon type)
+        {
+            
+           // GameInventory.instance.inventory.;
+            return 0;
         }
         //избавляться от оружия не планируется
     }

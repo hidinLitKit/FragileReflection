@@ -34,13 +34,13 @@ namespace WeaponSystem
             yield return new WaitForSeconds(delay);
             _canShoot = true;
         }
-        public IEnumerator ReloadCD(float delay)
+        public IEnumerator ReloadCD(float delay, int patrons)
         {
             Debug.Log("Reloading started");
             yield return new WaitForSeconds(delay);
             _isReloading = false;
             _canReload = false;
-            _bulletsLeft = WeaponType.Magazine;
+            _bulletsLeft += patrons;
             _canShoot = true;
             Debug.Log("Realoading finished");
         }

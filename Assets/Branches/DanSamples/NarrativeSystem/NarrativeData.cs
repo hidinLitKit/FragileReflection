@@ -6,9 +6,12 @@ using UnityEngine.UI;
 
 namespace FragileReflection
 {
+    [DefaultExecutionOrder(-1)]
     public class NarrativeData : MonoBehaviour
     {
         [HideInInspector] public static NarrativeData instance = null;
+        //[SerializeField] private _monologueUI;
+        // public monologueUI => _monologueUI; //это просто геттер
         [Header("Монолог")]
         public GameObject monologueUI;
         public TextMeshProUGUI monologueTextField;
@@ -17,8 +20,11 @@ namespace FragileReflection
         public Image letterBackGround;
         public TextMeshProUGUI letterTextField;
         public TextMeshProUGUI letterPageCount;
+        public Button letterClose;
+        public Button letterNext;
+        public Button letterPrev;
 
-        void Start ()
+        void Awake ()
         {
             if (instance == null) instance = this;
             else if (instance == this) Destroy(gameObject);

@@ -44,7 +44,10 @@ namespace FragileReflection
                 }
             }
         }
-
+        public int ItemAmmount(int i)
+        {
+            return Container.Items[i].amount;
+        }
 
     }
     [System.Serializable]

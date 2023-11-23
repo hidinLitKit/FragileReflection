@@ -9,15 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62853233c19be6f4fb53a570d225983d, type: 3}
-  m_Name: Inventory
+  m_Script: {fileID: 11500000, guid: 8d8737adf5bf05943925c9e2459065a6, type: 3}
+  m_Name: PistolAmmo
   m_EditorClassIdentifier: 
-  Container:
-    Items:
-    - ID: 0
-      item:
-        Name: freferf
-        ID: 0
-        unique: 0
-      amount: 7
-  database: {fileID: 11400000, guid: f3f6581fb61f6664f94fbc5ad4d20d84, type: 2}
+  ID: 2
+  unique: 0
+  Name: Pistol Ammo
+  Description: 
+  image: {fileID: 0}
+  weaponType: {fileID: 11400000, guid: 07295905c33819d4b92a51f9390e912b, type: 2}
