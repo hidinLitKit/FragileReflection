@@ -26,7 +26,7 @@ namespace FragileReflection
         }
         public static void ToogleActionMaps(string inputMap)
         {
-            Debug.Log(inputMap + "enabled");
+            Debug.Log(inputMap + " enabled");
             _playerInput.SwitchCurrentActionMap(inputMap);
         }
         public void OnExit(InputValue value)

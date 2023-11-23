@@ -45,8 +45,6 @@ namespace FragileReflection
         private float _crouchValue;
 
         private float _inventValue;
-        private bool _isCursorVisible = false;
-        private bool _isCameraControlEnabled = true;
 
         private void Awake()
         {
@@ -63,19 +61,13 @@ namespace FragileReflection
             Debug.Log("Exit");
         }
         public void OnMove(InputValue value)
-        {
-            if (_isCursorVisible)
-                return;
-
+        { 
             _move = value.Get<Vector2>();
             _moving = _move.x != 0 || _move.y != 0;
         }
 
         public void OnLook(InputValue value)
         {
-            if (_isCursorVisible)
-                return;
-
             _look = value.Get<Vector2>();
         }
 
@@ -139,39 +131,7 @@ namespace FragileReflection
 
             if (_inventValue > 0)
             {
-                _isCursorVisible = !_isCursorVisible;
-
-                if (_isCursorVisible)
-                {
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
-
-                    ToggleControls(false);
-                }
-                else
-                {
-                    Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
-
-                    ToggleControls(true);
-                }
-
-            }
-        }
-
-        private void ToggleControls(bool enable)
-        {
-            _isCameraControlEnabled = enable;
-
-            if (!_isCameraControlEnabled)
-            {
-                _camMove.m_Follow = null;
-                _camMove.m_LookAt = null;
-            }
-            else
-            {
-                _camMove.m_Follow = followTransform.transform;
-                _camMove.m_LookAt = followTransform.transform;
+                GameEvents.SwitchMap("UI");
             }
         }
 
