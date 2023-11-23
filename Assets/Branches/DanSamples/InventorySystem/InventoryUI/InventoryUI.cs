@@ -48,7 +48,7 @@ namespace FragileReflection
 
         public void CreateSlots()
         {
-            //_inventorySlots = new List<ItemUI>();
+            _inventorySlots = new List<ItemUI>();
             //пример метода для создания линии слотов предмета (нужно как то доделать)
             for (int i = 0; i < inventory.Container.Items.Count; i++)
             {
@@ -57,6 +57,12 @@ namespace FragileReflection
                 ItemUI itm = new ItemUI(obj, inventory.Container.Items[i]);
                
                 _inventorySlots.Add(itm);
+                ItemUI itm2 = new ItemUI(obj, inventory.Container.Items[i]);
+                _inventorySlots.Add(itm2);
+                ItemUI itm3 = new ItemUI(obj, inventory.Container.Items[i]);
+                _inventorySlots.Add(itm3);
+                ItemUI itm4 = new ItemUI(obj, inventory.Container.Items[i]);
+                _inventorySlots.Add(itm4);
             }
         }
 
@@ -111,7 +117,7 @@ namespace FragileReflection
         {
             // у нас при нажатии на стрелку вправо выбирается следующий предмет то есть
             //_currentItem = _inventorySlots[_currentIndex].inventorySlot;
-            if (_currentIndex < _inventorySlots.Count)
+            if (_currentIndex < _inventorySlots.Count - 1)
             { 
                 _currentIndex++;
                 _currentItem = _inventorySlots[_currentIndex].inventorySlot;
