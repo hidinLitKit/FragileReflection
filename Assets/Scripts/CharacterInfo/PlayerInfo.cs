@@ -11,7 +11,7 @@ namespace FragileReflection
 
         public float Health => health;
 
-        [SerializeField] private GameObject _deathPanel;
+        //[SerializeField] private GameObject _deathPanel;
 
         private Coroutine _healingCoroutine;
         [SerializeField] private float _heal = 2f;
@@ -38,7 +38,7 @@ namespace FragileReflection
 
             if (keyboard != null && keyboard.tabKey.wasPressedThisFrame)
             {
-                _deathPanel.SetActive(false);
+                //_deathPanel.SetActive(false);
                 health = 100f;
             }
 
@@ -63,8 +63,8 @@ namespace FragileReflection
         {
             Debug.Log("Player died!");
 
-            if (_deathPanel != null)
-                _deathPanel.SetActive(true);
+            //if (_deathPanel != null)
+               //_deathPanel.SetActive(true);
         }
 
         private void StartHealing()
