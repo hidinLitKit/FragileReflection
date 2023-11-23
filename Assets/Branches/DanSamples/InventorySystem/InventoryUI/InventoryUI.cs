@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
+
 namespace FragileReflection
 {   
     public class ItemUI
@@ -15,6 +17,7 @@ namespace FragileReflection
             inventorySlot = inv;
         }
     }
+
     public class InventoryUI : MonoBehaviour
     {
         //С помощью этого скрипта мы перемещаемся внутри инвентаря и взаимодействуем с предметами
@@ -28,19 +31,24 @@ namespace FragileReflection
 
         [Header("Настройки UI")] //здесь настраиваются позиции всех слотов инвентаря
         public GameObject inventoryPrefab; //Префаб слота инвентаря на UI 
-        public int X_START;
-        public int Y_START;
-        public int X_SPACE_BETWEEN_ITEM;
-        public int NUMBER_OF_COLUMN;
+        public float X_START;
+        public float Y_START;
+        public int X_SPACE_BETWEEN_ITEMS;
         public int Y_SPACE_BETWEEN_ITEMS;
+        public int NUMBER_OF_COLUMN;
+
+        //[Header("чето")]
+        //public GameObject itemPrefab;
 
         private void Awake()
         {
             _database = inventory.database;
+            CreateSlots();
         }
+
         public void CreateSlots()
         {
-            _inventorySlots = new List<ItemUI>();
+            //_inventorySlots = new List<ItemUI>();
             //пример метода для создания линии слотов предмета (нужно как то доделать)
             for (int i = 0; i < inventory.Container.Items.Count; i++)
             {
@@ -51,6 +59,7 @@ namespace FragileReflection
                 _inventorySlots.Add(itm);
             }
         }
+
         public void UpdateSlots()
         {
             //Обновляет информацию на UI 
@@ -72,34 +81,55 @@ namespace FragileReflection
                 }
             }
         }
+
         //Гайд как вывести на экран любой предмет из инвентаря
         void howToDisplayItem()
         {
             GameObject slot; //это типа слот UI
             InventorySlot item = inventory.Container.Items[0]; //Мы взяли тут просто первый предмет который есть
             // закомментил т.к. генерит ошибку, я не назначил slot
-           // slot.GetComponent<Image>().sprite = _database.GetItem[item.item.ID].image; 
+            //slot.GetComponent<Image>().sprite = _database.GetItem[item.item.ID].image; 
         }
+
         void useItem()
         {
             //если мы кликнули по кнопке вызывается этот метод
             _database.GetItem[ _currentItem.item.ID].Use();
         }
+
         void examineItem()
         {
             _database.GetItem[_currentItem.item.ID].Examine();
         }
+
         public Vector3 GetPosition(int i)
         {
-            return new Vector3(X_START + (X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN)), Y_START + (-Y_SPACE_BETWEEN_ITEMS * (i / NUMBER_OF_COLUMN)), 0f);
+            return new Vector3(X_START + (X_SPACE_BETWEEN_ITEMS * (i % NUMBER_OF_COLUMN)), Y_START + (-Y_SPACE_BETWEEN_ITEMS * (i / NUMBER_OF_COLUMN)), 0f);
         }
-        void moveRight()
+
+        public void moveRight()
         {
             // у нас при нажатии на стрелку вправо выбирается следующий предмет то есть
-            _currentItem = _inventorySlots[_currentIndex].inventorySlot;
+            //_currentItem = _inventorySlots[_currentIndex].inventorySlot;
+            if (_currentIndex < _inventorySlots.Count)
+            { 
+                _currentIndex++;
+                _currentItem = _inventorySlots[_currentIndex].inventorySlot;
+
+                Debug.Log("Moved Right");
+            }
+
         }
-        void moveLeft()
+
+        public void moveLeft()
         {
+            if (_currentIndex > 0)
+            {
+                _currentIndex--;
+                _currentItem = _inventorySlots[_currentIndex].inventorySlot;
+
+                Debug.Log("Moved Left");
+            }
 
         }
 
