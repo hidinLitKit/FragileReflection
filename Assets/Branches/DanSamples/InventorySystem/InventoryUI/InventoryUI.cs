@@ -44,6 +44,7 @@ namespace FragileReflection
         {
             _database = inventory.database;
             CreateSlots();
+            inventoryPrefab.SetActive(false);
         }
 
         public void CreateSlots()
@@ -54,13 +55,19 @@ namespace FragileReflection
             {
                 var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
                 obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                ItemUI itm = new ItemUI(obj, inventory.Container.Items[i]);
-               
+
+                // либо у меня vs code вчера устал уже, либо я что-то как-то починил
+                // но если добавить всего один элемент, а другие закоменить, то может такой баг вылезти
+                // также надо поставить на MoveRight точку останова
+                ItemUI itm = new ItemUI(obj, inventory.Container.Items[i]);  
                 _inventorySlots.Add(itm);
+
                 ItemUI itm2 = new ItemUI(obj, inventory.Container.Items[i]);
                 _inventorySlots.Add(itm2);
+
                 ItemUI itm3 = new ItemUI(obj, inventory.Container.Items[i]);
                 _inventorySlots.Add(itm3);
+
                 ItemUI itm4 = new ItemUI(obj, inventory.Container.Items[i]);
                 _inventorySlots.Add(itm4);
             }
@@ -121,9 +128,13 @@ namespace FragileReflection
             { 
                 _currentIndex++;
                 _currentItem = _inventorySlots[_currentIndex].inventorySlot;
+                //UpdateSlots();
+                UpdateObjectPosition("Highlight", 340, true);
 
-                Debug.Log("Moved Right");
+                Debug.Log("Moved Right." + " IndexItem = " + _currentIndex);
             }
+            else
+                Debug.Log("You have reached end of inventory!");
 
         }
 
@@ -133,12 +144,44 @@ namespace FragileReflection
             {
                 _currentIndex--;
                 _currentItem = _inventorySlots[_currentIndex].inventorySlot;
+                //UpdateSlots();
+                UpdateObjectPosition("Highlight", 340, false);
 
-                Debug.Log("Moved Left");
+                Debug.Log("Moved Left." + " IndexItem = " + _currentIndex);
             }
+            else
+                Debug.Log("You reached beginning of inventory!");
 
         }
 
+        public void UpdateObjectPosition(string objectName, float newValue, bool v)
+        {
+            GameObject targetObject = GameObject.Find(objectName);
+
+            if (targetObject != null)
+            {
+                Transform objectTransform = targetObject.transform;
+
+                float currentRightValue = objectTransform.position.x;
+                float currentLeftValue = objectTransform.position.x;
+
+                if (v)
+                {
+                    float newRightValue = currentRightValue + newValue;
+                    float newLeftValue = currentLeftValue + newValue;
+                    objectTransform.position = new Vector3(newRightValue, objectTransform.position.y, objectTransform.position.z);
+                }
+                else {
+                    float newRightValue = currentRightValue - newValue;
+                    float newLeftValue = currentLeftValue - newValue;
+                    objectTransform.position = new Vector3(newRightValue, objectTransform.position.y, objectTransform.position.z);
+                }
+            }
+            else
+            {
+                Debug.LogError("Object with name '" + objectName + "' not found.");
+            }
+        }
 
 
     }
