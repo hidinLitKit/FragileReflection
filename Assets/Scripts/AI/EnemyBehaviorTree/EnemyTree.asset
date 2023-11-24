@@ -43,12 +43,12 @@ MonoBehaviour:
   blackboard:
     target: {fileID: 0}
     moveToPosition: {x: 0, y: 0, z: 0}
-    moveSpeed: 1
-    chaseSpeed: 3
-    attackDistance: 1.8
+    moveSpeed: 0
+    chaseSpeed: 0
+    attackDistance: 0
     wasStuggled: 0
-  viewPosition: {x: 332, y: -267, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: 33, y: -162, z: 0}
+  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
   references:
     version: 2
     RefIds:
@@ -58,7 +58,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d2ec202fa89b7e441995737171960d17
-        position: {x: 60, y: 831}
+        position: {x: 60.000008, y: 829.4791}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
