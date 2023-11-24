@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
+using System.Security.AccessControl;
 
 namespace FragileReflection
-{   
+{
+    [System.Serializable]
     public class ItemUI
     {
         public GameObject slot;
@@ -23,58 +25,58 @@ namespace FragileReflection
         //С помощью этого скрипта мы перемещаемся внутри инвентаря и взаимодействуем с предметами
         [Header("Поля инвентаря")]
         public InventoryObject inventory; //Ссылка на инвентарь
-        private ItemDatabaseObject _database; //Датабаза всех предметов в игре - доступ к предмету по ID - содержит имя, описание, картинку
+        [SerializeField]private ItemDatabaseObject _database; //Датабаза всех предметов в игре - доступ к предмету по ID - содержит имя, описание, картинку
         private InventorySlot _currentItem; //текущий выбранный предмет
         private int _currentIndex;
-        private List<ItemUI> _inventorySlots; //отображение инвентаря UI
+        [SerializeField] private List<ItemUI> _inventorySlots; //отображение инвентаря UI
         //GameObject здесь - это сам объект UI
 
-        [Header("Настройки UI")] //здесь настраиваются позиции всех слотов инвентаря
-        public GameObject inventoryPrefab; //Префаб слота инвентаря на UI 
-        public float X_START;
-        public float Y_START;
-        public int X_SPACE_BETWEEN_ITEMS;
-        public int Y_SPACE_BETWEEN_ITEMS;
-        public int NUMBER_OF_COLUMN;
+        //[Header("Настройки UI")] //здесь настраиваются позиции всех слотов инвентаря
+        //public GameObject slotsPrefab; //Префаб слота инвентаря на UI 
+        //public float X_START;
+        //public float Y_START;
+        //public int X_SPACE_BETWEEN_ITEMS;
+        //public int Y_SPACE_BETWEEN_ITEMS;
+        //public int NUMBER_OF_COLUMN;
 
-        //[Header("чето")]
-        //public GameObject itemPrefab;
 
         private void Awake()
         {
             _database = inventory.database;
-            CreateSlots();
-            inventoryPrefab.SetActive(false);
+            //CreateSlots();
+            //slotsPrefab.SetActive(false);
             UpdateObjectPosition("Highlight", 0);
+            UpdateSlots();
         }
 
         public void CreateSlots()
         {
-            _inventorySlots = new List<ItemUI>();
-            //пример метода для создания линии слотов предмета (нужно как то доделать)
-            for (int i = 0; i < inventory.Container.Items.Count; i++)
-            {
-                var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
-                obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+            //_inventorySlots = new List<ItemUI>();
+            ////пример метода для создания линии слотов предмета (нужно как то доделать)
+            //for (int i = 0; i < inventory.Container.Items.Count; i++)
+            //{
+            //    var obj = Instantiate(slotsPrefab, Vector3.zero, Quaternion.identity, transform);
 
-                // либо у меня vs code вчера устал уже, либо я что-то как-то починил
-                // но если добавить всего один элемент, а другие закоменить, то может такой баг вылезти
-                // также надо поставить на MoveRight точку останова
-                ItemUI itm = new ItemUI(obj, inventory.Container.Items[i]);  
-                _inventorySlots.Add(itm);
+            //    //obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
-                ItemUI itm2 = new ItemUI(obj, inventory.Container.Items[i]);
-                _inventorySlots.Add(itm2);
+            //    // либо у меня vs code вчера устал уже, либо я что-то как-то починил
+            //    // но если добавить всего один элемент, а другие закоменить, то может такой баг вылезти
+            //    // также надо поставить на MoveRight точку останова
+            //    ItemUI itm = new ItemUI(obj, inventory.Container.Items[i]);  
+            //    _inventorySlots.Add(itm);
 
-                ItemUI itm3 = new ItemUI(obj, inventory.Container.Items[i]);
-                _inventorySlots.Add(itm3);
+            //    ItemUI itm2 = new ItemUI(obj, inventory.Container.Items[i]);
+            //    _inventorySlots.Add(itm2);
 
-                ItemUI itm4 = new ItemUI(obj, inventory.Container.Items[i]);
-                _inventorySlots.Add(itm4);
+            //    ItemUI itm3 = new ItemUI(obj, inventory.Container.Items[i]);
+            //    _inventorySlots.Add(itm3);
 
-                ItemUI itm5 = new ItemUI(obj, inventory.Container.Items[i]);
-                _inventorySlots.Add(itm5);
-            }
+            //    ItemUI itm4 = new ItemUI(obj, inventory.Container.Items[i]);
+            //    _inventorySlots.Add(itm4);
+
+            //    ItemUI itm5 = new ItemUI(obj, inventory.Container.Items[i]);
+            //    _inventorySlots.Add(itm5);
+            //}
         }
 
         public void UpdateSlots()
@@ -84,10 +86,11 @@ namespace FragileReflection
             {
                 if (_slot.inventorySlot.ID >= 0)
                 {
+                    Debug.Log("aboba");
                     //Вот так в UI выводится инфа о предмете, но GetChild как то не серьезно
-                    _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.GetItem[_slot.inventorySlot.item.ID].image;
-                    _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
-                    _slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = _slot.inventorySlot.amount == 1 ? "" : _slot.inventorySlot.amount.ToString("n0");
+                    _slot.slot.GetComponent<Image>().sprite = _database.GetItem[_slot.inventorySlot.item.ID].image;
+                    _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(0, 0, 0, 1);
+                    //_slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = _slot.inventorySlot.amount == 1 ? "" : _slot.inventorySlot.amount.ToString("n0");
                 }
                 else
                 {
@@ -119,10 +122,10 @@ namespace FragileReflection
             _database.GetItem[_currentItem.item.ID].Examine();
         }
 
-        public Vector3 GetPosition(int i)
-        {
-            return new Vector3(X_START + (X_SPACE_BETWEEN_ITEMS * (i % NUMBER_OF_COLUMN)), Y_START + (-Y_SPACE_BETWEEN_ITEMS * (i / NUMBER_OF_COLUMN)), 0f);
-        }
+        //public Vector3 GetPosition(int i)
+        //{
+        //    return new Vector3(X_START + (X_SPACE_BETWEEN_ITEMS * (i % NUMBER_OF_COLUMN)), Y_START + (-Y_SPACE_BETWEEN_ITEMS * (i / NUMBER_OF_COLUMN)), 0f);
+        //}
 
         public void moveRight()
         {
@@ -134,7 +137,7 @@ namespace FragileReflection
                 _currentItem = _inventorySlots[_currentIndex].inventorySlot;
                 UpdateObjectPosition("Highlight", _currentIndex);         
 
-                Debug.Log("Moved Right." + " IndexItem = " + _currentIndex);
+                Debug.Log("Moved Right." + " Index item = " + _currentIndex);
             }
             else
                 Debug.Log("You have reached end of inventory!");
@@ -149,7 +152,7 @@ namespace FragileReflection
                 _currentItem = _inventorySlots[_currentIndex].inventorySlot;
                 UpdateObjectPosition("Highlight", _currentIndex);
 
-                Debug.Log("Moved Left." + " IndexItem = " + _currentIndex);
+                Debug.Log("Moved Left." + " Index item = " + _currentIndex);
             }
             else
                 Debug.Log("You reached beginning of inventory!");
@@ -161,10 +164,10 @@ namespace FragileReflection
             GameObject targetObject = GameObject.Find(objectName);
             string slotName;
             
-            if (curIndex + 1 <= 4)
+            if (curIndex < 5)
                 slotName = "Slot " + (curIndex + 1);
             else {
-                slotName = "Slot " + (4);
+                slotName = "Slot " + (5);
                 //тут будет типо сдвиг кратинок предметов, но пока это просто пнг статичные
             }
             GameObject slotObject = GameObject.Find(slotName);
