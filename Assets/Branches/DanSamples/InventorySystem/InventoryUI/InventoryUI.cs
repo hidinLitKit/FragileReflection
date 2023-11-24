@@ -45,6 +45,7 @@ namespace FragileReflection
             _database = inventory.database;
             CreateSlots();
             inventoryPrefab.SetActive(false);
+            UpdateObjectPosition("Highlight", 0);
         }
 
         public void CreateSlots()
@@ -128,8 +129,7 @@ namespace FragileReflection
             { 
                 _currentIndex++;
                 _currentItem = _inventorySlots[_currentIndex].inventorySlot;
-                //UpdateSlots();
-                UpdateObjectPosition("Highlight", 340, true);
+                UpdateObjectPosition("Highlight", _currentIndex);         
 
                 Debug.Log("Moved Right." + " IndexItem = " + _currentIndex);
             }
@@ -144,8 +144,7 @@ namespace FragileReflection
             {
                 _currentIndex--;
                 _currentItem = _inventorySlots[_currentIndex].inventorySlot;
-                //UpdateSlots();
-                UpdateObjectPosition("Highlight", 340, false);
+                UpdateObjectPosition("Highlight", _currentIndex);
 
                 Debug.Log("Moved Left." + " IndexItem = " + _currentIndex);
             }
@@ -154,28 +153,21 @@ namespace FragileReflection
 
         }
 
-        public void UpdateObjectPosition(string objectName, float newValue, bool v)
+        public void UpdateObjectPosition(string objectName, int curIndex)
         {
             GameObject targetObject = GameObject.Find(objectName);
+
+            string slotName = "Slot " + (curIndex + 1);
+            GameObject slotObject = GameObject.Find(slotName);
 
             if (targetObject != null)
             {
                 Transform objectTransform = targetObject.transform;
+                Transform slotTransform = slotObject.transform;
 
-                float currentRightValue = objectTransform.position.x;
-                float currentLeftValue = objectTransform.position.x;
+                float currentValue = slotTransform.position.x;
 
-                if (v)
-                {
-                    float newRightValue = currentRightValue + newValue;
-                    float newLeftValue = currentLeftValue + newValue;
-                    objectTransform.position = new Vector3(newRightValue, objectTransform.position.y, objectTransform.position.z);
-                }
-                else {
-                    float newRightValue = currentRightValue - newValue;
-                    float newLeftValue = currentLeftValue - newValue;
-                    objectTransform.position = new Vector3(newRightValue, objectTransform.position.y, objectTransform.position.z);
-                }
+                objectTransform.position = new Vector3(currentValue, objectTransform.position.y, objectTransform.position.z);
             }
             else
             {
