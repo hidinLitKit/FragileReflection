@@ -20,24 +20,24 @@ namespace FragileReflection
 
     public class InventoryUI : MonoBehaviour
     {
-        //С помощью этого скрипта мы перемещаемся внутри инвентаря и взаимодействуем с предметами
-        [Header("Поля инвентаря")]
-        public InventoryObject inventory; //Ссылка на инвентарь
-        private ItemDatabaseObject _database; //Датабаза всех предметов в игре - доступ к предмету по ID - содержит имя, описание, картинку
-        private InventorySlot _currentItem; //текущий выбранный предмет
+        //РЎ РїРѕРјРѕС‰СЊСЋ СЌС‚РѕРіРѕ СЃРєСЂРёРїС‚Р° РјС‹ РїРµСЂРµРјРµС‰Р°РµРјСЃСЏ РІРЅСѓС‚СЂРё РёРЅРІРµРЅС‚Р°СЂСЏ Рё РІР·Р°РёРјРѕРґРµР№СЃС‚РІСѓРµРј СЃ РїСЂРµРґРјРµС‚Р°РјРё
+        [Header("РџРѕР»СЏ РёРЅРІРµРЅС‚Р°СЂСЏ")]
+        public InventoryObject inventory; //РЎСЃС‹Р»РєР° РЅР° РёРЅРІРµРЅС‚Р°СЂСЊ
+        private ItemDatabaseObject _database; //Р”Р°С‚Р°Р±Р°Р·Р° РІСЃРµС… РїСЂРµРґРјРµС‚РѕРІ РІ РёРіСЂРµ - РґРѕСЃС‚СѓРї Рє РїСЂРµРґРјРµС‚Сѓ РїРѕ ID - СЃРѕРґРµСЂР¶РёС‚ РёРјСЏ, РѕРїРёСЃР°РЅРёРµ, РєР°СЂС‚РёРЅРєСѓ
+        private InventorySlot _currentItem; //С‚РµРєСѓС‰РёР№ РІС‹Р±СЂР°РЅРЅС‹Р№ РїСЂРµРґРјРµС‚
         private int _currentIndex;
-        private List<ItemUI> _inventorySlots; //отображение инвентаря UI
-        //GameObject здесь - это сам объект UI
+        private List<ItemUI> _inventorySlots; //РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РёРЅРІРµРЅС‚Р°СЂСЏ UI
+        //GameObject Р·РґРµСЃСЊ - СЌС‚Рѕ СЃР°Рј РѕР±СЉРµРєС‚ UI
 
-        [Header("Настройки UI")] //здесь настраиваются позиции всех слотов инвентаря
-        public GameObject inventoryPrefab; //Префаб слота инвентаря на UI 
+        [Header("РќР°СЃС‚СЂРѕР№РєРё UI")] //Р·РґРµСЃСЊ РЅР°СЃС‚СЂР°РёРІР°СЋС‚СЃСЏ РїРѕР·РёС†РёРё РІСЃРµС… СЃР»РѕС‚РѕРІ РёРЅРІРµРЅС‚Р°СЂСЏ
+        public GameObject inventoryPrefab; //РџСЂРµС„Р°Р± СЃР»РѕС‚Р° РёРЅРІРµРЅС‚Р°СЂСЏ РЅР° UI 
         public float X_START;
         public float Y_START;
         public int X_SPACE_BETWEEN_ITEMS;
         public int Y_SPACE_BETWEEN_ITEMS;
         public int NUMBER_OF_COLUMN;
 
-        //[Header("чето")]
+        //[Header("С‡РµС‚Рѕ")]
         //public GameObject itemPrefab;
 
         private void Awake()
@@ -51,15 +51,15 @@ namespace FragileReflection
         public void CreateSlots()
         {
             _inventorySlots = new List<ItemUI>();
-            //пример метода для создания линии слотов предмета (нужно как то доделать)
+            //РїСЂРёРјРµСЂ РјРµС‚РѕРґР° РґР»СЏ СЃРѕР·РґР°РЅРёСЏ Р»РёРЅРёРё СЃР»РѕС‚РѕРІ РїСЂРµРґРјРµС‚Р° (РЅСѓР¶РЅРѕ РєР°Рє С‚Рѕ РґРѕРґРµР»Р°С‚СЊ)
             for (int i = 0; i < inventory.Container.Items.Count; i++)
             {
                 var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
                 obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
-                // либо у меня vs code вчера устал уже, либо я что-то как-то починил
-                // но если добавить всего один элемент, а другие закоменить, то может такой баг вылезти
-                // также надо поставить на MoveRight точку останова
+                // Р»РёР±Рѕ Сѓ РјРµРЅСЏ vs code РІС‡РµСЂР° СѓСЃС‚Р°Р» СѓР¶Рµ, Р»РёР±Рѕ СЏ С‡С‚Рѕ-С‚Рѕ РєР°Рє-С‚Рѕ РїРѕС‡РёРЅРёР»
+                // РЅРѕ РµСЃР»Рё РґРѕР±Р°РІРёС‚СЊ РІСЃРµРіРѕ РѕРґРёРЅ СЌР»РµРјРµРЅС‚, Р° РґСЂСѓРіРёРµ Р·Р°РєРѕРјРµРЅРёС‚СЊ, С‚Рѕ РјРѕР¶РµС‚ С‚Р°РєРѕР№ Р±Р°Рі РІС‹Р»РµР·С‚Рё
+                // С‚Р°РєР¶Рµ РЅР°РґРѕ РїРѕСЃС‚Р°РІРёС‚СЊ РЅР° MoveRight С‚РѕС‡РєСѓ РѕСЃС‚Р°РЅРѕРІР°
                 ItemUI itm = new ItemUI(obj, inventory.Container.Items[i]);  
                 _inventorySlots.Add(itm);
 
@@ -71,24 +71,27 @@ namespace FragileReflection
 
                 ItemUI itm4 = new ItemUI(obj, inventory.Container.Items[i]);
                 _inventorySlots.Add(itm4);
+
+                ItemUI itm5 = new ItemUI(obj, inventory.Container.Items[i]);
+                _inventorySlots.Add(itm5);
             }
         }
 
         public void UpdateSlots()
         {
-            //Обновляет информацию на UI 
+            //РћР±РЅРѕРІР»СЏРµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ РЅР° UI 
             foreach(ItemUI _slot in _inventorySlots)
             {
                 if (_slot.inventorySlot.ID >= 0)
                 {
-                    //Вот так в UI выводится инфа о предмете, но GetChild как то не серьезно
+                    //Р’РѕС‚ С‚Р°Рє РІ UI РІС‹РІРѕРґРёС‚СЃСЏ РёРЅС„Р° Рѕ РїСЂРµРґРјРµС‚Рµ, РЅРѕ GetChild РєР°Рє С‚Рѕ РЅРµ СЃРµСЂСЊРµР·РЅРѕ
                     _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.GetItem[_slot.inventorySlot.item.ID].image;
                     _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
                     _slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = _slot.inventorySlot.amount == 1 ? "" : _slot.inventorySlot.amount.ToString("n0");
                 }
                 else
                 {
-                    //это нам не подходит, у нас вообще все слоты на любой момент времени будут иметь предмет, не будет такого что там будет ID = -1
+                    //СЌС‚Рѕ РЅР°Рј РЅРµ РїРѕРґС…РѕРґРёС‚, Сѓ РЅР°СЃ РІРѕРѕР±С‰Рµ РІСЃРµ СЃР»РѕС‚С‹ РЅР° Р»СЋР±РѕР№ РјРѕРјРµРЅС‚ РІСЂРµРјРµРЅРё Р±СѓРґСѓС‚ РёРјРµС‚СЊ РїСЂРµРґРјРµС‚, РЅРµ Р±СѓРґРµС‚ С‚Р°РєРѕРіРѕ С‡С‚Рѕ С‚Р°Рј Р±СѓРґРµС‚ ID = -1
                     _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
                     _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0);
                     _slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = "";
@@ -96,18 +99,18 @@ namespace FragileReflection
             }
         }
 
-        //Гайд как вывести на экран любой предмет из инвентаря
+        //Р“Р°Р№Рґ РєР°Рє РІС‹РІРµСЃС‚Рё РЅР° СЌРєСЂР°РЅ Р»СЋР±РѕР№ РїСЂРµРґРјРµС‚ РёР· РёРЅРІРµРЅС‚Р°СЂСЏ
         void howToDisplayItem()
         {
-            GameObject slot; //это типа слот UI
-            InventorySlot item = inventory.Container.Items[0]; //Мы взяли тут просто первый предмет который есть
-            // закомментил т.к. генерит ошибку, я не назначил slot
+            GameObject slot; //СЌС‚Рѕ С‚РёРїР° СЃР»РѕС‚ UI
+            InventorySlot item = inventory.Container.Items[0]; //РњС‹ РІР·СЏР»Рё С‚СѓС‚ РїСЂРѕСЃС‚Рѕ РїРµСЂРІС‹Р№ РїСЂРµРґРјРµС‚ РєРѕС‚РѕСЂС‹Р№ РµСЃС‚СЊ
+            // Р·Р°РєРѕРјРјРµРЅС‚РёР» С‚.Рє. РіРµРЅРµСЂРёС‚ РѕС€РёР±РєСѓ, СЏ РЅРµ РЅР°Р·РЅР°С‡РёР» slot
             //slot.GetComponent<Image>().sprite = _database.GetItem[item.item.ID].image; 
         }
 
         void useItem()
         {
-            //если мы кликнули по кнопке вызывается этот метод
+            //РµСЃР»Рё РјС‹ РєР»РёРєРЅСѓР»Рё РїРѕ РєРЅРѕРїРєРµ РІС‹Р·С‹РІР°РµС‚СЃСЏ СЌС‚РѕС‚ РјРµС‚РѕРґ
             _database.GetItem[ _currentItem.item.ID].Use();
         }
 
@@ -123,7 +126,7 @@ namespace FragileReflection
 
         public void moveRight()
         {
-            // у нас при нажатии на стрелку вправо выбирается следующий предмет то есть
+            // Сѓ РЅР°СЃ РїСЂРё РЅР°Р¶Р°С‚РёРё РЅР° СЃС‚СЂРµР»РєСѓ РІРїСЂР°РІРѕ РІС‹Р±РёСЂР°РµС‚СЃСЏ СЃР»РµРґСѓСЋС‰РёР№ РїСЂРµРґРјРµС‚ С‚Рѕ РµСЃС‚СЊ
             //_currentItem = _inventorySlots[_currentIndex].inventorySlot;
             if (_currentIndex < _inventorySlots.Count - 1)
             { 
@@ -153,11 +156,17 @@ namespace FragileReflection
 
         }
 
-        public void UpdateObjectPosition(string objectName, int curIndex)
+        private void UpdateObjectPosition(string objectName, int curIndex)
         {
             GameObject targetObject = GameObject.Find(objectName);
-
-            string slotName = "Slot " + (curIndex + 1);
+            string slotName;
+            
+            if (curIndex + 1 <= 4)
+                slotName = "Slot " + (curIndex + 1);
+            else {
+                slotName = "Slot " + (4);
+                //С‚СѓС‚ Р±СѓРґРµС‚ С‚РёРїРѕ СЃРґРІРёРі РєСЂР°С‚РёРЅРѕРє РїСЂРµРґРјРµС‚РѕРІ, РЅРѕ РїРѕРєР° СЌС‚Рѕ РїСЂРѕСЃС‚Рѕ РїРЅРі СЃС‚Р°С‚РёС‡РЅС‹Рµ
+            }
             GameObject slotObject = GameObject.Find(slotName);
 
             if (targetObject != null)
