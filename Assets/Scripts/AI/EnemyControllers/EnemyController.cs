@@ -4,75 +4,92 @@ using System.Collections.Generic;
 using TheKiwiCoder;
 using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [ExecuteInEditMode]
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private EnemyAttackDetector attackArea;
-
     public Transform[] patrolEndpoints;
-    public Animator animator;
-    public Transform player;
-    public float attackDamage;
-    public float viewRadius;
-    public float viewAngle;
-    public float height;
-    public float attackDistance;
-    public float attackStoppingDistance = 1f;
-    public float moveSpeed;
-    public float chaseSpeed;
-    public bool stuggled = false;
-    [SerializeField] private float speedRotation;
-    [SerializeField] private BehaviourTree tree;
 
-    Mesh mesh;
+    [Header("Enemy settings")]
+    [SerializeField] private EnemyConfig config;
+
+    [Header("Enemy detecting zone settings")]
+    [SerializeField] private float _height;
+    [SerializeField] private float _viewRadius;
+    [SerializeField] private float _viewAngle;
     [SerializeField] private Color meshColor;
 
-    public int scanFrequency = 30;
-    public float scanDelay = 5f;
-    public LayerMask layers;
-    public LayerMask obstacleLayers;
+    [Header("Need component")]
+    public Animator animator;
+    [SerializeField] private BehaviourTree tree;
 
-    Collider[] colliders = new Collider[10];
-    public List<GameObject> Objects = new List<GameObject>();
-    int count;
-    float scanInterval;
-    float scanTimer;
+    [HideInInspector]
+    public Transform player;
+    [HideInInspector]
+    public bool stuggled = false;
+
+    
+    private float _attackDamage;
+    private float _attackDistance;
+    private float _moveSpeed;
+    private float _chaseSpeed;
+
+    private EnemyAttackDetector _attackArea;
+
+    private Mesh _mesh;
+
+    private int scanFrequency = 30;
+    private float scanDelay = 5f;
+
+    private Collider[] _colliders = new Collider[10];
+    private List<GameObject> _Objects = new List<GameObject>();
+    private float _scanInterval;
+    private float _scanTimer;
+
+    private void Awake()
+    {
+        SetConfigSettings();
+    }
 
     private void Start()
     {
+        _attackArea = GetComponent<EnemyAttackDetector>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        tree.blackboard.chaseSpeed = chaseSpeed;
-        tree.blackboard.moveSpeed = moveSpeed;
-        tree.blackboard.attackDistance = attackStoppingDistance;
 
-        scanInterval = 1.0f / scanFrequency;
+        if (animator == null)
+            Debug.LogWarning("Enemy controller: have not animator");
+        if (tree == null)
+            Debug.LogWarning("Enemy controller: have not tree");
+
+        tree.blackboard.chaseSpeed = _chaseSpeed;
+        tree.blackboard.moveSpeed = _moveSpeed;
+        tree.blackboard.attackDistance = _attackDistance;
+
+        _scanInterval = 1.0f / scanFrequency;
     }
 
     private void Update()
     {
-        scanTimer -= Time.deltaTime;
-        if(scanTimer < 0)
+        _scanTimer -= Time.deltaTime;
+        if(_scanTimer < 0)
         {
-            scanTimer += scanInterval;
+            _scanTimer += _scanInterval;
             Scan();
         }
     }
 
     private void Scan()
     {
-        count = Physics.OverlapSphereNonAlloc(transform.position, viewRadius, colliders, layers, QueryTriggerInteraction.Collide);
+        int count = Physics.OverlapSphereNonAlloc(transform.position, _viewRadius, _colliders, config.playerLayer, QueryTriggerInteraction.Collide);
 
-        Objects.Clear();
+        _Objects.Clear();
         for(int i = 0; i<count; i++)
         {
-            GameObject obj = colliders[i].gameObject;
+            GameObject obj = _colliders[i].gameObject;
             if(IsInSight(obj))
             {
                 DetectPlayer();
-            }
-                
+            } 
         }
     }
 
@@ -87,18 +104,18 @@ public class EnemyController : MonoBehaviour
         Vector3 dest = obj.transform.position;
         Vector3 direction = dest - origin;
 
-        if(direction.y < 0 || direction.y > height)
+        if(direction.y < 0 || direction.y > _height)
             return false;
 
         direction.y = 0;
         float deltaAngle = Vector3.Angle(direction, transform.forward);
-        if(deltaAngle > viewAngle)
+        if(deltaAngle > _viewAngle)
             return false;
 
-        origin.y += height / 2;
+        origin.y += _height / 2;
         dest.y = origin.y;
 
-        if(Physics.Linecast(origin, dest, obstacleLayers))
+        if(Physics.Linecast(origin, dest, config.obstacleLayers))
             return false;
 
         return true;
@@ -106,22 +123,22 @@ public class EnemyController : MonoBehaviour
 
     public void AttackPlayer()
     {
-        if(attackArea.hasAttacked)
+        if(_attackArea.hasAttacked)
         {
             IDamagable damage = player.gameObject.GetComponent<IDamagable>();
-            damage.TakeDamage(attackDamage);
-            Debug.Log($"Take damage {attackDamage}");
+            damage.TakeDamage(_attackDamage);
+            Debug.Log($"Take damage {_attackDamage}");
         }
     }
 
     public bool CanSee()
     {
-        return Objects.Count>0;
+        return _Objects.Count>0;
     }
 
     public bool CanAttackPlayer()
     {
-        bool canAttack = (Objects.Count > 0 && (Vector3.Distance(transform.position, Objects[0].transform.position) <= attackDistance));
+        bool canAttack = (_Objects.Count > 0 && (Vector3.Distance(transform.position, _Objects[0].transform.position) <= _attackDistance));
         return canAttack;
     }
 
@@ -138,12 +155,12 @@ public class EnemyController : MonoBehaviour
         int[] triangles = new int[numVertices];
 
         Vector3 bottomCenter = Vector3.zero;
-        Vector3 bottomLeft = Quaternion.Euler(0, -viewAngle, 0) * Vector3.forward * viewRadius;
-        Vector3 bottomRight = Quaternion.Euler(0, viewAngle, 0) * Vector3.forward * viewRadius;
+        Vector3 bottomLeft = Quaternion.Euler(0, -_viewAngle, 0) * Vector3.forward * _viewRadius;
+        Vector3 bottomRight = Quaternion.Euler(0, _viewAngle, 0) * Vector3.forward * _viewRadius;
 
-        Vector3 topCenter = bottomCenter + Vector3.up * height;
-        Vector3 topLeft = bottomLeft + Vector3.up * height;
-        Vector3 topRight = bottomRight + Vector3.up * height;
+        Vector3 topCenter = bottomCenter + Vector3.up * _height;
+        Vector3 topLeft = bottomLeft + Vector3.up * _height;
+        Vector3 topRight = bottomRight + Vector3.up * _height;
 
         #region meshCalc
         int vert = 0;
@@ -164,15 +181,15 @@ public class EnemyController : MonoBehaviour
         vertices[vert++] = bottomRight;
         vertices[vert++] = bottomCenter;
 
-        float currentAngle = -viewAngle;
-        float deltaAngle = (viewAngle * 2) / segments;
+        float currentAngle = -_viewAngle;
+        float deltaAngle = (_viewAngle * 2) / segments;
         for(int i = 0; i< segments; i++)
         {
-            bottomLeft = Quaternion.Euler(0, currentAngle, 0) * Vector3.forward * viewRadius;
-            bottomRight = Quaternion.Euler(0, currentAngle + deltaAngle, 0) * Vector3.forward * viewRadius;
+            bottomLeft = Quaternion.Euler(0, currentAngle, 0) * Vector3.forward * _viewRadius;
+            bottomRight = Quaternion.Euler(0, currentAngle + deltaAngle, 0) * Vector3.forward * _viewRadius;
 
-            topRight = bottomRight + Vector3.up * height;
-            topLeft = bottomLeft + Vector3.up * height;
+            topRight = bottomRight + Vector3.up * _height;
+            topLeft = bottomLeft + Vector3.up * _height;
 
             vertices[vert++] = bottomLeft;
             vertices[vert++] = bottomRight;
@@ -208,23 +225,23 @@ public class EnemyController : MonoBehaviour
 
     private void OnValidate()
     {
-        mesh = CreateWedgeMesh();
-        scanInterval = 1.0f / scanFrequency;
+        _mesh = CreateWedgeMesh();
+        _scanInterval = 1.0f / scanFrequency;
     }
 
     private void OnDrawGizmos()
     {
-       if(mesh)
+       if(_mesh)
        {
             Gizmos.color = meshColor;
-            Gizmos.DrawMesh(mesh, transform.position, transform.rotation);
+            Gizmos.DrawMesh(_mesh, transform.position, transform.rotation);
        }
     }
 
     public void DetectPlayer()
     {
-        Objects.Add(player.gameObject);
-        scanTimer = scanDelay;
+        _Objects.Add(player.gameObject);
+        _scanTimer = scanDelay;
     }
 
     public void Die()
@@ -241,6 +258,14 @@ public class EnemyController : MonoBehaviour
         }
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
+    }
+
+    private void SetConfigSettings()
+    {
+            _attackDamage = config.attackDamage;
+            _attackDistance = config.attackDistance;
+            _moveSpeed = config.moveSpeed;
+            _chaseSpeed = config.chaseSpeed;
     }
 }
 
