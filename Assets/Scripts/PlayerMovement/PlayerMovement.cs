@@ -87,6 +87,7 @@ namespace FragileReflection
         }
         public void OnReload(InputValue value)
         {
+            //доавить сюда проверку на перезаряжаемся ли мы прямо сейчас?
             if (!_aiming) 
                 return;
             WeaponManager.currentWeapon.Reload();
