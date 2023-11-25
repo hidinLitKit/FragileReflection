@@ -18,6 +18,7 @@ namespace FragileReflection
         {
             _characterController = GetComponent<CharacterController>();
         }
+       
         private void Update()
         {
             RaycastHit hit;

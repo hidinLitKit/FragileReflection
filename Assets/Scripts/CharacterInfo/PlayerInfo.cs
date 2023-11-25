@@ -7,9 +7,11 @@ namespace FragileReflection
 {
     public class PlayerInfo : MonoBehaviour, IDamagable 
     {
+        [SerializeField] private float maxHealth;
         [Range(0, 100)][SerializeField] private float health;
 
         public float Health => health;
+        public float MaxHealth => maxHealth;
 
         //[SerializeField] private GameObject _deathPanel;
 
@@ -46,6 +48,16 @@ namespace FragileReflection
             {
                 StartHealing();
             }
+        }
+        private void OnEnable()
+        {
+            GameEvents.onMaxHealthIncrease += IncreaseMaxHealth;
+            GameEvents.onMedkitUse += HealAmmount;
+        }
+        private void OnDisable()
+        {
+            GameEvents.onMaxHealthIncrease -= IncreaseMaxHealth;
+            GameEvents.onMedkitUse -= HealAmmount;
         }
 
         public void TakeDamage(float damage)
@@ -104,6 +116,29 @@ namespace FragileReflection
                 }
             }
         }
-
+        public bool canHeal()
+        {
+            if(Health>=MaxHealth) return false;
+            return true;
+        }
+        public void HealAmmount(float hp)
+        {
+           
+            if (canHeal())
+            {
+                Debug.Log("Healing: " + hp);
+                health += hp;
+                if (Health >= MaxHealth) health = MaxHealth;
+            }
+            Debug.Log(health);
+            
+        }
+        public void IncreaseMaxHealth(float hp)
+        {
+            Debug.Log("Increasing hp: " + hp);
+            maxHealth += hp;
+            health = maxHealth;
+            Debug.Log(health);
+        }
     }
 }

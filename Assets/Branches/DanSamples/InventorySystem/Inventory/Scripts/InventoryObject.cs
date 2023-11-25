@@ -33,11 +33,11 @@ namespace FragileReflection
             InventorySlot newItem = new InventorySlot(_item.ID, _item, _amount, _item.unique);
             Container.Items.Add(newItem);
         }
-        public void RemoveItem(Item _item)
+        public void RemoveItem(int id)
         {
             for (int i = 0; i < Container.Items.Count; i++)
             {
-                if (Container.Items[i].item == _item)
+                if (Container.Items[i].item.ID == id)
                 {
                     Container.Items.Remove(Container.Items[i]);
                     return;
@@ -47,6 +47,18 @@ namespace FragileReflection
         public int ItemAmmount(int i)
         {
             return Container.Items[i].amount;
+        }
+        public bool ContainsObject(ItemObject itm)
+        {
+            for (int i = 0; i < Container.Items.Count; i++)
+            {
+                if (Container.Items[i].ID == itm.ID)
+                {
+                   Debug.Log("Inventory contains " + itm.Name);
+                    return true;
+                }
+            }
+            return false;
         }
 
     }
