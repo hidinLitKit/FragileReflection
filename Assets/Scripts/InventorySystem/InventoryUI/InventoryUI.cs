@@ -39,7 +39,6 @@ namespace FragileReflection
         //public int Y_SPACE_BETWEEN_ITEMS;
         //public int NUMBER_OF_COLUMN;
 
-
         private void Awake()
         {
             _database = inventory.database;
@@ -81,15 +80,34 @@ namespace FragileReflection
 
         public void UpdateSlots()
         {
+            _inventorySlots = new List<ItemUI>();
+
+            for (int i = 0; i < inventory.Container.Items.Count; i++)
+            {
+                InventorySlot inventorySlot = inventory.Container.Items[i];
+                if (i < 5)
+                {
+                    var obj = GameObject.Find("Slot " + (i + 1));
+                    ItemUI itemUI = new ItemUI(obj, inventorySlot);
+                    _inventorySlots.Add(itemUI);
+                }
+                else
+                {
+                    var obj = GameObject.Find("Slot 5");
+                    ItemUI itemUI = new ItemUI(obj, inventorySlot);
+                    _inventorySlots.Add(itemUI);
+                }
+
+            }
+
             //Обновляет информацию на UI 
-            foreach(ItemUI _slot in _inventorySlots)
+            foreach (ItemUI _slot in _inventorySlots)
             {
                 if (_slot.inventorySlot.ID >= 0)
                 {
-                    Debug.Log("aboba");
                     //Вот так в UI выводится инфа о предмете, но GetChild как то не серьезно
                     _slot.slot.GetComponent<Image>().sprite = _database.GetItem[_slot.inventorySlot.item.ID].image;
-                    _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(0, 0, 0, 1);
+                    //_slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(0, 0, 0, 1);
                     //_slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = _slot.inventorySlot.amount == 1 ? "" : _slot.inventorySlot.amount.ToString("n0");
                 }
                 else
@@ -98,6 +116,23 @@ namespace FragileReflection
                     _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
                     _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0);
                     _slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = "";
+                }
+            }
+        }
+
+        private void UpdateSlotImages(int index, bool moveRight)
+        {
+            foreach (ItemUI _slot in _inventorySlots)
+            {
+                if (index > 4)
+                {
+                    Image slotImage = _slot.slot.GetComponent<Image>();
+
+                    int offset = moveRight ? 1 : -1;
+
+                    int newSpriteIndex = (_slot.inventorySlot.ID + offset);
+
+                    slotImage.sprite = _database.GetItem[newSpriteIndex].image;
                 }
             }
         }
@@ -135,7 +170,8 @@ namespace FragileReflection
             { 
                 _currentIndex++;
                 _currentItem = _inventorySlots[_currentIndex].inventorySlot;
-                UpdateObjectPosition("Highlight", _currentIndex);         
+                UpdateObjectPosition("Highlight", _currentIndex);
+                UpdateSlotImages(_currentIndex, true);
 
                 Debug.Log("Moved Right." + " Index item = " + _currentIndex);
             }
@@ -151,6 +187,7 @@ namespace FragileReflection
                 _currentIndex--;
                 _currentItem = _inventorySlots[_currentIndex].inventorySlot;
                 UpdateObjectPosition("Highlight", _currentIndex);
+                UpdateSlotImages(_currentIndex, false);
 
                 Debug.Log("Moved Left." + " Index item = " + _currentIndex);
             }
@@ -162,22 +199,11 @@ namespace FragileReflection
         private void UpdateObjectPosition(string objectName, int curIndex)
         {
             GameObject targetObject = GameObject.Find(objectName);
-            string slotName;
-            
-            if (curIndex < 5)
-                slotName = "Slot " + (curIndex + 1);
-            else {
-                slotName = "Slot " + (5);
-                //тут будет типо сдвиг кратинок предметов, но пока это просто пнг статичные
-            }
-            GameObject slotObject = GameObject.Find(slotName);
 
             if (targetObject != null)
             {
                 Transform objectTransform = targetObject.transform;
-                Transform slotTransform = slotObject.transform;
-
-                float currentValue = slotTransform.position.x;
+                float currentValue = _inventorySlots[curIndex].slot.transform.position.x;
 
                 objectTransform.position = new Vector3(currentValue, objectTransform.position.y, objectTransform.position.z);
             }
@@ -186,7 +212,6 @@ namespace FragileReflection
                 Debug.LogError("Object with name '" + objectName + "' not found.");
             }
         }
-
 
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
     Items:
     - ID: 0
       item:
-        Name: Key
+        Name: Latern
         ID: 0
         unique: 0
       amount: 1
@@ -28,26 +28,32 @@ MonoBehaviour:
       amount: 1
     - ID: 2
       item:
-        Name: Latern
+        Name: PistolAmmo
         ID: 2
         unique: 0
       amount: 1
     - ID: 3
       item:
-        Name: PistolAmmo
+        Name: PistolItem
         ID: 3
         unique: 0
       amount: 1
     - ID: 4
       item:
-        Name: PistolItem
+        Name: ShotgunAmmo
         ID: 4
         unique: 0
       amount: 1
     - ID: 5
       item:
-        Name: Shotgun
+        Name: Key
         ID: 5
+        unique: 0
+      amount: 1
+    - ID: 6
+      item:
+        Name: some
+        ID: 6
         unique: 0
       amount: 1
   database: {fileID: 11400000, guid: c96490103c6ac7747ad24fdfeecba665, type: 2}

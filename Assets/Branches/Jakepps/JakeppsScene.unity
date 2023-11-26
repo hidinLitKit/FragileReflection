@@ -38296,6 +38296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674ba3aaa684be64ebbb30ecf566ec30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
   health: 100
   _heal: 2
   _powerHeal: 0
@@ -40977,6 +40978,14 @@ MonoBehaviour:
       item:
         Name: 
         ID: 4
+        unique: 0
+      amount: 0
+  - slot: {fileID: 1594989766}
+    inventorySlot:
+      ID: 5
+      item:
+        Name: 
+        ID: 5
         unique: 0
       amount: 0
 --- !u!1001 &1750729750

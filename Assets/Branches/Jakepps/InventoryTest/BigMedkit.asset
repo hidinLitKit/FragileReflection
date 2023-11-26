@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d8737adf5bf05943925c9e2459065a6, type: 3}
-  m_Name: ShotgunAmmo
+  m_Script: {fileID: 11500000, guid: 3d9ec7fa216f8624d9a04329b9418d0e, type: 3}
+  m_Name: BigMedkit
   m_EditorClassIdentifier: 
-  ID: 5
+  ID: 6
   unique: 0
-  Name: Shotgun Ammo
+  Name: 
   Description: 
-  image: {fileID: 21300000, guid: 488747d6d8e904044898254ac19127e3, type: 3}
-  weaponType: {fileID: 11400000, guid: 07295905c33819d4b92a51f9390e912b, type: 2}
+  image: {fileID: 21300000, guid: 1a1da36a104725048b8d2388fb8d321d, type: 3}
+  healAmmount: 100

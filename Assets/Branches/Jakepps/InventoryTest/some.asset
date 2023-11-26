@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d8737adf5bf05943925c9e2459065a6, type: 3}
-  m_Name: ShotgunAmmo
+  m_Script: {fileID: 11500000, guid: 8fd274f93e4c4544d88c74e30c22de95, type: 3}
+  m_Name: some
   m_EditorClassIdentifier: 
-  ID: 5
+  ID: 7
   unique: 0
-  Name: Shotgun Ammo
-  Description: 
-  image: {fileID: 21300000, guid: 488747d6d8e904044898254ac19127e3, type: 3}
-  weaponType: {fileID: 11400000, guid: 07295905c33819d4b92a51f9390e912b, type: 2}
+  Name: Key
+  Description: wow
+  image: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}

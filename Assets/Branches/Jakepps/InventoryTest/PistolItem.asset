@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8f3cac1b5025b4caedfafc5b552815, type: 3}
   m_Name: PistolItem
   m_EditorClassIdentifier: 
-  ID: 1
+  ID: 4
   unique: 1
   Name: Shotgun
   Description: 
-  image: {fileID: 21300000, guid: 488747d6d8e904044898254ac19127e3, type: 3}
+  image: {fileID: 21300000, guid: 3e3defce554308643b141096e01c6ea3, type: 3}
   weaponType: {fileID: 11400000, guid: 07295905c33819d4b92a51f9390e912b, type: 2}
   ammo: {fileID: 11400000, guid: 3a49a646d042cbf47965a619636c3da2, type: 2}
