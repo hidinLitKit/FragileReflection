@@ -46,6 +46,13 @@ namespace FragileReflection
 
         private float _inventValue;
 
+        [SerializeField] private float stamina = 100f;  // начальное значение
+        private float maxStamina = 100f;
+        [SerializeField] private float staminaConsumptionRate = 5f;  // скорость расхода выносливости
+        [SerializeField] private float staminaRegenerationRate = 2f; // скорость восстановления выносливости
+        private float sprintDelay = 0.5f;  // задержка перед началом восстановления
+        private float sprintTimer = 0f; // таймер для отслеживания времени с момента отпуска шифта
+
         private void Awake()
         {
             playerTransform = characterController.gameObject.transform;
@@ -88,6 +95,7 @@ namespace FragileReflection
         public void OnReload(InputValue value)
         {
             //доавить сюда проверку на перезаряжаемся ли мы прямо сейчас?
+            // хз а надо?
             if (!_aiming) 
                 return;
             WeaponManager.currentWeapon.Reload();
@@ -204,15 +212,35 @@ namespace FragileReflection
             if (_move.x == 0 && _move.y == 0)
             {
                 _nextPosition = playerTransform.position;
+
+                stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
+                //Debug.Log($"Stamina idel: {stamina}");
+
                 return;
             }
 
             float moveSpeed = speed / 100f;
-            
-            if (_sprintValue == 1)
+
+            if (_sprintValue == 1 && stamina > 0)
             {
+                stamina -= staminaConsumptionRate * Time.deltaTime;
+                //Debug.Log($"Stamina action : {stamina}");
                 moveSpeed = _sprintSpeed / 100f;
+                sprintTimer = 0;
             }
+            else
+            { 
+                if (sprintTimer < sprintDelay)
+                {
+                    sprintTimer += Time.deltaTime;
+                }
+                else
+                {
+                    stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
+                    //Debug.Log($"Stamina walk : {stamina}");
+                }
+            }
+
             if (_crouchValue == 1)
             {
                 moveSpeed = _crouchSpeed / 100f;
