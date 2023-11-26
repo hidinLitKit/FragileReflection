@@ -16,6 +16,12 @@ namespace FragileReflection
         public static event System.Action onWeaponChanged;
         public static event System.Action<bool> onAiming;
         public static event System.Action onHealthImg;
+        //PlayerInfo
+        public static System.Action<float> onMedkitUse;
+        public static System.Action<float> onMaxHealthIncrease;
+        //Items
+        public static System.Action<KeyObject> onKeyUse;
+        public static System.Action<int> onSuccesUse;
         //ActionMaps
         public static event System.Action<string> onMapSwitched;
         public static void InteractionEnter(Interactable interactable)
@@ -42,14 +48,34 @@ namespace FragileReflection
             onAiming?.Invoke(aiming);
         }
 
+
         //может понадобится, хз
         public static void HealthImage() 
         { 
             onHealthImg?.Invoke();
         }
+
+
         public static void SwitchMap(string map)
         {
             onMapSwitched?.Invoke(map);
+        }
+
+        public static void UseMedkit(float hp)
+        {
+            onMedkitUse?.Invoke(hp);
+        }
+        public static void IncreaseMaxHP(float hp)
+        {
+            onMaxHealthIncrease?.Invoke(hp);
+        }
+        public static void UseKey(KeyObject key)
+        {
+            onKeyUse?.Invoke(key);
+        }
+        public static void UseSuccess(int id)
+        {
+            onSuccesUse?.Invoke(id);
         }
     }
 }
