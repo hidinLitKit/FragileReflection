@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using WeaponSystem;
 
 namespace FragileReflection
@@ -133,6 +134,14 @@ namespace FragileReflection
             if (_inventValue > 0)
             {
                 GameEvents.SwitchMap("UI");
+            }
+        }
+
+        private void OnParallel(InputValue value)
+        {
+            if(value.isPressed)
+            {
+                GameEvents.ActiveParallelWorld();
             }
         }
 

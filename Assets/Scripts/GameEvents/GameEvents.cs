@@ -24,6 +24,10 @@ namespace FragileReflection
         public static System.Action<int> onSuccesUse;
         //ActionMaps
         public static event System.Action<string> onMapSwitched;
+
+        //Parallel World
+        public static event System.Action onParallelWorldActive;
+
         public static void InteractionEnter(Interactable interactable)
         {
             onInteractionEnter?.Invoke(interactable);
@@ -76,6 +80,11 @@ namespace FragileReflection
         public static void UseSuccess(int id)
         {
             onSuccesUse?.Invoke(id);
+        }
+
+        public static void ActiveParallelWorld()
+        {
+            onParallelWorldActive?.Invoke();
         }
     }
 }
