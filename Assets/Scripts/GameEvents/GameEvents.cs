@@ -32,6 +32,8 @@ namespace FragileReflection
         //Stamina
         public static event Action<float> onStaminaUsed;
         public static event Action<float> onStaminaRegenerated;
+        public static Action onShiftKeyPressed;
+        public static Action onStaminaFull;
 
         public static void InteractionEnter(Interactable interactable)
         {
@@ -95,6 +97,16 @@ namespace FragileReflection
         public static void StaminaRegenerated(float amount)
         {
             onStaminaRegenerated?.Invoke(amount);
+        }
+
+        public static void ShiftKeyPressed()
+        {
+            onShiftKeyPressed?.Invoke();
+        }
+
+        public static void StaminaFull()
+        {
+            onStaminaFull?.Invoke();
         }
     }
 }

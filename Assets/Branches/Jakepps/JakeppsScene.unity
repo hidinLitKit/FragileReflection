@@ -42119,7 +42119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1682037343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42495,6 +42495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13fc5772c7a438a4285b2ad699d07375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _staminaUI: {fileID: 1682037342}
   _objectToMove: {fileID: 344527032}
   _targetPositionEnd: {fileID: 1129601306}
   _targetPositionBegin: {fileID: 837766938}

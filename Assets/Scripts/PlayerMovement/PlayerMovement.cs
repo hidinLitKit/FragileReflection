@@ -50,8 +50,6 @@ namespace FragileReflection
         private float maxStamina = 100f;
         [SerializeField] private float staminaConsumptionRate = 5f;  // скорость расхода выносливости
         [SerializeField] private float staminaRegenerationRate = 2f; // скорость восстановления выносливости
-        private float sprintDelay = 0.5f;  // задержка перед началом восстановления
-        private float sprintTimer = 0f; // таймер для отслеживания времени с момента отпуска шифта
 
         private void Awake()
         {
@@ -215,6 +213,8 @@ namespace FragileReflection
 
                 stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
                 GameEvents.StaminaRegenerated(stamina);
+                if (stamina == 100)
+                    GameEvents.StaminaFull();
 
                 return;
             }
@@ -225,21 +225,16 @@ namespace FragileReflection
             {
                 stamina -= staminaConsumptionRate * Time.deltaTime;
                 GameEvents.StaminaUsed(stamina);
+                GameEvents.ShiftKeyPressed();
 
                 moveSpeed = _sprintSpeed / 100f;
-                sprintTimer = 0;
             }
             else
             { 
-                if (sprintTimer < sprintDelay)
-                {
-                    sprintTimer += Time.deltaTime;
-                }
-                else
-                {
-                    stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
-                    GameEvents.StaminaRegenerated(stamina);
-                }
+                stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
+                GameEvents.StaminaRegenerated(stamina);
+                if (stamina == 100)
+                    GameEvents.StaminaFull();
             }
 
             if (_crouchValue == 1)

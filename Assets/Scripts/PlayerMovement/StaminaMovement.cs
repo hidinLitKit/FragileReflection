@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class StaminaMovement : MonoBehaviour
 {
+    [SerializeField] private GameObject _staminaUI;
     [SerializeField] private RectTransform _objectToMove;
     [SerializeField] private RectTransform _targetPositionEnd;
     [SerializeField] private RectTransform _targetPositionBegin;
@@ -21,6 +22,18 @@ public class StaminaMovement : MonoBehaviour
     {
         GameEvents.onStaminaUsed -= StartMoving;
         GameEvents.onStaminaRegenerated -= StopMoving;
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.onShiftKeyPressed += ShowStaminaInterface;
+        GameEvents.onStaminaFull += HideStaminaInterface;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.onShiftKeyPressed -= ShowStaminaInterface;
+        GameEvents.onStaminaFull -= HideStaminaInterface;
     }
 
     private void Update()
@@ -51,5 +64,15 @@ public class StaminaMovement : MonoBehaviour
     {
         _stamina = amount;
         _isMoving = false;
+    }
+
+    private void ShowStaminaInterface()
+    {
+        _staminaUI.SetActive(true);
+    }
+
+    private void HideStaminaInterface()
+    {
+        _staminaUI.SetActive(false);
     }
 }
