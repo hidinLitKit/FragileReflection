@@ -275,6 +275,7 @@ namespace FragileReflection
             playerAnimController.Walking(_moving);
             playerAnimController.Aiming(_aiming);
             playerAnimController.Crouching(_crouching);
+            playerAnimController.WalkDir(_move.x, _move.y);
         }
         private void CharacterRotation()
         {

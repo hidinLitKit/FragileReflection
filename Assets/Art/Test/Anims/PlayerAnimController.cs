@@ -9,6 +9,8 @@ namespace FragileReflection
         [SerializeField] Animator playerAnim;
         private const string aimingAnimation = "isAiming";
         private const string walkingAnimation = "isWalking";
+        private const string walkingBlendX = "WalkXdir";
+        private const string walkingBlendY = "WalkYdir";
         private const string sprintAnimation = "isRunning";
         private const string crouchAnimation = "isCrouching";
         public void Aiming(bool aim)
@@ -18,6 +20,16 @@ namespace FragileReflection
         public void Walking(bool walk)
         {
             playerAnim.SetBool(walkingAnimation, walk);
+        }
+        public void WalkDir(float dirx, float diry)
+        {
+            float blendX = 1;
+            blendX += dirx;
+            float blendY = diry >0.5f ? 1 : 0;
+
+            
+            playerAnim.SetFloat(walkingBlendX, blendX, 0.25f , Time.deltaTime);
+            playerAnim.SetFloat(walkingBlendY, blendY, 0.5f,  Time.deltaTime);
         }
         public void Sprinting(bool run)
         {
