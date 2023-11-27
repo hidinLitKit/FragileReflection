@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 public class StaminaMovement : MonoBehaviour
 {
     [SerializeField] private RectTransform _objectToMove;
-    [SerializeField] private RectTransform _targetPosition;
+    [SerializeField] private RectTransform _targetPositionEnd;
+    [SerializeField] private RectTransform _targetPositionBeggin;
     private float _moveSpeed = 5f;
 
     private bool _isMoving = false;
@@ -26,7 +27,7 @@ public class StaminaMovement : MonoBehaviour
     {
         if (_isMoving)
         {
-            _objectToMove.position = Vector3.Lerp(_objectToMove.position, _targetPosition.position, Time.deltaTime * _moveSpeed);
+            _objectToMove.position = Vector3.Lerp(_objectToMove.position, _targetPositionEnd.position, Time.deltaTime * _moveSpeed);
         }
     }
 

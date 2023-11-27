@@ -59,3 +59,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Samples
 *.vsconfig
+.DS_Store

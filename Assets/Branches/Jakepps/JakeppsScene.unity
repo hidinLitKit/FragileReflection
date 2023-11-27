@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -350,7 +350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3898182202730598509, guid: c7967b173cf98814e922234f4e31ddfa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 890.3706
       objectReference: {fileID: 0}
     - target: {fileID: 3898182202730598509, guid: c7967b173cf98814e922234f4e31ddfa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0ba057c245bc4874fa52f99cc3979741, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a589382fb1881d47933d18401529b07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3663,7 +3663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3898182202730598509, guid: c7967b173cf98814e922234f4e31ddfa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 296.7902
       objectReference: {fileID: 0}
     - target: {fileID: 3898182202730598509, guid: c7967b173cf98814e922234f4e31ddfa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6022,7 +6022,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 33204c1ac745ac846977882369440fc8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a589382fb1881d47933d18401529b07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6162,7 +6162,6 @@ GameObject:
   m_Component:
   - component: {fileID: 498142615}
   - component: {fileID: 498142617}
-  - component: {fileID: 498142616}
   m_Layer: 0
   m_Name: Stamina Ellipse
   m_TagString: Untagged
@@ -6190,36 +6189,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &498142616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498142614}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &498142617
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6837,7 +6806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5223785f50036d54b9a98cbae4eb57a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa4c5837733c1b64fa5e23af87740fee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -38488,7 +38457,6 @@ GameObject:
   m_Component:
   - component: {fileID: 770327249}
   - component: {fileID: 770327251}
-  - component: {fileID: 770327250}
   m_Layer: 0
   m_Name: Stamina rect main
   m_TagString: Untagged
@@ -38517,36 +38485,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000030517578, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &770327250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770327248}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &770327251
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -38852,7 +38790,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0e59465f476d1548923c7a6185e2bcd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a589382fb1881d47933d18401529b07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -39044,9 +38982,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6479465432146667889, guid: 9f44194dcecaf86428807ee3e607fed6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1426613881}
-    - targetCorrespondingSourceObject: {fileID: 8747376426106919137, guid: 9f44194dcecaf86428807ee3e607fed6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1861710000}
     - targetCorrespondingSourceObject: {fileID: 3644161259196103940, guid: 9f44194dcecaf86428807ee3e607fed6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 901373652}
@@ -39398,7 +39333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3cc758a5853a9554aa652610ee56672d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a589382fb1881d47933d18401529b07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -39674,7 +39609,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ed98711cce29a404b91c55dac58f2ceb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a589382fb1881d47933d18401529b07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -39824,7 +39759,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d7fd62ef0def891439da9fc556101d43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a589382fb1881d47933d18401529b07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -40849,7 +40784,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 14d721d064b3e7748ba0f695d9313c23, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a589382fb1881d47933d18401529b07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -40962,7 +40897,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1502560834}
   - component: {fileID: 1502560836}
-  - component: {fileID: 1502560835}
   m_Layer: 0
   m_Name: Stamina text
   m_TagString: Untagged
@@ -40990,36 +40924,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5.7, y: 3.4356}
   m_SizeDelta: {x: 0, y: 0.0000038146973}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1502560835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502560833}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1502560836
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41386,7 +41290,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d873ab69f747d8242a32f77d5f66ec8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a589382fb1881d47933d18401529b07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -41474,7 +41378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3898182202730598509, guid: c7967b173cf98814e922234f4e31ddfa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1187.1608
       objectReference: {fileID: 0}
     - target: {fileID: 3898182202730598509, guid: c7967b173cf98814e922234f4e31ddfa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -42413,6 +42317,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6973082997381741044, guid: 5490f2995fafd434586d26ec17d99306, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1746254148}
+    - targetCorrespondingSourceObject: {fileID: 6973082997381741044, guid: 5490f2995fafd434586d26ec17d99306, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1746254153}
   m_SourcePrefab: {fileID: 100100000, guid: 5490f2995fafd434586d26ec17d99306, type: 3}
 --- !u!224 &1746254146 stripped
 RectTransform:
@@ -42487,6 +42394,21 @@ MonoBehaviour:
         ID: 5
         unique: 0
       amount: 0
+--- !u!114 &1746254153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746254147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13fc5772c7a438a4285b2ad699d07375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToMove: {fileID: 344527032}
+  _targetPositionEnd: {fileID: 585084503}
+  _targetPositionBeggin: {fileID: 0}
 --- !u!1001 &1750729750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42703,7 +42625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1784774123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43474,25 +43396,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   health: 0
---- !u!1 &1861709994 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8747376426106919137, guid: 9f44194dcecaf86428807ee3e607fed6, type: 3}
-  m_PrefabInstance: {fileID: 901373649}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1861710000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1861709994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13fc5772c7a438a4285b2ad699d07375, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectToMove: {fileID: 498142615}
-  _targetPosition: {fileID: 896602191}
 --- !u!1 &1879552185
 GameObject:
   m_ObjectHideFlags: 0
@@ -43954,7 +43857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 584dfddecf30e704390cc1782609f1cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a589382fb1881d47933d18401529b07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -44117,7 +44020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3898182202730598509, guid: c7967b173cf98814e922234f4e31ddfa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 593.5804
       objectReference: {fileID: 0}
     - target: {fileID: 3898182202730598509, guid: c7967b173cf98814e922234f4e31ddfa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -45089,7 +44992,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e81b8616e93ba3e4cb74b50d8d6df28c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a589382fb1881d47933d18401529b07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
