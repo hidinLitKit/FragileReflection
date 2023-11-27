@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 namespace FragileReflection
@@ -16,14 +17,22 @@ namespace FragileReflection
         public static event System.Action onWeaponChanged;
         public static event System.Action<bool> onAiming;
         public static event System.Action onHealthImg;
+
         //PlayerInfo
         public static System.Action<float> onMedkitUse;
         public static System.Action<float> onMaxHealthIncrease;
+
         //Items
         public static System.Action<KeyObject> onKeyUse;
         public static System.Action<int> onSuccesUse;
+
         //ActionMaps
         public static event System.Action<string> onMapSwitched;
+
+        //Stamina
+        public static event Action<float> onStaminaUsed;
+        public static event Action onStaminaRegenerated;
+
         public static void InteractionEnter(Interactable interactable)
         {
             onInteractionEnter?.Invoke(interactable);
@@ -76,6 +85,16 @@ namespace FragileReflection
         public static void UseSuccess(int id)
         {
             onSuccesUse?.Invoke(id);
+        }
+
+        public static void StaminaUsed(float amount)
+        {
+            onStaminaUsed?.Invoke(amount);
+        }
+
+        public static void StaminaRegenerated()
+        {
+            onStaminaRegenerated?.Invoke();
         }
     }
 }

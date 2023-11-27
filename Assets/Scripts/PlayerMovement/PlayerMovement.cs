@@ -225,6 +225,7 @@ namespace FragileReflection
             {
                 stamina -= staminaConsumptionRate * Time.deltaTime;
                 //Debug.Log($"Stamina action : {stamina}");
+                GameEvents.StaminaUsed(stamina);
                 moveSpeed = _sprintSpeed / 100f;
                 sprintTimer = 0;
             }
@@ -237,6 +238,7 @@ namespace FragileReflection
                 else
                 {
                     stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
+                    GameEvents.StaminaRegenerated();
                     //Debug.Log($"Stamina walk : {stamina}");
                 }
             }
