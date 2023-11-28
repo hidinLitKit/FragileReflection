@@ -16,4 +16,4 @@ MonoBehaviour:
   unique: 1
   Name: test key
   Description: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 1ec2ff490a776bf4fb7fd9e11dfc51fa, type: 3}
