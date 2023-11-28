@@ -256,7 +256,7 @@ public class EnemyController : MonoBehaviour
         {
             runner.enabled = false;
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(config.deathDuration);
         Destroy(gameObject);
     }
 

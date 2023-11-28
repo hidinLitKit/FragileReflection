@@ -22,3 +22,4 @@ MonoBehaviour:
   attackDamage: 20
   moveSpeed: 1
   chaseSpeed: 4
+  deathDuration: 1.6

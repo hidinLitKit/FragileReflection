@@ -43,12 +43,12 @@ MonoBehaviour:
   blackboard:
     target: {fileID: 0}
     moveToPosition: {x: 0, y: 0, z: 0}
-    moveSpeed: 0
-    chaseSpeed: 0
-    attackDistance: 0
+    moveSpeed: 1
+    chaseSpeed: 4
+    attackDistance: 1.8
     wasStuggled: 0
-  viewPosition: {x: 33, y: -162, z: 0}
-  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
+  viewPosition: {x: 340, y: -411, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
