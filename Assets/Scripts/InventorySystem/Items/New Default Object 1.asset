@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fd274f93e4c4544d88c74e30c22de95, type: 3}
-  m_Name: New Default Object
+  m_Name: New Default Object 1
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 7
   unique: 0
   Name: freferf
   Description: fre
-  image: {fileID: 21300000, guid: 6f42106a9aaf6dc49b77bb9186e02eb8, type: 3}
+  image: {fileID: 21300000, guid: fec552c7e549c454898d82cf74d8e0e1, type: 3}

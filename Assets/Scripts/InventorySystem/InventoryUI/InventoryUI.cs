@@ -28,6 +28,7 @@ namespace FragileReflection
         [SerializeField]private ItemDatabaseObject _database; //Датабаза всех предметов в игре - доступ к предмету по ID - содержит имя, описание, картинку
         private InventorySlot _currentItem; //текущий выбранный предмет
         private int _currentIndex;
+        private int _currentStartIndex;
         [SerializeField] private List<ItemUI> _inventorySlots; //отображение инвентаря UI
         //GameObject здесь - это сам объект UI
 
@@ -45,11 +46,30 @@ namespace FragileReflection
             //CreateSlots();
             //slotsPrefab.SetActive(false);
             UpdateObjectPosition("Highlight", 0);
+            CreateSlots();
             UpdateSlots();
         }
-
+        private void Update()
+        {
+            UpdateSlotImages();
+        }
         public void CreateSlots()
         {
+            _currentIndex = 0;
+            _currentStartIndex = 0;
+            for (int i = 0; i < _inventorySlots.Count; i++)
+            {
+                InventorySlot newSlot = new InventorySlot();
+                if (i < inventory.Container.Items.Count)
+                {
+                    newSlot = inventory.Container.Items[i];
+                }
+                else
+                {
+                    newSlot = null;
+                }
+                _inventorySlots[i].inventorySlot = newSlot;
+            }
             //_inventorySlots = new List<ItemUI>();
             ////пример метода для создания линии слотов предмета (нужно как то доделать)
             //for (int i = 0; i < inventory.Container.Items.Count; i++)
@@ -80,7 +100,7 @@ namespace FragileReflection
 
         public void UpdateSlots()
         {
-            _inventorySlots = new List<ItemUI>();
+           /* _inventorySlots = new List<ItemUI>();
 
             for (int i = 0; i < inventory.Container.Items.Count; i++)
             {
@@ -98,31 +118,42 @@ namespace FragileReflection
                     _inventorySlots.Add(itemUI);
                 }
 
-            }
+            } */
+           
 
             //Обновляет информацию на UI 
             foreach (ItemUI _slot in _inventorySlots)
             {
-                if (_slot.inventorySlot.ID >= 0)
+                if (_slot.inventorySlot != null)
                 {
                     //Вот так в UI выводится инфа о предмете, но GetChild как то не серьезно
                     _slot.slot.GetComponent<Image>().sprite = _database.GetItem[_slot.inventorySlot.item.ID].image;
+                    _slot.slot.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                     //_slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(0, 0, 0, 1);
                     //_slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = _slot.inventorySlot.amount == 1 ? "" : _slot.inventorySlot.amount.ToString("n0");
                 }
                 else
                 {
                     //это нам не подходит, у нас вообще все слоты на любой момент времени будут иметь предмет, не будет такого что там будет ID = -1
-                    _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
-                    _slot.slot.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0);
-                    _slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = "";
+                    _slot.slot.GetComponent<Image>().sprite = null;
+                    _slot.slot.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+                    //_slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = "";
                 }
             }
         }
 
-        private void UpdateSlotImages(int index, bool moveRight)
+        private void UpdateSlotImages()
         {
-            foreach (ItemUI _slot in _inventorySlots)
+            for(int i = _currentStartIndex, j = 0;j<_inventorySlots.Count; i++,j++)
+            {
+                _inventorySlots[j].inventorySlot = inventory.Container.Items[i];
+            }
+            UpdateSlots();
+
+
+
+
+           /* foreach (ItemUI _slot in _inventorySlots)
             {
                 if (index > 4)
                 {
@@ -134,7 +165,7 @@ namespace FragileReflection
 
                     slotImage.sprite = _database.GetItem[newSpriteIndex].image;
                 }
-            }
+            } */
         }
 
         //Гайд как вывести на экран любой предмет из инвентаря
@@ -166,12 +197,18 @@ namespace FragileReflection
         {
             // у нас при нажатии на стрелку вправо выбирается следующий предмет то есть
             //_currentItem = _inventorySlots[_currentIndex].inventorySlot;
-            if (_currentIndex < _inventorySlots.Count - 1)
+            if (_currentStartIndex + _currentIndex < inventory.Container.Items.Count -1)
             { 
-                _currentIndex++;
+                if(_currentIndex + 1 == _inventorySlots.Count)
+                {
+                    _currentIndex = _inventorySlots.Count-1;
+                    _currentStartIndex++;
+                }
+                else _currentIndex++;
+                UpdateSlotImages();
                 _currentItem = _inventorySlots[_currentIndex].inventorySlot;
                 UpdateObjectPosition("Highlight", _currentIndex);
-                UpdateSlotImages(_currentIndex, true);
+                
 
                 Debug.Log("Moved Right." + " Index item = " + _currentIndex);
             }
@@ -182,12 +219,18 @@ namespace FragileReflection
 
         public void moveLeft()
         {
-            if (_currentIndex > 0)
+            if (_currentStartIndex > 0)
             {
-                _currentIndex--;
+                if (_currentStartIndex > 0 && _currentIndex - 1 < 0)
+                {
+                    _currentStartIndex--;
+                    _currentIndex = 0;
+                }
+                else _currentIndex--;
+                UpdateSlotImages();
                 _currentItem = _inventorySlots[_currentIndex].inventorySlot;
                 UpdateObjectPosition("Highlight", _currentIndex);
-                UpdateSlotImages(_currentIndex, false);
+                
 
                 Debug.Log("Moved Left." + " Index item = " + _currentIndex);
             }

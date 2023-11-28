@@ -16,5 +16,5 @@ MonoBehaviour:
   unique: 0
   Name: Pistol Ammo
   Description: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 291918f0316c86942a3e62bd726bd7f8, type: 3}
   weaponType: {fileID: 11400000, guid: 07295905c33819d4b92a51f9390e912b, type: 2}

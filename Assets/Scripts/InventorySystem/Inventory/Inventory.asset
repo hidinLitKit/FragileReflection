@@ -14,10 +14,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Container:
     Items:
+    - ID: 2
+      item:
+        Name: Pistol Ammo
+        ID: 2
+        unique: 0
+      amount: 1
     - ID: 0
       item:
         Name: freferf
         ID: 0
         unique: 0
-      amount: 7
+      amount: 0
+    - ID: 6
+      item:
+        Name: test key
+        ID: 6
+        unique: 1
+      amount: 0
+    - ID: 7
+      item:
+        Name: freferf
+        ID: 7
+        unique: 0
+      amount: 1
+    - ID: 8
+      item:
+        Name: freferf
+        ID: 8
+        unique: 0
+      amount: 1
+    - ID: 9
+      item:
+        Name: freferf
+        ID: 9
+        unique: 0
+      amount: 1
+    - ID: 1
+      item:
+        Name: Pistol
+        ID: 1
+        unique: 1
+      amount: 1
   database: {fileID: 11400000, guid: f3f6581fb61f6664f94fbc5ad4d20d84, type: 2}
