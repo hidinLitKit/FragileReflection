@@ -60,3 +60,5 @@ crashlytics-build.properties
 Assets/Samples
 *.vsconfig
 .DS_Store
+Assets/Branches/Jakepps/FigmaToUnityImporter-main
+Assets/Branches/Jakepps/FigmaToUnityImporter-main.meta
