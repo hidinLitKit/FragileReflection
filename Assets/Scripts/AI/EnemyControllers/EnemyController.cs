@@ -46,6 +46,8 @@ public class EnemyController : MonoBehaviour
     private float _scanInterval;
     private float _scanTimer;
 
+    private EnemyAudioController _audioController;
+
     private void Awake()
     {
         SetConfigSettings();
@@ -54,6 +56,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         _attackArea = GetComponent<EnemyAttackDetector>();
+        _audioController = GetComponent<EnemyAudioController>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (animator == null)
@@ -246,6 +249,7 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
+        _audioController.PlayAudio(false, EnemySounds.Death);
         StartCoroutine("DieTimer");
     }
 
