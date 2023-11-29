@@ -34,7 +34,10 @@ namespace FragileReflection
             {
                 case Interactable.InteractionType.Click:
                     if (_interAct.WasPressedThisFrame())
+                    {
                         interactable.Interact();
+                        GameEvents.PickItem();
+                    }
                     break;
 
                 case Interactable.InteractionType.Hold:

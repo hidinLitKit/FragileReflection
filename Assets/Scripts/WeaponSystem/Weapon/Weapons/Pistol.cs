@@ -37,9 +37,9 @@ namespace FragileReflection
             _canReload = false;
             _canShoot = false;
 
-            //какой то GameEvents reload
             int needBullets = WeaponType.Magazine - _bulletsLeft;
-            if (_inventoryWeapon.AmmoLeft() >=WeaponType.Magazine)
+            //тут какой-то баг возникает  - было _inventoryWeapon.AmmoLeft() >= WeaponType.Magazine
+            if (_inventoryWeapon.AmmoLeft() >= needBullets)
             {
                 Debug.Log("Loading " + needBullets);
                 StartCoroutine(ReloadCD(_weaponType.RechargeSpeed, needBullets));
@@ -52,6 +52,7 @@ namespace FragileReflection
                 StartCoroutine(ReloadCD(_weaponType.RechargeSpeed, _inventoryWeapon.AmmoLeft()));
                 _inventoryWeapon.AmmoSet(_inventoryWeapon.AmmoLeft());
             }
+            GameEvents.WeaponReload();
         }
 
         public bool IsLeftAmmo()

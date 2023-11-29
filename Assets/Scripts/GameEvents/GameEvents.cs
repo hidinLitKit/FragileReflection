@@ -15,6 +15,7 @@ namespace FragileReflection
         //Weapon
         public static event System.Action onFire;
         public static event System.Action onWeaponChanged;
+        public static event System.Action onWeaponReload;
         public static event System.Action<bool> onAiming;
         public static event System.Action onHealthImg;
 
@@ -25,6 +26,7 @@ namespace FragileReflection
         //Items
         public static System.Action<KeyObject> onKeyUse;
         public static System.Action<int> onSuccesUse;
+        public static System.Action onPickItem;
 
         //ActionMaps
         public static event System.Action<string> onMapSwitched;
@@ -60,7 +62,10 @@ namespace FragileReflection
         {
             onAiming?.Invoke(aiming);
         }
-
+        public static void WeaponReload()
+        {
+            onWeaponReload?.Invoke();
+        }
 
         //����� �����������, ��
         public static void HealthImage() 
@@ -90,7 +95,10 @@ namespace FragileReflection
         {
             onSuccesUse?.Invoke(id);
         }
-
+        public static void PickItem()
+        {
+            onPickItem?.Invoke();
+        }
         public static void StaminaUsed(float amount)
         {
             onStaminaUsed?.Invoke(amount);
