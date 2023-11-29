@@ -1,46 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace FragileReflection
 {
-    public interface IDamagable
-    {
-        void TakeDamage(float damage);
-    }
-
-    public class Damagable : MonoBehaviour, IDamagable
+    public class EnemyHealth : MonoBehaviour
     {
         [Range(0, 200)]
         [SerializeField] private float maxHealth;
 
-        [SerializeField] private float health;
+        private float health;
 
         void Start()
         {
             health = maxHealth;
         }
 
-        void IDamagable.TakeDamage(float damage)
+        public void Damage(float damage)
         {
-            Debug.Log("Damage taken! " + damage);
             health -= damage;
+            Debug.Log("Damage taken! " + damage);
+
             if (health <= 0)
-            {
                 Die();
-            }
-            else if (gameObject.TryGetComponent<EnemyController>(out EnemyController enemyController))
+            else if (gameObject.TryGetComponent(out EnemyController enemyController))
             {
                 enemyController.stuggled = true;
                 StartCoroutine("ResetStuggle");
             }
-
         }
 
         private void Die()
         {
-            if(gameObject.TryGetComponent<EnemyController>(out EnemyController enemyController))
+            if (gameObject.TryGetComponent(out EnemyController enemyController))
             {
                 enemyController.Die();
             }
@@ -50,11 +42,12 @@ namespace FragileReflection
         IEnumerator ResetStuggle()
         {
             yield return new WaitForSeconds(0.4f);
-            if (gameObject.TryGetComponent<EnemyController>(out EnemyController enemyController))
+            if (gameObject.TryGetComponent(out EnemyController enemyController))
             {
                 enemyController.stuggled = false;
+                Debug.Log("Health! " + health);
             }
-            
+
         }
     }
 }

@@ -47,10 +47,6 @@ public class EnemyChase : ActionNode
         {
             return State.Failure;
         }
-        if (enemyController.IsStuggled())
-        {
-            return State.Failure;
-        }
 
         return State.Running;
     }
