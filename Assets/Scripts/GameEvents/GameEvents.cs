@@ -34,6 +34,8 @@ namespace FragileReflection
         public static event Action<float> onStaminaRegenerated;
         public static Action onShiftKeyPressed;
         public static Action onStaminaFull;
+        //Parallel World
+        public static event System.Action onParallelWorldActive;
 
         public static void InteractionEnter(Interactable interactable)
         {
@@ -60,7 +62,7 @@ namespace FragileReflection
         }
 
 
-        //может понадобится, хз
+        //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ
         public static void HealthImage() 
         { 
             onHealthImg?.Invoke();
@@ -107,6 +109,9 @@ namespace FragileReflection
         public static void StaminaFull()
         {
             onStaminaFull?.Invoke();
+        public static void ActiveParallelWorld()
+        {
+            onParallelWorldActive?.Invoke();
         }
     }
 }

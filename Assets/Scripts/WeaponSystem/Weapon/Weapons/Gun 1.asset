@@ -17,5 +17,5 @@ MonoBehaviour:
   RateOfFire: 0.8
   RechargeSpeed: 2
   RecoilRadius: 0
-  Magazine: 0
+  Magazine: 10
   CrossHair: {fileID: 21300000, guid: 6f42106a9aaf6dc49b77bb9186e02eb8, type: 3}
