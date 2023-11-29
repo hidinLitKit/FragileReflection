@@ -41,10 +41,12 @@ namespace FragileReflection
                 case ("UI"):
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
+                    GameEvents.InventoryUIAble(true);
                     break;
                 default:
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
+                    GameEvents.InventoryUIAble(false);
                     break;
             }
         }

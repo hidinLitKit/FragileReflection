@@ -22,6 +22,7 @@ namespace FragileReflection
         //PlayerInfo
         public static System.Action<float> onMedkitUse;
         public static System.Action<float> onMaxHealthIncrease;
+        public static System.Action<bool> onInventoryUI;
 
         //Items
         public static System.Action<KeyObject> onKeyUse;
@@ -86,6 +87,10 @@ namespace FragileReflection
         public static void IncreaseMaxHP(float hp)
         {
             onMaxHealthIncrease?.Invoke(hp);
+        }
+        public static void InventoryUIAble(bool show)
+        {
+            onInventoryUI?.Invoke(show);
         }
         public static void UseKey(KeyObject key)
         {

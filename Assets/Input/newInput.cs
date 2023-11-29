@@ -130,11 +130,11 @@ namespace UnityEngine.InputSystem
                 },
                 {
                     ""name"": ""Inventory"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""d85fc9a5-3637-4760-86dc-efcc90156e4b"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": true
                 },
                 {
@@ -470,7 +470,7 @@ namespace UnityEngine.InputSystem
                 {
                     ""name"": """",
                     ""id"": ""023e3e96-1889-4e1a-8516-b41deb5de0fd"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -591,8 +591,8 @@ namespace UnityEngine.InputSystem
                     ""id"": ""3a09ad65-3241-4cbb-aaaf-e5f634876aaf"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -1018,6 +1018,17 @@ namespace UnityEngine.InputSystem
                     ""name"": """",
                     ""id"": ""b9f9bac3-85a8-4dba-a331-ecf33c86c5d4"",
                     ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""786ee708-87ed-4b87-8c98-c31b5abc6c7b"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",

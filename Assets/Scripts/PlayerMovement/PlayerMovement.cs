@@ -135,11 +135,10 @@ namespace FragileReflection
 
         public void OnInventory(InputValue value)
         {
-            _inventValue = value.Get<float>();
-
-            if (_inventValue > 0)
+            GameEvents.SwitchMap("UI");
+            if (value.isPressed)
             {
-                GameEvents.SwitchMap("UI");
+                
             }
         }
 
