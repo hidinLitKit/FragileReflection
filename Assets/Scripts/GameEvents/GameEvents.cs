@@ -109,6 +109,7 @@ namespace FragileReflection
         public static void StaminaFull()
         {
             onStaminaFull?.Invoke();
+        }
         public static void ActiveParallelWorld()
         {
             onParallelWorldActive?.Invoke();
