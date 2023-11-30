@@ -21,8 +21,7 @@ namespace FragileReflection
         public static System.Action<float> onMedkitUse;
         public static System.Action<float> onMaxHealthIncrease;
         public static Action onStatusUI;
-        public static Action on;
-
+        public static event Action<string,int> onHealthStatusChanged;
 
         //Items
         public static System.Action<KeyObject> onKeyUse;
@@ -106,6 +105,11 @@ namespace FragileReflection
         public static void StaminaFull()
         {
             onStaminaFull?.Invoke();
+        }
+
+        public static void HealthChange(string status,int fps)
+        {
+            onHealthStatusChanged?.Invoke(status, fps);
         }
     }
 }

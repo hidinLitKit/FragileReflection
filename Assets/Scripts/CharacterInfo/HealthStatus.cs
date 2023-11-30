@@ -46,16 +46,22 @@ namespace FragileReflection
                 {
                     _healthText.color = Color.green;
                     _healthText.text = "FINE";
+
+                    GameEvents.HealthChange("pulse_green_sprite", 30);
                 }
                 else if (_playerParam.Health >= 40)
                 {
                     _healthText.color = Color.yellow;
                     _healthText.text = "BAD";
+
+                    GameEvents.HealthChange("pulse_yellow_sprite", 60);
                 }
                 else
                 {
                     _healthText.color = Color.red;
                     _healthText.text = "DANGER";
+
+                    GameEvents.HealthChange("pulse_red_sprite", 144);
                 }
             }
         }
