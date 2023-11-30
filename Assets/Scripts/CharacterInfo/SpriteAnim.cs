@@ -25,6 +25,11 @@ namespace FragileReflection
             GameEvents.onHealthStatusChanged += UpdateSprite;
         }
 
+        private void OnDestroy()
+        {
+            GameEvents.onHealthStatusChanged -= UpdateSprite;
+        }
+
         private void UpdateSprite(string healthStatus, int fps)
         {
             _sprites = Resources.LoadAll<Sprite>(healthStatus);
