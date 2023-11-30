@@ -13,8 +13,6 @@ namespace FragileReflection
         public float Health => health;
         public float MaxHealth => maxHealth;
 
-        //[SerializeField] private GameObject _deathPanel;
-
         private Coroutine _healingCoroutine;
         [SerializeField] private float _heal = 2f;
 
@@ -40,7 +38,6 @@ namespace FragileReflection
 
             if (keyboard != null && keyboard.tabKey.wasPressedThisFrame)
             {
-                //_deathPanel.SetActive(false);
                 health = 100f;
             }
 
@@ -49,11 +46,13 @@ namespace FragileReflection
                 StartHealing();
             }
         }
+
         private void OnEnable()
         {
             GameEvents.onMaxHealthIncrease += IncreaseMaxHealth;
             GameEvents.onMedkitUse += HealAmmount;
         }
+
         private void OnDisable()
         {
             GameEvents.onMaxHealthIncrease -= IncreaseMaxHealth;
@@ -116,28 +115,36 @@ namespace FragileReflection
                 }
             }
         }
+
         public bool canHeal()
         {
-            if(Health>=MaxHealth) return false;
+            if(Health>=MaxHealth) 
+                return false;
+
             return true;
         }
+
         public void HealAmmount(float hp)
         {
-           
             if (canHeal())
             {
                 Debug.Log("Healing: " + hp);
+
                 health += hp;
-                if (Health >= MaxHealth) health = MaxHealth;
+                if (Health >= MaxHealth) 
+                    health = MaxHealth;
             }
+
             Debug.Log(health);
-            
         }
+
         public void IncreaseMaxHealth(float hp)
         {
             Debug.Log("Increasing hp: " + hp);
+
             maxHealth += hp;
             health = maxHealth;
+
             Debug.Log(health);
         }
     }

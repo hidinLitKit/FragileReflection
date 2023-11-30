@@ -16,11 +16,13 @@ namespace FragileReflection
         public static event System.Action onFire;
         public static event System.Action onWeaponChanged;
         public static event System.Action<bool> onAiming;
-        public static event System.Action onHealthImg;
 
         //PlayerInfo
         public static System.Action<float> onMedkitUse;
         public static System.Action<float> onMaxHealthIncrease;
+        public static Action onStatusUI;
+        public static Action on;
+
 
         //Items
         public static System.Action<KeyObject> onKeyUse;
@@ -59,13 +61,10 @@ namespace FragileReflection
             onAiming?.Invoke(aiming);
         }
 
-
-        //может понадобится, хз
-        public static void HealthImage() 
-        { 
-            onHealthImg?.Invoke();
+        public static void StatusControl()
+        {
+            onStatusUI?.Invoke();
         }
-
 
         public static void SwitchMap(string map)
         {
