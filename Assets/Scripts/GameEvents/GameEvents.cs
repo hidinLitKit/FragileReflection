@@ -23,6 +23,7 @@ namespace FragileReflection
         public static System.Action<float> onMaxHealthIncrease;
         public static Action<bool> onStatusUI;
         public static event Action<string,int> onHealthStatusChanged;
+        public static event Action<bool> onInventoryUI;
 
         //Items
         public static System.Action<KeyObject> onKeyUse;
@@ -71,10 +72,6 @@ namespace FragileReflection
         public static void StatusControl(bool status)
         {
             onStatusUI?.Invoke(status);
-        //����� �����������, ��
-        public static void HealthImage() 
-        { 
-            onHealthImg?.Invoke();
         }
 
         public static void SwitchMap(string map)
@@ -126,9 +123,11 @@ namespace FragileReflection
             onStaminaFull?.Invoke();
         }
 
-        public static void HealthChange(string status,int fps)
+        public static void HealthChange(string status, int fps)
         {
             onHealthStatusChanged?.Invoke(status, fps);
+        }
+
         public static void ActiveParallelWorld()
         {
             onParallelWorldActive?.Invoke();
