@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,11 +17,13 @@ namespace FragileReflection
         private float _ElapsedTime = 0f;
         private int _currentFrame = 0;
 
+        [SerializeField] private TextMeshProUGUI _healthText;
+
         private void Start()
         {
             _image = GetComponent<Image>();
             enabled = true;
-            UpdateSprite("pulse_green_sprite", 30);
+            UpdateSprite("pulse_green_sprite", 30, "FINE", Color.green);
 
             GameEvents.onHealthStatusChanged += UpdateSprite;
         }
@@ -30,9 +33,12 @@ namespace FragileReflection
             GameEvents.onHealthStatusChanged -= UpdateSprite;
         }
 
-        private void UpdateSprite(string healthStatus, int fps)
+        private void UpdateSprite(string pulse, int fps, string status, Color color)
         {
-            _sprites = Resources.LoadAll<Sprite>(healthStatus);
+            _healthText.color = color;
+            _healthText.text = status;
+
+            _sprites = Resources.LoadAll<Sprite>(pulse);
             if (_sprites != null && _sprites.Length > 0)
             {
                 _timePerFrame = 1f / fps;

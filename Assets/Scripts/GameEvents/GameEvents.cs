@@ -22,7 +22,7 @@ namespace FragileReflection
         public static System.Action<float> onMedkitUse;
         public static System.Action<float> onMaxHealthIncrease;
         public static Action<bool> onStatusUI;
-        public static event Action<string,int> onHealthStatusChanged;
+        public static event Action<string, int, string, Color> onHealthStatusChanged;
         public static event Action<bool> onInventoryUI;
 
         //Items
@@ -123,9 +123,9 @@ namespace FragileReflection
             onStaminaFull?.Invoke();
         }
 
-        public static void HealthChange(string status, int fps)
+        public static void HealthChange(string pulse, int fps, string status, Color color)
         {
-            onHealthStatusChanged?.Invoke(status, fps);
+            onHealthStatusChanged?.Invoke(pulse, fps, status, color);
         }
 
         public static void ActiveParallelWorld()
