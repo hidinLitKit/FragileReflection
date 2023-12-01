@@ -114,9 +114,9 @@ namespace UnityEngine.InputSystem
                     ""name"": ""Sprint"",
                     ""type"": ""Value"",
                     ""id"": ""d2ed13ef-7503-4beb-9a01-20302c0c4ffc"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": true
                 },
                 {
