@@ -130,12 +130,21 @@ namespace UnityEngine.InputSystem
                 },
                 {
                     ""name"": ""Inventory"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""d85fc9a5-3637-4760-86dc-efcc90156e4b"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Parallel"",
+                    ""type"": ""Button"",
+                    ""id"": ""c1a05311-108c-4917-b76e-386dc33fd70e"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -461,11 +470,22 @@ namespace UnityEngine.InputSystem
                 {
                     ""name"": """",
                     ""id"": ""023e3e96-1889-4e1a-8516-b41deb5de0fd"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""906f2630-e955-48bb-ae6b-a6dee5e0bc6d"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Parallel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -571,8 +591,8 @@ namespace UnityEngine.InputSystem
                     ""id"": ""3a09ad65-3241-4cbb-aaaf-e5f634876aaf"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -1007,11 +1027,11 @@ namespace UnityEngine.InputSystem
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3ff2884c-99aa-479a-a440-f56e31d9306e"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""id"": ""786ee708-87ed-4b87-8c98-c31b5abc6c7b"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1096,6 +1116,7 @@ namespace UnityEngine.InputSystem
             m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
             m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
             m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
+            m_Player_Parallel = m_Player.FindAction("Parallel", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1182,6 +1203,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_Sprint;
         private readonly InputAction m_Player_Crouch;
         private readonly InputAction m_Player_Inventory;
+        private readonly InputAction m_Player_Parallel;
         public struct PlayerActions
         {
             private @NewInput m_Wrapper;
@@ -1198,6 +1220,7 @@ namespace UnityEngine.InputSystem
             public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
             public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
             public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
+            public InputAction @Parallel => m_Wrapper.m_Player_Parallel;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1243,6 +1266,9 @@ namespace UnityEngine.InputSystem
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
+                @Parallel.started += instance.OnParallel;
+                @Parallel.performed += instance.OnParallel;
+                @Parallel.canceled += instance.OnParallel;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1283,6 +1309,9 @@ namespace UnityEngine.InputSystem
                 @Inventory.started -= instance.OnInventory;
                 @Inventory.performed -= instance.OnInventory;
                 @Inventory.canceled -= instance.OnInventory;
+                @Parallel.started -= instance.OnParallel;
+                @Parallel.performed -= instance.OnParallel;
+                @Parallel.canceled -= instance.OnParallel;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1485,6 +1514,7 @@ namespace UnityEngine.InputSystem
             void OnSprint(InputAction.CallbackContext context);
             void OnCrouch(InputAction.CallbackContext context);
             void OnInventory(InputAction.CallbackContext context);
+            void OnParallel(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

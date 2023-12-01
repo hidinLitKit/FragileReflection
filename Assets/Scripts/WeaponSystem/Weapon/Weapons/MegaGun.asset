@@ -16,7 +16,6 @@ MonoBehaviour:
   BodyDamage: 10
   RateOfFire: 3
   RechargeSpeed: 10
-  XRecoil: 1
-  YRecoil: 0.3
-  ShotAmount: 8
+  RecoilRadius: 2
+  Magazine: 200
   CrossHair: {fileID: 21300000, guid: 6f42106a9aaf6dc49b77bb9186e02eb8, type: 3}

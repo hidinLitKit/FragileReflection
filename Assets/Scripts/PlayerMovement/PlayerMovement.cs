@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using WeaponSystem;
 
 namespace FragileReflection
@@ -134,12 +135,18 @@ namespace FragileReflection
 
         public void OnInventory(InputValue value)
         {
-            _inventValue = value.Get<float>();
-
-            if (_inventValue > 0)
+            GameEvents.SwitchMap("UI");
+            if (value.isPressed)
             {
-                GameEvents.SwitchMap("UI");
-                GameEvents.StatusControl(true);
+                
+            }
+        }
+
+        private void OnParallel(InputValue value)
+        {
+            if(value.isPressed)
+            {
+                GameEvents.ActiveParallelWorld();
             }
         }
 
