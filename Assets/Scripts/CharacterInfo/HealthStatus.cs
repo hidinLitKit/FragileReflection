@@ -13,14 +13,7 @@ namespace FragileReflection
 
         private void OnEnable()
         {
-            GameEvents.onStatusUI += ShowUI;
             GameEvents.onStatusUI += UpdateUI;
-        }
-
-        private void OnDisable()
-        {
-            GameEvents.onStatusUI -= ShowUI;
-            GameEvents.onStatusUI -= HideUI;
         }
 
         private void Start()
@@ -35,10 +28,10 @@ namespace FragileReflection
 
         private void Update()
         {
-            UpdateUI();
+            UpdateUI(true);
         }
 
-        private void UpdateUI()
+        private void UpdateUI(bool status)
         {
             if (_playerParam != null)
             {
@@ -64,16 +57,6 @@ namespace FragileReflection
                     GameEvents.HealthChange("pulse_red_sprite", 144);
                 }
             }
-        }
-
-        private void ShowUI()
-        {
-            _healthText.gameObject.SetActive(true);
-        }
-
-        private void HideUI()
-        {
-            _healthText.gameObject.SetActive(false);
         }
     }
 }

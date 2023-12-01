@@ -39,6 +39,7 @@ namespace FragileReflection
             if (keyboard != null && keyboard.tabKey.wasPressedThisFrame)
             {
                 health = 100f;
+                Debug.Log("Health is full!");
             }
 
             if (health < 100 && health > 0 && keyboard != null && keyboard.qKey.wasPressedThisFrame)

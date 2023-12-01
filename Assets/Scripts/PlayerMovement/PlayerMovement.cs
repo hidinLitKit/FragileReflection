@@ -139,6 +139,7 @@ namespace FragileReflection
             if (_inventValue > 0)
             {
                 GameEvents.SwitchMap("UI");
+                GameEvents.StatusControl(true);
             }
         }
 

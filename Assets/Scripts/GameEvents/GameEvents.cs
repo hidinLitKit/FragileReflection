@@ -20,7 +20,7 @@ namespace FragileReflection
         //PlayerInfo
         public static System.Action<float> onMedkitUse;
         public static System.Action<float> onMaxHealthIncrease;
-        public static Action onStatusUI;
+        public static Action<bool> onStatusUI;
         public static event Action<string,int> onHealthStatusChanged;
 
         //Items
@@ -60,9 +60,9 @@ namespace FragileReflection
             onAiming?.Invoke(aiming);
         }
 
-        public static void StatusControl()
+        public static void StatusControl(bool status)
         {
-            onStatusUI?.Invoke();
+            onStatusUI?.Invoke(status);
         }
 
         public static void SwitchMap(string map)
