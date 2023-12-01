@@ -45,7 +45,7 @@ namespace FragileReflection
             _database = inventory.database;
             //CreateSlots();
             //slotsPrefab.SetActive(false);
-            UpdateObjectPosition("Highlight", 0);
+            //UpdateObjectPosition("Highlight", 0);
             CreateSlots();
             UpdateSlots();
         }

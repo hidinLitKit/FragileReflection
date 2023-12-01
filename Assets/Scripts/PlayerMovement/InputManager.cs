@@ -32,8 +32,8 @@ namespace FragileReflection
         public void OnExit(InputValue value)
         {
             ToogleActionMaps("Player");
-            GameEvents.StatusControl(false);
-
+            CursorController("Player");
+            GameEvents.StatusControl(false);       
         }
         private void CursorController(string inputMap)
         {
