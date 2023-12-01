@@ -32,7 +32,7 @@ namespace FragileReflection
         public float speed = 1f;
         [SerializeField] private float _sprintSpeed = 2f;
         [SerializeField] private float _crouchSpeed = 0.5f;
-        private float divideRatio = 1000f;
+        private float divideRatio = 1f;
 
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
@@ -255,7 +255,7 @@ namespace FragileReflection
             {
                 moveSpeed = _crouchSpeed / divideRatio;
             }
-            MoveCharacter(moveSpeed*Screen.width*Time.deltaTime, angles);
+            MoveCharacter(moveSpeed, angles);
             
 
         }
@@ -263,7 +263,7 @@ namespace FragileReflection
         private void MoveCharacter(float moveSpeed, Vector3 angles)
         {
             Vector3 position = (playerTransform.forward * _move.y * moveSpeed) + (playerTransform.right * _move.x * moveSpeed);
-            characterController.Move(position);
+            characterController.Move(position*Time.deltaTime);
 
             //Set the player rotation based on the look transform
             playerTransform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
