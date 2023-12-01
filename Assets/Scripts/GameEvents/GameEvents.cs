@@ -17,12 +17,13 @@ namespace FragileReflection
         public static event System.Action onWeaponChanged;
         public static event System.Action onWeaponReload;
         public static event System.Action<bool> onAiming;
-        public static event System.Action onHealthImg;
 
         //PlayerInfo
         public static System.Action<float> onMedkitUse;
         public static System.Action<float> onMaxHealthIncrease;
-        public static System.Action<bool> onInventoryUI;
+        public static Action<bool> onStatusUI;
+        public static event Action<string,int> onHealthStatusChanged;
+        public static event Action<bool> onInventoryUI;
 
         //Items
         public static System.Action<KeyObject> onKeyUse;
@@ -68,12 +69,10 @@ namespace FragileReflection
             onWeaponReload?.Invoke();
         }
 
-        //����� �����������, ��
-        public static void HealthImage() 
-        { 
-            onHealthImg?.Invoke();
+        public static void StatusControl(bool status)
+        {
+            onStatusUI?.Invoke(status);
         }
-
 
         public static void SwitchMap(string map)
         {
@@ -123,6 +122,12 @@ namespace FragileReflection
         {
             onStaminaFull?.Invoke();
         }
+
+        public static void HealthChange(string status, int fps)
+        {
+            onHealthStatusChanged?.Invoke(status, fps);
+        }
+
         public static void ActiveParallelWorld()
         {
             onParallelWorldActive?.Invoke();

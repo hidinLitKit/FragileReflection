@@ -13,8 +13,6 @@ namespace FragileReflection
         public float Health => health;
         public float MaxHealth => maxHealth;
 
-        //[SerializeField] private GameObject _deathPanel;
-
         private Coroutine _healingCoroutine;
         [SerializeField] private float _heal = 2f;
 
@@ -38,22 +36,24 @@ namespace FragileReflection
                 TakeDamage(5f);
             }
 
-            if (keyboard != null && keyboard.tabKey.wasPressedThisFrame)
-            {
-                //_deathPanel.SetActive(false);
-                health = 100f;
-            }
+            //if (keyboard != null && keyboard.tabKey.wasPressedThisFrame)
+            //{
+            //    health = 100f;
+            //    Debug.Log("Health is full!");
+            //}
 
             if (health < 100 && health > 0 && keyboard != null && keyboard.qKey.wasPressedThisFrame)
             {
                 StartHealing();
             }
         }
+
         private void OnEnable()
         {
             GameEvents.onMaxHealthIncrease += IncreaseMaxHealth;
             GameEvents.onMedkitUse += HealAmmount;
         }
+
         private void OnDisable()
         {
             GameEvents.onMaxHealthIncrease -= IncreaseMaxHealth;
@@ -116,28 +116,36 @@ namespace FragileReflection
                 }
             }
         }
+
         public bool canHeal()
         {
-            if(Health>=MaxHealth) return false;
+            if(Health>=MaxHealth) 
+                return false;
+
             return true;
         }
+
         public void HealAmmount(float hp)
         {
-           
             if (canHeal())
             {
                 Debug.Log("Healing: " + hp);
+
                 health += hp;
-                if (Health >= MaxHealth) health = MaxHealth;
+                if (Health >= MaxHealth) 
+                    health = MaxHealth;
             }
+
             Debug.Log(health);
-            
         }
+
         public void IncreaseMaxHealth(float hp)
         {
             Debug.Log("Increasing hp: " + hp);
+
             maxHealth += hp;
             health = maxHealth;
+
             Debug.Log(health);
         }
     }
