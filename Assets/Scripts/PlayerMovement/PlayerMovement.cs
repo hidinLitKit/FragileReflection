@@ -32,7 +32,6 @@ namespace FragileReflection
         public float speed = 1f;
         [SerializeField] private float _sprintSpeed = 2f;
         [SerializeField] private float _crouchSpeed = 0.5f;
-        private float divideRatio = 1f;
 
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
@@ -233,7 +232,7 @@ namespace FragileReflection
                 return;
             }
 
-            float moveSpeed = speed/ divideRatio;
+            float moveSpeed = speed;
             preventSprint();
             if (_sprintValue == 1 && stamina > 0)
             {
@@ -241,7 +240,7 @@ namespace FragileReflection
                 GameEvents.StaminaUsed(stamina);
                 GameEvents.ShiftKeyPressed();
 
-                moveSpeed = _sprintSpeed / divideRatio;
+                moveSpeed = _sprintSpeed;
             }
             else
             { 
@@ -253,7 +252,7 @@ namespace FragileReflection
 
             if (_crouchValue == 1)
             {
-                moveSpeed = _crouchSpeed / divideRatio;
+                moveSpeed = _crouchSpeed;
             }
             MoveCharacter(moveSpeed, angles);
             
