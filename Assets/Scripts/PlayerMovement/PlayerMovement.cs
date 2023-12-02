@@ -302,7 +302,7 @@ namespace FragileReflection
         }
         private void preventSprint()
         {
-            if (_aiming || _move.y < 0 || !_moving)
+            if (_aiming || _move.y < 0 || !_moving || stamina<=0)
             {
                 _sprinting = false;
                 _sprintValue = 0;
