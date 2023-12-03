@@ -32,21 +32,21 @@ namespace FragileReflection
 
         private void UpdateUI(bool status)
         {
-            if (_playerParam != null)
-            {
-                if (_playerParam.Health >= 60)
-                {
-                    GameEvents.HealthChange("pulse_green_sprite", 30, "FINE", Color.green);
-                }
-                else if (_playerParam.Health >= 40)
-                {
-                    GameEvents.HealthChange("pulse_yellow_sprite", 60, "BAD", Color.yellow);
-                }
-                else
-                {
-                    GameEvents.HealthChange("pulse_red_sprite", 144, "DANGER", Color.red);
-                }
-            }
+            //if (_playerParam != null)
+            //{
+            //    if (_playerParam.Health >= 60)
+            //    {
+            //        GameEvents.HealthChange("pulse_green_sprite", 30, "FINE", Color.green);
+            //    }
+            //    else if (_playerParam.Health >= 40)
+            //    {
+            //        GameEvents.HealthChange("pulse_yellow_sprite", 60, "BAD", Color.yellow);
+            //    }
+            //    else
+            //    {
+            //        GameEvents.HealthChange("pulse_red_sprite", 144, "DANGER", Color.red);
+            //    }
+            //}
         }
     }
 }
