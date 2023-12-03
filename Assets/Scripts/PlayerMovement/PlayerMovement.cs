@@ -228,7 +228,7 @@ namespace FragileReflection
                 stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
                 GameEvents.StaminaRegenerated(stamina);
                 if (stamina == 100)
-                    GameEvents.StaminaFull();
+                    GameEvents.StaminaUIClose();
 
                 return;
             }
@@ -239,7 +239,7 @@ namespace FragileReflection
             {
                 stamina -= staminaConsumptionRate * Time.deltaTime;
                 GameEvents.StaminaUsed(stamina);
-                GameEvents.ShiftKeyPressed();
+                GameEvents.StaminaUIOpen();
 
                 moveSpeed = _sprintSpeed / divideRatio;
             }
@@ -248,7 +248,7 @@ namespace FragileReflection
                 stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
                 GameEvents.StaminaRegenerated(stamina);
                 if (stamina == 100)
-                    GameEvents.StaminaFull();
+                    GameEvents.StaminaUIClose();
             }
 
             if (_crouchValue == 1)

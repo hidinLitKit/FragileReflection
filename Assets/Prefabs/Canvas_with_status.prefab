@@ -2370,6 +2370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b94fc94ab07cd4897a9f3d1cb31f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthText: {fileID: 439431643906144151}
 --- !u!1 &2678026489030352896
 GameObject:
   m_ObjectHideFlags: 0
@@ -6416,6 +6417,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1473544228054692801}
     m_Modifications:
+    - target: {fileID: 3018272158765462688, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -5.1546
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018272158765462688, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.2611
+      objectReference: {fileID: 0}
     - target: {fileID: 6256676191808353042, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6495,6 +6504,14 @@ PrefabInstance:
     - target: {fileID: 6256676191808353042, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399496798752994865, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -0.80117
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399496798752994865, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.80120087
       objectReference: {fileID: 0}
     - target: {fileID: 9119742377140183797, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
       propertyPath: m_Name

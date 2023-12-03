@@ -36,8 +36,8 @@ namespace FragileReflection
         //Stamina
         public static event Action<float> onStaminaUsed;
         public static event Action<float> onStaminaRegenerated;
-        public static Action onShiftKeyPressed;
-        public static Action onStaminaFull;
+        public static Action onStaminaUIOpen;
+        public static Action onStaminaUIClose;
         //Parallel World
         public static event System.Action onParallelWorldActive;
 
@@ -113,14 +113,14 @@ namespace FragileReflection
             onStaminaRegenerated?.Invoke(amount);
         }
 
-        public static void ShiftKeyPressed()
+        public static void StaminaUIOpen()
         {
-            onShiftKeyPressed?.Invoke();
+            onStaminaUIOpen?.Invoke();
         }
 
-        public static void StaminaFull()
+        public static void StaminaUIClose()
         {
-            onStaminaFull?.Invoke();
+            onStaminaUIClose?.Invoke();
         }
 
         public static void HealthChange(string pulse, int fps, string status, Color color)

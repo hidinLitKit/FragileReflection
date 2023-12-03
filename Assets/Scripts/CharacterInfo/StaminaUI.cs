@@ -26,14 +26,14 @@ public class StaminaMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.onShiftKeyPressed += ShowStaminaInterface;
-        GameEvents.onStaminaFull += HideStaminaInterface;
+        GameEvents.onStaminaUIOpen += ShowStaminaInterface;
+        GameEvents.onStaminaUIClose += HideStaminaInterface;
     }
 
     private void OnDisable()
     {
-        GameEvents.onShiftKeyPressed -= ShowStaminaInterface;
-        GameEvents.onStaminaFull -= HideStaminaInterface;
+        GameEvents.onStaminaUIOpen -= ShowStaminaInterface;
+        GameEvents.onStaminaUIClose -= HideStaminaInterface;
     }
 
     private void Update()
