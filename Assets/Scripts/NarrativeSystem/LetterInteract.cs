@@ -8,9 +8,11 @@ namespace FragileReflection
     {
         private Letter letter;
         private Collider col;
+        private int _InteractableLayer = 6;
         
         private void Awake()
         {
+            gameObject.layer = _InteractableLayer;
             letter = GetComponent<Letter>();
             col = GetComponent<Collider>();
         }

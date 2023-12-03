@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Container:
     Items:
-    - ID: 12
+    - ID: 10
       item:
-        Name: Backyard Key
-        ID: 12
-        unique: 1
+        Name: 
+        ID: 10
+        unique: 0
       amount: 0
   database: {fileID: 11400000, guid: f3f6581fb61f6664f94fbc5ad4d20d84, type: 2}

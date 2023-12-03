@@ -141,6 +141,7 @@ namespace FragileReflection
         public void OnInventory(InputValue value)
         {
             GameEvents.SwitchMap("UI");
+            GameEvents.InventoryUIAble(true);
             if (value.isPressed)
             {
                 

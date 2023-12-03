@@ -27,8 +27,10 @@ namespace FragileReflection
         }
         IEnumerator TP()
         {
+            _player.GetComponent<CharacterController>().enabled = false;
             yield return new WaitForSeconds(0.5f);
             _player.transform.position = _tpPoint.position;
+            _player.GetComponent<CharacterController>().enabled = true;
         }
     }
 }
