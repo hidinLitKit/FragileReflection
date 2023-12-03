@@ -12,7 +12,7 @@ namespace FragileReflection
     public class PlayerMovement : MonoBehaviour
     {
         //mine
-        
+
 
         [SerializeField] private CharacterController characterController;
         [SerializeField] private PlayerAnimController playerAnimController;
@@ -67,7 +67,7 @@ namespace FragileReflection
             Debug.Log("Exit");
         }
         public void OnMove(InputValue value)
-        { 
+        {
             _move = value.Get<Vector2>();
             _moving = _move.x != 0 || _move.y != 0;
         }
@@ -79,14 +79,14 @@ namespace FragileReflection
 
         public void OnAim(InputValue value)
         {
-            if (WeaponManager.currentWeapon == null) 
+            if (WeaponManager.currentWeapon == null)
                 return;
             aimValue = value.Get<float>();
         }
 
         public void OnFire(InputValue value)
         {
-            if (!_aiming) 
+            if (!_aiming)
                 return;
             WeaponManager.currentWeapon.Fire();
             //GameEvents.Fire();
@@ -95,15 +95,20 @@ namespace FragileReflection
         {
             //доавить сюда проверку на перезаряжаемся ли мы прямо сейчас?
             // хз а надо?
-            if (!_aiming) 
+            if (!_aiming)
                 return;
             WeaponManager.currentWeapon.Reload();
         }
         public void OnSprint(InputValue value)
         {
-            if (_aiming) return;
+            if (_aiming || _move.y < 0 || !_moving)
+            {
+                _sprinting = false;
+                _sprintValue = 0;
+                return;
+            }
             _sprintValue = value.Get<float>();
-            _sprinting = _sprintValue != 0;
+            _sprinting = _sprintValue != 0;  
         }
 
         public void OnCrouch(InputValue value)
@@ -135,11 +140,10 @@ namespace FragileReflection
 
         public void OnInventory(InputValue value)
         {
-            _inventValue = value.Get<float>();
-
-            if (_inventValue > 0)
+            GameEvents.SwitchMap("UI");
+            if (value.isPressed)
             {
-                GameEvents.SwitchMap("UI");
+                
             }
         }
 
@@ -228,15 +232,15 @@ namespace FragileReflection
                 return;
             }
 
-            float moveSpeed = speed / 100f;
-
+            float moveSpeed = speed;
+            preventSprint();
             if (_sprintValue == 1 && stamina > 0)
             {
                 stamina -= staminaConsumptionRate * Time.deltaTime;
                 GameEvents.StaminaUsed(stamina);
                 GameEvents.ShiftKeyPressed();
 
-                moveSpeed = _sprintSpeed / 100f;
+                moveSpeed = _sprintSpeed;
             }
             else
             { 
@@ -248,9 +252,8 @@ namespace FragileReflection
 
             if (_crouchValue == 1)
             {
-                moveSpeed = _crouchSpeed / 100f;
+                moveSpeed = _crouchSpeed;
             }
-            
             MoveCharacter(moveSpeed, angles);
             
 
@@ -259,7 +262,7 @@ namespace FragileReflection
         private void MoveCharacter(float moveSpeed, Vector3 angles)
         {
             Vector3 position = (playerTransform.forward * _move.y * moveSpeed) + (playerTransform.right * _move.x * moveSpeed);
-            characterController.Move(position);
+            characterController.Move(position*Time.deltaTime);
 
             //Set the player rotation based on the look transform
             playerTransform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
@@ -296,6 +299,15 @@ namespace FragileReflection
                 playerTransform.rotation = Quaternion.Slerp(currentRotation, targetRotation, 30f*Time.deltaTime);
             }
 
+        }
+        private void preventSprint()
+        {
+            if (_aiming || _move.y < 0 || !_moving || stamina<=0)
+            {
+                _sprinting = false;
+                _sprintValue = 0;
+                return;
+            }
         }
     }
 

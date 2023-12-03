@@ -31,8 +31,7 @@ namespace FragileReflection
         }
         public void OnExit(InputValue value)
         {
-            ToogleActionMaps("Player");
-
+            GameEvents.SwitchMap("Player");
         }
         private void CursorController(string inputMap)
         {
@@ -41,10 +40,12 @@ namespace FragileReflection
                 case ("UI"):
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
+                    GameEvents.InventoryUIAble(true);
                     break;
                 default:
                     Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
+                     Cursor.visible = false;
+                    GameEvents.InventoryUIAble(false);
                     break;
             }
         }

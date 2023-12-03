@@ -15,16 +15,20 @@ namespace FragileReflection
         //Weapon
         public static event System.Action onFire;
         public static event System.Action onWeaponChanged;
+        public static event System.Action onWeaponReload;
         public static event System.Action<bool> onAiming;
-        public static event System.Action onHealthImg;
 
         //PlayerInfo
         public static System.Action<float> onMedkitUse;
         public static System.Action<float> onMaxHealthIncrease;
+        public static Action<bool> onStatusUI;
+        public static event Action<string,int> onHealthStatusChanged;
+        public static event Action<bool> onInventoryUI;
 
         //Items
         public static System.Action<KeyObject> onKeyUse;
         public static System.Action<int> onSuccesUse;
+        public static System.Action onPickItem;
 
         //ActionMaps
         public static event System.Action<string> onMapSwitched;
@@ -60,14 +64,15 @@ namespace FragileReflection
         {
             onAiming?.Invoke(aiming);
         }
-
-
-        //����� �����������, ��
-        public static void HealthImage() 
-        { 
-            onHealthImg?.Invoke();
+        public static void WeaponReload()
+        {
+            onWeaponReload?.Invoke();
         }
 
+        public static void StatusControl(bool status)
+        {
+            onStatusUI?.Invoke(status);
+        }
 
         public static void SwitchMap(string map)
         {
@@ -82,6 +87,10 @@ namespace FragileReflection
         {
             onMaxHealthIncrease?.Invoke(hp);
         }
+        public static void InventoryUIAble(bool show)
+        {
+            onInventoryUI?.Invoke(show);
+        }
         public static void UseKey(KeyObject key)
         {
             onKeyUse?.Invoke(key);
@@ -90,7 +99,10 @@ namespace FragileReflection
         {
             onSuccesUse?.Invoke(id);
         }
-
+        public static void PickItem()
+        {
+            onPickItem?.Invoke();
+        }
         public static void StaminaUsed(float amount)
         {
             onStaminaUsed?.Invoke(amount);
@@ -111,6 +123,7 @@ namespace FragileReflection
             onStaminaFull?.Invoke();
         }
 
+        public static void HealthChange(string status, int fps)
         public static void ActiveParallelWorld()
         {
             onParallelWorldActive?.Invoke();

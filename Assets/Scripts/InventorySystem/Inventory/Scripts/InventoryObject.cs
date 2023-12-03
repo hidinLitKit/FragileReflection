@@ -44,10 +44,6 @@ namespace FragileReflection
                 }
             }
         }
-        public int ItemAmmount(int i)
-        {
-            return Container.Items[i].amount;
-        }
         public bool ContainsObject(ItemObject itm)
         {
             for (int i = 0; i < Container.Items.Count; i++)

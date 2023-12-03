@@ -1,0 +1,1320 @@
+fileFormatVersion: 2
+guid: 87ffad08672bc6143938d9a29d654bd5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 11880
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6617ecef3ca5aaf4b911e40d7dbb5492
+      internalID: -1647927491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10800
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36091bd7c70724d4982611ada3994b29
+      internalID: 2031237892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 10800
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd514dee4f085dd43a3f577bfd8768c7
+      internalID: 1402349760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 10800
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fe9d66e8b4c6b34f877332150e04a14
+      internalID: -2136270106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 10800
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f79ec3c014d3c14cb22245bb31bfac5
+      internalID: -913288260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 10800
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d01d9f9e9af0b445888d2fef455b35f
+      internalID: 1153207467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9720
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a899742a95b826748a86c79d23312d79
+      internalID: 569499641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 9720
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6685215bcc69f498404f76550f8f13
+      internalID: -2042899778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 9720
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa91c6009dc499f408499758d77f63e1
+      internalID: 1006564558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 9720
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 258ad061ed68a7146bd7078458c62cf5
+      internalID: -610297041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 9720
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b673b70f7b0964ca8b072e8b43a497
+      internalID: 324115238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8640
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baf50e075d3f86c4a8aa094cd679e377
+      internalID: 734832053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_16
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 8640
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 929f1bf1571c14740947faf71c70b441
+      internalID: 1871846385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_17
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 8640
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71ab31cd78531245a4eb5cea60fcd66
+      internalID: -2050089513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_18
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 8640
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57eab3211e3cab34989e44742c03de76
+      internalID: 1324602951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_19
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 8640
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826393168f5b3da4ba8a8d80e1a984b0
+      internalID: -2135955647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7560
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df4bc2f150a0a04b832205a085727b1
+      internalID: 139266600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_21
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 7560
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88205c3b6aa1f074aab4884155600ea9
+      internalID: 792306169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_22
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 7560
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b25874b9f4fa634db5650ce7d19cd28
+      internalID: 28743225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_23
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 7560
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fffe15751eed1114fa7fbb6edf564d56
+      internalID: -82954372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_24
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 7560
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a398559eb90d24eb8335956075af31
+      internalID: -140773723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6480
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a26d5cfe6a9e4942bef260f14b5b656
+      internalID: -130942960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_26
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 6480
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef1c4007ff907142b02f3eb2dc6b86e
+      internalID: 2013865111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_27
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 6480
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dc9fea541280a04c8522f6bc2c79497
+      internalID: 1036648581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_28
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 6480
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3321edf03d78af418bf3c935c4d4e6d
+      internalID: -14733994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_29
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 6480
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b653aca0bc2e337439df5833df1630ab
+      internalID: -1313718810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5400
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c258d197e7376294bbb305ab717974fc
+      internalID: -116737798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_31
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 5400
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae84fd4e92e4fe74c807b5fbfc95c72d
+      internalID: -1015653336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_32
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 5400
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b836a4e3ef398e4d9ed71eec9faa8ae
+      internalID: 165021635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_33
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 5400
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caaadce67f17a8a4e98ce0e913514866
+      internalID: -132616148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_34
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 5400
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1dcb4c921f4ec14ab494a1970695b8d
+      internalID: 1128230064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4320
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d50cc77517f8044ea094e59fbbc8851
+      internalID: 894862743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_36
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 4320
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96379bed97f046240a40e92ee503c2c1
+      internalID: -91982030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_37
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 4320
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41e43fb4400523409a97fa7aa16b08d
+      internalID: 68989048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_38
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 4320
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3447c433aa89fa04892bbb659397a7c4
+      internalID: 293836932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_39
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 4320
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ae96f841cc6d948b19d5e453c332a6
+      internalID: -206640398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3240
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c93e910135c0c24aaefb568025e554b
+      internalID: -941858162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_41
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 3240
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae3ca0fe3cdd764eb2f59c8204f9eb6
+      internalID: 754968753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_42
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 3240
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa9aab32187d664683c37040bd8ef7f
+      internalID: -1625154772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_43
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 3240
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa682423f22954947afa90466b3cef56
+      internalID: -1447205888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_44
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3240
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2df61ccacdbf8d478e9c8ea8a1688ca
+      internalID: -2031230200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2160
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76be819499e84c4e9f0a55d618a9bf2
+      internalID: 613814482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_46
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2160
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e2bea3998f65f04ead45d1dc755d325
+      internalID: 108467417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_47
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 2160
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae813782750655d4b8fc0e9fbee252bc
+      internalID: 713743385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_48
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 2160
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e203fac017825408ae65e22ce43732
+      internalID: 424797568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_49
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2160
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0412b52bf5540d14d9ba9feb3b38a9f1
+      internalID: 1419804037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5444df7a9971bc74f9d4168999a38e03
+      internalID: -434947870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_51
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1080
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6eb8b044ae29b4a9d3fc501d1b8199
+      internalID: -656955869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_52
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1080
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a63753b67c1a84ab9f8d599de22cdd
+      internalID: 1870636920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_53
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 1080
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e5f905dbab8304f852957ca81095ae
+      internalID: 2110580213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_54
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1080
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f37dc0ee30b512e4ebc53c409ca9e8c9
+      internalID: 1572776255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 443d7b038e4618a4e977462e4a5d3cab
+      internalID: -670445714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_56
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46d12574714afbd44918eed69658420c
+      internalID: -294861442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pulse_yellow_sprite_57
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 1140
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c67b30733fbf07044b39a1b55d5b12fc
+      internalID: 504082526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 623e9f90c072d33478425ff4256921b2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      pulse_yellow_sprite_0: -482157916
+      pulse_yellow_sprite_1: 818112489
+      pulse_yellow_sprite_10: 569499641
+      pulse_yellow_sprite_11: -2042899778
+      pulse_yellow_sprite_12: 1006564558
+      pulse_yellow_sprite_13: -610297041
+      pulse_yellow_sprite_14: 324115238
+      pulse_yellow_sprite_15: 734832053
+      pulse_yellow_sprite_16: 1871846385
+      pulse_yellow_sprite_17: -2050089513
+      pulse_yellow_sprite_18: 1324602951
+      pulse_yellow_sprite_19: -2135955647
+      pulse_yellow_sprite_2: 490847460
+      pulse_yellow_sprite_20: 139266600
+      pulse_yellow_sprite_21: 792306169
+      pulse_yellow_sprite_22: 28743225
+      pulse_yellow_sprite_23: -82954372
+      pulse_yellow_sprite_24: -140773723
+      pulse_yellow_sprite_25: -130942960
+      pulse_yellow_sprite_26: 2013865111
+      pulse_yellow_sprite_27: 1036648581
+      pulse_yellow_sprite_28: -14733994
+      pulse_yellow_sprite_29: -1313718810
+      pulse_yellow_sprite_3: 518495047
+      pulse_yellow_sprite_30: -116737798
+      pulse_yellow_sprite_31: -1015653336
+      pulse_yellow_sprite_32: 165021635
+      pulse_yellow_sprite_33: -132616148
+      pulse_yellow_sprite_34: 1128230064
+      pulse_yellow_sprite_35: 894862743
+      pulse_yellow_sprite_36: -91982030
+      pulse_yellow_sprite_37: 68989048
+      pulse_yellow_sprite_38: 293836932
+      pulse_yellow_sprite_39: -206640398
+      pulse_yellow_sprite_4: -1647927491
+      pulse_yellow_sprite_40: -941858162
+      pulse_yellow_sprite_41: 754968753
+      pulse_yellow_sprite_42: -1625154772
+      pulse_yellow_sprite_43: -1447205888
+      pulse_yellow_sprite_44: -2031230200
+      pulse_yellow_sprite_45: 613814482
+      pulse_yellow_sprite_46: 108467417
+      pulse_yellow_sprite_47: 713743385
+      pulse_yellow_sprite_48: 424797568
+      pulse_yellow_sprite_49: 1419804037
+      pulse_yellow_sprite_5: 2031237892
+      pulse_yellow_sprite_50: -434947870
+      pulse_yellow_sprite_51: -656955869
+      pulse_yellow_sprite_52: 1870636920
+      pulse_yellow_sprite_53: 2110580213
+      pulse_yellow_sprite_54: 1572776255
+      pulse_yellow_sprite_55: -670445714
+      pulse_yellow_sprite_56: -294861442
+      pulse_yellow_sprite_57: 504082526
+      pulse_yellow_sprite_58: 618623038
+      pulse_yellow_sprite_6: 1402349760
+      pulse_yellow_sprite_7: -2136270106
+      pulse_yellow_sprite_8: -913288260
+      pulse_yellow_sprite_9: 1153207467
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
