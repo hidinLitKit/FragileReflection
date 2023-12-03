@@ -14,7 +14,7 @@ TagManager:
   - InteractableMask
   - Walls
   - Player
-  - 
+  - UnactiveLayer
   - 
   - 
   - 

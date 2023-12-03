@@ -123,7 +123,7 @@ namespace FragileReflection
         {
             if(value.isPressed)
             {
-                GameInventory.instance.inventory.database.GetItem[1].Use();
+                GameInventory.instance.inventory.database.Items[1].Use();
                 //WeaponManager.SwitchWeapon(WeaponManager.weapons[0]);
             }
             
