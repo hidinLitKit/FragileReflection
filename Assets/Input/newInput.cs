@@ -145,6 +145,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""97256772-a47a-4220-ab98-3d72199eb65e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -486,6 +495,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Parallel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eae728ec-76bb-48ac-9637-c65e62ac111c"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1117,6 +1137,7 @@ namespace UnityEngine.InputSystem
             m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
             m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
             m_Player_Parallel = m_Player.FindAction("Parallel", throwIfNotFound: true);
+            m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1204,6 +1225,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_Crouch;
         private readonly InputAction m_Player_Inventory;
         private readonly InputAction m_Player_Parallel;
+        private readonly InputAction m_Player_Pause;
         public struct PlayerActions
         {
             private @NewInput m_Wrapper;
@@ -1221,6 +1243,7 @@ namespace UnityEngine.InputSystem
             public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
             public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
             public InputAction @Parallel => m_Wrapper.m_Player_Parallel;
+            public InputAction @Pause => m_Wrapper.m_Player_Pause;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1269,6 +1292,9 @@ namespace UnityEngine.InputSystem
                 @Parallel.started += instance.OnParallel;
                 @Parallel.performed += instance.OnParallel;
                 @Parallel.canceled += instance.OnParallel;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1312,6 +1338,9 @@ namespace UnityEngine.InputSystem
                 @Parallel.started -= instance.OnParallel;
                 @Parallel.performed -= instance.OnParallel;
                 @Parallel.canceled -= instance.OnParallel;
+                @Pause.started -= instance.OnPause;
+                @Pause.performed -= instance.OnPause;
+                @Pause.canceled -= instance.OnPause;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1515,6 +1544,7 @@ namespace UnityEngine.InputSystem
             void OnCrouch(InputAction.CallbackContext context);
             void OnInventory(InputAction.CallbackContext context);
             void OnParallel(InputAction.CallbackContext context);
+            void OnPause(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

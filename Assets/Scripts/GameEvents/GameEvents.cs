@@ -21,7 +21,7 @@ namespace FragileReflection
         //PlayerInfo
         public static System.Action<float> onMedkitUse;
         public static System.Action<float> onMaxHealthIncrease;
-        public static Action<bool> onStatusUI;
+        //public static Action<bool> onStatusUI;
         public static event Action<string, int, string, Color> onHealthStatusChanged;
         public static event Action<bool> onInventoryUI;
 
@@ -40,6 +40,9 @@ namespace FragileReflection
         public static Action onStaminaUIClose;
         //Parallel World
         public static event System.Action onParallelWorldActive;
+
+        //Pause
+        public static event Action<bool> onGamePause;
 
         public static void InteractionEnter(Interactable interactable)
         {
@@ -69,10 +72,10 @@ namespace FragileReflection
             onWeaponReload?.Invoke();
         }
 
-        public static void StatusControl(bool status)
-        {
-            onStatusUI?.Invoke(status);
-        }
+        //public static void StatusControl(bool status)
+        //{
+        //    onStatusUI?.Invoke(status);
+        //}
 
         public static void SwitchMap(string map)
         {
@@ -131,6 +134,11 @@ namespace FragileReflection
         public static void ActiveParallelWorld()
         {
             onParallelWorldActive?.Invoke();
+        }
+
+        public static void GamePause(bool status)
+        {
+            onGamePause?.Invoke(status);
         }
     }
 }

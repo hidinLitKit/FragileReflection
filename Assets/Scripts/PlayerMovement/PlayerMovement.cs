@@ -59,6 +59,9 @@ namespace FragileReflection
         [SerializeField] private float staminaConsumptionRate = 5f;  // скорость расхода выносливости
         [SerializeField] private float staminaRegenerationRate = 2f; // скорость восстановления выносливости
 
+        private int _pauseCount = 0;
+        private bool _pause = false;
+
         private void Awake()
         {
             playerTransform = characterController.gameObject.transform;
@@ -162,10 +165,33 @@ namespace FragileReflection
             }
         }
 
+        private void OnPause(InputValue value)
+        {
+            _pauseCount++;
+            if (value.isPressed)
+            {
+                if (_pauseCount % 2 != 0)
+                {
+                    _pause = true;
+                    GameEvents.GamePause(true);
+                    Debug.Log("Pause start!");
+                }
+                else
+                {
+                    _pause = false;
+                    GameEvents.GamePause(false);
+                    Debug.Log("Pause cancel!");
+                }
+            }
+        }
+
         public GameObject followTransform;
 
         private void Update()
         {
+            if (_pause)
+                return;
+
             HandleAnimations();
 
             #region Follow Transform Rotation
