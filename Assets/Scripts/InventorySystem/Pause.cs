@@ -7,6 +7,8 @@ namespace FragileReflection
 {
     public class Pause : MonoBehaviour
     {
+        [SerializeField] private GameObject _pausePanel;
+
         private void OnEnable()
         {
             GameEvents.onGamePause += Paused;
@@ -19,13 +21,17 @@ namespace FragileReflection
 
         private void Paused(bool status)
         {
+            _pausePanel.SetActive(status);
+
             if (status)
             {
                 Time.timeScale = 0;
+                Debug.Log("Pause start!");
             }
             else
             {
                 Time.timeScale = 1;
+                Debug.Log("Pause cancel!");
             }
         }
     }

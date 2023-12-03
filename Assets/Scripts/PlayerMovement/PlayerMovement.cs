@@ -174,13 +174,11 @@ namespace FragileReflection
                 {
                     _pause = true;
                     GameEvents.GamePause(true);
-                    Debug.Log("Pause start!");
                 }
                 else
                 {
                     _pause = false;
                     GameEvents.GamePause(false);
-                    Debug.Log("Pause cancel!");
                 }
             }
         }
