@@ -17,6 +17,7 @@ public class MoveToPosition : ActionNode
 		context.agent.destination = blackboard.moveToPosition;
 		enemyController = context.gameObject.GetComponent<EnemyController>();
 		animator = enemyController.animator;
+		enemyController._audioController.PlayAudio(true, FragileReflection.EnemySounds.Patrolling, true);
 
 		if(animator.GetBool("Move") != true)
 			animator.SetBool("Move", true);

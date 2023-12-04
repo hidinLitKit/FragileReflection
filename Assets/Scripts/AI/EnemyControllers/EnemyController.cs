@@ -46,7 +46,7 @@ public class EnemyController : MonoBehaviour
     private float _scanInterval;
     private float _scanTimer;
 
-    private EnemyAudioController _audioController;
+    public EnemyAudioController _audioController;
 
     private void Awake()
     {

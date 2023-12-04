@@ -8,6 +8,7 @@ namespace FragileReflection
     {
         PreAttack,
         Patrolling,
+        Chasing,
         Attacking,
         Stuggle,
         Death
@@ -17,6 +18,7 @@ namespace FragileReflection
         [Header("AudioClips")]
         [SerializeField] private AudioClip preAttack;
         [SerializeField] private AudioClip patrolling;
+        [SerializeField] private AudioClip chasing;
         [SerializeField] private AudioClip attacking;
         [Header("Нанесение урона врагу")]
         [SerializeField] private AudioClip stuggle;
@@ -28,7 +30,7 @@ namespace FragileReflection
         void Start()
         {
             _audioSource = GetComponent<AudioSource>();
-            _audioClipList = new List<AudioClip>() { preAttack, patrolling, attacking, stuggle };
+            _audioClipList = new List<AudioClip>() { preAttack, patrolling, chasing, attacking, stuggle, dying };
         }
 
         public void PlayAudio(bool loop, EnemySounds sound, bool checkIsPlaying = false)

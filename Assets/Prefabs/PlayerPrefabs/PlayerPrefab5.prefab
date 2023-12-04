@@ -1765,7 +1765,7 @@ MonoBehaviour:
   pointer: {fileID: 6927123173757912151}
   detectLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
 --- !u!114 &8955151341593838700
 MonoBehaviour:
   m_ObjectHideFlags: 0

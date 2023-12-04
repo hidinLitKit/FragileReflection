@@ -20,6 +20,9 @@ public class EnemyChase : ActionNode
         player = enemyController.player;
         context.agent.destination = player.position;
         animator = enemyController.animator;
+
+        enemyController._audioController.PlayAudio(true, FragileReflection.EnemySounds.Chasing, true);
+
         if (animator.GetBool("Run") != true)
             animator.SetBool("Run", true);
     }
