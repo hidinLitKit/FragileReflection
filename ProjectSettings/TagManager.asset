@@ -14,9 +14,8 @@ TagManager:
   - InteractableMask
   - Walls
   - Player
+  - UnactiveLayer
   - Enemy
-  - 
-  - 
   - 
   - 
   - 

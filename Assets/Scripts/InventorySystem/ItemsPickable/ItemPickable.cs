@@ -8,18 +8,27 @@ namespace FragileReflection
     {
         [SerializeField] private ItemObject item;
         [SerializeField] private int _amount;
+        [SerializeField] private string _message;
+        private int _unactiveLayer = 9;
 
         public override string GetDescription()
         {
-            return "Âחÿעü ןנוהלוע";
+            return _message;
         }
 
         public override void Interact()
         {
             Item _item = new Item(item);
             GameInventory.instance.inventory.AddItem(_item, _amount);
-            
+            LayerChange();
         }
-
+        private void LayerChange()
+        {
+            gameObject.layer = _unactiveLayer;
+            foreach (Transform child in gameObject.transform)
+            {
+                child.gameObject.layer = _unactiveLayer;
+            }
+        }
     }
 }

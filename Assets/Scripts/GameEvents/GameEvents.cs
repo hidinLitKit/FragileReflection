@@ -41,6 +41,10 @@ namespace FragileReflection
         //Parallel World
         public static event System.Action onParallelWorldActive;
 
+        //UI
+        public static event Action onUIFade;
+
+
         public static void InteractionEnter(Interactable interactable)
         {
             onInteractionEnter?.Invoke(interactable);
@@ -130,6 +134,10 @@ namespace FragileReflection
         public static void ActiveParallelWorld()
         {
             onParallelWorldActive?.Invoke();
+        }
+        public static void UIFade()
+        {
+            onUIFade?.Invoke();
         }
     }
 }

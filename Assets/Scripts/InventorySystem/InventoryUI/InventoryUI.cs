@@ -25,7 +25,7 @@ namespace FragileReflection
         //С помощью этого скрипта мы перемещаемся внутри инвентаря и взаимодействуем с предметами
         [Header("Поля инвентаря")]
         [SerializeField] private InventoryObject inventory; //Ссылка на инвентарь
-        [SerializeField]private ItemDatabaseObject _database; //Датабаза всех предметов в игре - доступ к предмету по ID - содержит имя, описание, картинку
+        private ItemDatabaseObject _database; //Датабаза всех предметов в игре - доступ к предмету по ID - содержит имя, описание, картинку
         [SerializeField] private List<ItemUI> _inventorySlots; //отображение инвентаря UI
 
         [Header("UI")]
@@ -102,8 +102,8 @@ namespace FragileReflection
             {
                 if (_slot.inventorySlot != null)
                 {
-                    _slot.slot.GetComponent<Image>().sprite = _database.GetItem[_slot.inventorySlot.item.ID].image;
-                    _slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = _database.GetItem[_slot.inventorySlot.item.ID].unique ? "" : _slot.inventorySlot.amount.ToString();
+                    _slot.slot.GetComponent<Image>().sprite = _database.Items[_slot.inventorySlot.item.ID].image;
+                    _slot.slot.GetComponentInChildren<TextMeshProUGUI>().text = _database.Items[_slot.inventorySlot.item.ID].unique ? "" : _slot.inventorySlot.amount.ToString();
                     _slot.slot.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                     
                 }
@@ -118,7 +118,7 @@ namespace FragileReflection
 
             _currentItem = _inventorySlots[_currentIndex].inventorySlot;
 
-            if (_currentItem != null) _itemDescription.text = _database.GetItem[_currentItem.item.ID].name + " - " + _database.GetItem[_currentItem.item.ID].Description;
+            if (_currentItem != null) _itemDescription.text = _database.Items[_currentItem.item.ID].Name + " - " + _database.Items[_currentItem.item.ID].Description;
             else _itemDescription.text = "";
 
             UpdateObjectPosition(_highlight, _currentIndex);
@@ -135,7 +135,7 @@ namespace FragileReflection
         public void useItem()
         {
             //если мы кликнули по кнопке вызывается этот метод
-            _database.GetItem[ _currentItem.item.ID].Use();
+            _database.Items[ _currentItem.item.ID].Use();
         }
 
         private void InventoryUpdate(int num)
@@ -146,7 +146,7 @@ namespace FragileReflection
 
         public void examineItem()
         {
-            _database.GetItem[_currentItem.item.ID].Examine();
+            _database.Items[_currentItem.item.ID].Examine();
         }
 
         public void moveRight()

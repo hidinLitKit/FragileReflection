@@ -123,7 +123,7 @@ namespace FragileReflection
         {
             if(value.isPressed)
             {
-                GameInventory.instance.inventory.database.GetItem[1].Use();
+                GameInventory.instance.inventory.database.Items[1].Use();
                 //WeaponManager.SwitchWeapon(WeaponManager.weapons[0]);
             }
             
@@ -141,6 +141,7 @@ namespace FragileReflection
         public void OnInventory(InputValue value)
         {
             GameEvents.SwitchMap("UI");
+            GameEvents.InventoryUIAble(true);
             if (value.isPressed)
             {
                 
