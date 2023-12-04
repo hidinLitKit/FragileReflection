@@ -167,6 +167,7 @@ namespace FragileReflection
 
         private void OnPause(InputValue value)
         {
+            //GameEvents.SwitchMap("UI");
             _pauseCount++;
             if (value.isPressed)
             {

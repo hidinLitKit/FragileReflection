@@ -19,7 +19,7 @@ namespace FragileReflection
             GameEvents.onGamePause -= Paused;
         }
 
-        private void Paused(bool status)
+        public void Paused(bool status)
         {
             _pausePanel.SetActive(status);
 
