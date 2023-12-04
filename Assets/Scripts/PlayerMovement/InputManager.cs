@@ -12,7 +12,7 @@ namespace FragileReflection
         private void Awake()
         {
             _playerInput = playerInput;
-            GameEvents.SwitchMap("Player", "");
+            GameEvents.SwitchMap("Player");
         }
         private void OnEnable()
         {
@@ -24,31 +24,24 @@ namespace FragileReflection
             GameEvents.onMapSwitched -= ToogleActionMaps;
             GameEvents.onMapSwitched -= CursorController;
         }
-        public static void ToogleActionMaps(string inputMap, string ui)
+        public static void ToogleActionMaps(string inputMap)
         {
-            Debug.Log($"{inputMap} enabled and {ui}");
+            Debug.Log(inputMap + " enabled");
             _playerInput.SwitchCurrentActionMap(inputMap);
         }
         public void OnExit(InputValue value)
         {
-            GameEvents.SwitchMap("Player", "");
+            GameEvents.SwitchMap("Player");
         }
-        private void CursorController(string inputMap, string ui)
+        private void CursorController(string inputMap)
         {
             switch (inputMap)
             {
                 case ("UI"):
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
-                    if (ui == "pause")
-                    {
-                        GameEvents.GamePause(true);
-                    }
-                    else 
-                    { 
-                        GameEvents.InventoryUIAble(true);
-                        GameEvents.StaminaUIClose();
-                    }
+                    GameEvents.InventoryUIAble(true);
+                    GameEvents.StaminaUIClose();
                     break;
                 default:
                     Cursor.lockState = CursorLockMode.Locked;
