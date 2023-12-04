@@ -41,6 +41,9 @@ namespace FragileReflection
         //Parallel World
         public static event System.Action onParallelWorldActive;
 
+        //UI
+        public static event Action onUIFade;
+
         //Pause
         public static event Action<bool> onGamePause;
 
@@ -134,6 +137,11 @@ namespace FragileReflection
         public static void ActiveParallelWorld()
         {
             onParallelWorldActive?.Invoke();
+        }
+        
+        public static void UIFade()
+        {
+            onUIFade?.Invoke();
         }
 
         public static void GamePause(bool status)
