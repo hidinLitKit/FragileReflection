@@ -16,9 +16,11 @@ namespace FragileReflection
         public InteractionType interactionType;
         public abstract string GetDescription();
         public abstract void Interact();
-        public void IncreaseHoldTime() => holdTime += Time.deltaTime;
+        public void IncreaseHoldTime() => holdTime += 0.1f*Time.deltaTime;
         public void ResetHoldTime() => holdTime = 0f;
 
         public float GetHoldTime() => holdTime;
+        public void SetHoldTime(float f) => holdTime = f;
+
     }
 }
