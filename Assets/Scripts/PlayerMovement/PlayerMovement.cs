@@ -35,7 +35,6 @@ namespace FragileReflection
         public float speed = 1f;
         [SerializeField] private float _sprintSpeed = 2f;
         [SerializeField] private float _crouchSpeed = 0.5f;
-        private float divideRatio = 1000f;
 
         [Header("Настройки камеры")]
         [SerializeField] private CinemachineVirtualCamera _camMove;
@@ -251,7 +250,7 @@ namespace FragileReflection
                 return;
             }
 
-            float moveSpeed = speed/ divideRatio;
+            float moveSpeed = speed;
             preventSprint();
             if (_sprintValue == 1 && stamina > 0)
             {
@@ -259,7 +258,7 @@ namespace FragileReflection
                 GameEvents.StaminaUsed(stamina);
                 GameEvents.StaminaUIOpen();
 
-                moveSpeed = _sprintSpeed / divideRatio;
+                moveSpeed = _sprintSpeed;
             }
             else
             { 
@@ -271,9 +270,9 @@ namespace FragileReflection
 
             if (_crouchValue == 1)
             {
-                moveSpeed = _crouchSpeed / divideRatio;
+                moveSpeed = _crouchSpeed;
             }
-            MoveCharacter(moveSpeed*Screen.width*Time.deltaTime, angles);
+            MoveCharacter(moveSpeed, angles);
             
 
         }
@@ -281,7 +280,7 @@ namespace FragileReflection
         private void MoveCharacter(float moveSpeed, Vector3 angles)
         {
             Vector3 position = (playerTransform.forward * _move.y * moveSpeed) + (playerTransform.right * _move.x * moveSpeed);
-            characterController.Move(position);
+            characterController.Move(position*Time.deltaTime);
 
             //Set the player rotation based on the look transform
             playerTransform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
@@ -321,7 +320,7 @@ namespace FragileReflection
         }
         private void preventSprint()
         {
-            if (_aiming || _move.y < 0 || !_moving)
+            if (_aiming || _move.y < 0 || !_moving || stamina<=0)
             {
                 _sprinting = false;
                 _sprintValue = 0;

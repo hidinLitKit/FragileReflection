@@ -35,20 +35,17 @@ namespace FragileReflection
         }
         private void CursorController(string inputMap)
         {
-            switch (inputMap)
+            switch(inputMap)
             {
                 case ("UI"):
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
-                    GameEvents.InventoryUIAble(true);
-                    GameEvents.StaminaUIClose();
+                    //GameEvents.InventoryUIAble(true);
                     break;
                 default:
                     Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
+                     Cursor.visible = false;
                     GameEvents.InventoryUIAble(false);
-                    GameEvents.StaminaUIOpen();
-                    GameEvents.GamePause(false);
                     break;
             }
         }
