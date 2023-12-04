@@ -44,8 +44,9 @@ namespace FragileReflection
                     break;
                 default:
                     Cursor.lockState = CursorLockMode.Locked;
-                     Cursor.visible = false;
+                    Cursor.visible = false;
                     GameEvents.InventoryUIAble(false);
+                    GameEvents.GamePause(false);
                     break;
             }
         }

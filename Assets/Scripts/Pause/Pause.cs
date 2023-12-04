@@ -32,6 +32,7 @@ namespace FragileReflection
             {
                 Time.timeScale = 1;
                 Debug.Log("Pause cancel!");
+                InputManager.ToogleActionMaps("Player");
             }
         }
     }
