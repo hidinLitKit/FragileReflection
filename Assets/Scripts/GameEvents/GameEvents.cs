@@ -31,7 +31,7 @@ namespace FragileReflection
         public static System.Action onPickItem;
 
         //ActionMaps
-        public static event System.Action<string> onMapSwitched;
+        public static event System.Action<string, string> onMapSwitched;
 
         //Stamina
         public static event Action<float> onStaminaUsed;
@@ -77,9 +77,9 @@ namespace FragileReflection
         //    onStatusUI?.Invoke(status);
         //}
 
-        public static void SwitchMap(string map)
+        public static void SwitchMap(string map, string ui)
         {
-            onMapSwitched?.Invoke(map);
+            onMapSwitched?.Invoke(map, ui);
         }
 
         public static void UseMedkit(float hp)

@@ -11,7 +11,7 @@ namespace FragileReflection
         public void letterOpen()
         {
             _isActive = true;
-            GameEvents.SwitchMap("UI");
+            GameEvents.SwitchMap("UI","");
             letterAction?.Invoke(true);
             base.StopAllCoroutines();
             textIndex = 0;
@@ -23,7 +23,7 @@ namespace FragileReflection
         public void letterClose()
         {
             _isActive = false;
-            GameEvents.SwitchMap("Player");
+            GameEvents.SwitchMap("Player", "");
             letterAction?.Invoke(false);
         }
         private void OnEnable()

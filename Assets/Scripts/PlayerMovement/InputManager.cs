@@ -12,7 +12,7 @@ namespace FragileReflection
         private void Awake()
         {
             _playerInput = playerInput;
-            GameEvents.SwitchMap("Player");
+            GameEvents.SwitchMap("Player", "");
         }
         private void OnEnable()
         {
@@ -24,30 +24,38 @@ namespace FragileReflection
             GameEvents.onMapSwitched -= ToogleActionMaps;
             GameEvents.onMapSwitched -= CursorController;
         }
-        public static void ToogleActionMaps(string inputMap)
+        public static void ToogleActionMaps(string inputMap, string ui)
         {
-            Debug.Log(inputMap + " enabled");
+            Debug.Log($"{inputMap} enabled and {ui}");
             _playerInput.SwitchCurrentActionMap(inputMap);
         }
         public void OnExit(InputValue value)
         {
-            GameEvents.SwitchMap("Player");
+            GameEvents.SwitchMap("Player", "");
         }
-        private void CursorController(string inputMap)
+        private void CursorController(string inputMap, string ui)
         {
-            switch(inputMap)
+            switch (inputMap)
             {
                 case ("UI"):
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
-                    GameEvents.InventoryUIAble(true);
-                    GameEvents.StaminaUIClose();
+                    if (ui == "pause")
+                    {
+                        GameEvents.GamePause(true);
+                    }
+                    else 
+                    { 
+                        GameEvents.InventoryUIAble(true);
+                        GameEvents.StaminaUIClose();
+                    }
                     break;
                 default:
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
                     GameEvents.InventoryUIAble(false);
                     GameEvents.StaminaUIOpen();
+                    GameEvents.GamePause(false);
                     break;
             }
         }
