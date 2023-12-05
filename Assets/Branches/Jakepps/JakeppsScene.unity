@@ -4740,6 +4740,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 170256606766327438, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 170256606766327438, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 170256606766327438, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 793533519818905705, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 793533519818905705, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 793533519818905705, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1193989319371946232, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
       propertyPath: m_Name
       value: Canvas_with_status_and_pause
@@ -4823,6 +4847,58 @@ PrefabInstance:
     - target: {fileID: 1473544228054692801, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389528180244759552, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389528180244759552, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389528180244759552, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526543341098456318, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526543341098456318, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678391110608343401, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774881593066452985, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774881593066452985, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774881593066452985, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504542653959373633, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504542653959373633, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504542653959373633, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504542653959373633, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36593,7 +36669,7 @@ MonoBehaviour:
   maxHealth: 0
   health: 100
   _heal: 2
-  _powerHeal: 0
+  _powerHeal: 2
 --- !u!43 &1054097841
 Mesh:
   m_ObjectHideFlags: 0

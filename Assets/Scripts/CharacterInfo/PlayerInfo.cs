@@ -120,7 +120,7 @@ namespace FragileReflection
             {
                 yield return new WaitForSeconds(healingRate);
                 health += _heal;
-                Debug.Log($"Healing iteration {i + 1}");
+                Debug.Log($"Healing iteration {i + 1} and health = {health}");
 
                 if (health >= 100)
                 {
