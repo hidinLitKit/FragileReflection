@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
     private Mesh _mesh;
 
     private int scanFrequency = 30;
-    private float scanDelay = 5f;
+    private float scanDelay;
 
     private Collider[] _colliders = new Collider[10];
     private List<GameObject> _Objects = new List<GameObject>();
@@ -69,6 +69,7 @@ public class EnemyController : MonoBehaviour
         tree.blackboard.attackDistance = _attackDistance;
 
         _scanInterval = 1.0f / scanFrequency;
+        scanDelay = config.chaseDelay;
     }
 
     private void Update()

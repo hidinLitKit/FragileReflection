@@ -20,5 +20,7 @@ namespace FragileReflection
         public float chaseSpeed;
         [Header("Animation timers")]
         public float deathDuration;
+        [Header("Chase delay")]
+        public float chaseDelay;
     }
 }
