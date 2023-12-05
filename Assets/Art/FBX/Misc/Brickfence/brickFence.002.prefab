@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1826865609087148878}
   - component: {fileID: 6175458831711676323}
   - component: {fileID: 7965778672119656947}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: brickFence.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
