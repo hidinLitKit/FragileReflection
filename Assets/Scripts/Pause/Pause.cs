@@ -33,6 +33,9 @@ namespace FragileReflection
                 Time.timeScale = 1;
                 Debug.Log("Pause cancel!");
                 InputManager.ToogleActionMaps("Player");
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                GameEvents.StaminaUIOpen();
             }
         }
     }
