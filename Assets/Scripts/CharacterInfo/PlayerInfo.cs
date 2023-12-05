@@ -36,15 +36,28 @@ namespace FragileReflection
                 TakeDamage(5f);
             }
 
-            //if (keyboard != null && keyboard.tabKey.wasPressedThisFrame)
-            //{
-            //    health = 100f;
-            //    Debug.Log("Health is full!");
-            //}
+            if (keyboard != null && keyboard.cKey.wasPressedThisFrame)
+            {
+                health = 100f;
+                Debug.Log("Health is full!");
+            }
 
             if (health < 100 && health > 0 && keyboard != null && keyboard.qKey.wasPressedThisFrame)
             {
                 StartHealing();
+            }
+
+            if (health >= 60)
+            {
+                GameEvents.HealthChange("pulse_green_sprite", 30, "FINE", Color.green);
+            }
+            else if (health >= 40)
+            {
+                GameEvents.HealthChange("pulse_yellow_sprite", 60, "BAD", Color.yellow);
+            }
+            else
+            {
+                GameEvents.HealthChange("pulse_red_sprite", 144, "DANGER", Color.red);
             }
         }
 

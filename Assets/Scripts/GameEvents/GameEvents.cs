@@ -21,8 +21,8 @@ namespace FragileReflection
         //PlayerInfo
         public static System.Action<float> onMedkitUse;
         public static System.Action<float> onMaxHealthIncrease;
-        public static Action<bool> onStatusUI;
-        public static event Action<string,int> onHealthStatusChanged;
+        //public static Action<bool> onStatusUI;
+        public static event Action<string, int, string, Color> onHealthStatusChanged;
         public static event Action<bool> onInventoryUI;
 
         //Items
@@ -36,8 +36,8 @@ namespace FragileReflection
         //Stamina
         public static event Action<float> onStaminaUsed;
         public static event Action<float> onStaminaRegenerated;
-        public static Action onShiftKeyPressed;
-        public static Action onStaminaFull;
+        public static Action onStaminaUIOpen;
+        public static Action onStaminaUIClose;
         //Parallel World
         public static event System.Action onParallelWorldActive;
 
@@ -45,6 +45,8 @@ namespace FragileReflection
         public static event Action onUIFade;
         public static System.Action<float> onInteractionProgress;
 
+        //Pause
+        public static event Action<bool> onGamePause;
 
         public static void InteractionEnter(Interactable interactable)
         {
@@ -74,10 +76,10 @@ namespace FragileReflection
             onWeaponReload?.Invoke();
         }
 
-        public static void StatusControl(bool status)
-        {
-            onStatusUI?.Invoke(status);
-        }
+        //public static void StatusControl(bool status)
+        //{
+        //    onStatusUI?.Invoke(status);
+        //}
 
         public static void SwitchMap(string map)
         {
@@ -118,32 +120,39 @@ namespace FragileReflection
             onStaminaRegenerated?.Invoke(amount);
         }
 
-        public static void ShiftKeyPressed()
+        public static void StaminaUIOpen()
         {
-            onShiftKeyPressed?.Invoke();
+            onStaminaUIOpen?.Invoke();
         }
 
-        public static void StaminaFull()
+        public static void StaminaUIClose()
         {
-            onStaminaFull?.Invoke();
+            onStaminaUIClose?.Invoke();
         }
 
-        public static void HealthChange(string status, int fps)
+        public static void HealthChange(string pulse, int fps, string status, Color color)
         {
-            onHealthStatusChanged?.Invoke(status, fps);
+            onHealthStatusChanged?.Invoke(pulse, fps, status, color);
         }
 
         public static void ActiveParallelWorld()
         {
             onParallelWorldActive?.Invoke();
         }
+        
         public static void UIFade()
         {
             onUIFade?.Invoke();
         }
+
+        public static void GamePause(bool status)
+        {
+            onGamePause?.Invoke(status);
+            }
         public static void InteractionProgress(float f)
         {
             onInteractionProgress?.Invoke(f);
         }
+        
     }
 }

@@ -13,10 +13,12 @@ namespace FragileReflection
     {
         //mine
 
-
+        [Header("Контроллеры")]
         [SerializeField] private CharacterController characterController;
         [SerializeField] private PlayerAnimController playerAnimController;
         private Transform playerTransform;
+
+        [Header("Значения состояний")]
         public Vector2 _move;
         public Vector2 _look;
         public float aimValue;
@@ -29,13 +31,16 @@ namespace FragileReflection
         public float rotationPower = 3f;
         public float rotationLerp = 0.5f;
 
+        [Header("Движение")]
         public float speed = 1f;
         [SerializeField] private float _sprintSpeed = 2f;
         [SerializeField] private float _crouchSpeed = 0.5f;
 
+        [Header("Настройки камеры")]
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
 
+        [Header("Состояния")]
         private bool _aiming = false;
         private bool _moving = false;
         private bool _sprinting = false;
@@ -47,6 +52,7 @@ namespace FragileReflection
 
         private float _inventValue;
 
+        [Header("Выносливость")]
         [SerializeField] private float stamina = 100f;  // начальное значение
         private float maxStamina = 100f;
         [SerializeField] private float staminaConsumptionRate = 5f;  // скорость расхода выносливости
@@ -156,10 +162,21 @@ namespace FragileReflection
             }
         }
 
+        private void OnPause(InputValue value)
+        {
+            GameEvents.SwitchMap("UI");
+            GameEvents.GamePause(true);
+            if (value.isPressed)
+            {
+
+            }
+        }
+
         public GameObject followTransform;
 
         private void Update()
         {
+
             HandleAnimations();
 
             #region Follow Transform Rotation
@@ -228,7 +245,7 @@ namespace FragileReflection
                 stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
                 GameEvents.StaminaRegenerated(stamina);
                 if (stamina == 100)
-                    GameEvents.StaminaFull();
+                    GameEvents.StaminaUIClose();
 
                 return;
             }
@@ -239,7 +256,7 @@ namespace FragileReflection
             {
                 stamina -= staminaConsumptionRate * Time.deltaTime;
                 GameEvents.StaminaUsed(stamina);
-                GameEvents.ShiftKeyPressed();
+                GameEvents.StaminaUIOpen();
 
                 moveSpeed = _sprintSpeed;
             }
@@ -248,7 +265,7 @@ namespace FragileReflection
                 stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
                 GameEvents.StaminaRegenerated(stamina);
                 if (stamina == 100)
-                    GameEvents.StaminaFull();
+                    GameEvents.StaminaUIClose();
             }
 
             if (_crouchValue == 1)
