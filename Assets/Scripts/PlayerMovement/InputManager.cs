@@ -41,12 +41,14 @@ namespace FragileReflection
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
                     //GameEvents.InventoryUIAble(true);
+                    GameEvents.StaminaUIClose();
                     break;
                 default:
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
                     GameEvents.InventoryUIAble(false);
                     GameEvents.GamePause(false);
+                    GameEvents.StaminaUIOpen();
                     break;
             }
         }
