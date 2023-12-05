@@ -10,6 +10,7 @@ namespace FragileReflection
         [SerializeField] private InputActionAsset _action;
         private InputAction _interAct;
         private Interactable _currentInteractable;
+
         private void Awake()
         {
             _interAct = _action.FindActionMap("Player").FindAction("Interact");
@@ -41,7 +42,21 @@ namespace FragileReflection
                     break;
 
                 case Interactable.InteractionType.Hold:
-
+                    if (_interAct.IsInProgress())
+                    {
+                        // we are holding the key, increase the timer until we reach 1f
+                        interactable.IncreaseHoldTime();
+                        if (interactable.GetHoldTime() > 1f)
+                        {
+                            interactable.Interact();
+                            interactable.ResetHoldTime();
+                        }
+                    }
+                    else
+                    {
+                        interactable.ResetHoldTime();
+                    }
+                    GameEvents.InteractionProgress(interactable.GetHoldTime());
                     break;
                 default:
 

@@ -43,6 +43,7 @@ namespace FragileReflection
 
         //UI
         public static event Action onUIFade;
+        public static System.Action<float> onInteractionProgress;
 
 
         public static void InteractionEnter(Interactable interactable)
@@ -138,6 +139,10 @@ namespace FragileReflection
         public static void UIFade()
         {
             onUIFade?.Invoke();
+        }
+        public static void InteractionProgress(float f)
+        {
+            onInteractionProgress?.Invoke(f);
         }
     }
 }
