@@ -134,7 +134,6 @@ namespace FragileReflection
         {
             onHealthStatusChanged?.Invoke(pulse, fps, status, color);
         }
-
         public static void ActiveParallelWorld()
         {
             onParallelWorldActive?.Invoke();

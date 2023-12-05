@@ -18,7 +18,7 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 128
-  attackDistance: 2
+  attackDistance: 3
   attackDamage: 20
   moveSpeed: 1
   chaseSpeed: 4

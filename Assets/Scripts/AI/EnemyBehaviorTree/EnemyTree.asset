@@ -19,7 +19,6 @@ MonoBehaviour:
   - rid: 5943290654267801602
   - rid: 5943290654267801605
   - rid: 5943290654267801607
-  - rid: 5943290654267801608
   - rid: 5943290654267801611
   - rid: 5943290654267801612
   - rid: 5943290654267801613
@@ -45,10 +44,10 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveSpeed: 1
     chaseSpeed: 4
-    attackDistance: 1.8
+    attackDistance: 3
     wasStuggled: 0
-  viewPosition: {x: 340, y: -411, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: 78, y: -200, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -234,7 +233,6 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
-        - rid: 5943290654267801608
         - rid: 5943290654267801607
         - rid: 1767988728344608773
     - rid: 5943290654267801607
@@ -253,23 +251,6 @@ MonoBehaviour:
           wasStuggled: 0
         description: 
         drawGizmos: 0
-    - rid: 5943290654267801608
-      type: {class: Log, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 84a9137653ffb0741b5abf1781461205
-        position: {x: -609.9997, y: 922.96576}
-        blackboard:
-          target: {fileID: 0}
-          moveToPosition: {x: 0, y: 0, z: 0}
-          moveSpeed: 0
-          chaseSpeed: 0
-          attackDistance: 0
-          wasStuggled: 0
-        description: 
-        drawGizmos: 0
-        message: stuggled
     - rid: 5943290654267801611
       type: {class: TakeDamageDecorator, ns: , asm: Assembly-CSharp}
       data:

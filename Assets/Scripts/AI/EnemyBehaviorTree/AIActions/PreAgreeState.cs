@@ -17,6 +17,9 @@ public class PreAgreeState : ActionNode
         player = enemyController.player;
         context.agent.destination = player.position;
         animator = enemyController.animator;
+
+        enemyController._audioController.PlayAudio(false, FragileReflection.EnemySounds.PreAttack, true);
+
         if(blackboard.wasStuggled)
             blackboard.wasStuggled = false;
         else

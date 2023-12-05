@@ -19,9 +19,8 @@ public class EnemyAttack : ActionNode
         controller = context.gameObject.GetComponent<EnemyController>();
         context.agent.destination = controller.player.position;
         animator = controller.animator;
-        //if(animator.GetBool("Attack") != true)
-        //    animator.SetBool("Attack", true);
-        animator.SetTrigger("Attack");
+        if (animator.GetBool("Attack") != true)
+            animator.SetBool("Attack", true);
         controller.AttackPlayer();
         controller.DetectPlayer();
     }
@@ -32,12 +31,12 @@ public class EnemyAttack : ActionNode
 
     protected override State OnUpdate()
     {
-        if(controller.IsStuggled() || !controller.CanSee())
+        if (!controller.CanSee())
         {
             return State.Failure;
         }
 
-        if(isAttacking)
+        if (isAttacking)
             return State.Running;
         else
             return State.Success;
