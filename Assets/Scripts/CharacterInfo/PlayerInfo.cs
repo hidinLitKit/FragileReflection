@@ -88,8 +88,7 @@ namespace FragileReflection
         {
             Debug.Log("Player died!");
 
-            //if (_deathPanel != null)
-               //_deathPanel.SetActive(true);
+            GameEvents.DeathUIOpen();
         }
 
         private void StartHealing()
