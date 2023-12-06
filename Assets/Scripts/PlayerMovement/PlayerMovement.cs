@@ -123,6 +123,18 @@ namespace FragileReflection
             _crouchValue = value.Get<float>();
             _crouching = _crouchValue != 0;
         }
+        public void OnSave(InputValue value)
+        {
+            DataPersistenceManager.instance.SaveGame();
+        }
+        public void OnLoad(InputValue inputValue)
+        {
+            DataPersistenceManager.instance.LoadGame();
+        }
+        public void OnNewGame(InputValue value)
+        {
+            DataPersistenceManager.instance.NewGame();
+        }
 
 
         public void OnChangeWeapon1(InputValue value)

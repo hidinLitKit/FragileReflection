@@ -35,5 +35,11 @@ namespace FragileReflection
             ID = item.ID;
             unique = item.unique;
         }
+        public Item(string name, int iD, bool unique)
+        {
+            Name = name;
+            ID = iD;
+            this.unique = unique;
+        }
     }
 }
