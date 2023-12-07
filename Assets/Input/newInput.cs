@@ -154,6 +154,33 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Save"",
+                    ""type"": ""Button"",
+                    ""id"": ""8488eb8e-c04b-486a-8f93-907333198211"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Load"",
+                    ""type"": ""Button"",
+                    ""id"": ""42dcd059-1225-4b2f-a093-bb65bd41b672"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NewGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d915f0e-8010-4b72-8b1f-daf74b0c9c66"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -517,6 +544,39 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c4c1c9a-96cd-4824-b469-aea4d9788f22"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Save"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4fd3e095-7f73-4c78-bef6-48994c56ecdb"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Load"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21b97a49-f469-4a40-a495-1deedbec5b37"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NewGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1188,6 +1248,9 @@ namespace UnityEngine.InputSystem
             m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
             m_Player_Parallel = m_Player.FindAction("Parallel", throwIfNotFound: true);
             m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+            m_Player_Save = m_Player.FindAction("Save", throwIfNotFound: true);
+            m_Player_Load = m_Player.FindAction("Load", throwIfNotFound: true);
+            m_Player_NewGame = m_Player.FindAction("NewGame", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1279,6 +1342,9 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_Inventory;
         private readonly InputAction m_Player_Parallel;
         private readonly InputAction m_Player_Pause;
+        private readonly InputAction m_Player_Save;
+        private readonly InputAction m_Player_Load;
+        private readonly InputAction m_Player_NewGame;
         public struct PlayerActions
         {
             private @NewInput m_Wrapper;
@@ -1297,6 +1363,9 @@ namespace UnityEngine.InputSystem
             public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
             public InputAction @Parallel => m_Wrapper.m_Player_Parallel;
             public InputAction @Pause => m_Wrapper.m_Player_Pause;
+            public InputAction @Save => m_Wrapper.m_Player_Save;
+            public InputAction @Load => m_Wrapper.m_Player_Load;
+            public InputAction @NewGame => m_Wrapper.m_Player_NewGame;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1348,6 +1417,15 @@ namespace UnityEngine.InputSystem
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Save.started += instance.OnSave;
+                @Save.performed += instance.OnSave;
+                @Save.canceled += instance.OnSave;
+                @Load.started += instance.OnLoad;
+                @Load.performed += instance.OnLoad;
+                @Load.canceled += instance.OnLoad;
+                @NewGame.started += instance.OnNewGame;
+                @NewGame.performed += instance.OnNewGame;
+                @NewGame.canceled += instance.OnNewGame;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1394,6 +1472,15 @@ namespace UnityEngine.InputSystem
                 @Pause.started -= instance.OnPause;
                 @Pause.performed -= instance.OnPause;
                 @Pause.canceled -= instance.OnPause;
+                @Save.started -= instance.OnSave;
+                @Save.performed -= instance.OnSave;
+                @Save.canceled -= instance.OnSave;
+                @Load.started -= instance.OnLoad;
+                @Load.performed -= instance.OnLoad;
+                @Load.canceled -= instance.OnLoad;
+                @NewGame.started -= instance.OnNewGame;
+                @NewGame.performed -= instance.OnNewGame;
+                @NewGame.canceled -= instance.OnNewGame;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1644,6 +1731,9 @@ namespace UnityEngine.InputSystem
             void OnInventory(InputAction.CallbackContext context);
             void OnParallel(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
+            void OnSave(InputAction.CallbackContext context);
+            void OnLoad(InputAction.CallbackContext context);
+            void OnNewGame(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

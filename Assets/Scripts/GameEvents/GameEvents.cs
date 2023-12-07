@@ -43,6 +43,7 @@ namespace FragileReflection
 
         //UI
         public static event Action onUIFade;
+        public static System.Action<float> onInteractionProgress;
 
         //Pause
         public static event Action<bool> onGamePause;
@@ -137,7 +138,6 @@ namespace FragileReflection
         {
             onHealthStatusChanged?.Invoke(pulse, fps, status, color);
         }
-
         public static void ActiveParallelWorld()
         {
             onParallelWorldActive?.Invoke();
@@ -151,6 +151,11 @@ namespace FragileReflection
         public static void GamePause(bool status)
         {
             onGamePause?.Invoke(status);
+        }
+
+        public static void InteractionProgress(float f)
+        {
+            onInteractionProgress?.Invoke(f);
         }
 
         public static void DeathUIOpen()

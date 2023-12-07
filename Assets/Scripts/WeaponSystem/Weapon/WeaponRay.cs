@@ -16,6 +16,8 @@ namespace FragileReflection
         public Transform pointer;
         private Selectable currentlySelected;
 
+        [SerializeField] LayerMask detectLayers;
+
         private void OnEnable()
         {
             GameEvents.onFire += TakeShot;
@@ -82,10 +84,9 @@ namespace FragileReflection
 
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, detectLayers))
             {
-                Debug.Log(hit.collider.gameObject.name);
-                if (hit.collider.gameObject.TryGetComponent<IDamagable>(out IDamagable enemyHealth))
+                if (hit.collider.gameObject.TryGetComponent(out IDamagable enemyHealth))
                 {
                     enemyHealth.TakeDamage(WeaponManager.currentWeapon.WeaponType.BodyDamage);
                     ShowShotPlace(hit);

@@ -1763,6 +1763,9 @@ MonoBehaviour:
   showShots: 0
   shotMark: {fileID: 4976357775753149989, guid: 2902710c859f9d84c8c7904a79d0fb52, type: 3}
   pointer: {fileID: 6927123173757912151}
+  detectLayers:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &8955151341593838700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1800,7 +1803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 503
   m_IgnoreTag: 
   m_TransparentLayers:
     serializedVersion: 2
@@ -1903,7 +1906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 503
   m_IgnoreTag: 
   m_TransparentLayers:
     serializedVersion: 2
@@ -4196,6 +4199,9 @@ MonoBehaviour:
   _crouchSpeed: 0.5
   _camMove: {fileID: 7967825296629789206}
   _camAim: {fileID: 8571326277320974145}
+  stamina: 100
+  staminaConsumptionRate: 5
+  staminaRegenerationRate: 2
   followTransform: {fileID: 1664332896903739491}
 --- !u!114 &2873216911858019892
 MonoBehaviour:

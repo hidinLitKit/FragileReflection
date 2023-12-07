@@ -12,8 +12,9 @@ namespace FragileReflection
 
         private void OnTriggerEnter(Collider other)
         {
-            IDamagable enemyHealth = other.gameObject.GetComponent<IDamagable>();
-            if (enemyHealth != null)
+            Debug.Log(other.name);
+            IDamagable playerHealth = other.gameObject.GetComponent<IDamagable>();
+            if (playerHealth != null)
             {
                 hasAttacked = true;
             }
@@ -21,8 +22,8 @@ namespace FragileReflection
 
         private void OnTriggerExit(Collider other)
         {
-            IDamagable enemyHealth = other.gameObject.GetComponent<IDamagable>();
-            if (enemyHealth != null)
+            IDamagable playerHealth = other.gameObject.GetComponent<IDamagable>();
+            if (playerHealth != null)
             {
                 hasAttacked = false;
             }

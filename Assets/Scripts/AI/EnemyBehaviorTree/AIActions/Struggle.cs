@@ -12,13 +12,18 @@ public class Struggle : ActionNode
 
     protected override void OnStart()
     {
-        context.agent.isStopped = true;
         controller = context.gameObject.GetComponent<EnemyController>();
         animator = controller.animator;
-        if(!controller.CanSee())
+
+        if(!controller.CanSee() || Random.Range(0, 10) == 1)
+        {
+            context.agent.isStopped = true;
             animator.SetTrigger("Stuggle");
-        else if(Random.Range(1,3) == 2)
-            animator.SetTrigger("Stuggle");
+
+            controller._audioController.PlayAudio(false, FragileReflection.EnemySounds.Stuggle, true);
+        }
+            
+
         controller.DetectPlayer();
         blackboard.wasStuggled = true;
     }

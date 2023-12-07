@@ -39,12 +39,14 @@ public class EnemyController : MonoBehaviour
     private Mesh _mesh;
 
     private int scanFrequency = 30;
-    private float scanDelay = 5f;
+    private float scanDelay;
 
     private Collider[] _colliders = new Collider[10];
     private List<GameObject> _Objects = new List<GameObject>();
     private float _scanInterval;
     private float _scanTimer;
+
+    public EnemyAudioController _audioController;
 
     private void Awake()
     {
@@ -54,6 +56,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         _attackArea = GetComponent<EnemyAttackDetector>();
+        _audioController = GetComponent<EnemyAudioController>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (animator == null)
@@ -66,6 +69,7 @@ public class EnemyController : MonoBehaviour
         tree.blackboard.attackDistance = _attackDistance;
 
         _scanInterval = 1.0f / scanFrequency;
+        scanDelay = config.chaseDelay;
     }
 
     private void Update()
@@ -246,6 +250,7 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
+        _audioController.PlayAudio(false, EnemySounds.Death);
         StartCoroutine("DieTimer");
     }
 
