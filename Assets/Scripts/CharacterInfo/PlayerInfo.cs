@@ -33,7 +33,7 @@ namespace FragileReflection
 
             if (health > 0 && keyboard != null && keyboard.yKey.wasPressedThisFrame)
             {
-                TakeDamage(5f);
+                TakeDamage(100f);
             }
 
             if (keyboard != null && keyboard.cKey.wasPressedThisFrame)
@@ -88,7 +88,8 @@ namespace FragileReflection
         {
             Debug.Log("Player died!");
 
-            GameEvents.DeathUIOpen();
+            GameEvents.SwitchMap("DeathMap");
+            GameEvents.DeathUIOpen();   
         }
 
         private void StartHealing()

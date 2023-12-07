@@ -1079,6 +1079,34 @@ namespace UnityEngine.InputSystem
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""DeathMap"",
+            ""id"": ""3a52054f-4683-49e1-a641-30d97a00017d"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e4b4329-b88b-407b-8713-8bc39ebee4a7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0392d11b-a012-4047-891e-a49996d0cc56"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1173,6 +1201,9 @@ namespace UnityEngine.InputSystem
             m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
             m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
             m_UI_Exit = m_UI.FindAction("Exit", throwIfNotFound: true);
+            // DeathMap
+            m_DeathMap = asset.FindActionMap("DeathMap", throwIfNotFound: true);
+            m_DeathMap_Newaction = m_DeathMap.FindAction("New action", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -1506,6 +1537,52 @@ namespace UnityEngine.InputSystem
             }
         }
         public UIActions @UI => new UIActions(this);
+
+        // DeathMap
+        private readonly InputActionMap m_DeathMap;
+        private List<IDeathMapActions> m_DeathMapActionsCallbackInterfaces = new List<IDeathMapActions>();
+        private readonly InputAction m_DeathMap_Newaction;
+        public struct DeathMapActions
+        {
+            private @NewInput m_Wrapper;
+            public DeathMapActions(@NewInput wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Newaction => m_Wrapper.m_DeathMap_Newaction;
+            public InputActionMap Get() { return m_Wrapper.m_DeathMap; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(DeathMapActions set) { return set.Get(); }
+            public void AddCallbacks(IDeathMapActions instance)
+            {
+                if (instance == null || m_Wrapper.m_DeathMapActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_DeathMapActionsCallbackInterfaces.Add(instance);
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+
+            private void UnregisterCallbacks(IDeathMapActions instance)
+            {
+                @Newaction.started -= instance.OnNewaction;
+                @Newaction.performed -= instance.OnNewaction;
+                @Newaction.canceled -= instance.OnNewaction;
+            }
+
+            public void RemoveCallbacks(IDeathMapActions instance)
+            {
+                if (m_Wrapper.m_DeathMapActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IDeathMapActions instance)
+            {
+                foreach (var item in m_Wrapper.m_DeathMapActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_DeathMapActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public DeathMapActions @DeathMap => new DeathMapActions(this);
         private int m_KeyboardMouseSchemeIndex = -1;
         public InputControlScheme KeyboardMouseScheme
         {
@@ -1581,6 +1658,10 @@ namespace UnityEngine.InputSystem
             void OnTrackedDevicePosition(InputAction.CallbackContext context);
             void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
             void OnExit(InputAction.CallbackContext context);
+        }
+        public interface IDeathMapActions
+        {
+            void OnNewaction(InputAction.CallbackContext context);
         }
     }
 }
