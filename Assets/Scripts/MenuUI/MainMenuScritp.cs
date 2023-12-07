@@ -8,6 +8,9 @@ namespace FragileReflection
 {
     public class ManeMenuScritp : MonoBehaviour
     {
+        [SerializeField] private GameObject _mainMenu;
+        [SerializeField] private GameObject _optionsMenu;
+
         public void Quit()
         {
 #if UNITY_EDITOR
@@ -21,5 +24,18 @@ namespace FragileReflection
         {
             SceneManager.LoadScene("Main");
         }
+
+        public void OptionOpen()
+        {
+            _mainMenu.SetActive(false);
+            _optionsMenu.SetActive(true);
+        }
+
+        public void MainOpen()
+        {
+            _optionsMenu.SetActive(false);
+            _mainMenu.SetActive(true);
+        }
+
     }
 }
