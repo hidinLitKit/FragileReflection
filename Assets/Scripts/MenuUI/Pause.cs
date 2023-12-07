@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace FragileReflection
 {
@@ -37,6 +39,11 @@ namespace FragileReflection
                 Cursor.visible = false;
                 GameEvents.StaminaUIOpen();
             }
+        }
+
+        public void GotoMain()
+        {
+            SceneManager.LoadScene("Main Menu");
         }
     }
 }
