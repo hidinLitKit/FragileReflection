@@ -17,7 +17,7 @@ namespace FragileReflection
 
         public override void Use()
         {
-            WeaponManager.SwitchWeapon(weaponType);
+            WeaponManager.instance.SwitchWeapon(weaponType);
         }
         public int AmmoLeft()
         {

@@ -3,22 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
-
 namespace WeaponSystem
 {
-    public static class WeaponManager
+    public class WeaponManager: MonoBehaviour
     {
-        public static List<Weapon> weapons = new List<Weapon>();
-        public static Weapon currentWeapon = null;
-        public static bool isWeaponEquiped = false;
+        public static WeaponManager instance = null;
+        public List<Weapon> weapons = new List<Weapon>();
+        public Weapon currentWeapon = null;
+        public bool isWeaponEquiped = false;
 
-
-        public static void SwitchWeapon(Weapon weapon)
+        void Start()
+        {
+            if (instance == null) instance = this;
+            else if (instance == this) Destroy(gameObject);
+        }
+        public void SwitchWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
             GameEvents.ChangeWeapon();
         }
-        public static void SwitchWeapon(ScriptableWeapon weapon)
+        public void SwitchWeapon(ScriptableWeapon weapon)
         {
             for(int i = 0; i<weapons.Count;i++)
             {
@@ -26,26 +30,23 @@ namespace WeaponSystem
             }
             GameEvents.ChangeWeapon();
         }
-        public static void AddWeapon(Weapon weapon)
+        public void AddWeapon(Weapon weapon)
         {
             weapons.Add(weapon);
         }
-        public static void EquipWeapon(int weaponIndex)
+        public void EquipWeapon(int weaponIndex)
         {
             currentWeapon = weapons[weaponIndex];
             GameEvents.ChangeWeapon();
         }
-        public static void UnEquipWeapon()
+        public void UnEquipWeapon()
         {
             currentWeapon = null;
             GameEvents.ChangeWeapon();
         }
-        public static int GetAmmo(ScriptableWeapon type)
+        public int GetAmmo(ScriptableWeapon type)
         {
-            
-           // GameInventory.instance.inventory.;
             return 0;
         }
-        //избавляться от оружия не планируется
     }
 }

@@ -88,7 +88,7 @@ namespace FragileReflection
             {
                 if (hit.collider.gameObject.TryGetComponent(out IDamagable enemyHealth))
                 {
-                    enemyHealth.TakeDamage(WeaponManager.currentWeapon.WeaponType.BodyDamage);
+                    enemyHealth.TakeDamage(WeaponManager.instance.currentWeapon.WeaponType.BodyDamage);
                     ShowShotPlace(hit);
                 }
             }

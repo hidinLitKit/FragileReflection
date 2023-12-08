@@ -85,7 +85,7 @@ namespace FragileReflection
 
         public void OnAim(InputValue value)
         {
-            if (WeaponManager.currentWeapon == null)
+            if (WeaponManager.instance.currentWeapon == null)
                 return;
             aimValue = value.Get<float>();
         }
@@ -94,7 +94,7 @@ namespace FragileReflection
         {
             if (!_aiming)
                 return;
-            WeaponManager.currentWeapon.Fire();
+            WeaponManager.instance.currentWeapon.Fire();
             //GameEvents.Fire();
         }
         public void OnReload(InputValue value)
@@ -103,7 +103,7 @@ namespace FragileReflection
             // ץח א םאהמ?
             if (!_aiming)
                 return;
-            WeaponManager.currentWeapon.Reload();
+            WeaponManager.instance.currentWeapon.Reload();
         }
         public void OnSprint(InputValue value)
         {
@@ -151,7 +151,7 @@ namespace FragileReflection
         {
             if (value.isPressed)
             {
-                WeaponManager.SwitchWeapon(WeaponManager.weapons[1]);
+                WeaponManager.instance.SwitchWeapon(WeaponManager.instance.weapons[1]);
             }
 
         }

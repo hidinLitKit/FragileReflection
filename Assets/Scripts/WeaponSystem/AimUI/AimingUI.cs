@@ -30,7 +30,7 @@ namespace FragileReflection
 
         private void ChangeCrossHairUI()
         {
-            _crossHairImage.sprite = WeaponManager.currentWeapon.WeaponType.CrossHair;
+            _crossHairImage.sprite = WeaponManager.instance.currentWeapon.WeaponType.CrossHair;
         }
 
         private void ShowUI(bool visible)
