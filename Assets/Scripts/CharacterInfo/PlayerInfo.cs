@@ -89,6 +89,7 @@ namespace FragileReflection
             Debug.Log("Player died!");
 
             GameEvents.SwitchMap("DeathMap");
+            GetComponent<PlayerAnimController>().Death();
             GameEvents.DeathUIOpen();   
         }
 

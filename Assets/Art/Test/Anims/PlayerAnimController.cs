@@ -42,9 +42,9 @@ namespace FragileReflection
             playerAnim.SetBool(crouchAnimation, crouch);
         }
 
-        public void Death(bool die)
+        public void Death()
         {
-            playerAnim.SetBool(deathAnimation, die);
+            playerAnim.SetTrigger(deathAnimation);
         }
 
         public void HandleAnimations()
