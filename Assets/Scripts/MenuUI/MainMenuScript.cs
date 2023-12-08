@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace FragileReflection
 {
-    public class ManeMenuScritp : MonoBehaviour
+    public class MainMenuScript : MonoBehaviour
     {
         [Header("Μενώ")]
         [SerializeField] private GameObject _mainMenu;

@@ -1796,7 +1796,6 @@ GameObject:
   - component: {fileID: 161710204614552917}
   - component: {fileID: 5579383576038382146}
   - component: {fileID: 6342477362334042515}
-  - component: {fileID: 5827662918121565688}
   m_Layer: 5
   m_Name: Canvas_with_status_and_pause
   m_TagString: Untagged
@@ -2009,25 +2008,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathUI: {fileID: 5270146341847885450}
---- !u!114 &5827662918121565688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193989319371946232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f80bff8dbca3ca4b8b90fcb00b46e90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mainMenu: {fileID: 0}
-  _optionsMenu: {fileID: 0}
-  _downloadBar: {fileID: 0}
-  _objectToMove: {fileID: 0}
-  _targetPositionBegin: {fileID: 0}
-  _targetPositionMid: {fileID: 0}
-  _targetPositionEnd: {fileID: 0}
 --- !u!1 &1511087293812443766
 GameObject:
   m_ObjectHideFlags: 0
@@ -3705,19 +3685,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5185003898624900524}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5827662918121565688}
-        m_TargetAssemblyTypeName: FragileReflection.ManeMenuScritp, Assembly-CSharp
-        m_MethodName: Quit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &3637479007395498275
 GameObject:
   m_ObjectHideFlags: 0
@@ -4165,19 +4133,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8369807204809644182}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5827662918121565688}
-        m_TargetAssemblyTypeName: FragileReflection.ManeMenuScritp, Assembly-CSharp
-        m_MethodName: ReturnFirstLVL
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5056192393362562526
 GameObject:
   m_ObjectHideFlags: 0
@@ -8472,6 +8428,34 @@ PrefabInstance:
     - target: {fileID: 6399496798752994865, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.80120087
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361185559547583349, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
+      propertyPath: m_fontSize
+      value: 53.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361185559547583349, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e1f009b54d6404c429680babf0bf6ecd, type: 2}
+    - target: {fileID: 7361185559547583349, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 53.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361185559547583349, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6814195223107812818, guid: e1f009b54d6404c429680babf0bf6ecd, type: 2}
+    - target: {fileID: 7979351330315823701, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 23.6717
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979351330315823701, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979351330315823701, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 21.3
       objectReference: {fileID: 0}
     - target: {fileID: 9119742377140183797, guid: 0207ec51383214978bc160cfa043ee32, type: 3}
       propertyPath: m_Name
