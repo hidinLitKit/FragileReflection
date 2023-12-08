@@ -13,6 +13,8 @@ namespace FragileReflection
         private const string walkingBlendY = "WalkYdir";
         private const string sprintAnimation = "isRunning";
         private const string crouchAnimation = "isCrouching";
+
+        private const string deathAnimation = "isDeath";
         public void Aiming(bool aim)
         {
             playerAnim.SetBool(aimingAnimation, aim );
@@ -38,6 +40,11 @@ namespace FragileReflection
         public void Crouching(bool crouch)
         {
             playerAnim.SetBool(crouchAnimation, crouch);
+        }
+
+        public void Death(bool die)
+        {
+            playerAnim.SetBool(deathAnimation, die);
         }
 
         public void HandleAnimations()
