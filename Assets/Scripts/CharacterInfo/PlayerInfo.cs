@@ -33,7 +33,7 @@ namespace FragileReflection
 
             if (health > 0 && keyboard != null && keyboard.yKey.wasPressedThisFrame)
             {
-                TakeDamage(5f);
+                TakeDamage(100f);
             }
 
             if (keyboard != null && keyboard.cKey.wasPressedThisFrame)
@@ -88,8 +88,9 @@ namespace FragileReflection
         {
             Debug.Log("Player died!");
 
-            //if (_deathPanel != null)
-               //_deathPanel.SetActive(true);
+            GameEvents.SwitchMap("DeathMap");
+            GetComponent<PlayerAnimController>().Death();
+            GameEvents.DeathUIOpen();   
         }
 
         private void StartHealing()
@@ -120,7 +121,7 @@ namespace FragileReflection
             {
                 yield return new WaitForSeconds(healingRate);
                 health += _heal;
-                Debug.Log($"Healing iteration {i + 1}");
+                Debug.Log($"Healing iteration {i + 1} and health = {health}");
 
                 if (health >= 100)
                 {

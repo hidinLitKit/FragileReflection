@@ -1115,6 +1115,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "DeathMap",
+            "id": "3a52054f-4683-49e1-a641-30d97a00017d",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "1e4b4329-b88b-407b-8713-8bc39ebee4a7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0392d11b-a012-4047-891e-a49996d0cc56",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

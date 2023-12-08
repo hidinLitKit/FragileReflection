@@ -48,6 +48,10 @@ namespace FragileReflection
         //Pause
         public static event Action<bool> onGamePause;
 
+        //Death
+        public static event Action onDeathUIOpen;
+        public static event Action onDeathUIClose;
+
         public static void InteractionEnter(Interactable interactable)
         {
             onInteractionEnter?.Invoke(interactable);
@@ -147,11 +151,21 @@ namespace FragileReflection
         public static void GamePause(bool status)
         {
             onGamePause?.Invoke(status);
-            }
+        }
+
         public static void InteractionProgress(float f)
         {
             onInteractionProgress?.Invoke(f);
         }
+
+        public static void DeathUIOpen()
+        {
+            onDeathUIOpen?.Invoke();
+        }
         
+        public static void DeathUIClose()
+        {
+            onDeathUIClose?.Invoke();
+        }
     }
 }
