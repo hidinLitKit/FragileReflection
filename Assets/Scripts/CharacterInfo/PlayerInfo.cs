@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace FragileReflection
 {
-    public class PlayerInfo : MonoBehaviour, IDamagable 
+    public class PlayerInfo : MonoBehaviour, IDamagable, IDataPersistence
     {
         [SerializeField] private float maxHealth;
         [Range(0, 100)][SerializeField] private float health;
@@ -33,7 +34,7 @@ namespace FragileReflection
 
             if (health > 0 && keyboard != null && keyboard.yKey.wasPressedThisFrame)
             {
-                TakeDamage(100f);
+                TakeDamage(50f);
             }
 
             if (keyboard != null && keyboard.cKey.wasPressedThisFrame)
@@ -161,6 +162,21 @@ namespace FragileReflection
             health = maxHealth;
 
             Debug.Log(health);
+        }
+
+        public void LoadData(GameData data)
+        {
+            this.gameObject.transform.position = data.playerPosition;
+            health = data.currentHealth;
+            maxHealth = data.maxHealth;
+        }
+
+        public void SaveData(GameData data)
+        {
+            data.playerPosition = this.gameObject.transform.position;
+            data.currentHealth = health;
+            data.maxHealth = maxHealth;
+
         }
     }
 }

@@ -8,11 +8,11 @@ namespace FragileReflection
     {
         public void LoadData(GameData data)
         {
-            this.gameObject.transform.position = data.playerPosition;
+            
         }
         public void SaveData(GameData data)
         {
-            data.playerPosition = this.gameObject.transform.position;
+            
         }
     }
 }
