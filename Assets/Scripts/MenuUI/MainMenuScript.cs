@@ -30,6 +30,11 @@ namespace FragileReflection
 #endif
         }
 
+        public void ReturnFirstLVL()
+        {
+            SceneManager.LoadScene("Main");
+        }
+
         public void LoadLevel()
         {
             StartCoroutine(LevelDownload());
