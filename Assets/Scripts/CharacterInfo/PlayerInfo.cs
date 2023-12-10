@@ -8,6 +8,7 @@ namespace FragileReflection
 {
     public class PlayerInfo : MonoBehaviour, IDamagable, IDataPersistence
     {
+        [Header("Health")]
         [SerializeField] private float maxHealth;
         [Range(0, 100)][SerializeField] private float health;
 
@@ -15,6 +16,7 @@ namespace FragileReflection
         public float MaxHealth => maxHealth;
 
         private Coroutine _healingCoroutine;
+        [Header("Power Healing")]
         [SerializeField] private float _heal = 2f;
 
         public enum HealingPower
@@ -24,9 +26,7 @@ namespace FragileReflection
             High
         }
 
-        [SerializeField]
-        [Header("Power Healing")]
-        private HealingPower _powerHeal = HealingPower.Low;
+        [SerializeField] private HealingPower _powerHeal = HealingPower.Low;
 
         private void Update()
         {
@@ -48,11 +48,13 @@ namespace FragileReflection
                 StartHealing();
             }
 
-            if (health >= 60)
+            float healthPercentage = (health / maxHealth) * 100f;
+
+            if (healthPercentage >= 66f)
             {
                 GameEvents.HealthChange("pulse_green_sprite", 30, "FINE", Color.green);
             }
-            else if (health >= 40)
+            else if (healthPercentage >= 33f)
             {
                 GameEvents.HealthChange("pulse_yellow_sprite", 60, "BAD", Color.yellow);
             }
