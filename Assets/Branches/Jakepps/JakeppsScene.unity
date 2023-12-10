@@ -41157,8 +41157,8 @@ MonoBehaviour:
   _camMove: {fileID: 2016900504}
   _camAim: {fileID: 1941416486}
   stamina: 100
-  staminaConsumptionRate: 5
-  staminaRegenerationRate: 2
+  staminaConsumptionRate: 10
+  staminaRegenerationRate: 10
   followTransform: {fileID: 176447668}
 --- !u!4 &1581411786
 Transform:

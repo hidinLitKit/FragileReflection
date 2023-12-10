@@ -119,7 +119,8 @@ namespace FragileReflection
 
         public void OnCrouch(InputValue value)
         {
-            if (_aiming) return;
+            if (_aiming) 
+                return;
             _crouchValue = value.Get<float>();
             _crouching = _crouchValue != 0;
         }
@@ -264,6 +265,7 @@ namespace FragileReflection
 
             float moveSpeed = speed;
             preventSprint();
+
             if (_sprintValue == 1 && stamina > 0)
             {
                 stamina -= staminaConsumptionRate * Time.deltaTime;
@@ -274,7 +276,10 @@ namespace FragileReflection
             }
             else
             { 
-                stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
+                if (_crouching) 
+                    stamina = Mathf.Min(stamina + (staminaRegenerationRate * 1.5f) * Time.deltaTime, maxStamina);
+                else 
+                    stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
                 GameEvents.StaminaRegenerated(stamina);
                 if (stamina == 100)
                     GameEvents.StaminaUIClose();
