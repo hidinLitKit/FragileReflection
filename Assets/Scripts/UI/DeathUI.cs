@@ -23,6 +23,8 @@ namespace FragileReflection
 
         private void ShowDeathUIOpen()
         {
+            GameEvents.InventoryUIAble(false);
+            GameEvents.StaminaUIClose();
             _deathUI.SetActive(true);
         }
 
