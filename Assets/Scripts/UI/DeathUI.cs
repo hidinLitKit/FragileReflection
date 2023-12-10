@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace FragileReflection
 {
@@ -28,6 +29,16 @@ namespace FragileReflection
         private void ShowDeathUIClose()
         {
             _deathUI.SetActive(false);
+        }
+
+        public void GotoFistLVL()
+        {
+            SceneManager.LoadScene("Main");
+        }
+
+        public void GotoMainMenu()
+        {
+            SceneManager.LoadScene("Main menu");
         }
     }
 }
