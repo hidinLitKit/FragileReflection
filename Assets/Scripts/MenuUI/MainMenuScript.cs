@@ -30,6 +30,11 @@ namespace FragileReflection
 #endif
         }
 
+        public void GotoOption()
+        {
+            SceneManager.LoadScene("Settings");
+        }
+
         public void ReturnFirstLVL()
         {
             SceneManager.LoadScene("Main");
@@ -47,12 +52,6 @@ namespace FragileReflection
             yield return new WaitForSeconds(5f);
 
             SceneManager.LoadScene("Main");
-        }
-
-        public void OptionOpen()
-        {
-            _mainMenu.SetActive(false);
-            _optionsMenu.SetActive(true);
         }
 
         public void MainOpen()
