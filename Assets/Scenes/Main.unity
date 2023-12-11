@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.52294916, g: 0.60107493, b: 0.5620107, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9119,6 +9119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 436720217}
+  - component: {fileID: 436720218}
   m_Layer: 0
   m_Name: MusicTemp
   m_TagString: Untagged
@@ -9143,6 +9144,20 @@ Transform:
   - {fileID: 1019004357}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &436720218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436720216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1394e0de2724af6458f7270f1d762397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _musicAudio: {fileID: 793409592}
+  _soundEffectsAudio: []
 --- !u!1001 &445301251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18101,7 +18116,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 19437b7abb37c8b4881f8035d68cebc9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
