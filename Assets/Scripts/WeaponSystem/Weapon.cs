@@ -13,12 +13,14 @@ namespace WeaponSystem
                 return _weaponType;
             } 
         }
+       
         protected bool _canShoot = true;
         protected int _bulletsLeft;
         protected bool _canReload = false;
         protected bool _isReloading = false;
         public abstract void Fire();
         public abstract void Reload();
+        public abstract bool CanReload();
         public bool CanShoot()
         {
             if(_bulletsLeft == 0)

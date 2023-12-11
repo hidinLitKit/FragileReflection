@@ -13,6 +13,8 @@ namespace FragileReflection
         private const string walkingBlendY = "WalkYdir";
         private const string sprintAnimation = "isRunning";
         private const string crouchAnimation = "isCrouching";
+        private const string pistolShoot = "PistolShoot";
+        private const string pistolReload = "PistolReload";
 
         private const string deathAnimation = "isDeath";
         public void Aiming(bool aim)
@@ -46,7 +48,14 @@ namespace FragileReflection
         {
             playerAnim.SetTrigger(deathAnimation);
         }
-
+        public void PistolShoot()
+        {
+            playerAnim.SetTrigger(pistolShoot);
+        }
+        public void PistolReload()
+        {
+            playerAnim.SetTrigger(pistolReload);
+        }
         public void HandleAnimations()
         {
 

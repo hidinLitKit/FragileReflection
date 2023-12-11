@@ -94,7 +94,7 @@ namespace FragileReflection
         {
             if (!_aiming)
                 return;
-            WeaponManager.instance.currentWeapon.Fire();
+            WeaponManager.instance.AttackPerform();
             //GameEvents.Fire();
         }
         public void OnReload(InputValue value)
@@ -103,7 +103,7 @@ namespace FragileReflection
             // ץח א םאהמ?
             if (!_aiming)
                 return;
-            WeaponManager.instance.currentWeapon.Reload();
+            WeaponManager.instance.ReloadPerfom();
         }
         public void OnSprint(InputValue value)
         {

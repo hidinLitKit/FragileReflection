@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b589972b6c9051d48a3dca0e3c906073
+guid: 0e280085f4496fe4d8e062ed85544d2a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: pistol
+      name: pistolReload
       takeName: mixamo.com
       internalID: -203655887218126122
-      firstFrame: 6.1
-      lastFrame: 27.8
+      firstFrame: 0
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -49,12 +49,12 @@ ModelImporter:
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      bodyMask: 01000000000000000000000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+      bodyMask: 00000000010000000000000000000000000000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
       transformMask:

@@ -28,10 +28,15 @@ namespace FragileReflection
 
 
         }
+        public override bool CanReload()
+        {
+            if (_isReloading) return false;
+            if (_bulletsLeft == WeaponType.Magazine || !IsLeftAmmo()) { Debug.Log("No ammo or Full"); return false; }
+            return true;
+        }
         public override void Reload()
         {
-            if(_isReloading) return;
-            if (_bulletsLeft == WeaponType.Magazine || !IsLeftAmmo()) { Debug.Log("No ammo or Full"); return; }
+            CanReload();
             StopAllCoroutines();
             _isReloading = true;
             _canReload = false;
