@@ -8,19 +8,16 @@ namespace FragileReflection
 {
     public class MainMenuScript : MonoBehaviour
     {
-        [Header("ÃÂÌ˛")]
+        [Header("–ú–µ–Ω—é")]
         [SerializeField] private GameObject _mainMenu;
         [SerializeField] private GameObject _optionsMenu;
 
-        [Header("«‡„ÛÁÍ‡")]
-        [SerializeField] private GameObject _downloadBar;
-        [SerializeField] private RectTransform _objectToMove;
-        [SerializeField] private RectTransform _targetPositionBegin;
-        [SerializeField] private RectTransform _targetPositionMid;
-        [SerializeField] private RectTransform _targetPositionEnd;
-        private float moveDuration = 2f;
-        private float pauseDuration = 1f;
-
+        [Header("–ù–∞—Å—Ç—Ä–æ–π–∫–∏")]
+        [SerializeField] private GameObject _buttonOptions;
+        [SerializeField] private GameObject _screenOptions;
+        [SerializeField] private GameObject _volumeOptions;
+        //[SerializeField] private GameObject _controlOpt;
+        
         public void Quit()
         {
 #if UNITY_EDITOR
@@ -32,63 +29,33 @@ namespace FragileReflection
 
         public void GotoOption()
         {
-            SceneManager.LoadScene("Settings");
+            _mainMenu.SetActive(false);
+            _optionsMenu.SetActive(true);
         }
 
-        public void ReturnFirstLVL()
+        public void GotoScreenOpt()
         {
-            SceneManager.LoadScene("Main");
+            _buttonOptions.SetActive(false);
+            _screenOptions.SetActive(true);
         }
 
-        public void LoadLevel()
+        public void GotoVolumeOpt()
         {
-            StartCoroutine(LevelDownload());
+            _buttonOptions.SetActive(false);
+            _volumeOptions.SetActive(true);
         }
-
-        private IEnumerator LevelDownload()
-        {
-            StartDownload();
-
-            yield return new WaitForSeconds(5f);
-
-            SceneManager.LoadScene("Main");
-        }
-
-        public void MainOpen()
+        
+        public void GotoMainMenu()
         {
             _optionsMenu.SetActive(false);
             _mainMenu.SetActive(true);
         }
 
-        public void StartDownload()
+        public void GotoOptionIn()
         {
-            _mainMenu.SetActive(false);
-            _downloadBar.SetActive(true);
-            StartCoroutine(DownloadFocus());
+            _screenOptions.SetActive(false);
+            _volumeOptions.SetActive(false);
+            _buttonOptions.SetActive(true);
         }
-
-        private IEnumerator DownloadFocus()
-        {
-            float elapsedTime = 0f;
-
-            while (elapsedTime < moveDuration)
-            {
-                _objectToMove.position = Vector3.Lerp(_targetPositionBegin.position, _targetPositionMid.position, elapsedTime / moveDuration);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-
-            yield return new WaitForSeconds(pauseDuration);
-
-            elapsedTime = 0f;
-
-            while (elapsedTime < moveDuration)
-            {
-                _objectToMove.position = Vector3.Lerp(_targetPositionMid.position, _targetPositionEnd.position, elapsedTime / moveDuration);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-        }
-
     }
 }
