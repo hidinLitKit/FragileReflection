@@ -4694,7 +4694,6 @@ GameObject:
   - component: {fileID: 541028954600355387}
   - component: {fileID: 8216996997064868259}
   - component: {fileID: 4790230988635174574}
-  - component: {fileID: 3578172857620575423}
   - component: {fileID: 5191354731115511214}
   m_Layer: 0
   m_Name: DeathUI
@@ -4749,18 +4748,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 5270146341847885450}
   m_CullTransparentMesh: 1
 --- !u!114 &4790230988635174574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5270146341847885450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29b1b5a94d9d63e47a52ef5c16c8477f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3578172857620575423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
