@@ -13,7 +13,7 @@ namespace WeaponSystem
         public Weapon currentWeapon = null;
         public PlayerAnimController playerAnimController;
 
-        private int _unactiveLayer = 9;
+        private int _unactiveLayer = 9; 
 
 
         void Start()
