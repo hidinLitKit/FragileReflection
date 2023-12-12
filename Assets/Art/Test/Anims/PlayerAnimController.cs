@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 namespace FragileReflection
@@ -15,6 +16,7 @@ namespace FragileReflection
         private const string crouchAnimation = "isCrouching";
         private const string pistolShoot = "PistolShoot";
         private const string pistolReload = "PistolReload";
+        private const string meleeAttack = "MeleeAttack";
 
         private const string deathAnimation = "isDeath";
         public void Aiming(bool aim)
@@ -55,6 +57,10 @@ namespace FragileReflection
         public void PistolReload()
         {
             playerAnim.SetTrigger(pistolReload);
+        }
+        public void MeleeAttack()
+        {
+            playerAnim.SetTrigger(meleeAttack);
         }
         public void HandleAnimations()
         {

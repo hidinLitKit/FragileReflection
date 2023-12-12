@@ -89,17 +89,13 @@ namespace WeaponSystem
 
         private void AttackAnim()
         {
-            if(currentWeapon.GetType() == typeof(Pistol))
-            {
-                playerAnimController.PistolShoot();
-            }
+            if(currentWeapon.GetType() == typeof(Pistol)) playerAnimController.PistolShoot();
+            else if (currentWeapon.GetType() == typeof(Machete)) playerAnimController.MeleeAttack();
         }
         private void ReloadAnim()
         {
-            if (currentWeapon.GetType() == typeof(Pistol))
-            {
-               playerAnimController.PistolReload();
-            }
+            if (currentWeapon.GetType() == typeof(Pistol)) playerAnimController.PistolReload();
+           
         }
         private void LayerChange(GameObject obj, int lay)
         {
