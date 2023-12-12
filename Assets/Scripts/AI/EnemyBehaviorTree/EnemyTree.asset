@@ -46,8 +46,8 @@ MonoBehaviour:
     chaseSpeed: 4
     attackDistance: 3
     wasStuggled: 0
-  viewPosition: {x: 78, y: -200, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: 28, y: -688, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -338,7 +338,7 @@ MonoBehaviour:
           wasStuggled: 0
         description: 
         drawGizmos: 0
-        duration: 2
+        duration: 1
     - rid: 5943290654267801616
       type: {class: CanSeePlayer, ns: , asm: Assembly-CSharp}
       data:
