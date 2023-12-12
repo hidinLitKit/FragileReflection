@@ -23,6 +23,8 @@ public class EnemyAttack : ActionNode
             animator.SetBool("Attack", true);
         controller.AttackPlayer();
         controller.DetectPlayer();
+
+        
     }
 
     protected override void OnStop()
