@@ -5893,6 +5893,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 632308230}
+    - target: {fileID: 7921375124725887838, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921375124725887838, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921375124725887838, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 529435416}
+    - target: {fileID: 7921375124725887838, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921375124725887838, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ExitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921375124725887838, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: FragileReflection.Pause, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921375124725887838, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8886346404589161173, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
       propertyPath: _musicAudio
       value: 
@@ -5902,6 +5930,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+--- !u!114 &529435416 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5579383576038382146, guid: 5a3e036a552342946b9f3ac9c6ee76a5, type: 3}
+  m_PrefabInstance: {fileID: 529435415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dcb442b313c7b64d9c828c02915b4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &560490546
 GameObject:
   m_ObjectHideFlags: 0
