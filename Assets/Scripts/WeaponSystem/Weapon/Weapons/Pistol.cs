@@ -8,6 +8,7 @@ namespace FragileReflection
     public class Pistol : Weapon //Разделить огнестрел и неогнестрел
     {
         public int ammoLeft = 0;
+        [SerializeField] private WeaponRay weaponRay;
         [SerializeField] private WeaponObject _inventoryWeapon;
         private void Awake()
         {
@@ -16,13 +17,13 @@ namespace FragileReflection
         public override void Fire()
         {
             if (!CanShoot()) return;
-            GameEvents.Fire();//можно передать WeaponType для звуков
+            weaponRay.TakeShot();//можно передать WeaponType для звуков
             _canShoot = false;
             _canReload = true;
             
             _bulletsLeft--;
             Debug.Log("Bullets left: " + _bulletsLeft);
-            
+            GameEvents.Fire();
             StartCoroutine(RateCD(_weaponType.RateOfFire));
             if (_bulletsLeft == 0) _canShoot = false;
 

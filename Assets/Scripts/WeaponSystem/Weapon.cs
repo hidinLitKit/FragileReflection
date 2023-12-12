@@ -21,7 +21,7 @@ namespace WeaponSystem
         public abstract void Fire();
         public abstract void Reload();
         public abstract bool CanReload();
-        public bool CanShoot()
+        public virtual bool CanShoot()
         {
             if(_bulletsLeft == 0)
             {
@@ -30,9 +30,8 @@ namespace WeaponSystem
             }
             return _canShoot;
         }
-        public IEnumerator RateCD(float delay)
-        {
-            
+        public virtual IEnumerator RateCD(float delay)
+        {   
             yield return new WaitForSeconds(delay);
             _canShoot = true;
         }
