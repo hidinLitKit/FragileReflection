@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.VersionControl.Asset;
+//using static UnityEditor.VersionControl.Asset;
 using UnityEngine.SceneManagement;
 
 namespace FragileReflection
