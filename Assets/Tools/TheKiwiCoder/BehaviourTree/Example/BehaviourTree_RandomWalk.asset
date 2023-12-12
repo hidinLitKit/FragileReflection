@@ -25,8 +25,12 @@ MonoBehaviour:
   blackboard:
     target: {fileID: 0}
     moveToPosition: {x: 100, y: 0, z: 0}
-  viewPosition: {x: -384, y: 413, z: 0}
-  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
+    moveSpeed: 0
+    chaseSpeed: 0
+    attackDistance: 0
+    wasStuggled: 0
+  viewPosition: {x: -130, y: 370, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -40,6 +44,10 @@ MonoBehaviour:
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
+          moveSpeed: 0
+          chaseSpeed: 0
+          attackDistance: 0
+          wasStuggled: 0
         description: Where it all begins!
         drawGizmos: 0
         child:
@@ -54,6 +62,10 @@ MonoBehaviour:
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
+          moveSpeed: 0
+          chaseSpeed: 0
+          attackDistance: 0
+          wasStuggled: 0
         description: Repeat forever
         drawGizmos: 0
         child:
@@ -70,6 +82,10 @@ MonoBehaviour:
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
+          moveSpeed: 0
+          chaseSpeed: 0
+          attackDistance: 0
+          wasStuggled: 0
         description: Select random position, move to it, then wait
         drawGizmos: 0
         children:
@@ -86,6 +102,10 @@ MonoBehaviour:
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
+          moveSpeed: 0
+          chaseSpeed: 0
+          attackDistance: 0
+          wasStuggled: 0
         description: Randomly generates a position into the blackboard
         drawGizmos: 0
         range: 10
@@ -99,6 +119,10 @@ MonoBehaviour:
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
+          moveSpeed: 0
+          chaseSpeed: 0
+          attackDistance: 0
+          wasStuggled: 0
         description: Move to the random position in the blackboard
         drawGizmos: 0
         stoppingDistance: 0.1
@@ -112,6 +136,10 @@ MonoBehaviour:
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
+          moveSpeed: 0
+          chaseSpeed: 0
+          attackDistance: 0
+          wasStuggled: 0
         description: Wait
         drawGizmos: 0
         duration: 1
