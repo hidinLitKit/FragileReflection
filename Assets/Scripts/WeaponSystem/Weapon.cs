@@ -13,13 +13,15 @@ namespace WeaponSystem
                 return _weaponType;
             } 
         }
+       
         protected bool _canShoot = true;
         protected int _bulletsLeft;
         protected bool _canReload = false;
         protected bool _isReloading = false;
         public abstract void Fire();
         public abstract void Reload();
-        public bool CanShoot()
+        public abstract bool CanReload();
+        public virtual bool CanShoot()
         {
             if(_bulletsLeft == 0)
             {
@@ -28,9 +30,8 @@ namespace WeaponSystem
             }
             return _canShoot;
         }
-        public IEnumerator RateCD(float delay)
-        {
-            
+        public virtual IEnumerator RateCD(float delay)
+        {   
             yield return new WaitForSeconds(delay);
             _canShoot = true;
         }

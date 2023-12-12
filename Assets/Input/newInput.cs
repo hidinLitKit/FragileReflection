@@ -145,6 +145,42 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""97256772-a47a-4220-ab98-3d72199eb65e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Save"",
+                    ""type"": ""Button"",
+                    ""id"": ""8488eb8e-c04b-486a-8f93-907333198211"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Load"",
+                    ""type"": ""Button"",
+                    ""id"": ""42dcd059-1225-4b2f-a093-bb65bd41b672"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NewGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d915f0e-8010-4b72-8b1f-daf74b0c9c66"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -486,6 +522,61 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Parallel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eae728ec-76bb-48ac-9637-c65e62ac111c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d692bb2-1fe5-44f7-91c1-ba1ec55eb44d"",
+                    ""path"": ""<DualShockGamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c4c1c9a-96cd-4824-b469-aea4d9788f22"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Save"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4fd3e095-7f73-4c78-bef6-48994c56ecdb"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Load"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21b97a49-f469-4a40-a495-1deedbec5b37"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NewGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1035,6 +1126,45 @@ namespace UnityEngine.InputSystem
                     ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""86f8de2c-0530-41b2-bf0f-9c25491a80d5"",
+                    ""path"": ""<DualShockGamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""DeathMap"",
+            ""id"": ""3a52054f-4683-49e1-a641-30d97a00017d"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e4b4329-b88b-407b-8713-8bc39ebee4a7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0392d11b-a012-4047-891e-a49996d0cc56"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1117,6 +1247,10 @@ namespace UnityEngine.InputSystem
             m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
             m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
             m_Player_Parallel = m_Player.FindAction("Parallel", throwIfNotFound: true);
+            m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+            m_Player_Save = m_Player.FindAction("Save", throwIfNotFound: true);
+            m_Player_Load = m_Player.FindAction("Load", throwIfNotFound: true);
+            m_Player_NewGame = m_Player.FindAction("NewGame", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1130,6 +1264,9 @@ namespace UnityEngine.InputSystem
             m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
             m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
             m_UI_Exit = m_UI.FindAction("Exit", throwIfNotFound: true);
+            // DeathMap
+            m_DeathMap = asset.FindActionMap("DeathMap", throwIfNotFound: true);
+            m_DeathMap_Newaction = m_DeathMap.FindAction("New action", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -1204,6 +1341,10 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_Crouch;
         private readonly InputAction m_Player_Inventory;
         private readonly InputAction m_Player_Parallel;
+        private readonly InputAction m_Player_Pause;
+        private readonly InputAction m_Player_Save;
+        private readonly InputAction m_Player_Load;
+        private readonly InputAction m_Player_NewGame;
         public struct PlayerActions
         {
             private @NewInput m_Wrapper;
@@ -1221,6 +1362,10 @@ namespace UnityEngine.InputSystem
             public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
             public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
             public InputAction @Parallel => m_Wrapper.m_Player_Parallel;
+            public InputAction @Pause => m_Wrapper.m_Player_Pause;
+            public InputAction @Save => m_Wrapper.m_Player_Save;
+            public InputAction @Load => m_Wrapper.m_Player_Load;
+            public InputAction @NewGame => m_Wrapper.m_Player_NewGame;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1269,6 +1414,18 @@ namespace UnityEngine.InputSystem
                 @Parallel.started += instance.OnParallel;
                 @Parallel.performed += instance.OnParallel;
                 @Parallel.canceled += instance.OnParallel;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+                @Save.started += instance.OnSave;
+                @Save.performed += instance.OnSave;
+                @Save.canceled += instance.OnSave;
+                @Load.started += instance.OnLoad;
+                @Load.performed += instance.OnLoad;
+                @Load.canceled += instance.OnLoad;
+                @NewGame.started += instance.OnNewGame;
+                @NewGame.performed += instance.OnNewGame;
+                @NewGame.canceled += instance.OnNewGame;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1312,6 +1469,18 @@ namespace UnityEngine.InputSystem
                 @Parallel.started -= instance.OnParallel;
                 @Parallel.performed -= instance.OnParallel;
                 @Parallel.canceled -= instance.OnParallel;
+                @Pause.started -= instance.OnPause;
+                @Pause.performed -= instance.OnPause;
+                @Pause.canceled -= instance.OnPause;
+                @Save.started -= instance.OnSave;
+                @Save.performed -= instance.OnSave;
+                @Save.canceled -= instance.OnSave;
+                @Load.started -= instance.OnLoad;
+                @Load.performed -= instance.OnLoad;
+                @Load.canceled -= instance.OnLoad;
+                @NewGame.started -= instance.OnNewGame;
+                @NewGame.performed -= instance.OnNewGame;
+                @NewGame.canceled -= instance.OnNewGame;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1455,6 +1624,52 @@ namespace UnityEngine.InputSystem
             }
         }
         public UIActions @UI => new UIActions(this);
+
+        // DeathMap
+        private readonly InputActionMap m_DeathMap;
+        private List<IDeathMapActions> m_DeathMapActionsCallbackInterfaces = new List<IDeathMapActions>();
+        private readonly InputAction m_DeathMap_Newaction;
+        public struct DeathMapActions
+        {
+            private @NewInput m_Wrapper;
+            public DeathMapActions(@NewInput wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Newaction => m_Wrapper.m_DeathMap_Newaction;
+            public InputActionMap Get() { return m_Wrapper.m_DeathMap; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(DeathMapActions set) { return set.Get(); }
+            public void AddCallbacks(IDeathMapActions instance)
+            {
+                if (instance == null || m_Wrapper.m_DeathMapActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_DeathMapActionsCallbackInterfaces.Add(instance);
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+
+            private void UnregisterCallbacks(IDeathMapActions instance)
+            {
+                @Newaction.started -= instance.OnNewaction;
+                @Newaction.performed -= instance.OnNewaction;
+                @Newaction.canceled -= instance.OnNewaction;
+            }
+
+            public void RemoveCallbacks(IDeathMapActions instance)
+            {
+                if (m_Wrapper.m_DeathMapActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IDeathMapActions instance)
+            {
+                foreach (var item in m_Wrapper.m_DeathMapActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_DeathMapActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public DeathMapActions @DeathMap => new DeathMapActions(this);
         private int m_KeyboardMouseSchemeIndex = -1;
         public InputControlScheme KeyboardMouseScheme
         {
@@ -1515,6 +1730,10 @@ namespace UnityEngine.InputSystem
             void OnCrouch(InputAction.CallbackContext context);
             void OnInventory(InputAction.CallbackContext context);
             void OnParallel(InputAction.CallbackContext context);
+            void OnPause(InputAction.CallbackContext context);
+            void OnSave(InputAction.CallbackContext context);
+            void OnLoad(InputAction.CallbackContext context);
+            void OnNewGame(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
@@ -1529,6 +1748,10 @@ namespace UnityEngine.InputSystem
             void OnTrackedDevicePosition(InputAction.CallbackContext context);
             void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
             void OnExit(InputAction.CallbackContext context);
+        }
+        public interface IDeathMapActions
+        {
+            void OnNewaction(InputAction.CallbackContext context);
         }
     }
 }

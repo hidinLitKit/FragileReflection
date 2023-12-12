@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 namespace FragileReflection
@@ -13,6 +14,11 @@ namespace FragileReflection
         private const string walkingBlendY = "WalkYdir";
         private const string sprintAnimation = "isRunning";
         private const string crouchAnimation = "isCrouching";
+        private const string pistolShoot = "PistolShoot";
+        private const string pistolReload = "PistolReload";
+        private const string meleeAttack = "MeleeAttack";
+
+        private const string deathAnimation = "isDeath";
         public void Aiming(bool aim)
         {
             playerAnim.SetBool(aimingAnimation, aim );
@@ -40,6 +46,22 @@ namespace FragileReflection
             playerAnim.SetBool(crouchAnimation, crouch);
         }
 
+        public void Death()
+        {
+            playerAnim.SetTrigger(deathAnimation);
+        }
+        public void PistolShoot()
+        {
+            playerAnim.SetTrigger(pistolShoot);
+        }
+        public void PistolReload()
+        {
+            playerAnim.SetTrigger(pistolReload);
+        }
+        public void MeleeAttack()
+        {
+            playerAnim.SetTrigger(meleeAttack);
+        }
         public void HandleAnimations()
         {
 

@@ -18,14 +18,22 @@ namespace FragileReflection
 
         [SerializeField] LayerMask detectLayers;
 
-        private void OnEnable()
+        public void TakeShot()
         {
-            GameEvents.onFire += TakeShot;
-        }
+            Ray ray = new Ray(transform.position, transform.forward);
+            Debug.DrawRay(transform.position, transform.forward * 10f, Color.yellow);
 
-        private void OnDisable()
-        {
-            GameEvents.onFire -= TakeShot;
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, detectLayers))
+            {
+                if (hit.collider.gameObject.TryGetComponent(out IDamagable enemyHealth))
+                {
+                    enemyHealth.TakeDamage(WeaponManager.instance.currentWeapon.WeaponType.BodyDamage);
+                    ShowShotPlace(hit);
+                }
+            }
+
         }
 
         private void LateUpdate()
@@ -75,24 +83,6 @@ namespace FragileReflection
                 currentlySelected.Deselect();
                 currentlySelected = null;
             }
-        }
-
-        private void TakeShot()
-        {
-            Ray ray = new Ray(transform.position, transform.forward);
-            Debug.DrawRay(transform.position, transform.forward * 10f, Color.yellow);
-
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, detectLayers))
-            {
-                if (hit.collider.gameObject.TryGetComponent(out IDamagable enemyHealth))
-                {
-                    enemyHealth.TakeDamage(WeaponManager.currentWeapon.WeaponType.BodyDamage);
-                    ShowShotPlace(hit);
-                }
-            }
-
         }
 
         private void ShowShotPlace(RaycastHit hit)

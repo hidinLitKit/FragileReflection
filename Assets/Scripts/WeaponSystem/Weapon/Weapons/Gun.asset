@@ -15,7 +15,7 @@ MonoBehaviour:
   HeadDamage: 20
   BodyDamage: 10
   RateOfFire: 0.7
-  RechargeSpeed: 2
+  RechargeSpeed: 3.5
   RecoilRadius: 0
   Magazine: 12
   CrossHair: {fileID: 21300000, guid: 92ab743f0e766f94ca92801ff37caecb, type: 3}

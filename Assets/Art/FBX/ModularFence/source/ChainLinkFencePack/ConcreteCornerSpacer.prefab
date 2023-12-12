@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 615075175644158323}
   - component: {fileID: 8489797384254015990}
   - component: {fileID: 3905875816158402344}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ConcreteCornerSpacer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4348430828602587757}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.928071, y: 0.00023918202, z: -8.102285}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

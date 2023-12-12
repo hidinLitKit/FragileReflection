@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace FragileReflection
 {
-    public class PlayerInfo : MonoBehaviour, IDamagable 
+    public class PlayerInfo : MonoBehaviour, IDamagable, IDataPersistence
     {
+        [Header("Health")]
         [SerializeField] private float maxHealth;
         [Range(0, 100)][SerializeField] private float health;
 
@@ -14,6 +16,7 @@ namespace FragileReflection
         public float MaxHealth => maxHealth;
 
         private Coroutine _healingCoroutine;
+        [Header("Power Healing")]
         [SerializeField] private float _heal = 2f;
 
         public enum HealingPower
@@ -23,9 +26,7 @@ namespace FragileReflection
             High
         }
 
-        [SerializeField]
-        [Header("Power Healing")]
-        private HealingPower _powerHeal = HealingPower.Low;
+        [SerializeField] private HealingPower _powerHeal = HealingPower.Low;
 
         private void Update()
         {
@@ -33,18 +34,33 @@ namespace FragileReflection
 
             if (health > 0 && keyboard != null && keyboard.yKey.wasPressedThisFrame)
             {
-                TakeDamage(5f);
+                TakeDamage(50f);
             }
 
-            //if (keyboard != null && keyboard.tabKey.wasPressedThisFrame)
-            //{
-            //    health = 100f;
-            //    Debug.Log("Health is full!");
-            //}
+            if (keyboard != null && keyboard.cKey.wasPressedThisFrame)
+            {
+                health = 100f;
+                Debug.Log("Health is full!");
+            }
 
             if (health < 100 && health > 0 && keyboard != null && keyboard.qKey.wasPressedThisFrame)
             {
                 StartHealing();
+            }
+
+            float healthPercentage = (health / maxHealth) * 100f;
+
+            if (healthPercentage >= 66f)
+            {
+                GameEvents.HealthChange("pulse_green_sprite", 30, "FINE", Color.green);
+            }
+            else if (healthPercentage >= 33f)
+            {
+                GameEvents.HealthChange("pulse_yellow_sprite", 60, "BAD", Color.yellow);
+            }
+            else
+            {
+                GameEvents.HealthChange("pulse_red_sprite", 144, "DANGER", Color.red);
             }
         }
 
@@ -75,8 +91,9 @@ namespace FragileReflection
         {
             Debug.Log("Player died!");
 
-            //if (_deathPanel != null)
-               //_deathPanel.SetActive(true);
+            GameEvents.SwitchMap("DeathMap");
+            GetComponent<PlayerAnimController>().Death();
+            GameEvents.DeathUIOpen();   
         }
 
         private void StartHealing()
@@ -107,7 +124,7 @@ namespace FragileReflection
             {
                 yield return new WaitForSeconds(healingRate);
                 health += _heal;
-                Debug.Log($"Healing iteration {i + 1}");
+                Debug.Log($"Healing iteration {i + 1} and health = {health}");
 
                 if (health >= 100)
                 {
@@ -147,6 +164,21 @@ namespace FragileReflection
             health = maxHealth;
 
             Debug.Log(health);
+        }
+
+        public void LoadData(GameData data)
+        {
+            this.gameObject.transform.position = data.playerPosition;
+            health = data.currentHealth;
+            maxHealth = data.maxHealth;
+        }
+
+        public void SaveData(GameData data)
+        {
+            data.playerPosition = this.gameObject.transform.position;
+            data.currentHealth = health;
+            data.maxHealth = maxHealth;
+
         }
     }
 }

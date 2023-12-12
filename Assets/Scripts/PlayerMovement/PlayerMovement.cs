@@ -13,10 +13,12 @@ namespace FragileReflection
     {
         //mine
 
-
+        [Header("Контроллеры")]
         [SerializeField] private CharacterController characterController;
         [SerializeField] private PlayerAnimController playerAnimController;
         private Transform playerTransform;
+
+        [Header("Значения состояний")]
         public Vector2 _move;
         public Vector2 _look;
         public float aimValue;
@@ -29,13 +31,16 @@ namespace FragileReflection
         public float rotationPower = 3f;
         public float rotationLerp = 0.5f;
 
+        [Header("Движение")]
         public float speed = 1f;
         [SerializeField] private float _sprintSpeed = 2f;
         [SerializeField] private float _crouchSpeed = 0.5f;
 
+        [Header("Настройки камеры")]
         [SerializeField] private CinemachineVirtualCamera _camMove;
         [SerializeField] private CinemachineVirtualCamera _camAim;
 
+        [Header("Состояния")]
         private bool _aiming = false;
         private bool _moving = false;
         private bool _sprinting = false;
@@ -47,6 +52,7 @@ namespace FragileReflection
 
         private float _inventValue;
 
+        [Header("Выносливость")]
         [SerializeField] private float stamina = 100f;  // начальное значение
         private float maxStamina = 100f;
         [SerializeField] private float staminaConsumptionRate = 5f;  // скорость расхода выносливости
@@ -79,7 +85,7 @@ namespace FragileReflection
 
         public void OnAim(InputValue value)
         {
-            if (WeaponManager.currentWeapon == null)
+            if (WeaponManager.instance.currentWeapon == null)
                 return;
             aimValue = value.Get<float>();
         }
@@ -88,7 +94,7 @@ namespace FragileReflection
         {
             if (!_aiming)
                 return;
-            WeaponManager.currentWeapon.Fire();
+            WeaponManager.instance.AttackPerform();
             //GameEvents.Fire();
         }
         public void OnReload(InputValue value)
@@ -97,7 +103,7 @@ namespace FragileReflection
             // хз а надо?
             if (!_aiming)
                 return;
-            WeaponManager.currentWeapon.Reload();
+            WeaponManager.instance.ReloadPerfom();
         }
         public void OnSprint(InputValue value)
         {
@@ -113,9 +119,22 @@ namespace FragileReflection
 
         public void OnCrouch(InputValue value)
         {
-            if (_aiming) return;
+            if (_aiming) 
+                return;
             _crouchValue = value.Get<float>();
             _crouching = _crouchValue != 0;
+        }
+        public void OnSave(InputValue value)
+        {
+            DataPersistenceManager.instance.SaveGame();
+        }
+        public void OnLoad(InputValue inputValue)
+        {
+            DataPersistenceManager.instance.LoadGame();
+        }
+        public void OnNewGame(InputValue value)
+        {
+            DataPersistenceManager.instance.NewGame();
         }
 
 
@@ -133,7 +152,7 @@ namespace FragileReflection
         {
             if (value.isPressed)
             {
-                WeaponManager.SwitchWeapon(WeaponManager.weapons[1]);
+                WeaponManager.instance.SwitchWeapon(WeaponManager.instance.weapons[1]);
             }
 
         }
@@ -156,10 +175,21 @@ namespace FragileReflection
             }
         }
 
+        private void OnPause(InputValue value)
+        {
+            GameEvents.SwitchMap("UI");
+            GameEvents.GamePause(true);
+            if (value.isPressed)
+            {
+
+            }
+        }
+
         public GameObject followTransform;
 
         private void Update()
         {
+
             HandleAnimations();
 
             #region Follow Transform Rotation
@@ -228,27 +258,31 @@ namespace FragileReflection
                 stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
                 GameEvents.StaminaRegenerated(stamina);
                 if (stamina == 100)
-                    GameEvents.StaminaFull();
+                    GameEvents.StaminaUIClose();
 
                 return;
             }
 
             float moveSpeed = speed;
             preventSprint();
+
             if (_sprintValue == 1 && stamina > 0)
             {
                 stamina -= staminaConsumptionRate * Time.deltaTime;
                 GameEvents.StaminaUsed(stamina);
-                GameEvents.ShiftKeyPressed();
+                GameEvents.StaminaUIOpen();
 
                 moveSpeed = _sprintSpeed;
             }
             else
             { 
-                stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
+                if (_crouching) 
+                    stamina = Mathf.Min(stamina + (staminaRegenerationRate * 1.5f) * Time.deltaTime, maxStamina);
+                else 
+                    stamina = Mathf.Min(stamina + staminaRegenerationRate * Time.deltaTime, maxStamina);
                 GameEvents.StaminaRegenerated(stamina);
                 if (stamina == 100)
-                    GameEvents.StaminaFull();
+                    GameEvents.StaminaUIClose();
             }
 
             if (_crouchValue == 1)

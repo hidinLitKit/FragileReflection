@@ -18,7 +18,7 @@ namespace FragileReflection
         public override void Interact()
         {
             Debug.Log(wp);
-            WeaponManager.AddWeapon(wp);
+            WeaponManager.instance.AddWeapon(wp);
             Item itm = new Item(wpItem);
             GameInventory.instance.inventory.AddItem(itm, 1);
             Debug.Log("Click");

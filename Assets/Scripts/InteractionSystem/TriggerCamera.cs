@@ -16,14 +16,17 @@ namespace FragileReflection
             cam.LookAt = playerTransform;
             cam.Priority = 1;
             GetComponent<Collider>().isTrigger = true;
+            cam.enabled = false;
         }
         private void OnTriggerEnter(Collider other)
         {
+            cam.enabled = true;
             cam.Priority = 99;
         }
         private void OnTriggerExit(Collider other)
         {
             cam.Priority = 1;
+            cam.enabled = false;
         }
     }
 }
