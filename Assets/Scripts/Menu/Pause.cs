@@ -50,6 +50,11 @@ namespace FragileReflection
             }
         }
 
+        public void ExitGame()
+        {
+            Time.timeScale = 1;
+        }
+
         public void GotoMain()
         {
             SceneManager.LoadScene("Main Menu");

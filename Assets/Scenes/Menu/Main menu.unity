@@ -2248,8 +2248,7 @@ MonoBehaviour:
   _musicSlider: {fileID: 1157207989}
   _soundEffectsSlider: {fileID: 1703055776}
   _musicAudio: {fileID: 1099834531}
-  _soundEffectsAudio:
-  - {fileID: 0}
+  _soundEffectsAudio: []
 --- !u!4 &1865576937
 Transform:
   m_ObjectHideFlags: 0
@@ -2804,6 +2803,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1415849893}
+    - target: {fileID: 6453068828723178848, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GotoMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453068828723178848, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FragileReflection.MainMenuScript, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8743830683087233626, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_Name
       value: Options
