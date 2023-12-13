@@ -44,10 +44,10 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     moveSpeed: 1
     chaseSpeed: 4
-    attackDistance: 3
+    attackDistance: 1.5
     wasStuggled: 0
-  viewPosition: {x: 78, y: -200, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: -60, y: -11, z: 0}
+  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
   references:
     version: 2
     RefIds:
@@ -57,7 +57,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d2ec202fa89b7e441995737171960d17
-        position: {x: 60.000008, y: 829.4791}
+        position: {x: 59.999996, y: 827.2509}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -338,7 +338,7 @@ MonoBehaviour:
           wasStuggled: 0
         description: 
         drawGizmos: 0
-        duration: 2
+        duration: 1.8
     - rid: 5943290654267801616
       type: {class: CanSeePlayer, ns: , asm: Assembly-CSharp}
       data:
@@ -390,16 +390,16 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
-        - rid: 5943290654267801619
-        - rid: 5943290654267801620
         - rid: 5943290654267801622
+        - rid: 5943290654267801620
+        - rid: 5943290654267801619
     - rid: 5943290654267801619
       type: {class: ChooseEndpoint, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: e5310de17f065be4ca230f9a14ae62af
-        position: {x: 769, y: 775.32263}
+        position: {x: 1148.5494, y: 783.8966}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -432,7 +432,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: cc2a3456732df1640892e8a0a2591f8b
-        position: {x: 1172.749, y: 774.99994}
+        position: {x: 742.95825, y: 776.2724}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}

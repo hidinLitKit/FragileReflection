@@ -18,6 +18,9 @@ namespace FragileReflection
         private const string pistolReload = "PistolReload";
         private const string meleeAttack = "MeleeAttack";
 
+        /* int id_attack = Animator.StringToHash("Attack");
+        animator.SetFloat(id_attack, 1); */
+
         private const string deathAnimation = "isDeath";
         public void Aiming(bool aim)
         {
