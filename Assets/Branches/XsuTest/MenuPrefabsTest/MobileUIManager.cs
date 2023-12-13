@@ -6,16 +6,47 @@ namespace FragileReflection
 {
     public class MobileUIManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        bool isAndroid = false;
+        [SerializeField] GameObject AndroidUI;
+        [SerializeField] GameObject UIInventory;
+        [SerializeField] GameObject UIController;
+        void Awake()
         {
-        
+#if UNITY_ANDROID
+    isAndroid = true;
+#endif
+            if(isAndroid)
+                AndroidUI.SetActive(true);
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnEnable()
         {
-        
+            if(isAndroid)
+            {
+                GameEvents.onInventoryUI += SetActiveInventory;
+                GameEvents.onGamePause += SetActiveController;
+            }
+                
+        }
+
+        private void OnDisable()
+        {
+            if (isAndroid)
+            {
+                GameEvents.onInventoryUI -= SetActiveInventory;
+                GameEvents.onGamePause += SetActiveController;
+            }
+        }
+
+        void SetActiveController(bool activate)
+        {
+            AndroidUI.SetActive(!activate);
+        }
+
+        void SetActiveInventory(bool activate)
+        {
+            UIInventory.SetActive(activate);
+            UIController.SetActive(!activate);
         }
     }
 }
