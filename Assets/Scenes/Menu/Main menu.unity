@@ -6132,6 +6132,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336287722}
   m_CullTransparentMesh: 1
+--- !u!1001 &1356759340
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 448956939066685349, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
+      propertyPath: m_Name
+      value: DataPersistenceManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041712758665015651, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041712758665015651, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041712758665015651, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041712758665015651, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041712758665015651, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041712758665015651, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041712758665015651, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041712758665015651, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041712758665015651, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041712758665015651, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 26617df46ef8a1d43b115219bcbc7055, type: 3}
 --- !u!1 &1386834416
 GameObject:
   m_ObjectHideFlags: 0
@@ -7587,7 +7644,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1740595285}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 661374979}
+        m_TargetAssemblyTypeName: FragileReflection.ASyncManager, Assembly-CSharp
+        m_MethodName: ContinueGameButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1740595285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7871,8 +7940,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 661374979}
         m_TargetAssemblyTypeName: FragileReflection.ASyncManager, Assembly-CSharp
-        m_MethodName: LoadLevelBtn
-        m_Mode: 5
+        m_MethodName: NewGameButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8735,6 +8804,7 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1356759340}
   - {fileID: 887552520}
   - {fileID: 403270747}
   - {fileID: 1415849890}
