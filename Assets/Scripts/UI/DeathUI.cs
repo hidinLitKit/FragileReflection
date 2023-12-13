@@ -33,12 +33,12 @@ namespace FragileReflection
             _deathUI.SetActive(false);
         }
 
-        public void GotoFistLVL()
+        public void Continue()
         {
             SceneManager.LoadScene("Main");
         }
 
-        public void GotoMainMenu()
+        public void MainMenu()
         {
             SceneManager.LoadScene("Main menu");
         }

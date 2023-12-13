@@ -19,14 +19,14 @@ namespace FragileReflection
         public override void Interact()
         {
             if (_justSaved) return;
-            _justSaved = false;
+            _justSaved = true;
             DataPersistenceManager.instance.SaveGame();
             StartCoroutine(saveCD());
         }
         private IEnumerator saveCD()
         {
             yield return new WaitForSeconds(_saveCD);
-            _justSaved = true;
+            _justSaved = false;
         }
     }
 }

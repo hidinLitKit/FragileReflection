@@ -22,7 +22,7 @@ namespace FragileReflection
         public void ContinueGameButton()
         {
             Debug.Log("Game Continue");
-            LoadLevelASync();
+            LoadLevel();
         }
 
         public void LoadLevel()
