@@ -434,9 +434,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FragileReflection.ManeMenuScritp, Assembly-CSharp
-        m_MethodName: Quit
+      - m_Target: {fileID: 5327812967387733675}
+        m_TargetAssemblyTypeName: FragileReflection.DeathUI, Assembly-CSharp
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -851,9 +851,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FragileReflection.ManeMenuScritp, Assembly-CSharp
-        m_MethodName: ReturnFirstLVL
+      - m_Target: {fileID: 5327812967387733675}
+        m_TargetAssemblyTypeName: FragileReflection.DeathUI, Assembly-CSharp
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2457,7 +2457,7 @@ GameObject:
   - component: {fileID: 4282346030962423749}
   - component: {fileID: 5327812967387733675}
   m_Layer: 5
-  m_Name: Canvas_with_status
+  m_Name: Canvas_ready
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5658,7 +5658,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

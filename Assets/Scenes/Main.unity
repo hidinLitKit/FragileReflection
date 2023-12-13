@@ -49045,7 +49045,7 @@ GameObject:
   - component: {fileID: 1711813856062278762}
   - component: {fileID: 3469287836635625634}
   - component: {fileID: 3469287836635625633}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SavePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54622,7 +54622,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2016536120556423622, guid: 7072c909037d2d246bbfc2e90b76ab73, type: 3}
       propertyPath: m_Name
-      value: Canvas_with_status
+      value: Canvas_ready
       objectReference: {fileID: 0}
     - target: {fileID: 6952221584147231779, guid: 7072c909037d2d246bbfc2e90b76ab73, type: 3}
       propertyPath: m_Pivot.x

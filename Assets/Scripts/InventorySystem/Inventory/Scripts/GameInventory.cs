@@ -35,14 +35,14 @@ namespace FragileReflection
         public void LoadData(GameData data)
         {
             inventory.Container.Items.Clear();
-            for(int i = 0;i<data.InventoryData.Count;i++)
-            
+            for (int i = 0; i < data.InventoryData.Count; i++)
+            {
                 data.InventoryData.TryGetValue(i, out objectDataString);
                 objectData = objectDataString.Split(',').Select(s => s).ToList();
                 Item itm = new Item(objectData[0], int.Parse(objectData[1]), bool.Parse(objectData[2]));
                 inventory.SetSlot(itm, int.Parse(objectData[3]));
             }
-
+        }
         public void SaveData(GameData data)
         {
             for(int i = 0; i<inventory.Container.Items.Count;i++)
