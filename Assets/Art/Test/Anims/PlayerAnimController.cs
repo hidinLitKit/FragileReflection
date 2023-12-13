@@ -48,7 +48,6 @@ namespace FragileReflection
         {
             playerAnim.SetBool(crouchAnimation, crouch);
         }
-
         public void Death()
         {
             playerAnim.SetTrigger(deathAnimation);
