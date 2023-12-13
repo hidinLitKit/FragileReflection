@@ -30,7 +30,7 @@ namespace FragileReflection
         }
         private void StartValues()
         {
-            //InventoryData.Add(0, "100 yen,0,True,0");
+            InventoryData.Add(0, "100 yen,0,True,0");
         }
     }
 }

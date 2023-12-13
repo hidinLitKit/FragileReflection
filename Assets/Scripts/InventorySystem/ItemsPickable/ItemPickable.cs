@@ -10,13 +10,19 @@ namespace FragileReflection
 {
     public class ItemPickable : Interactable, IDataPersistence
     {
+        
         [SerializeField] private ItemObject item;
         [SerializeField] private int _amount;
         [SerializeField] private string _message;
         [SerializeField] private string ID;
-        [HideInInspector, SerializeField] private string _id;
-        private bool isActive = true;
+        [SerializeField] private string _id;
+        [SerializeField] private bool isActive;
+        private bool _isAct;
         private int _unactiveLayer = 9;
+        private void Awake()
+        {
+            isActive = true;
+        }
         [ContextMenu("Generate id")]
         private void GenerateGuid()
         {
@@ -51,19 +57,21 @@ namespace FragileReflection
             }
         }
         public void LoadData(GameData data)
-        {
-            data.ActiveItmData.TryGetValue(_id, out isActive);
-            if (!isActive) LayerChange();
+        {   
+            if(!data.ActiveItmData.TryGetValue(_id, out _isAct)) return;
+            isActive = _isAct;
+            if (!isActive) LayerChange(); 
         }
 
         public void SaveData(GameData data)
         {
+            Debug.Log(gameObject + " is active: " + isActive);
             if (data.ActiveItmData.ContainsKey(_id))
             {
                 data.ActiveItmData.Remove(_id);
             }
-
             data.ActiveItmData.Add(_id, isActive);
+            Debug.Log(gameObject + " saved, id and isActive " + _id + " " + isActive);
         }
     }
 }
