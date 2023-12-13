@@ -64,6 +64,10 @@ namespace FragileReflection
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
+#if UNITY_ANDROID
+            rotationPower = 10f;
+#endif
+
             //mine
             //WeaponManager.ChangeWeapon(weapon[0]);
         }
@@ -161,10 +165,10 @@ namespace FragileReflection
         {
             GameEvents.SwitchMap("UI");
             GameEvents.InventoryUIAble(true);
-            if (value.isPressed)
-            {
+            //if (value.isPressed)
+            //{
                 
-            }
+            //}
         }
 
         private void OnParallel(InputValue value)
