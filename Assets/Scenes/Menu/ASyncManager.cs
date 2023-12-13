@@ -14,18 +14,28 @@ namespace FragileReflection
 
         [Header("Slider")]
         [SerializeField] private Slider _loadingSlider;
+        private string _levelToLoad = "Main";
+        public void NewGameButton()
+        {
+            StartCoroutine(NewGame());
+        }
+        public void ContinueGameButton()
+        {
+            Debug.Log("Game Continue");
+            LoadLevelASync();
+        }
 
-        public void LoadLevelBtn(string levelToLoad)
+        public void LoadLevel()
         {
             _mainMenu.SetActive(false);
             _loadingScreen.SetActive(true);
 
-            StartCoroutine(LoadLevelASync(levelToLoad));
+            StartCoroutine(LoadLevelASync());
         }
 
-        IEnumerator LoadLevelASync(string levelToLoad)
+        IEnumerator LoadLevelASync()
         {
-            AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelToLoad);
+            AsyncOperation loadOperation = SceneManager.LoadSceneAsync(_levelToLoad);
 
             while (!loadOperation.isDone)
             {
@@ -34,5 +44,13 @@ namespace FragileReflection
                 yield return null;
             }
         }
+        IEnumerator NewGame()
+        {
+            Debug.Log("New game");
+            DataPersistenceManager.instance.NewGame();
+            yield return new WaitForSeconds(1f);
+            DataPersistenceManager.instance.SaveGame();
+            LoadLevel();
+        }    
     }
 }
