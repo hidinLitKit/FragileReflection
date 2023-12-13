@@ -48,7 +48,7 @@ namespace FragileReflection
         {
             Debug.Log("New game");
             DataPersistenceManager.instance.NewGame();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             DataPersistenceManager.instance.SaveGame();
             LoadLevel();
         }    
