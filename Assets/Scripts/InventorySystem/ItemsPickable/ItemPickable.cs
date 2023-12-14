@@ -15,8 +15,9 @@ namespace FragileReflection
         [SerializeField] private int _amount;
         [SerializeField] private string _message;
         [SerializeField] private string ID;
-        [SerializeField] private string _id;
         [SerializeField] private bool isActive;
+        [HideInInspector, SerializeField] private string _id;
+
         private bool _isAct;
         private int _unactiveLayer = 9;
         private void Awake()
