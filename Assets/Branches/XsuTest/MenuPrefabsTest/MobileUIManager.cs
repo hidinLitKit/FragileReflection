@@ -24,6 +24,7 @@ namespace FragileReflection
             androidUI = AndroidUI.GetComponent<CanvasGroup>();
             inventoryUI = UIInventory.GetComponent<CanvasGroup>();
             controllerUI = UIController.GetComponent<CanvasGroup>();
+            CanvasSwitch(inventoryUI, false);
 
         }
 
@@ -37,7 +38,7 @@ namespace FragileReflection
         private void OnDisable()
         {
             GameEvents.onInventoryUI -= SetActiveInventory;
-            GameEvents.onGamePause += SetActiveController;
+            GameEvents.onGamePause -= SetActiveController;
 
         }
 

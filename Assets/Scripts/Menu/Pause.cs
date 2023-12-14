@@ -31,7 +31,7 @@ namespace FragileReflection
             GameEvents.onGamePause -= Paused;
             GameEvents.onGamePause -= EscPress;
         }
-
+        
         public void Paused(bool status)
         {
             _pausePanel.SetActive(status);
@@ -51,7 +51,10 @@ namespace FragileReflection
                 GameEvents.StaminaUIOpen();
             }
         }
-
+        public void OnContinue(bool s)
+        {
+            GameEvents.GamePause(s);
+        }
         public void ExitGame()
         {
             Time.timeScale = 1;
