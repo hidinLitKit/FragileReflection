@@ -17845,7 +17845,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3946417571842102229, guid: 6ec4f6f6fd9ab43459c73faf3a3b8135, type: 2}
   m_audioClip: {fileID: 8300000, guid: 19437b7abb37c8b4881f8035d68cebc9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -25821,6 +25821,10 @@ PrefabInstance:
       propertyPath: patrolEndpoints.Array.data[1]
       value: 
       objectReference: {fileID: 866594040}
+    - target: {fileID: 6659946899583275350, guid: fe6394a20d9619a46ad93f5b0899e34e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3014014387310297751, guid: 6ec4f6f6fd9ab43459c73faf3a3b8135, type: 2}
     - target: {fileID: 7020395778616006433, guid: fe6394a20d9619a46ad93f5b0899e34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -41.87
