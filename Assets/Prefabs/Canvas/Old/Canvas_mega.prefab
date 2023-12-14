@@ -1835,7 +1835,7 @@ GameObject:
   - component: {fileID: 5579383576038382146}
   - component: {fileID: 6342477362334042515}
   m_Layer: 5
-  m_Name: Canvas_with_status_and_pause
+  m_Name: Canvas_mega
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4936,6 +4936,18 @@ MonoBehaviour:
       - m_Target: {fileID: 5579383576038382146}
         m_TargetAssemblyTypeName: FragileReflection.Pause, Assembly-CSharp
         m_MethodName: GotoMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5579383576038382146}
+        m_TargetAssemblyTypeName: FragileReflection.Pause, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

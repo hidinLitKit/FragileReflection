@@ -41,11 +41,14 @@ namespace FragileReflection
         private void Awake()
         {
             _database = inventory.database;
+
+        }
+        private void Start()
+        {
             UpdateObjectPosition(_highlight, 0);
             CreateSlots();
             UpdateSlots();
             ShowInventory(false);
-
         }
         private void OnEnable()
         {
@@ -123,15 +126,6 @@ namespace FragileReflection
 
             UpdateObjectPosition(_highlight, _currentIndex);
         }
-
-
-        //Гайд как вывести на экран любой предмет из инвентаря
-        void howToDisplayItem()
-        {
-            GameObject slot; //это типа слот UI
-            InventorySlot item = inventory.Container.Items[0]; //Мы взяли тут просто первый предмет который есть
-        }
-
         public void useItem()
         {
             //если мы кликнули по кнопке вызывается этот метод

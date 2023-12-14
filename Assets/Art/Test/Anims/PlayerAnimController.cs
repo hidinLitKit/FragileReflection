@@ -33,8 +33,9 @@ namespace FragileReflection
         public void WalkDir(float dirx, float diry)
         {
             float blendX = 1;
-            blendX += dirx;
-            float blendY = diry >0.5f ? 1 : 0;
+            float blendY = diry > 0.5f ? 1 : 0;
+            blendX +=  blendY == 1 ? dirx : -dirx ;
+            
 
             
             playerAnim.SetFloat(walkingBlendX, blendX, 0.25f , Time.deltaTime);

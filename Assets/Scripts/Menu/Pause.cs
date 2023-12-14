@@ -23,13 +23,15 @@ namespace FragileReflection
         private void OnEnable()
         {
             GameEvents.onGamePause += Paused;
+            GameEvents.onGamePause += EscPress;
         }
 
         private void OnDisable()
         {
             GameEvents.onGamePause -= Paused;
+            GameEvents.onGamePause -= EscPress;
         }
-
+        
         public void Paused(bool status)
         {
             _pausePanel.SetActive(status);
@@ -49,10 +51,21 @@ namespace FragileReflection
                 GameEvents.StaminaUIOpen();
             }
         }
-
+        public void OnContinue(bool s)
+        {
+            GameEvents.GamePause(s);
+        }
         public void ExitGame()
         {
             Time.timeScale = 1;
+        }
+
+        public void EscPress(bool status)
+        {
+            _screenOptions.SetActive(false);
+            _volumeOptions.SetActive(false);
+            _buttonOptions.SetActive(false);
+            _mainPause.SetActive(true);
         }
 
         public void GotoMain()

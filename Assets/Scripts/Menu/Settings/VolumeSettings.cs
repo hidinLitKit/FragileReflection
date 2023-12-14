@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -8,58 +6,47 @@ namespace FragileReflection
 {
     public class VolumeSettings : MonoBehaviour
     {
-        private static readonly string FirstPlay = "FirstPlay";
-        private static readonly string MusicPref = "MusicPref";
-        private static readonly string SoundEffectsPref = "SoundEffectsPref";
-        private int firstPlayInt;
-        [SerializeField] private Slider _musicSlider, _soundEffectsSlider;
-        private float musicFloat, soundEffectsFloat;
-        [SerializeField] private AudioSource _musicAudio;
-        [SerializeField] private AudioSource[] _soundEffectsAudio;
+        public AudioMixer mixer;
+        public Slider masterSlider;
+        public Slider musicSlider;
+        public Slider sfxSlider;
 
-        private void Start()
-        { 
-            firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
+        void SetSliders()
+        {
+            masterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+            sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+            musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        }
 
-            if (firstPlayInt == 0)
+        void Start()
+        {
+            if (PlayerPrefs.HasKey("MasterVolume"))
             {
-                musicFloat = 0.25f;
-                soundEffectsFloat = 0.75f; 
-                _musicSlider.value = musicFloat;
-                _soundEffectsSlider.value = soundEffectsFloat;
-                PlayerPrefs.SetFloat(MusicPref, musicFloat);
-                PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat); 
-                PlayerPrefs.SetInt(FirstPlay, -1);
+                mixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("MasterVolume"));
+                mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
+                mixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
+                SetSliders();
             }
             else
-            {
-                musicFloat = PlayerPrefs.GetFloat(MusicPref); 
-                _musicSlider.value = musicFloat;
-                soundEffectsFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
-                _soundEffectsSlider.value = soundEffectsFloat;
-            }
-        }
-        
-        public void SaveSoundSettings()
-        {
-            PlayerPrefs.SetFloat(MusicPref, _musicSlider.value);
-            PlayerPrefs.SetFloat(SoundEffectsPref, _soundEffectsSlider.value);
+                SetSliders();
         }
 
-        void OnApplicationFocus(bool inFocus)
+        public void UpdateMasterVolume()
         {
-            if (!inFocus)
-                SaveSoundSettings();
+            mixer.SetFloat("MasterVolume", masterSlider.value);
+            PlayerPrefs.SetFloat("MasterVolume", masterSlider.value);
         }
 
-        public void UpdateSound()
+        public void UpdateMusicVolume()
         {
-            _musicAudio.volume = _musicSlider.value;
+            mixer.SetFloat("MusicVolume", musicSlider.value);
+            PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
+        }
 
-            for (int i = 0; i < _soundEffectsAudio.Length; i++)
-            {
-                _soundEffectsAudio[i].volume = _soundEffectsSlider.value;
-            }
+        public void UpdateSFXVolume()
+        {
+            mixer.SetFloat("SFXVolume", sfxSlider.value);
+            PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
         }
     }
 }

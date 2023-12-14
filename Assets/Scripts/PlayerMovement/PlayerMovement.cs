@@ -21,7 +21,7 @@ namespace FragileReflection
         [Header("Значения состояний")]
         public Vector2 _move;
         public Vector2 _look;
-        public float aimValue;
+        public bool aimValue;
         public float fireValue;
         public float walkValue;
 
@@ -58,14 +58,20 @@ namespace FragileReflection
         [SerializeField] private float staminaConsumptionRate = 5f;  // скорость расхода выносливости
         [SerializeField] private float staminaRegenerationRate = 2f; // скорость восстановления выносливости
 
+        private bool isGamepad;
+        private InputAction m_aim;
         private void Awake()
         {
+            
             playerTransform = characterController.gameObject.transform;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
 #if UNITY_ANDROID
-            rotationPower = 10f;
+            rotationPower = 8f;
+            isGamepad = true;
+            m_aim = GetComponent<PlayerInput>().currentActionMap.FindAction("Aim");
+
 #endif
 
             //mine
@@ -91,7 +97,11 @@ namespace FragileReflection
         {
             if (WeaponManager.instance.currentWeapon == null)
                 return;
-            aimValue = value.Get<float>();
+            if (isGamepad)
+            {
+                if (m_aim.WasPerformedThisFrame()) aimValue = !aimValue;
+            }
+            else aimValue = value.Get<bool>();
         }
 
         public void OnFire(InputValue value)
@@ -117,7 +127,8 @@ namespace FragileReflection
                 _sprintValue = 0;
                 return;
             }
-            _sprintValue = value.Get<float>();
+            if (isGamepad) _sprintValue = 1;
+            else _sprintValue = value.Get<float>();
             _sprinting = _sprintValue != 0;  
         }
 
@@ -229,7 +240,7 @@ namespace FragileReflection
             _nextRotation = Quaternion.Lerp(followTransform.transform.rotation, _nextRotation, Time.deltaTime * rotationLerp);
 
 
-            if (aimValue == 1)
+            if (aimValue)
             {
                 if (!_aiming)
                     GameEvents.Aim(true);
@@ -243,7 +254,7 @@ namespace FragileReflection
 
                 _aiming = true;
             }
-            else if (aimValue == 0)
+            else
             {
                 if (_aiming)
                     GameEvents.Aim(false);
@@ -254,7 +265,9 @@ namespace FragileReflection
 
             Vector3 vertical = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);
             characterController.Move(vertical);
-
+            
+            preventSprint();
+            
             if (_move.x == 0 && _move.y == 0)
             {
                 _nextPosition = playerTransform.position;
@@ -268,8 +281,7 @@ namespace FragileReflection
             }
 
             float moveSpeed = speed;
-            preventSprint();
-
+            
             if (_sprintValue == 1 && stamina > 0)
             {
                 stamina -= staminaConsumptionRate * Time.deltaTime;
