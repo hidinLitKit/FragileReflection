@@ -13,23 +13,5 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   Container:
-    Items:
-    - ID: 1
-      item:
-        Name: Pistol
-        ID: 1
-        unique: 1
-      amount: 0
-    - ID: 2
-      item:
-        Name: Pistol Ammo
-        ID: 2
-        unique: 0
-      amount: 0
-    - ID: 13
-      item:
-        Name: 
-        ID: 13
-        unique: 1
-      amount: 0
+    Items: []
   database: {fileID: 11400000, guid: f3f6581fb61f6664f94fbc5ad4d20d84, type: 2}
