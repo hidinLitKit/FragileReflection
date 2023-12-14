@@ -2341,7 +2341,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8307286553555299042}
-  - component: {fileID: 7652529604974449624}
   m_Layer: 5
   m_Name: VolumeOptions
   m_TagString: Untagged
@@ -2371,22 +2370,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.00012207031, y: 0.000030517578}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7652529604974449624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4423642065879083119}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 045ea64754c577045a226cc433c89a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _musicSlider: {fileID: 4342519718996046019}
-  _soundEffectsSlider: {fileID: 9038811437303997770}
-  _musicAudio: {fileID: 0}
-  _soundEffectsAudio: []
 --- !u!1 &4934446749860797015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2509,7 +2492,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FragileReflection.Pause, Assembly-CSharp
+        m_TargetAssemblyTypeName: FragileReflection.MainMenuScript, Assembly-CSharp
         m_MethodName: GotoVolumeOpt
         m_Mode: 1
         m_Arguments:
@@ -3659,20 +3642,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FragileReflection.Pause, Assembly-CSharp
+        m_TargetAssemblyTypeName: FragileReflection.MainMenuScript, Assembly-CSharp
         m_MethodName: GotoOptionIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1722613783429345024}
-        m_TargetAssemblyTypeName: FragileReflection.ScreenSettings, Assembly-CSharp
-        m_MethodName: SaveSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3916,7 +3887,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FragileReflection.Pause, Assembly-CSharp
+        m_TargetAssemblyTypeName: FragileReflection.MainMenuScript, Assembly-CSharp
         m_MethodName: GotoOptionIn
         m_Mode: 1
         m_Arguments:
@@ -4061,8 +4032,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FragileReflection.Pause, Assembly-CSharp
-        m_MethodName: GotoPause
+        m_TargetAssemblyTypeName: FragileReflection.MainMenuScript, Assembly-CSharp
+        m_MethodName: GotoMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4612,7 +4583,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FragileReflection.Pause, Assembly-CSharp
+        m_TargetAssemblyTypeName: FragileReflection.MainMenuScript, Assembly-CSharp
         m_MethodName: GotoScreenOpt
         m_Mode: 1
         m_Arguments:
@@ -4882,7 +4853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 21.707397, y: -19.39}
+  m_AnchoredPosition: {x: 21.7074, y: -19.39}
   m_SizeDelta: {x: 43.4146, y: 38.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &365375756848474523
@@ -5966,7 +5937,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8743830683087233626}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6015,7 +5986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 25.522003, y: 1.3829002}
+  m_AnchoredPosition: {x: 25.522003, y: 1.3829}
   m_SizeDelta: {x: -51.045, y: 2.7658}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3620776928593526178
