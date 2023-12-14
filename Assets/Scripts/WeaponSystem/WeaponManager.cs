@@ -1,7 +1,7 @@
 using FragileReflection;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
+//using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 namespace WeaponSystem
 {
@@ -13,7 +13,7 @@ namespace WeaponSystem
         public Weapon currentWeapon = null;
         public PlayerAnimController playerAnimController;
 
-        private int _unactiveLayer = 9;
+        private int _unactiveLayer = 9; 
 
 
         void Start()

@@ -2672,6 +2672,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pausePanel: {fileID: 7846358772509355548}
+  _mainPause: {fileID: 0}
+  _option: {fileID: 0}
+  _buttonOptions: {fileID: 0}
+  _screenOptions: {fileID: 0}
+  _volumeOptions: {fileID: 0}
 --- !u!114 &5327812967387733675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3996,6 +4001,7 @@ GameObject:
   - component: {fileID: 3792536959795470861}
   - component: {fileID: 3375138793236067134}
   - component: {fileID: 2017824084022902679}
+  - component: {fileID: 3589984893055601747}
   m_Layer: 5
   m_Name: "\u0421ontinue Button"
   m_TagString: Untagged
@@ -4117,6 +4123,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3589984893055601747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3863627717957545337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ControlPath: <Keyboard>/escape
 --- !u!1 &3926945866503067653
 GameObject:
   m_ObjectHideFlags: 0
