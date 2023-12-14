@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace FragileReflection
 {
-    public class VolumeUI : MonoBehaviour
+    public class VolumeSettings : MonoBehaviour
     {
         public AudioMixer mixer;
         public Slider masterSlider;
