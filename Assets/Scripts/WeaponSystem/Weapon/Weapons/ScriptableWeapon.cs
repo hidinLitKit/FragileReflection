@@ -20,6 +20,9 @@ namespace WeaponSystem
         [Space]
         public int Magazine;
 
+        [Header("Шанс попадания")]
+        public int chance;
+
         public Sprite CrossHair;
 
     }

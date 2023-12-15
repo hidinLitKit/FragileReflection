@@ -130,7 +130,7 @@ public class EnemyController : MonoBehaviour
         if(_attackArea.hasAttacked)
         {
             IDamagable damage = player.gameObject.GetComponent<IDamagable>();
-            damage.TakeDamage(_attackDamage);
+            damage.TakeDamage(_attackDamage, 100);
             Debug.Log($"Take damage {_attackDamage}");
         }
     }
