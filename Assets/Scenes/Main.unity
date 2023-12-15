@@ -9571,7 +9571,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 436720217}
-  - component: {fileID: 436720218}
   m_Layer: 0
   m_Name: MusicTemp
   m_TagString: Untagged
@@ -9596,18 +9595,6 @@ Transform:
   - {fileID: 1019004357}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &436720218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436720216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1394e0de2724af6458f7270f1d762397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &445301251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18955,7 +18942,7 @@ AudioSource:
   m_GameObject: {fileID: 793409590}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3946417571842102229, guid: 6ec4f6f6fd9ab43459c73faf3a3b8135, type: 2}
   m_audioClip: {fileID: 8300000, guid: 19437b7abb37c8b4881f8035d68cebc9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
@@ -24209,7 +24196,7 @@ AudioSource:
   m_GameObject: {fileID: 1019004356}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3946417571842102229, guid: 6ec4f6f6fd9ab43459c73faf3a3b8135, type: 2}
   m_audioClip: {fileID: 8300000, guid: 32ce8f65ec8120d418982b6599ff90cf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -27473,6 +27460,10 @@ PrefabInstance:
       propertyPath: patrolEndpoints.Array.data[1]
       value: 
       objectReference: {fileID: 866594040}
+    - target: {fileID: 6659946899583275350, guid: fe6394a20d9619a46ad93f5b0899e34e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3014014387310297751, guid: 6ec4f6f6fd9ab43459c73faf3a3b8135, type: 2}
     - target: {fileID: 7020395778616006433, guid: fe6394a20d9619a46ad93f5b0899e34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -41.87
