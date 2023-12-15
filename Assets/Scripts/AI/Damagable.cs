@@ -22,8 +22,7 @@ namespace FragileReflection
             if (enemyHealth != null)
             {
                 int rand = Random.Range(0, 100);
-                if(chance <= rand)
-                    enemyHealth.Damage(damage * k);
+                enemyHealth.Damage(damage * k, rand<=chance);
             }
         }
     }

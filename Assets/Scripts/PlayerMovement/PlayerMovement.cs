@@ -31,8 +31,8 @@ namespace FragileReflection
         private Vector3 _nextPosition;
         private Quaternion _nextRotation;
 
-        public float rotationPower = 1f;
-        public float rotationLerp = 0.1f;
+        public float rotationPower = 0.5f;
+        public float rotationLerp = 0.5f;
 
         [Header("Движение")]
         public float speed = 1f;
@@ -100,7 +100,7 @@ namespace FragileReflection
             {
                 if (m_aim.WasPerformedThisFrame()) aimValue = !aimValue;
             }
-            else aimValue = value.Get<bool>();
+            else aimValue = value.Get<float>() != 0;
         }
 
         public void OnFire(InputValue value)
@@ -135,8 +135,8 @@ namespace FragileReflection
             {
                 if (m_sprint.WasPerformedThisFrame()) _sprintValue = !_sprintValue;
             }
-            else _sprintValue = value.Get<bool>();
-            _sprinting = _sprintValue != false;  
+            else _sprintValue = value.Get<float>() != 0;
+            _sprinting = _sprintValue ;  
         }
 
         public void OnCrouch(InputValue value)

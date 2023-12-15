@@ -16,15 +16,19 @@ namespace FragileReflection
 
         void Awake()
         {
-    #if UNITY_ANDROID
+#if UNITY_ANDROID
             isAndroid = true;
-    #endif
+#endif
             if (!isAndroid) GetComponent<MobileUIManager>().enabled = false;
-            AndroidUI.SetActive(true);
-            androidUI = AndroidUI.GetComponent<CanvasGroup>();
-            inventoryUI = UIInventory.GetComponent<CanvasGroup>();
-            controllerUI = UIController.GetComponent<CanvasGroup>();
-            CanvasSwitch(inventoryUI, false);
+            else
+            {
+                AndroidUI.SetActive(true);
+                androidUI = AndroidUI.GetComponent<CanvasGroup>();
+                inventoryUI = UIInventory.GetComponent<CanvasGroup>();
+                controllerUI = UIController.GetComponent<CanvasGroup>();
+                CanvasSwitch(inventoryUI, false);
+            }
+           
 
         }
 

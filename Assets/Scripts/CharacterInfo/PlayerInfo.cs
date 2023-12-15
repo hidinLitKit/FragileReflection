@@ -14,8 +14,9 @@ namespace FragileReflection
 
         public float Health => health;
         public float MaxHealth => maxHealth;
-
+        private bool isDead = false;
         private Coroutine _healingCoroutine;
+
         [Header("Power Healing")]
         [SerializeField] private float _heal = 2f;
 
@@ -47,7 +48,7 @@ namespace FragileReflection
             {
                 StartHealing();
             }
-
+           
             float healthPercentage = (health / maxHealth) * 100f;
 
             if (healthPercentage >= 66f)
@@ -78,6 +79,8 @@ namespace FragileReflection
 
         public void TakeDamage(float damage, int chance)
         {
+            if (isDead) return;
+
             health -= damage;
 
             if (health <= 0)
@@ -90,7 +93,7 @@ namespace FragileReflection
         private void Die()
         {
             Debug.Log("Player died!");
-
+            isDead = true;
             GameEvents.SwitchMap("DeathMap");
             GetComponent<PlayerAnimController>().Death();
             GameEvents.DeathUIOpen();   

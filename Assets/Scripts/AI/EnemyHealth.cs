@@ -16,7 +16,7 @@ namespace FragileReflection
             health = maxHealth;
         }
 
-        public void Damage(float damage)
+        public void Damage(float damage, bool stuggle)
         {
             health -= damage;
             Debug.Log("Damage taken! " + damage);
@@ -25,8 +25,8 @@ namespace FragileReflection
                 Die();
             else if (gameObject.TryGetComponent(out EnemyController enemyController))
             {
-                enemyController.stuggled = true;
-                StartCoroutine("ResetStuggle");
+                enemyController.stuggled = stuggle;
+                if (stuggle) StartCoroutine(ResetStuggle());
             }
         }
 
