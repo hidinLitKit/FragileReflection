@@ -33,7 +33,7 @@ namespace FragileReflection
         public void WalkDir(float dirx, float diry)
         {
             float blendX = 1;
-            float blendY = diry > 0.5f ? 1 : 0;
+            float blendY = diry >= 0f ? 1 : 0;
             blendX +=  blendY == 1 ? dirx : -dirx ;
             
 
