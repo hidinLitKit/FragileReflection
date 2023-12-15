@@ -15,15 +15,10 @@ public class Struggle : ActionNode
         controller = context.gameObject.GetComponent<EnemyController>();
         animator = controller.animator;
 
-        if(!controller.CanSee() || Random.Range(0, 10) == 1)
-        {
-            context.agent.isStopped = true;
-            animator.SetTrigger("Stuggle");
+        context.agent.isStopped = true;
+        animator.SetTrigger("Stuggle");
 
-            controller._audioController.PlayAudio(false, FragileReflection.EnemySounds.Stuggle, true);
-        }
-            
-
+        controller._audioController.PlayAudio(false, FragileReflection.EnemySounds.Stuggle, true);
         controller.DetectPlayer();
         blackboard.wasStuggled = true;
     }
