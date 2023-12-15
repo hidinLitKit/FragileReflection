@@ -15,6 +15,7 @@ namespace FragileReflection
         {
             if (other.gameObject.TryGetComponent(out IDamagable enemyHealth))
             {
+                if (gameObject.layer == 9) return; // unactive layer
                 enemyHealth.TakeDamage(WeaponManager.instance.currentWeapon.WeaponType.BodyDamage, WeaponManager.instance.currentWeapon.WeaponType.chance);
                 _attackCollider.enabled = false;
             }

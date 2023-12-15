@@ -43,10 +43,10 @@ MonoBehaviour:
     target: {fileID: 0}
     moveToPosition: {x: 0, y: 0, z: 0}
     moveSpeed: 1
-    chaseSpeed: 4
-    attackDistance: 1.5
+    chaseSpeed: 3
+    attackDistance: 1.8
     wasStuggled: 0
-  viewPosition: {x: 291, y: -207, z: 0}
+  viewPosition: {x: -5.6, y: -460.8, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
@@ -328,7 +328,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1ea4c404ee287ce43be093fe8b7b2d29
-        position: {x: 259, y: 1532.2924}
+        position: {x: 274.39993, y: 1531.9999}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -338,7 +338,7 @@ MonoBehaviour:
           wasStuggled: 0
         description: 
         drawGizmos: 0
-        duration: 1.8
+        duration: 2.5
     - rid: 5943290654267801616
       type: {class: CanSeePlayer, ns: , asm: Assembly-CSharp}
       data:
