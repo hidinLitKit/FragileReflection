@@ -15,7 +15,7 @@ namespace FragileReflection
         {
             if (other.gameObject.TryGetComponent(out IDamagable enemyHealth))
             {
-                enemyHealth.TakeDamage(WeaponManager.instance.currentWeapon.WeaponType.BodyDamage);
+                enemyHealth.TakeDamage(WeaponManager.instance.currentWeapon.WeaponType.BodyDamage, WeaponManager.instance.currentWeapon.WeaponType.chance);
                 _attackCollider.enabled = false;
             }
         }

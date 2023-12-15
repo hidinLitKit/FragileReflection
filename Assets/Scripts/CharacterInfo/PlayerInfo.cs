@@ -34,7 +34,7 @@ namespace FragileReflection
 
             if (health > 0 && keyboard != null && keyboard.yKey.wasPressedThisFrame)
             {
-                TakeDamage(50f);
+                TakeDamage(50f, 100);
             }
 
             if (keyboard != null && keyboard.cKey.wasPressedThisFrame)
@@ -76,7 +76,7 @@ namespace FragileReflection
             GameEvents.onMedkitUse -= HealAmmount;
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(float damage, int chance)
         {
             health -= damage;
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,47 +8,23 @@ namespace FragileReflection
 {
     public interface IDamagable
     {
-        void TakeDamage(float damage);
+        void TakeDamage(float damage, int chance);
     }
 
     public class Damagable : MonoBehaviour, IDamagable
     {
-        //[Range(0, 200)]
-        //[SerializeField] private float maxHealth;
-
-        //[SerializeField] private float health;
-
         [Header("Коэффициент урона")]
         [SerializeField] private float k = 1;
         [SerializeField] private EnemyHealth enemyHealth;
 
-        void IDamagable.TakeDamage(float damage)
+        void IDamagable.TakeDamage(float damage, int chance)
         {
-            //Debug.Log("Damage taken! " + damage);
-            //health -= damage;
             if (enemyHealth != null)
             {
-                enemyHealth.Damage(damage * k);
+                int rand = Random.Range(0, 100);
+                if(chance <= rand)
+                    enemyHealth.Damage(damage * k);
             }
         }
-
-        //private void Die()
-        //{
-        //    if(gameObject.TryGetComponent(out EnemyController enemyController))
-        //    {
-        //        enemyController.Die();
-        //    }
-        //    Debug.Log($"{gameObject.name} died");
-        //}
-
-        //IEnumerator ResetStuggle()
-        //{
-        //    yield return new WaitForSeconds(0.4f);
-        //    if (gameObject.TryGetComponent(out EnemyController enemyController))
-        //    {
-        //        enemyController.stuggled = false;
-        //    }
-            
-        //}
     }
 }
