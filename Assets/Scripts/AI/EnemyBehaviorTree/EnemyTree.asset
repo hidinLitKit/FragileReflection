@@ -38,6 +38,8 @@ MonoBehaviour:
   - rid: 1767988728344608773
   - rid: 1767988750702870528
   - rid: 1767988750702870529
+  - rid: 7247020036003987456
+  - rid: 7247020036003987457
   treeState: 0
   blackboard:
     target: {fileID: 0}
@@ -46,8 +48,8 @@ MonoBehaviour:
     chaseSpeed: 3
     attackDistance: 1.8
     wasStuggled: 0
-  viewPosition: {x: -147, y: -398, z: 0}
-  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
+  viewPosition: {x: 54.4, y: -292.8, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -57,7 +59,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d2ec202fa89b7e441995737171960d17
-        position: {x: 59.999996, y: 827.2509}
+        position: {x: 41.600018, y: 844}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -73,7 +75,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: f8ba2b9a5be7581498ab6f47db60333e
-        position: {x: 429, y: 905}
+        position: {x: 466.66626, y: 923.2}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -93,7 +95,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 79667ed3c1cb21e428e1ee38e045960f
-        position: {x: 429, y: 1070}
+        position: {x: 424.8001, y: 1078.4451}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -124,6 +126,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 1767988711686144001
+        - rid: 7247020036003987457
         - rid: 1767988728344608768
     - rid: 1767988728344608773
       type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
@@ -158,7 +161,7 @@ MonoBehaviour:
           wasStuggled: 0
         description: 
         drawGizmos: 0
-        duration: 2
+        duration: 0.5
     - rid: 1767988750702870529
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -304,6 +307,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
+        - rid: 7247020036003987456
         - rid: 5943290654267801614
         - rid: 5943290654267801615
     - rid: 5943290654267801614
@@ -312,7 +316,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6548313a76668484bafdbc05a7031f70
-        position: {x: 65.999985, y: 1532.2924}
+        position: {x: 122.52753, y: 1530.4}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -328,7 +332,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1ea4c404ee287ce43be093fe8b7b2d29
-        position: {x: 274.39993, y: 1531.9999}
+        position: {x: 328.49002, y: 1530.3999}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -338,7 +342,7 @@ MonoBehaviour:
           wasStuggled: 0
         description: 
         drawGizmos: 0
-        duration: 2.5
+        duration: 1.5
     - rid: 5943290654267801616
       type: {class: CanSeePlayer, ns: , asm: Assembly-CSharp}
       data:
@@ -463,3 +467,37 @@ MonoBehaviour:
         - rid: 5943290654267801611
         - rid: 5943290654267801616
         - rid: 5943290654267801618
+    - rid: 7247020036003987456
+      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: eac2bb7805102d64fa3f58d4a530aa45
+        position: {x: -66.20296, y: 1530.4}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          moveSpeed: 0
+          chaseSpeed: 0
+          attackDistance: 0
+          wasStuggled: 0
+        description: 
+        drawGizmos: 0
+        duration: 0.6
+    - rid: 7247020036003987457
+      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 19bc431e2059be646887e37477ec6993
+        position: {x: 222.86293, y: 891.2001}
+        blackboard:
+          target: {fileID: 0}
+          moveToPosition: {x: 0, y: 0, z: 0}
+          moveSpeed: 0
+          chaseSpeed: 0
+          attackDistance: 0
+          wasStuggled: 0
+        description: 
+        drawGizmos: 0
+        duration: 0.6

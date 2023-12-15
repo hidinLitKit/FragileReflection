@@ -10,6 +10,7 @@ namespace FragileReflection
         private void Awake()
         {
             _attackCollider = GetComponent<Collider>();
+            _attackCollider.enabled = false;
         }
         private void OnTriggerEnter(Collider other)
         {

@@ -142,7 +142,7 @@ public class EnemyController : MonoBehaviour
 
     public bool CanAttackPlayer()
     {
-        bool canAttack = (_Objects.Count > 0 && (Vector3.Distance(transform.position, _Objects[0].transform.position) <= _attackDistance));
+        bool canAttack = (!stuggled && _Objects.Count > 0 && (Vector3.Distance(transform.position, _Objects[0].transform.position) <= _attackDistance));
         return canAttack;
     }
 

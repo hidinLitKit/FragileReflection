@@ -12,6 +12,7 @@ namespace FragileReflection
 
         private void OnTriggerEnter(Collider other)
         {
+            if (other.tag != "Player") return;
             Debug.Log(other.name);
             IDamagable playerHealth = other.gameObject.GetComponent<IDamagable>();
             if (playerHealth != null)
