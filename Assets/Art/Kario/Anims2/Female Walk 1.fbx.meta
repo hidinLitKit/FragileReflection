@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e90bac070b479f646a5f6957f188705b
+guid: a423334d8ddec694e8e437bb0dc9cd87
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: WalkLeft
+      name: WalkRight
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
@@ -53,7 +53,7 @@ ModelImporter:
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
       heightFromFeet: 0
-      mirror: 1
+      mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []

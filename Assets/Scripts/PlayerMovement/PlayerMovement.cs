@@ -22,14 +22,17 @@ namespace FragileReflection
         public Vector2 _move;
         public Vector2 _look;
         public bool aimValue;
+        private bool _sprintValue;
         public float fireValue;
         public float walkValue;
+        private float _crouchValue;
+        private float _inventValue;
 
         private Vector3 _nextPosition;
         private Quaternion _nextRotation;
 
-        public float rotationPower = 3f;
-        public float rotationLerp = 0.5f;
+        public float rotationPower = 1f;
+        public float rotationLerp = 0.1f;
 
         [Header("Движение")]
         public float speed = 1f;
@@ -46,12 +49,6 @@ namespace FragileReflection
         private bool _sprinting = false;
         private bool _crouching = false;
 
-
-        private float _sprintValue;
-        private float _crouchValue;
-
-        private float _inventValue;
-
         [Header("Выносливость")]
         [SerializeField] private float stamina = 100f;  // начальное значение
         private float maxStamina = 100f;
@@ -60,6 +57,7 @@ namespace FragileReflection
 
         private bool isGamepad;
         private InputAction m_aim;
+        private InputAction m_sprint;
         private void Awake()
         {
             
@@ -68,9 +66,10 @@ namespace FragileReflection
             Cursor.visible = false;
 
 #if UNITY_ANDROID
-            rotationPower = 8f;
+            rotationPower = 3f;
             isGamepad = true;
             m_aim = GetComponent<PlayerInput>().currentActionMap.FindAction("Aim");
+            m_sprint = GetComponent<PlayerInput>().currentActionMap.FindAction("Sprint");
 
 #endif
 
@@ -119,17 +118,25 @@ namespace FragileReflection
                 return;
             WeaponManager.instance.ReloadPerfom();
         }
+        public void MobileSprint(bool sprint)
+        {
+            _sprintValue = sprint;
+            _sprinting = _sprintValue;
+        }
         public void OnSprint(InputValue value)
         {
-            if (_aiming || _move.y < 0 || !_moving)
+            /*if (_aiming || _move.y < 0 || !_moving)
             {
                 _sprinting = false;
-                _sprintValue = 0;
+                _sprintValue = false;
                 return;
+            } */
+            if (isGamepad)
+            {
+                if (m_sprint.WasPerformedThisFrame()) _sprintValue = !_sprintValue;
             }
-            if (isGamepad) _sprintValue = 1;
-            else _sprintValue = value.Get<float>();
-            _sprinting = _sprintValue != 0;  
+            else _sprintValue = value.Get<bool>();
+            _sprinting = _sprintValue != false;  
         }
 
         public void OnCrouch(InputValue value)
@@ -282,7 +289,7 @@ namespace FragileReflection
 
             float moveSpeed = speed;
             
-            if (_sprintValue == 1 && stamina > 0)
+            if (_sprintValue && stamina > 0)
             {
                 stamina -= staminaConsumptionRate * Time.deltaTime;
                 GameEvents.StaminaUsed(stamina);
@@ -356,7 +363,7 @@ namespace FragileReflection
             if (_aiming || _move.y < 0 || !_moving || stamina<=0)
             {
                 _sprinting = false;
-                _sprintValue = 0;
+                _sprintValue = false;
                 return;
             }
         }
