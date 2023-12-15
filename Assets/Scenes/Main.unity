@@ -27734,6 +27734,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7266394855603126365, guid: fe6394a20d9619a46ad93f5b0899e34e, type: 3}
+      propertyPath: m_Height
+      value: 2.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266394855603126365, guid: fe6394a20d9619a46ad93f5b0899e34e, type: 3}
+      propertyPath: m_Radius
+      value: 0.36
+      objectReference: {fileID: 0}
     - target: {fileID: 7734869331818330929, guid: fe6394a20d9619a46ad93f5b0899e34e, type: 3}
       propertyPath: m_Name
       value: EnemyRegular2
