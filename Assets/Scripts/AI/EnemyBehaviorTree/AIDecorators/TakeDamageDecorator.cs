@@ -25,7 +25,6 @@ public class TakeDamageDecorator : DecoratorNode
 
             return State.Failure;
         }
-
         return child?.Update() ?? State.Success;
     }
 }

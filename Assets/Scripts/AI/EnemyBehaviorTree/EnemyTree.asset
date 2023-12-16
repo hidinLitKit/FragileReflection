@@ -45,10 +45,10 @@ MonoBehaviour:
     target: {fileID: 0}
     moveToPosition: {x: 0, y: 0, z: 0}
     moveSpeed: 1
-    chaseSpeed: 3
-    attackDistance: 1.8
+    chaseSpeed: 2.5
+    attackDistance: 2.4
     wasStuggled: 0
-  viewPosition: {x: 54.4, y: -292.8, z: 0}
+  viewPosition: {x: 108.8, y: -381.6, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
@@ -59,7 +59,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d2ec202fa89b7e441995737171960d17
-        position: {x: 41.600018, y: 844}
+        position: {x: 22.697823, y: 890.7999}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3bf27d85b7330234aabdfe3ea0f7f977
-        position: {x: -178.38622, y: 922.9999}
+        position: {x: -295.99982, y: 924.8}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -225,7 +225,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2e55f58554be4434b920db58f2b54882
-        position: {x: -384.9999, y: 738.99994}
+        position: {x: -385.60004, y: 751.1998}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -244,7 +244,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2c5b18427dfd09f4381ad6f7bb41d5dd
-        position: {x: -400.95358, y: 922.9999}
+        position: {x: -535.1999, y: 924}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -278,7 +278,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 36f9cadad6d3efd45ae8bdeeedd1d6f1
-        position: {x: 157.00008, y: 1217.833}
+        position: {x: 157.60007, y: 1203.2}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -296,7 +296,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1a71bb8a7d95b7a4db515304af2540ed
-        position: {x: 157.99998, y: 1354}
+        position: {x: 158.40005, y: 1354.4}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -316,7 +316,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6548313a76668484bafdbc05a7031f70
-        position: {x: 122.52753, y: 1530.4}
+        position: {x: 122.4, y: 1530.4}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -332,7 +332,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1ea4c404ee287ce43be093fe8b7b2d29
-        position: {x: 328.49002, y: 1530.3999}
+        position: {x: 328.79996, y: 1530.4}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -342,7 +342,7 @@ MonoBehaviour:
           wasStuggled: 0
         description: 
         drawGizmos: 0
-        duration: 1.5
+        duration: 1.7
     - rid: 5943290654267801616
       type: {class: CanSeePlayer, ns: , asm: Assembly-CSharp}
       data:
@@ -473,7 +473,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: eac2bb7805102d64fa3f58d4a530aa45
-        position: {x: -66.20296, y: 1530.4}
+        position: {x: -66.4, y: 1530.4}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -483,7 +483,7 @@ MonoBehaviour:
           wasStuggled: 0
         description: 
         drawGizmos: 0
-        duration: 0.6
+        duration: 0.3
     - rid: 7247020036003987457
       type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:

@@ -41,7 +41,7 @@ namespace FragileReflection
 
         IEnumerator ResetStuggle()
         {
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(1f);
             if (gameObject.TryGetComponent(out EnemyController enemyController))
             {
                 enemyController.stuggled = false;

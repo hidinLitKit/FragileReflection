@@ -25,7 +25,6 @@ public class EnemyController : MonoBehaviour
 
     [HideInInspector]
     public Transform player;
-    [HideInInspector]
     public bool stuggled = false;
 
     
@@ -134,7 +133,6 @@ public class EnemyController : MonoBehaviour
             Debug.Log($"Take damage {_attackDamage}");
         }
     }
-
     public bool CanSee()
     {
         return _Objects.Count>0;
@@ -142,7 +140,8 @@ public class EnemyController : MonoBehaviour
 
     public bool CanAttackPlayer()
     {
-        bool canAttack = (!stuggled && _Objects.Count > 0 && (Vector3.Distance(transform.position, _Objects[0].transform.position) <= _attackDistance));
+        //Debug.Log($"has attacked  {_attackArea.hasAttacked} + stuggle {stuggled} + Vector3 {Vector3.Distance(transform.position, _Objects[0].transform.position)} + bool {(Vector3.Distance(transform.position, _Objects[0].transform.position) <= _attackDistance)}");
+        bool canAttack = (_attackArea.hasAttacked && !stuggled && _Objects.Count > 0 && (Vector3.Distance(transform.position, _Objects[0].transform.position) <= _attackDistance));
         return canAttack;
     }
 

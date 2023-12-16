@@ -21,7 +21,7 @@ public class EnemyAttack : ActionNode
         animator = controller.animator;
         if (animator.GetBool("Attack") != true)
             animator.SetBool("Attack", true);
-        controller.AttackPlayer();
+        //controller.AttackPlayer();
         controller.DetectPlayer();
 
         

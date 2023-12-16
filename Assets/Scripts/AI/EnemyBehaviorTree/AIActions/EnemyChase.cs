@@ -37,7 +37,19 @@ public class EnemyChase : ActionNode
     protected override State OnUpdate()
     {
         context.agent.destination = player.position;
+        if(context.agent.remainingDistance <= context.agent.stoppingDistance)
+        {
+            context.agent.updateRotation = false;
+            Vector3 lookPos = context.agent.destination - context.agent.transform.position;
+            lookPos.y = 0;
+            Quaternion rotation = Quaternion.LookRotation(lookPos);
+            context.agent.transform.rotation = Quaternion.Slerp(context.agent.transform.rotation, rotation, 10*Time.deltaTime);
 
+        }
+        else
+        {
+            context.agent.updateRotation = true;
+        }
         if (enemyController.CanAttackPlayer())
         {
             return State.Success;

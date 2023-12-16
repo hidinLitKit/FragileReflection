@@ -30,6 +30,7 @@ public class Struggle : ActionNode
 
     protected override State OnUpdate()
     {
+        if (controller.IsStuggled()) return State.Running;
         return State.Success;
     }
 }
