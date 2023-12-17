@@ -637,6 +637,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436375277}
   m_CullTransparentMesh: 1
+--- !u!114 &523754176 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 306358676442417413, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+  m_PrefabInstance: {fileID: 1473704175}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &523754177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5079241023265513862, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+  m_PrefabInstance: {fileID: 1473704175}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &648113608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,10 +1918,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9931b48f771ae2f44beac582b0edd081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 6ec4f6f6fd9ab43459c73faf3a3b8135, type: 2}
-  masterSlider: {fileID: 1473704180}
-  musicSlider: {fileID: 1473704179}
-  sfxSlider: {fileID: 1473704178}
+  _mixer: {fileID: 24100000, guid: 6ec4f6f6fd9ab43459c73faf3a3b8135, type: 2}
+  _masterSlider: {fileID: 1473704180}
+  _musicSlider: {fileID: 1473704179}
+  _sfxSlider: {fileID: 1473704178}
 --- !u!1001 &1473704175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1908,6 +1930,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1415849890}
     m_Modifications:
+    - target: {fileID: 242861110850093826, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: _qualityDropdown
+      value: 
+      objectReference: {fileID: 523754176}
+    - target: {fileID: 242861110850093826, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: _resolutionDropdown
+      value: 
+      objectReference: {fileID: 523754177}
     - target: {fileID: 514272886392516844, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -400

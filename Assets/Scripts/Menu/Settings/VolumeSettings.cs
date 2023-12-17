@@ -6,25 +6,28 @@ namespace FragileReflection
 {
     public class VolumeSettings : MonoBehaviour
     {
-        public AudioMixer mixer;
-        public Slider masterSlider;
-        public Slider musicSlider;
-        public Slider sfxSlider;
+        [Header ("Миксер")]
+        [SerializeField] private AudioMixer _mixer;
+
+        [Header("Слайдеры")]
+        [SerializeField] private Slider _masterSlider;
+        [SerializeField] private Slider _musicSlider;
+        [SerializeField] private Slider _sfxSlider;
 
         void SetSliders()
         {
-            masterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
-            sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
-            musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+            _masterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+            _sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+            _musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
         }
 
         void Start()
         {
             if (PlayerPrefs.HasKey("MasterVolume"))
             {
-                mixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("MasterVolume"));
-                mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
-                mixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
+                _mixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("MasterVolume"));
+                _mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
+                _mixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
                 SetSliders();
             }
             else
@@ -33,20 +36,20 @@ namespace FragileReflection
 
         public void UpdateMasterVolume()
         {
-            mixer.SetFloat("MasterVolume", masterSlider.value);
-            PlayerPrefs.SetFloat("MasterVolume", masterSlider.value);
+            _mixer.SetFloat("MasterVolume", _masterSlider.value);
+            PlayerPrefs.SetFloat("MasterVolume", _masterSlider.value);
         }
 
         public void UpdateMusicVolume()
         {
-            mixer.SetFloat("MusicVolume", musicSlider.value);
-            PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
+            _mixer.SetFloat("MusicVolume", _musicSlider.value);
+            PlayerPrefs.SetFloat("MusicVolume", _musicSlider.value);
         }
 
         public void UpdateSFXVolume()
         {
-            mixer.SetFloat("SFXVolume", sfxSlider.value);
-            PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
+            _mixer.SetFloat("SFXVolume", _sfxSlider.value);
+            PlayerPrefs.SetFloat("SFXVolume", _sfxSlider.value);
         }
     }
 }

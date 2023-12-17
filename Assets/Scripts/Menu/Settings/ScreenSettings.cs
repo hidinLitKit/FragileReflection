@@ -11,13 +11,14 @@ namespace FragileReflection
 {
     public class ScreenSettings : MonoBehaviour
     {
-        public Dropdown resolutionDropdown;
-        public Dropdown qualityDropdown;
+        [Header("Списки")]
+        [SerializeField] private Dropdown _resolutionDropdown;
+        [SerializeField] private Dropdown _qualityDropdown;
         Resolution[] resolutions;
 
         void Start()
         {
-            resolutionDropdown.ClearOptions();
+            _resolutionDropdown.ClearOptions();
             List<string> options = new List<string>();
             resolutions = Screen.resolutions;
             int currentResolutionIndex = 0;
@@ -31,8 +32,8 @@ namespace FragileReflection
                     currentResolutionIndex = i;
             }
 
-            resolutionDropdown.AddOptions(options);
-            resolutionDropdown.RefreshShownValue();
+            _resolutionDropdown.AddOptions(options);
+            _resolutionDropdown.RefreshShownValue();
             LoadSettings(currentResolutionIndex);
         }
 
@@ -55,9 +56,9 @@ namespace FragileReflection
 
         public void SaveSettings()
         {
-            PlayerPrefs.SetInt("QualitySettingPreference", qualityDropdown.value);
+            PlayerPrefs.SetInt("QualitySettingPreference", _qualityDropdown.value);
 
-            PlayerPrefs.SetInt("ResolutionPreference", resolutionDropdown.value);
+            PlayerPrefs.SetInt("ResolutionPreference", _resolutionDropdown.value);
 
             PlayerPrefs.SetInt("FullscreenPreference", System.Convert.ToInt32(Screen.fullScreen));
         }
@@ -65,14 +66,14 @@ namespace FragileReflection
         public void LoadSettings(int currentResolutionIndex)
         {
             if (PlayerPrefs.HasKey("QualitySettingPreference"))
-                qualityDropdown.value = PlayerPrefs.GetInt("QualitySettingPreference");
+                _qualityDropdown.value = PlayerPrefs.GetInt("QualitySettingPreference");
             else
-                qualityDropdown.value = 3;
+                _qualityDropdown.value = 3;
 
             if (PlayerPrefs.HasKey("ResolutionPreference"))
-                resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionPreference");
+                _resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionPreference");
             else
-                resolutionDropdown.value = currentResolutionIndex;
+                _resolutionDropdown.value = currentResolutionIndex;
 
             if (PlayerPrefs.HasKey("FullscreenPreference"))
                 Screen.fullScreen = System.Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference"));
