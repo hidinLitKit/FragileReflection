@@ -9,19 +9,21 @@ namespace FragileReflection
     public class WeaponRay : MonoBehaviour
     {
         [Header("Показывать места попаданий")]
-        [SerializeField] private bool showShots;
-        [SerializeField] private GameObject shotMark;
+        [SerializeField] private bool _showShots;
+        [SerializeField] private GameObject _shotMark;
 
-        [Space]
+        [Header("Прицел")]
         public Transform pointer;
         private Selectable currentlySelected;
 
+        [Header("Слой врагов")]
         [SerializeField] LayerMask detectLayers;
 
         public void TakeShot()
         {
-            Ray ray = new Ray(transform.position, transform.forward);
-            Debug.DrawRay(transform.position, transform.forward * 10f, Color.yellow);
+            Vector3 rayOrigin = transform.TransformPoint(Vector3.down * 0.7f);
+            Ray ray = new Ray(rayOrigin, transform.forward);
+            Debug.DrawRay(rayOrigin, transform.forward * 10f, Color.yellow);
 
             RaycastHit hit;
 
@@ -38,8 +40,9 @@ namespace FragileReflection
 
         private void LateUpdate()
         {
-            Ray ray = new Ray(transform.position, transform.forward);
-            Debug.DrawRay(transform.position, transform.forward * 10f, Color.yellow);
+            Vector3 rayOrigin = transform.TransformPoint(Vector3.down * 0.7f);
+            Ray ray = new Ray(rayOrigin, transform.forward);
+            Debug.DrawRay(rayOrigin, transform.forward * 10f, Color.yellow);
 
             RaycastHit hit;
 
@@ -87,9 +90,9 @@ namespace FragileReflection
 
         private void ShowShotPlace(RaycastHit hit)
         {
-            if(showShots)
+            if(_showShots)
             {
-                Instantiate(shotMark, hit.point, Quaternion.identity);
+                Instantiate(_shotMark, hit.point, Quaternion.identity);
             }
         }
     }
