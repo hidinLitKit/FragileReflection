@@ -48,8 +48,8 @@ MonoBehaviour:
     chaseSpeed: 2.5
     attackDistance: 2.4
     wasStuggled: 0
-  viewPosition: {x: 108.8, y: -381.6, z: 0}
-  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  viewPosition: {x: -100.8, y: -424, z: 0}
+  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
   references:
     version: 2
     RefIds:

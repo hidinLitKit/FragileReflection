@@ -15,7 +15,7 @@ public class EnemyChase : ActionNode
     {
         context.agent.isStopped = false;
         context.agent.speed = blackboard.chaseSpeed;
-        context.agent.stoppingDistance = blackboard.attackDistance;
+        context.agent.stoppingDistance = blackboard.attackDistance - 1;
         enemyController = context.gameObject.GetComponent<EnemyController>();
         player = enemyController.player;
         context.agent.destination = player.position;

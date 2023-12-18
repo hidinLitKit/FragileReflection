@@ -26,7 +26,6 @@ namespace FragileReflection
             Debug.DrawRay(rayOrigin, transform.forward * 10f, Color.yellow);
 
             RaycastHit hit;
-
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, detectLayers))
             {
                 if (hit.collider.gameObject.TryGetComponent(out IDamagable enemyHealth))
