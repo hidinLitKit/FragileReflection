@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using static UnityEditor.VersionControl.Asset;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 namespace FragileReflection
 {
@@ -17,6 +17,12 @@ namespace FragileReflection
         [SerializeField] private GameObject _screenOptions;
         [SerializeField] private GameObject _volumeOptions;
         //[SerializeField] private GameObject _controlOpt;
+
+        [Header("Игра сохранена!")]
+        [SerializeField] private TMP_Text _textUI;
+        [SerializeField] private float _fadeInTime = 1.0f;
+        [SerializeField] private float _displayTime = 2.0f;
+        [SerializeField] private float _fadeOutTime = 1.0f;
         
         public void Quit()
         {
@@ -56,6 +62,49 @@ namespace FragileReflection
             _screenOptions.SetActive(false);
             _volumeOptions.SetActive(false);
             _buttonOptions.SetActive(true);
+        }
+
+        public void OptionSave()
+        {
+            StartCoroutine(FadeInOut());
+        }
+
+        IEnumerator FadeInOut()
+        {
+            // Появление
+            float elapsedTime = 0f;
+            Color startColor = _textUI.color;
+            Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 1f);
+
+            while (elapsedTime < _fadeInTime)
+            {
+                _textUI.color = Color.Lerp(startColor, targetColor, elapsedTime / _fadeInTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            _textUI.color = targetColor;
+
+            // Отображение
+            yield return new WaitForSeconds(_displayTime);
+
+            // Исчезновение
+            elapsedTime = 0f;
+            startColor = _textUI.color;
+            targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
+
+            while (elapsedTime < _fadeOutTime)
+            {
+                _textUI.color = Color.Lerp(startColor, targetColor, elapsedTime / _fadeOutTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            _textUI.color = targetColor;
+
+            // Завершение
+            //Destroy(gameObject);
+            //_textUI.SetActive(false);
         }
     }
 }
