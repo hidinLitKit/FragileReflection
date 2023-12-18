@@ -24,14 +24,14 @@ namespace FragileReflection
             GameEvents.onMapSwitched -= ToogleActionMaps;
             GameEvents.onMapSwitched -= CursorController;
         }
+        public void OnExit(InputValue value)
+        {
+            GameEvents.ExitPressed();
+        }
         public static void ToogleActionMaps(string inputMap)
         {
             Debug.Log(inputMap + " enabled");
             _playerInput.SwitchCurrentActionMap(inputMap);
-        }
-        public void OnExit(InputValue value)
-        {
-            GameEvents.SwitchMap("Player");
         }
         private void CursorController(string inputMap)
         {

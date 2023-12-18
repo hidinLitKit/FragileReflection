@@ -146,47 +146,22 @@ namespace FragileReflection
             _crouchValue = value.Get<float>();
             _crouching = _crouchValue != 0;
         }
-        public void OnSave(InputValue value)
-        {
-            DataPersistenceManager.instance.SaveGame();
-        }
-        public void OnLoad(InputValue inputValue)
-        {
-            DataPersistenceManager.instance.LoadGame();
-        }
-        public void OnNewGame(InputValue value)
-        {
-            DataPersistenceManager.instance.NewGame();
-        }
-
-
-        public void OnChangeWeapon1(InputValue value)
-        {
-            if(value.isPressed)
-            {
-                GameInventory.instance.inventory.database.Items[1].Use();
-                //WeaponManager.SwitchWeapon(WeaponManager.weapons[0]);
-            }
-            
-        }
-
-        public void OnChangeWeapon2(InputValue value)
-        {
-            if (value.isPressed)
-            {
-                WeaponManager.instance.SwitchWeapon(WeaponManager.instance.weapons[1]);
-            }
-
-        }
 
         public void OnInventory(InputValue value)
         {
-            GameEvents.SwitchMap("UI");
-            GameEvents.InventoryUIAble(true);
-            //if (value.isPressed)
-            //{
-                
-            //}
+            States.instance.Push<InventoryState>();
+            //GameEvents.SwitchMap("UI");
+            //GameEvents.InventoryUIAble(true);
+        }
+        private void OnPause(InputValue value)
+        {
+            States.instance.Push<PauseState>();
+            //GameEvents.SwitchMap("UI");
+            //GameEvents.GamePause(true);
+            if (value.isPressed)
+            {
+
+            }
         }
 
         private void OnParallel(InputValue value)
@@ -197,15 +172,7 @@ namespace FragileReflection
             }
         }
 
-        private void OnPause(InputValue value)
-        {
-            GameEvents.SwitchMap("UI");
-            GameEvents.GamePause(true);
-            if (value.isPressed)
-            {
-
-            }
-        }
+        
 
         public GameObject followTransform;
 

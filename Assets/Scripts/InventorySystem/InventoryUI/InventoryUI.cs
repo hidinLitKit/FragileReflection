@@ -31,7 +31,6 @@ namespace FragileReflection
         [Header("UI")]
         [SerializeField] private GameObject _highlight;
         [SerializeField] private TextMeshProUGUI _itemDescription;
-        [SerializeField] private GameObject _inventoryInterface;
 
         [Header("Рабочие поля")]
         private InventorySlot _currentItem; //текущий выбранный предмет
@@ -48,25 +47,18 @@ namespace FragileReflection
             UpdateObjectPosition(_highlight, 0);
             CreateSlots();
             UpdateSlots();
-            ShowInventory(false);
         }
         private void OnEnable()
         {
-            GameEvents.onInventoryUI += ShowInventory;
             GameEvents.onSuccesUse += InventoryUpdate;
             GameEvents.onWeaponReload += UpdateSlots;
             GameEvents.onPickItem += UpdateSlots;
         }
         private void OnDisable()
         {
-            GameEvents.onInventoryUI -= ShowInventory;
             GameEvents.onSuccesUse -= InventoryUpdate;
             GameEvents.onWeaponReload -= UpdateSlots;
             GameEvents.onPickItem -= UpdateSlots;
-        }
-        private void ShowInventory(bool show)
-        {
-            _inventoryInterface.SetActive(show);
         }
         public void CreateSlots()
         {

@@ -44,6 +44,7 @@ namespace FragileReflection
         //UI
         public static event Action onUIFade;
         public static System.Action<float> onInteractionProgress;
+        public static event Action onExit;
 
         //Pause
         public static event Action<bool> onGamePause;
@@ -166,6 +167,10 @@ namespace FragileReflection
         public static void DeathUIClose()
         {
             onDeathUIClose?.Invoke();
+        }
+        public static void ExitPressed()
+        {
+            onExit?.Invoke();
         }
     }
 }
