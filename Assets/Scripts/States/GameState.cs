@@ -7,7 +7,7 @@ namespace FragileReflection
 	public abstract class GameState : MonoBehaviour
 	{
 		public List<GameObject> views;
-		protected const string playerInputMap = "Player", uiInputMap = "UI", deathInputMap = "DeathUI";
+		protected const string playerInputMap = "Player", uiInputMap = "UI", deathInputMap = "DeathMap";
 		public void Enter()
 		{
 			gameObject.SetActive(true);

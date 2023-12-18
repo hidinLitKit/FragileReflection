@@ -8,9 +8,9 @@ namespace FragileReflection
     {
         private CanvasGroup _canvasGroup;
 
-        private void Awake()
+        private void OnEnable()
         {
-            _canvasGroup = GetComponent<CanvasGroup>();
+            _canvasGroup = GetComponentInChildren<CanvasGroup>();
 
             _canvasGroup.alpha = 0f;
 

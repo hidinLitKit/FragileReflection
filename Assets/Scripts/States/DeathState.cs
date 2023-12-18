@@ -9,7 +9,6 @@ namespace FragileReflection
 		protected override void OnEnable()
 		{
 			base.OnEnable();
-			Time.timeScale = 0;
 			GameEvents.SwitchMap(deathInputMap);
 		}
 

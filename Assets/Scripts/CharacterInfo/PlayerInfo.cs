@@ -94,9 +94,8 @@ namespace FragileReflection
         {
             Debug.Log("Player died!");
             isDead = true;
-            GameEvents.SwitchMap("DeathMap");
+            States.instance.Push<DeathState>();
             GetComponent<PlayerAnimController>().Death();
-            GameEvents.DeathUIOpen();   
         }
 
         private void StartHealing()
