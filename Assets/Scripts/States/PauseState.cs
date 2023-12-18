@@ -9,13 +9,16 @@ namespace FragileReflection
     public class PauseState : GameState
     {
 		[SerializeField] private Button _continueButton;
+        [SerializeField] private Button _settingsButton;
 		protected override void OnEnable()
 		{
 			base.OnEnable();
 			Time.timeScale = 0;
 			GameEvents.SwitchMap(uiInputMap);
+			
 			GameEvents.onExit += Resume;
 			_continueButton.onClick.AddListener(Resume);
+			_settingsButton.onClick.AddListener(Settings);
 		}
 
 		protected override void OnDisable()
@@ -23,8 +26,10 @@ namespace FragileReflection
 			base.OnDisable();
 			Time.timeScale = 1;
 			GameEvents.SwitchMap(playerInputMap);
+			
 			GameEvents.onExit -= Resume;
 			_continueButton.onClick.RemoveListener(Resume);
+			_settingsButton.onClick.RemoveListener(Settings);
 		}
 		public void Resume()
 		{
@@ -32,7 +37,7 @@ namespace FragileReflection
 		}
 		public void Settings()
 		{
-			
+			States.instance.Push<SettingsState>();
 		}
 
 		public void GotoMainMenu()

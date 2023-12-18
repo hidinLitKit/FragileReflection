@@ -6,10 +6,10 @@ namespace FragileReflection
 {
     public class PlayerState : GameState
     {
-        private void Awake()
+        private void Start()
         {
 			GameEvents.SwitchMap(playerInputMap);
-        }
+		}
         private void OnEnable()
 		{
 			base.OnEnable();
