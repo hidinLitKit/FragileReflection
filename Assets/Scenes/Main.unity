@@ -76556,8 +76556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3252413f480e78c43a91171391e5bb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resolutionDropdown: {fileID: 0}
-  _qualityDropdown: {fileID: 0}
+  _resolutionDropdown: {fileID: 2463454378978058491}
+  _qualityDropdown: {fileID: 6922740642967619704}
 --- !u!224 &7428688414620363749
 RectTransform:
   m_ObjectHideFlags: 0
