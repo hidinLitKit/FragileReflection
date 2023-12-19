@@ -13,8 +13,10 @@ namespace FragileReflection
         public float currentHealth;
         [Header("Inventory")]
         public SerializableDictionary<int, string> InventoryData;
-        [Header("Props")]
+        [Header("Items on ground")]
         public SerializableDictionary<string, bool> ActiveItmData;
+        [Header("Triggers")]
+        public SerializableDictionary<string, bool> TriggersData;
         
         public GameData()
         {
@@ -24,6 +26,7 @@ namespace FragileReflection
             currentHealth = 100;
             InventoryData = new SerializableDictionary<int, string>();
             ActiveItmData = new SerializableDictionary<string, bool>();
+            TriggersData = new SerializableDictionary<string, bool>();
             StartValues();
             
 
