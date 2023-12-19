@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
+using System;
 
 namespace FragileReflection
 {
@@ -16,8 +14,19 @@ namespace FragileReflection
         [SerializeField] private GameObject _buttonOptions;
         [SerializeField] private GameObject _screenOptions;
         [SerializeField] private GameObject _volumeOptions;
-        //[SerializeField] private GameObject _controlOpt;
-        
+
+        [Header("Точки остановки")]
+        [SerializeField] private GameObject[] cameraPoints;
+
+        private Transform playerCamera;
+
+        [Header("Скорость передвижения камеры")]
+        [SerializeField] private float moveSpeed = 30f;
+        private int currentCameraIndex;
+
+        public delegate void CameraMoveComplete();
+        public static event CameraMoveComplete OnCameraMoveComplete;
+
         public void Quit()
         {
 #if UNITY_EDITOR
@@ -27,35 +36,86 @@ namespace FragileReflection
 #endif
         }
 
+        void Start()
+        {
+            playerCamera = Camera.main.transform;
+            MoveCameraToPoint(0);
+
+            MainMenuScript.OnCameraMoveComplete += HandleCameraMoveComplete;
+        }
+
         public void GotoOption()
         {
-            _mainMenu.SetActive(false);
-            _optionsMenu.SetActive(true);
+            MoveCameraToPoint(1);
+            currentCameraIndex = 1;
         }
 
         public void GotoScreenOpt()
         {
-            _buttonOptions.SetActive(false);
-            _screenOptions.SetActive(true);
+            MoveCameraToPoint(2);
+            currentCameraIndex = 2;
         }
 
         public void GotoVolumeOpt()
         {
-            _buttonOptions.SetActive(false);
-            _volumeOptions.SetActive(true);
+            MoveCameraToPoint(2);
+            currentCameraIndex = 3;
         }
-        
+
         public void GotoMainMenu()
         {
-            _optionsMenu.SetActive(false);
-            _mainMenu.SetActive(true);
+            MoveCameraToPoint(0);
+            currentCameraIndex = 0;
         }
 
         public void GotoOptionIn()
         {
-            _screenOptions.SetActive(false);
-            _volumeOptions.SetActive(false);
-            _buttonOptions.SetActive(true);
+            MoveCameraToPoint(1);
+            currentCameraIndex = 1;
+        }
+
+        void MoveCameraToPoint(int newIndex)
+        {
+            StartCoroutine(MoveCameraSmooth(cameraPoints[newIndex].transform.position, () =>
+            {
+                OnCameraMoveComplete?.Invoke();
+            }));
+        }
+
+        IEnumerator MoveCameraSmooth(Vector3 targetPosition, Action onComplete)
+        {
+            while (Vector3.Distance(playerCamera.position, targetPosition) > 0.01f)
+            {
+                playerCamera.position = Vector3.MoveTowards(playerCamera.position, targetPosition, moveSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            onComplete?.Invoke();
+        }
+
+        void HandleCameraMoveComplete()
+        {
+            switch (currentCameraIndex)
+            {
+                case 0: //идем в главное
+                    _optionsMenu.SetActive(false);
+                    _mainMenu.SetActive(true);
+                    break;
+                case 1: //идем в настройки
+                    _mainMenu.SetActive(false);
+                    _screenOptions.SetActive(false);
+                    _volumeOptions.SetActive(false);
+                    _optionsMenu.SetActive(true);
+                    break;
+                case 2: //идем в настройки графики
+                    _buttonOptions.SetActive(false);
+                    _screenOptions.SetActive(true);
+                    break;
+                case 3: //идем в настройки музыки
+                    _buttonOptions.SetActive(false);
+                    _volumeOptions.SetActive(true);
+                    break;
+            }
         }
     }
 }
