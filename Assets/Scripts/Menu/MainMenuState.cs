@@ -6,34 +6,33 @@ using UnityEngine.UI;
 
 namespace FragileReflection
 {
-    public class PauseState : GameState
+    public class MainMenuState : GameState
     {
-		[SerializeField] private Button _continueButton;
+		[SerializeField] private Button _newgameButton;
+        [SerializeField] private Button _loadSaveButton;
         [SerializeField] private Button _settingsButton;
 		[SerializeField] private Button _exitButton;
 
 		protected override void OnEnable()
 		{
 			base.OnEnable();
-			Time.timeScale = 0;
-			GameEvents.SwitchMap(uiInputMap);
 			
 			GameEvents.onExit += Resume;
-			_continueButton.onClick.AddListener(Resume);
+			_newgameButton.onClick.AddListener(Resume);
+			_loadSaveButton.onClick.AddListener(Resume);
 			_settingsButton.onClick.AddListener(Settings);
-			_exitButton.onClick.AddListener(GotoMainMenu);
+			_exitButton.onClick.AddListener(Quit);
 		}
 
 		protected override void OnDisable()
 		{
 			base.OnDisable();
-			Time.timeScale = 1;
-			GameEvents.SwitchMap(playerInputMap);
 			
 			GameEvents.onExit -= Resume;
-			_continueButton.onClick.RemoveListener(Resume);
+			_newgameButton.onClick.RemoveListener(Resume);
+			_loadSaveButton.onClick.RemoveListener(Resume);
 			_settingsButton.onClick.RemoveListener(Settings);
-			_exitButton.onClick.RemoveListener(GotoMainMenu);
+			_exitButton.onClick.RemoveListener(Quit);
 		}
 
 		public void Resume()
@@ -46,9 +45,13 @@ namespace FragileReflection
 			States.instance.Push<SettingsState>();
 		}
 
-        public void GotoMainMenu()
-		{
-			SceneManager.LoadScene("Main Menu");
-		}
-	}
+        public void Quit()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+    }
 }

@@ -14,7 +14,7 @@ namespace FragileReflection
 
         [Header("Slider")]
         [SerializeField] private Slider _loadingSlider;
-        private string _levelToLoad = "Main";
+        private readonly string _levelToLoad = "Main";
         public void NewGameButton()
         {
             StartCoroutine(NewGame());
