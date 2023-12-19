@@ -48,7 +48,8 @@ namespace FragileReflection
 
         public void GotoMainMenu()
 		{
-			SceneManager.LoadScene("Main Menu");
-		}
+            SceneManager.LoadScene("Main Menu");
+            GameEvents.SwitchMap(uiInputMap);
+        }
 	}
 }

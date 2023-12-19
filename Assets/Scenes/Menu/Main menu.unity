@@ -5313,7 +5313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &296904944
 GameObject:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5330,7 +5330,7 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &296904945
 Transform:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5345,7 +5345,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &296904946
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13981,13 +13981,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869176360}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 22.496, y: 1.357, z: -39.407}
+  m_LocalRotation: {x: -0, y: -0.6991123, z: -0, w: 0.715012}
+  m_LocalPosition: {x: 22.5, y: 1.357, z: -39.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1207034925}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -88.712, z: 0}
 --- !u!1001 &884501318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14210,7 +14210,6 @@ GameObject:
   - component: {fileID: 887552519}
   - component: {fileID: 887552518}
   - component: {fileID: 887552521}
-  - component: {fileID: 887552522}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -14337,45 +14336,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &887552522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887552517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExcludedPropertiesInInspector:
-  - m_Script
-  m_LockStageInInspector: 
-  m_StreamingVersion: 20170927
-  m_Priority: 10
-  m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
-  m_Lens:
-    FieldOfView: 40
-    OrthographicSize: 10
-    NearClipPlane: 0.1
-    FarClipPlane: 5000
-    Dutch: 0
-    ModeOverride: 0
-    LensShift: {x: 0, y: 0}
-    GateFit: 2
-    FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
-  m_Transitions:
-    m_BlendHint: 0
-    m_InheritPosition: 0
-    m_OnCameraLive:
-      m_PersistentCalls:
-        m_Calls: []
-  m_LegacyBlendHint: 0
-  m_ComponentOwner: {fileID: 296904945}
 --- !u!1001 &906394488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21908,6 +21868,7 @@ GameObject:
   - component: {fileID: 1415849892}
   - component: {fileID: 1415849894}
   - component: {fileID: 1415849895}
+  - component: {fileID: 1415849896}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -22064,7 +22025,19 @@ MonoBehaviour:
   - {fileID: 518059540}
   - {fileID: 2066153234}
   - {fileID: 869176360}
-  _moveSpeed: 30
+  _moveSpeed: 35
+--- !u!225 &1415849896
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415849886}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1420948545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23214,13 +23187,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3869956887584496276, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869956887584496276, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3869956887584496276, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1415849895}
     - target: {fileID: 3869956887584496276, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -23230,8 +23207,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3869956887584496276, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GotoTarget
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869956887584496276, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: GotoCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869956887584496276, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FragileReflection.MenuCameraMovement, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3869956887584496276, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -23255,7 +23240,11 @@ PrefabInstance:
       objectReference: {fileID: 1415849894}
     - target: {fileID: 4713764461491739246, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713764461491739246, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4713764461491739246, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -23264,7 +23253,7 @@ PrefabInstance:
     - target: {fileID: 4713764461491739246, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1415849895}
     - target: {fileID: 4713764461491739246, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -23274,12 +23263,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4713764461491739246, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GotoTarget
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713764461491739246, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: GotoCamera
       objectReference: {fileID: 0}
     - target: {fileID: 4713764461491739246, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FragileReflection.MenuCameraMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713764461491739246, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: FragileReflection.CameraMove, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713764461491739246, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4713764461491739246, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
@@ -23299,7 +23300,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5580519942259803236, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580519942259803236, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5580519942259803236, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -23308,7 +23313,7 @@ PrefabInstance:
     - target: {fileID: 5580519942259803236, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1415849895}
     - target: {fileID: 5580519942259803236, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -23318,12 +23323,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5580519942259803236, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GotoTarget
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580519942259803236, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: GotoCamera
       objectReference: {fileID: 0}
     - target: {fileID: 5580519942259803236, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FragileReflection.MenuCameraMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580519942259803236, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: FragileReflection.CameraMove, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580519942259803236, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5580519942259803236, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
@@ -23338,13 +23355,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6805296591169638692, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805296591169638692, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6805296591169638692, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1415849895}
     - target: {fileID: 6805296591169638692, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -23354,12 +23375,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6805296591169638692, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GotoTarget
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805296591169638692, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: GotoCamera
       objectReference: {fileID: 0}
     - target: {fileID: 6805296591169638692, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FragileReflection.MenuCameraMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805296591169638692, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: FragileReflection.CameraMove, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805296591169638692, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6805296591169638692, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
@@ -23374,13 +23407,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6898153551541854015, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898153551541854015, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6898153551541854015, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1415849895}
     - target: {fileID: 6898153551541854015, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -23390,12 +23427,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6898153551541854015, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GotoTarget
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898153551541854015, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: GotoCamera
       objectReference: {fileID: 0}
     - target: {fileID: 6898153551541854015, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FragileReflection.MenuCameraMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898153551541854015, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: FragileReflection.CameraMove, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898153551541854015, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6898153551541854015, guid: 255eedc0ee5d78e48be39750c63659e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
