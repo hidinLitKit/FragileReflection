@@ -42,7 +42,7 @@ namespace FragileReflection
 
 		public void Settings()
 		{
-			States.instance.Push<SettingsState>();
+			States.instance.Push<MMSettingsState>();
 		}
 
         public void Quit()

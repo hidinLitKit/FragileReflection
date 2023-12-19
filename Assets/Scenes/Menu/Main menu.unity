@@ -6916,7 +6916,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 410727925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89a55214903db634da01588b45678403, type: 3}
+  m_Script: {fileID: 11500000, guid: 56b7b8a73582b874e9b4cda2c1fce347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   views:
@@ -8481,12 +8481,12 @@ Transform:
   m_GameObject: {fileID: 518059540}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9998619, z: -0, w: -0.016621904}
-  m_LocalPosition: {x: 0.22, y: 1.67, z: -2}
+  m_LocalPosition: {x: 0.672, y: 1.67, z: -2.015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1207034925}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 181.905, z: 0}
 --- !u!1001 &520502460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8796,7 +8796,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 542156547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d82a57e535dc7744b97912ebdcca50f, type: 3}
+  m_Script: {fileID: 11500000, guid: b112232ca16d583469d6399b200288ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   views:
@@ -14286,7 +14286,7 @@ Transform:
   m_GameObject: {fileID: 887552517}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9998619, z: -0, w: -0.016621904}
-  m_LocalPosition: {x: 0.22, y: 1.67, z: -2}
+  m_LocalPosition: {x: 0.672, y: 1.67, z: -2.015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22060,11 +22060,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ffe759ae8cb1e43ba713e01acd28fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPoints:
+  _cameraPoints:
   - {fileID: 518059540}
   - {fileID: 2066153234}
   - {fileID: 869176360}
-  moveSpeed: 30
+  _moveSpeed: 30
 --- !u!1001 &1420948545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29253,7 +29253,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1849594567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eb2e7bef007c084ea8ed084f0a53768, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c0f06734abf4c54abcf2f7fdb810828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   views:
@@ -33444,7 +33444,7 @@ GameObject:
   - component: {fileID: 2103523707}
   - component: {fileID: 2103523708}
   m_Layer: 0
-  m_Name: UIStates
+  m_Name: States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
