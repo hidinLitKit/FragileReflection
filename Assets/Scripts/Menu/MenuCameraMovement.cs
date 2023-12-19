@@ -8,16 +8,16 @@ namespace FragileReflection
     public class MenuCameraMovement : MonoBehaviour
     {
         [Header("Точки остановки")]
-        [SerializeField] private GameObject[] cameraPoints;
+        [SerializeField] private GameObject[] _cameraPoints;
 
-        private Transform playerCamera;
+        private Transform _mainCamera;
 
         [Header("Скорость передвижения камеры")]
-        [SerializeField] private float moveSpeed = 30f;
+        [SerializeField] private float _moveSpeed = 30f;
 
         void Start()
         {
-            playerCamera = Camera.main.transform;
+            _mainCamera = Camera.main.transform;
             MoveCameraToPoint(0);
         }
 
@@ -28,14 +28,14 @@ namespace FragileReflection
 
         void MoveCameraToPoint(int newIndex)
         {
-            StartCoroutine(MoveCameraSmooth(cameraPoints[newIndex].transform.position));
+            StartCoroutine(MoveCameraSmooth(_cameraPoints[newIndex].transform.position));
         }
 
         IEnumerator MoveCameraSmooth(Vector3 targetPosition)
         {
-            while (Vector3.Distance(playerCamera.position, targetPosition) > 0.01f)
+            while (Vector3.Distance(_mainCamera.position, targetPosition) > 0.01f)
             {
-                playerCamera.position = Vector3.MoveTowards(playerCamera.position, targetPosition, moveSpeed * Time.deltaTime);
+                _mainCamera.position = Vector3.MoveTowards(_mainCamera.position, targetPosition, _moveSpeed * Time.deltaTime);
                 yield return null;
             }
         }
