@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
+using System;
 
 namespace FragileReflection
 {
@@ -16,14 +14,18 @@ namespace FragileReflection
         [SerializeField] private GameObject _buttonOptions;
         [SerializeField] private GameObject _screenOptions;
         [SerializeField] private GameObject _volumeOptions;
-        //[SerializeField] private GameObject _controlOpt;
 
         [Header("Точки остановки")]
-        public GameObject[] cameraPoints;
+        [SerializeField] private GameObject[] cameraPoints;
 
         private Transform playerCamera;
+
         [Header("Скорость передвижения камеры")]
-        public float moveSpeed = 5f;
+        [SerializeField] private float moveSpeed = 30f;
+        private int currentCameraIndex;
+
+        public delegate void CameraMoveComplete();
+        public static event CameraMoveComplete OnCameraMoveComplete;
 
         public void Quit()
         {
@@ -38,55 +40,81 @@ namespace FragileReflection
         {
             playerCamera = Camera.main.transform;
             MoveCameraToPoint(0);
+
+            MainMenuScript.OnCameraMoveComplete += HandleCameraMoveComplete;
         }
 
         public void GotoOption()
         {
             MoveCameraToPoint(1);
-            _mainMenu.SetActive(false);
-            _optionsMenu.SetActive(true);
+            currentCameraIndex = 1;
         }
 
         public void GotoScreenOpt()
         {
             MoveCameraToPoint(2);
-            _buttonOptions.SetActive(false);
-            _screenOptions.SetActive(true);
+            currentCameraIndex = 2;
         }
 
         public void GotoVolumeOpt()
         {
             MoveCameraToPoint(2);
-            _buttonOptions.SetActive(false);
-            _volumeOptions.SetActive(true);
+            currentCameraIndex = 3;
         }
-        
+
         public void GotoMainMenu()
         {
             MoveCameraToPoint(0);
-            _optionsMenu.SetActive(false);
-            _mainMenu.SetActive(true);
+            currentCameraIndex = 0;
         }
 
         public void GotoOptionIn()
         {
             MoveCameraToPoint(1);
-            _screenOptions.SetActive(false);
-            _volumeOptions.SetActive(false);
-            _buttonOptions.SetActive(true);
+            currentCameraIndex = 1;
         }
 
         void MoveCameraToPoint(int newIndex)
         {
-            StartCoroutine(MoveCameraSmooth(cameraPoints[newIndex].transform.position));
+            StartCoroutine(MoveCameraSmooth(cameraPoints[newIndex].transform.position, () =>
+            {
+                OnCameraMoveComplete?.Invoke();
+            }));
         }
 
-        IEnumerator MoveCameraSmooth(Vector3 targetPosition)
+        IEnumerator MoveCameraSmooth(Vector3 targetPosition, Action onComplete)
         {
             while (Vector3.Distance(playerCamera.position, targetPosition) > 0.01f)
             {
                 playerCamera.position = Vector3.MoveTowards(playerCamera.position, targetPosition, moveSpeed * Time.deltaTime);
                 yield return null;
+            }
+
+            onComplete?.Invoke();
+        }
+
+        void HandleCameraMoveComplete()
+        {
+            switch (currentCameraIndex)
+            {
+                case 0: //идем в главное
+                    _optionsMenu.SetActive(false);
+                    _mainMenu.SetActive(true);
+                    break;
+                case 1: //идем в настройки
+                    _mainMenu.SetActive(false);
+                    _screenOptions.SetActive(false);
+                    _volumeOptions.SetActive(false);
+                    _optionsMenu.SetActive(true);
+                    break;
+                case 2: //идем в настройки графики
+                    _buttonOptions.SetActive(false);
+                    _screenOptions.SetActive(true);
+                    break;
+                case 3: //идем в настройки музыки
+                    _buttonOptions.SetActive(false);
+                    _volumeOptions.SetActive(true);
+                    break;
             }
         }
     }
