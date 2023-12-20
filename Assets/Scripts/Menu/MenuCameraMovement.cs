@@ -22,7 +22,6 @@ namespace FragileReflection
             _mainCamera = Camera.main.transform;
             _canvasGroup = GetComponent<CanvasGroup>();
             _originalRotation = _mainCamera.rotation;
-            MoveCameraToPoint(0);
         }
 
         public void GotoTarget(int index)
@@ -41,15 +40,37 @@ namespace FragileReflection
 
             Quaternion targetRotation = rotateOnPoint ? Quaternion.Euler(0, -90, 0) : _originalRotation;
 
-            while (Vector3.Distance(_mainCamera.position, targetPosition) > 0.01f)
+            float elapsedTime = 0f;
+            float duration = _moveSpeed / 10f;
+
+            while (elapsedTime < duration)
             {
-                _mainCamera.position = Vector3.MoveTowards(_mainCamera.position, targetPosition, _moveSpeed * Time.deltaTime);
-                _mainCamera.rotation = Quaternion.RotateTowards(_mainCamera.rotation, targetRotation, 90 * Time.deltaTime);
+                float t = EaseInOutQuint(elapsedTime / duration);
+                _mainCamera.position = Vector3.Lerp(_mainCamera.position, targetPosition, t);
+                _mainCamera.rotation = Quaternion.Slerp(_mainCamera.rotation, targetRotation, t);
+                elapsedTime += Time.deltaTime;
+
+                if (Vector3.Distance(_mainCamera.position, targetPosition) < 0.01f)
+                {
+                    break;
+                }
+
                 yield return null;
             }
 
-            _mainCamera.rotation = targetRotation;
+            _mainCamera.SetPositionAndRotation(targetPosition, targetRotation);
             _canvasGroup.interactable = true;
+        }
+
+        float EaseInOutQuint(float t)
+        {
+            t /= 0.5f;
+            if (t < 1) 
+                return 0.5f * t * t * t * t * t;
+
+            t -= 2;
+            return 
+                0.5f * (t * t * t * t * t + 2);
         }
     }
 }
