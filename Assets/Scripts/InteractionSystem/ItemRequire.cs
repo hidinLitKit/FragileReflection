@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FragileReflection
 {
-    public class ItemRequire : Interactable
+    public class ItemRequire : Interactable, IDataPersistence
     {
         [SerializeField] private KeyObject key;
         [SerializeField] private string _lockedMes;
@@ -45,6 +45,16 @@ namespace FragileReflection
             {
                 child.gameObject.layer = _unactiveLayer;
             }
+        }
+
+        public void LoadData(GameData data)
+        {
+            
+        }
+
+        public void SaveData(GameData data)
+        {
+            
         }
     }
 }
