@@ -34,15 +34,13 @@ namespace FragileReflection
 
         private void OnEnable()
         {
-            GameEvents.onInventoryUI += SetActiveInventory;
-            GameEvents.onGamePause += SetActiveController;
+
  
         }
 
         private void OnDisable()
         {
-            GameEvents.onInventoryUI -= SetActiveInventory;
-            GameEvents.onGamePause -= SetActiveController;
+
 
         }
 

@@ -38,24 +38,16 @@ namespace FragileReflection
             switch(inputMap)
             {
                 case ("UI"):
+                case ("DeathMap"):
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
-                    //GameEvents.InventoryUIAble(true);
-                    GameEvents.StaminaUIClose();
-                    break;
-                case ("DeathMap"):
                     //это наверное костыль, но пока так, нужно мб спросить у Валентина 
                     // проблема в том, что нужно запрещать двигаться персонажу во время смерти (и вообще переключать его на UI)
                     // но в UI есть exit на выход из этой инпут мапы, следовательно возвращается управление. Вот я и создал пустую инпут мапу
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
                     break;
                 default:
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
-                    GameEvents.InventoryUIAble(false);
-                    GameEvents.GamePause(false);
-                    GameEvents.StaminaUIOpen();
                     break;
             }
         }

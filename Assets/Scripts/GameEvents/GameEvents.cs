@@ -23,7 +23,6 @@ namespace FragileReflection
         public static System.Action<float> onMaxHealthIncrease;
         //public static Action<bool> onStatusUI;
         public static event Action<string, int, string, Color> onHealthStatusChanged;
-        public static event Action<bool> onInventoryUI;
 
         //Items
         public static System.Action<KeyObject> onKeyUse;
@@ -46,12 +45,7 @@ namespace FragileReflection
         public static System.Action<float> onInteractionProgress;
         public static event Action onExit;
 
-        //Pause
-        public static event Action<bool> onGamePause;
 
-        //Death
-        public static event Action onDeathUIOpen;
-        public static event Action onDeathUIClose;
 
         public static void InteractionEnter(Interactable interactable)
         {
@@ -99,10 +93,6 @@ namespace FragileReflection
         {
             onMaxHealthIncrease?.Invoke(hp);
         }
-        public static void InventoryUIAble(bool show)
-        {
-            onInventoryUI?.Invoke(show);
-        }
         public static void UseKey(KeyObject key)
         {
             onKeyUse?.Invoke(key);
@@ -148,26 +138,11 @@ namespace FragileReflection
         {
             onUIFade?.Invoke();
         }
-
-        public static void GamePause(bool status)
-        {
-            onGamePause?.Invoke(status);
-        }
-
         public static void InteractionProgress(float f)
         {
             onInteractionProgress?.Invoke(f);
         }
 
-        public static void DeathUIOpen()
-        {
-            onDeathUIOpen?.Invoke();
-        }
-        
-        public static void DeathUIClose()
-        {
-            onDeathUIClose?.Invoke();
-        }
         public static void ExitPressed()
         {
             onExit?.Invoke();
