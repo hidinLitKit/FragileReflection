@@ -13,13 +13,14 @@ namespace FragileReflection
         
         [SerializeField] private ItemObject item;
         [SerializeField] private int _amount;
+        [Tooltip("Text that's being displayed when character sees object")]
         [SerializeField] private string _message;
-        [SerializeField] private string ID;
+        [SerializeField] private string ID; //how to make readonly?
         [SerializeField] private bool isActive;
         [HideInInspector, SerializeField] private string _id;
 
         private bool _isAct;
-        private int _unactiveLayer = 9;
+        
         private void Awake()
         {
             isActive = true;
@@ -46,22 +47,13 @@ namespace FragileReflection
             Item _item = new Item(item);
             GameInventory.instance.inventory.AddItem(_item, _amount);
             isActive = false;
-            LayerChange();
-        }
-
-        private void LayerChange()
-        {
-            gameObject.layer = _unactiveLayer;
-            foreach (Transform child in gameObject.transform)
-            {
-                child.gameObject.layer = _unactiveLayer;
-            }
+            ObjectState.LayerChange(gameObject, ObjectState.UnactiveLayer);
         }
         public void LoadData(GameData data)
         {   
             if(!data.ActiveItmData.TryGetValue(_id, out _isAct)) return;
             isActive = _isAct;
-            if (!isActive) LayerChange(); 
+            if (!isActive) ObjectState.LayerChange(gameObject, ObjectState.UnactiveLayer);        
         }
 
         public void SaveData(GameData data)

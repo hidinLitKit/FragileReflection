@@ -31,8 +31,8 @@ namespace FragileReflection
         private Vector3 _nextPosition;
         private Quaternion _nextRotation;
 
-        public float rotationPower = 0.5f;
-        public float rotationLerp = 0.5f;
+        public float rotationPower = 0.3f;
+        public float rotationLerp = 0.2f;
 
         [Header("Движение")]
         public float speed = 1f;
