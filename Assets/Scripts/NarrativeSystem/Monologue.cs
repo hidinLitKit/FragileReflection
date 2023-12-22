@@ -4,14 +4,29 @@ using UnityEngine;
 
 namespace FragileReflection
 {
-    public class Monologue : NarrativeTalker
+    public class Monologue : NarrativeTalker, IDataPersistence
     {
-        public float txtCD;
+        [SerializeField] private float txtCD;
+        [SerializeField] private string _id;
         private bool _isCD;
+
+
         private void Awake()
         {
             _isCD = false;
 
+        }
+        [ContextMenu("Generate id")]
+        private void GenerateGuid()
+        {
+            _id = System.Guid.NewGuid().ToString();
+        }
+        private void OnValidate()
+        {
+            if (_id == string.Empty)
+            {
+                Debug.LogWarning("Object" + gameObject.name + "has not been initialized with save value");
+            }
         }
         private void OnTriggerEnter(Collider other)
         {
@@ -42,6 +57,25 @@ namespace FragileReflection
             yield return new WaitForSeconds(sec);
             _isCD = false;
             NextLine(NarrativeData.instance.monologueUI, NarrativeText, NarrativeData.instance.monologueTextField);
+        }
+
+        public void LoadData(GameData data)
+        {
+            bool _isColAct;
+            if (!data.TriggersData.TryGetValue(_id, out _isColAct)) return;
+            GetComponent<Collider>().enabled = _isColAct;
+        }
+
+        public void SaveData(GameData data)
+        {
+            bool _isColAct = GetComponent<Collider>().enabled;
+            Debug.Log(gameObject + " collider active: " + _isColAct);
+            if (data.TriggersData.ContainsKey(_id))
+            {
+                data.TriggersData.Remove(_id);
+            }
+            data.TriggersData.Add(_id, _isColAct);
+            Debug.Log(gameObject + " saved, id and _isLocked " + _id + " " + _isColAct);
         }
     }
 }

@@ -42,8 +42,8 @@ Material:
     - _NoiseAmmount: 200
     - _NoiseSpeed: 0.5
     - _ScanningLineStrength: 0
-    - _ScanningLinesSpeed: 1
+    - _ScanningLinesSpeed: 0.6
     m_Colors:
     - _ScanningLineSpread: {r: 0, g: 700, b: 0, a: 0}
-    - _ScanningLinesBlackness: {r: 0.85, g: 1, b: 0, a: 0}
+    - _ScanningLinesBlackness: {r: 0.9, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
