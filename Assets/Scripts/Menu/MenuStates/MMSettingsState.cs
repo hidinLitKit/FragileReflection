@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ namespace FragileReflection
 		[SerializeField] private Button _returnButton;
         [SerializeField] private Button _graphicsButton;
 		[SerializeField] private Button _volumeButton;
+		[SerializeField] private Button _controllButton;
 
 		protected override void OnEnable()
 		{
@@ -20,6 +22,7 @@ namespace FragileReflection
 			_returnButton.onClick.AddListener(Return);
 			_graphicsButton.onClick.AddListener(Graphics);
 			_volumeButton.onClick.AddListener(Volume);
+			_controllButton.onClick.AddListener(Controll);
 		}
 
 		protected override void OnDisable()
@@ -30,7 +33,8 @@ namespace FragileReflection
 			_returnButton.onClick.RemoveListener(Return);
 			_graphicsButton.onClick.RemoveListener(Graphics);
 			_volumeButton.onClick.RemoveListener(Volume);
-		}
+            _controllButton.onClick.AddListener(Controll);
+        }
 
 		public void Return()
 		{
@@ -46,5 +50,10 @@ namespace FragileReflection
         {
 			States.instance.Push<MMVolumeSettingsState>();
         }
+
+		public void Controll()
+		{
+			States.instance.Push<MMControllSettingsState>();
+		}
 	}
 }

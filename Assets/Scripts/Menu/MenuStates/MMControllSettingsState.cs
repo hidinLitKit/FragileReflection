@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace FragileReflection
 {
-    public class MMGraphicsSettingsState : GameState
+    public class MMControllSettingsState : GameState
     {
 		[SerializeField] private Button _returnButton;
 
