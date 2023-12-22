@@ -22,7 +22,7 @@ namespace FragileReflection
         public GameData()
         {
             Debug.Log("New game started");
-            playerPosition = new Vector3(8.06999969f, -1.32000005f, 18.95000080f);
+            playerPosition = new Vector3(-0.860000014f, 2.42000008f, -4.11999989f);
             maxHealth = 100;
             currentHealth = 100;
             InventoryData = new SerializableDictionary<int, string>();
