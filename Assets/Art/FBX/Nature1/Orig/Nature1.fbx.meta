@@ -1,0 +1,419 @@
+fileFormatVersion: 2
+guid: 402283fd4946bc442a8af15d661a6b6f
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coconut
+    second: {fileID: 2100000, guid: b6327a49158ac1e4196781ec6ed5d664, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Epipremium_01
+    second: {fileID: 2100000, guid: aadc8e72b171b054da1b3abbac812b31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Epipremium_02
+    second: {fileID: 2100000, guid: 4bb6d9b905da0b341b93fe093d952db4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Palm_Leaves
+    second: {fileID: 2100000, guid: 5d30f23cc53487a41a529826419e1359, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot_01
+    second: {fileID: 2100000, guid: f8ce0080afc209a41bf58c2ac0571654, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot_02
+    second: {fileID: 2100000, guid: 2e03afa88fd384e4c996c6b890c73562, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot_03
+    second: {fileID: 2100000, guid: 809a98e15e801d3419cb64203a7d75f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SnakePlant_Leave
+    second: {fileID: 2100000, guid: 4d3f7bc6a3166d6469739635b50ba048, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Soil
+    second: {fileID: 2100000, guid: 88d1124769acfa4439ead3b4401398cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stalk
+    second: {fileID: 2100000, guid: e612b761e027dc04ab54ae69f5a52c5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: branch-01
+    second: {fileID: 2100000, guid: caeddc443d701124cae9ed9ebe93c8ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: branch-02
+    second: {fileID: 2100000, guid: 7c622a28ac9b136449c790d074b02f60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: branch-1-01
+    second: {fileID: 2100000, guid: 5735f05c8b6837c4ab165e46d96c4f2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: branch-1-02
+    second: {fileID: 2100000, guid: f75e5061ad540ff4ba1839fa137b648c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: branch-2-01
+    second: {fileID: 2100000, guid: 9f1fdd0746eb03146968100a5016bd35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: branch-2-02
+    second: {fileID: 2100000, guid: f2328a6797d4f8b4981f9352a709ff65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clover-01
+    second: {fileID: 2100000, guid: 39365ea0a0678684dbc8e4b8657f0222, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clover-02
+    second: {fileID: 2100000, guid: 45e11f45cf1e70546a6ea923ccf302ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clover-03
+    second: {fileID: 2100000, guid: f304c849fb8ee1a48ae332af3bfc9276, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clover-04
+    second: {fileID: 2100000, guid: 6d7cce02f48187a46a7a1ab2e91da28c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clover-05
+    second: {fileID: 2100000, guid: 6fc269450cdfb844b856acec373de6f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flowers-01.001
+    second: {fileID: 2100000, guid: e823348d15289224d995a68e56198d8c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flowers-01.002
+    second: {fileID: 2100000, guid: a726ab88713d11f4cb8697bb853dd396, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hedge-01
+    second: {fileID: 2100000, guid: 0a2ea08587add1e42bab0b69ac25ab54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hedge-02
+    second: {fileID: 2100000, guid: d40b6fef76189674bbaf4caea8cc235f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: high-grass-1-01
+    second: {fileID: 2100000, guid: dbba1fbf12068004bb7ca3fc4f319dc8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: high-grass-1-02
+    second: {fileID: 2100000, guid: 1137a0cb2598f21489a6acfacb00dcdb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shrubbery-1-01
+    second: {fileID: 2100000, guid: 8f7bccc657603f941b697eae16e4f913, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shrubbery-1-02
+    second: {fileID: 2100000, guid: f19c2dff7acee414686ca6a96524d550, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shrubbery-2-01
+    second: {fileID: 2100000, guid: 1a65132ec0dad9948a6587969d9956cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shrubbery-2-02
+    second: {fileID: 2100000, guid: af569af89a03f7643a198237eefdba0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trunk-01
+    second: {fileID: 2100000, guid: 3cab73e22e0cd134082d3e00a97014b6, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sansiviera
+    second: {fileID: 2800000, guid: 687624e3dc8dc2e4e89f2cb588d2d72c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bark
+    second: {fileID: 2800000, guid: 9823b7b79f83411468214430d9887191, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: branch-01
+    second: {fileID: 2800000, guid: d7fa8800328ba9a4eaf670c3dc473707, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: branch-02
+    second: {fileID: 2800000, guid: 5a6516d1a1cf5204f867f7133ee5bfc9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: branch-1-01
+    second: {fileID: 2800000, guid: 5b6ccccc7983eac4ab527234fca992a7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: branch-1-02
+    second: {fileID: 2800000, guid: 2926ec7984571c34db8e9ceedff6b8a6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: branch-2-01
+    second: {fileID: 2800000, guid: 9abf31fa746224f43ae20b8fc0355ace, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: branch-2-02
+    second: {fileID: 2800000, guid: bb1b50ff7aa85604a89f4a76517a1216, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: clover-01
+    second: {fileID: 2800000, guid: 3ecc9bae3ac103543ae2e2e1d083ea57, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: clover-02
+    second: {fileID: 2800000, guid: d1abaa8894da4a441afd4771194c31f3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: clover-03
+    second: {fileID: 2800000, guid: f2913b8987e6086419e52cd224e1d76a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: clover-04
+    second: {fileID: 2800000, guid: b38cca0b380a1ac429d5766d27b30021, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: clover-05
+    second: {fileID: 2800000, guid: 963c6f629edca704f975927091442cdd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: coconut
+    second: {fileID: 2800000, guid: 536d13a8ae595c14f90e0a518720a45f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: epipremmium_texture_01
+    second: {fileID: 2800000, guid: 95dc4293ee589cd4986375763033ba7f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: flowers-01
+    second: {fileID: 2800000, guid: 9c9b2d9c6ab245849a4fee8d82c3947d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: flowers-02
+    second: {fileID: 2800000, guid: 10a83eecb7adfb54b922ebe188e6a712, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: grass-01
+    second: {fileID: 2800000, guid: 05e9c1af06e0e2d4d9e4d63b18876f34, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: grass-02
+    second: {fileID: 2800000, guid: f276261688ed07b4c9c4daab8fb15b99, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: heather-mckean-dbXT8Q-rH0c-unsplash
+    second: {fileID: 2800000, guid: d7856f432e9577e42b65d3785907831f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: hedge-01
+    second: {fileID: 2800000, guid: 5e29e9cae947a0343ba175adc96012f0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: hedge-02
+    second: {fileID: 2800000, guid: c2eb94befda8b224d9fa52efb0f6a5fa, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: shrubbery-01
+    second: {fileID: 2800000, guid: d98bfdfbccf3d384aa927a924974aba0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: shrubbery-02
+    second: {fileID: 2800000, guid: e79db8d73e7059443b5d14bb13f144fe, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: shrubbery-1-01
+    second: {fileID: 2800000, guid: a91fede2efd9fdf49bbc0765b892c7f5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: shrubbery-1-02
+    second: {fileID: 2800000, guid: 4389d6ca9bc13c04a90fc623bddaf205, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: signs
+    second: {fileID: 2800000, guid: dafc8f7f5d258d944baf97f9817a0f85, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: soil
+    second: {fileID: 2800000, guid: e66a9d5914cfeae4b89402c34872dbe4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: terazzo
+    second: {fileID: 2800000, guid: 8215dc3b34f2fa444b7726b4f7fbf2fd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: terracotta
+    second: {fileID: 2800000, guid: 284e6b6b5687caf4a9f117a8283d7480, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.5
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.005
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

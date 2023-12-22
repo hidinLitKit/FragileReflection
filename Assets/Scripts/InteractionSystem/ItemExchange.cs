@@ -6,12 +6,10 @@ namespace FragileReflection
 {
     public class ItemExchange : MonoBehaviour
     {
-        private int _interactionLayer = 6;
-        private int _unactiveLayer = 9;
         [SerializeField] private GameObject _gameObject;
         private void Awake()
         {
-            _gameObject.layer = _unactiveLayer;
+            ObjectState.LayerChange(_gameObject, ObjectState.UnactiveLayer);
         }
         private void OnEnable()
         {
@@ -23,7 +21,7 @@ namespace FragileReflection
         }
         private void ReturnItem()
         {
-            _gameObject.layer = _interactionLayer;
+            ObjectState.LayerChange(_gameObject, ObjectState.InteractableLayer);
         }
 
     }
