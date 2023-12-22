@@ -11462,6 +11462,7 @@ MonoBehaviour:
   - {fileID: 734065620897811817}
   _continueButton: {fileID: 276949432938833358}
   _settingsButton: {fileID: 6319310893117860002}
+  _exitButton: {fileID: 250375897472767561}
 --- !u!1001 &443788486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64012,31 +64013,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3071661803022985730}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FragileReflection.Pause, Assembly-CSharp
-        m_MethodName: GotoMain
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FragileReflection.Pause, Assembly-CSharp
-        m_MethodName: ExitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &262914445750276261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85524,19 +85501,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4444901094594991420}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FragileReflection.Pause, Assembly-CSharp
-        m_MethodName: GotoOption
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!222 &6339106612626996756
 CanvasRenderer:
   m_ObjectHideFlags: 0

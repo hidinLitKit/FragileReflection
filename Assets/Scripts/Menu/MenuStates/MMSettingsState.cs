@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,7 +30,7 @@ namespace FragileReflection
 			_returnButton.onClick.RemoveListener(Return);
 			_graphicsButton.onClick.RemoveListener(Graphics);
 			_volumeButton.onClick.RemoveListener(Volume);
-            _controllButton.onClick.AddListener(Controll);
+            _controllButton.onClick.RemoveListener(Controll);
         }
 
 		public void Return()
