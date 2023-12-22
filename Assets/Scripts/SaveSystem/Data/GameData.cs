@@ -17,16 +17,18 @@ namespace FragileReflection
         public SerializableDictionary<string, bool> ActiveItmData;
         [Header("Triggers")]
         public SerializableDictionary<string, bool> TriggersData;
-        
+        [Header("PuzzleData")]
+        public SerializableDictionary<string, string> PuzzleData;        
         public GameData()
         {
             Debug.Log("New game started");
-            //playerPosition = new Vector3(0, 0, 0);
+            playerPosition = new Vector3(8.06999969f, -1.32000005f, 18.95000080f);
             maxHealth = 100;
             currentHealth = 100;
             InventoryData = new SerializableDictionary<int, string>();
             ActiveItmData = new SerializableDictionary<string, bool>();
             TriggersData = new SerializableDictionary<string, bool>();
+            PuzzleData = new SerializableDictionary<string, string>();
             StartValues();
             
 
