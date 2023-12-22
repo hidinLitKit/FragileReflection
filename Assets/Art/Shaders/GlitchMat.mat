@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FlickeringSpeed: 2
+    - _FlickeringSpeed: 0
     - _FlickeringVisibility: 0.01
     - _NoiseAmmount: 200
     - _NoiseSpeed: 0.5
