@@ -24,7 +24,7 @@ namespace FragileReflection
                 trigger.triggers.Add(pointerEnter);
 
                 // Добавляем обработчик события нажатия мыши
-                EventTrigger.Entry pointerClick = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
+                EventTrigger.Entry pointerClick = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
                 pointerClick.callback.AddListener((eventData) => { ClickSound(); });
                 trigger.triggers.Add(pointerClick);
             }
