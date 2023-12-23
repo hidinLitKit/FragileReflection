@@ -176,27 +176,20 @@ namespace FragileReflection
 
         public GameObject followTransform;
 
-        private void Update()
+        void RotateCamera()
         {
 
-            HandleAnimations();
+            _nextRotation = followTransform.transform.rotation;
 
-            #region Follow Transform Rotation
-
-            //Rotate the Follow Target transform based on the input
-            followTransform.transform.rotation *= Quaternion.AngleAxis(_look.x * rotationPower, Vector3.up);
-
-            #endregion
-
-            #region Vertical Rotation
-            followTransform.transform.rotation *= Quaternion.AngleAxis(_look.y * rotationPower, Vector3.right);
+            _nextRotation *= Quaternion.AngleAxis(_look.x * rotationPower, Vector3.up);
+            _nextRotation *= Quaternion.AngleAxis(_look.y * rotationPower, Vector3.right);
+            followTransform.transform.rotation = Quaternion.Lerp(followTransform.transform.rotation, _nextRotation, Time.deltaTime * rotationLerp);
 
             var angles = followTransform.transform.localEulerAngles;
             angles.z = 0;
 
             var angle = followTransform.transform.localEulerAngles.x;
 
-            //Clamp the Up/Down rotation
             if (angle > 180 && angle < 340)
             {
                 angles.x = 340;
@@ -206,13 +199,18 @@ namespace FragileReflection
                 angles.x = 40;
             }
 
-
             followTransform.transform.localEulerAngles = angles;
-            #endregion
-
 
             _nextRotation = Quaternion.Lerp(followTransform.transform.rotation, _nextRotation, Time.deltaTime * rotationLerp);
+        }
 
+
+        private void Update()
+        {
+
+            HandleAnimations();
+
+            RotateCamera();
 
             if (aimValue)
             {
@@ -224,7 +222,7 @@ namespace FragileReflection
                 //Set the player rotation based on the look transform
                 playerTransform.rotation = Quaternion.Euler(0, followTransform.transform.rotation.eulerAngles.y, 0);
                 //reset the y rotation of the look transform
-                followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
+                followTransform.transform.localEulerAngles = new Vector3(followTransform.transform.rotation.eulerAngles.x, 0, 0);
 
                 _aiming = true;
             }
@@ -279,7 +277,7 @@ namespace FragileReflection
             {
                 moveSpeed = _crouchSpeed;
             }
-            MoveCharacter(moveSpeed, angles);
+            MoveCharacter(moveSpeed, followTransform.transform.rotation.eulerAngles);
             
 
         }
