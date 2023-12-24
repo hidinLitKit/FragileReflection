@@ -9,6 +9,8 @@ namespace FragileReflection
         [Header("Enable/Disable Objects")]
 		public List<GameObject> views;
 		protected const string playerInputMap = "Player", uiInputMap = "UI", deathInputMap = "DeathMap";
+		public AudioClip enableClip;
+		public AudioClip disableClip;
 		public void Enter()
 		{
 			gameObject.SetActive(true);
@@ -25,6 +27,7 @@ namespace FragileReflection
 			{
 				SwitchUiState(true, item);
 			}
+			if (enableClip != null) States.instance.enableSource.clip = enableClip;
 		}
 
 		protected virtual void OnDisable()
@@ -33,6 +36,7 @@ namespace FragileReflection
 			{
 				SwitchUiState(false, item);
 			}
+			if (disableClip != null) States.instance.disableSource.clip = disableClip;
 		}
 		protected void SwitchUiState(bool active, GameObject item)
         {

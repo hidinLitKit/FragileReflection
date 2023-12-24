@@ -7,6 +7,7 @@ namespace FragileReflection
     public class Door : Interactable
     {
         [SerializeField] Transform _tpPoint;
+        [SerializeField] private AudioClip _doorClip;
         [SerializeField] string _message;
         private GameObject _player;
         private void Awake()
@@ -23,6 +24,7 @@ namespace FragileReflection
         {
             StopAllCoroutines();
             GameEvents.UIFade();
+            AudioEvents.instance.PlaySound(AudioEvents.instance.doorAudio, _doorClip);
             StartCoroutine(TP());
         }
         IEnumerator TP()

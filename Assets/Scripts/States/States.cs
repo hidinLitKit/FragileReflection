@@ -9,7 +9,11 @@ namespace FragileReflection
 		public static States instance { private set; get; }
 
 		private List<GameState> m_states = new();
+		public AudioSource enableSource => m_enableSource;
+		public AudioSource disableSource => m_disableSource;
 
+		[SerializeField] private AudioSource m_enableSource;
+		[SerializeField] private AudioSource m_disableSource;
 		[SerializeField] private GameState m_startState;
 
 		private Stack<GameState> m_stack = new Stack<GameState>();
@@ -44,6 +48,8 @@ namespace FragileReflection
 
 				m_currentState = nextState;
 				m_currentState.Enter();
+				m_enableSource.Play();
+				m_disableSource.Play();
 			}
 		}
 
@@ -73,10 +79,12 @@ namespace FragileReflection
 			if (m_currentState)
 			{
 				m_currentState.Exit();
+				m_disableSource.Play();
 			}
 
 			m_currentState = m_stack.Pop();
 			m_currentState.Enter();
+			
 		}
 	}
 }

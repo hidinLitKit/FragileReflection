@@ -13,6 +13,8 @@ namespace FragileReflection
         public float currentHealth;
         [Header("Inventory")]
         public SerializableDictionary<int, string> InventoryData;
+        [Header("Weapons")]
+        public SerializableDictionary<string, int> WeaponData;
         [Header("Items on ground")]
         public SerializableDictionary<string, bool> ActiveItmData;
         [Header("Triggers")]

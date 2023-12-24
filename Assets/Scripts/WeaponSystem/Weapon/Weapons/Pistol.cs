@@ -5,11 +5,24 @@ using WeaponSystem;
 
 namespace FragileReflection
 {
-    public class Pistol : Weapon //Разделить огнестрел и неогнестрел
+    public class Pistol : Weapon, IDataPersistence
     {
         public int ammoLeft = 0;
         [SerializeField] private WeaponRay weaponRay;
         [SerializeField] private WeaponObject _inventoryWeapon;
+        [SerializeField] private string _id;
+        [ContextMenu("Generate id")]
+        private void GenerateGuid()
+        {
+            _id = System.Guid.NewGuid().ToString();
+        }
+        private void OnValidate()
+        {
+            if (_id == string.Empty)
+            {
+                Debug.LogWarning("Object" + gameObject.name + "has not been initialized with save value");
+            }
+        }
         private void Awake()
         {
             _bulletsLeft = WeaponType.Magazine;
@@ -68,5 +81,22 @@ namespace FragileReflection
             
         }
 
+        public void LoadData(GameData data)
+        {
+            int _ammoLeft ;
+            if (!data.WeaponData.TryGetValue(_id, out _ammoLeft)) return;
+            _bulletsLeft = _ammoLeft;
+        }
+
+        public void SaveData(GameData data)
+        {
+            Debug.Log(gameObject + " has ammo: " + _bulletsLeft);
+            if (data.WeaponData.ContainsKey(_id))
+            {
+                data.WeaponData.Remove(_id);
+            }
+            data.WeaponData.Add(_id, _bulletsLeft);
+            Debug.Log($"{gameObject} +  saved, id and _bulletsLeft  {_id}  , {_bulletsLeft}");
+        }
     }
 }

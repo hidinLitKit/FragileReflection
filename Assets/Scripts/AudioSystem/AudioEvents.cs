@@ -10,12 +10,12 @@ namespace FragileReflection
         public AudioSource keyUseAudio => _keyUseAudio;
         public AudioSource pickAudio => _pickAudio;
         public AudioSource weaponEquipAudio => _weaponEquipAudio;
+        public AudioSource doorAudio => _doorAudio;
 
+        [SerializeField] private AudioSource _doorAudio;
         [SerializeField] private AudioSource _weaponEquipAudio;
-
         [SerializeField] private AudioSource _keyUseAudio;
         [SerializeField] private AudioSource _pickAudio;
-        [SerializeField] private AudioSource exitAudio;
 
         private void Awake()
         {
@@ -25,14 +25,6 @@ namespace FragileReflection
                 return;
             }
             instance = this;
-        }
-        private void OnEnable()
-        {
-            GameEvents.onExit += exitAudio.Play;
-        }
-        private void OnDisable()
-        {
-            GameEvents.onExit -= exitAudio.Play;
         }
         public void PlaySound(AudioSource source, AudioClip clip)
         {
