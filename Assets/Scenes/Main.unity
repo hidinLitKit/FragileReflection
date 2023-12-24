@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 162780847}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.52294916, g: 0.60107493, b: 0.5620107, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -89813,7 +89813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5097876329781188437, guid: d9e6cbd56faa6da4eadc6c3b8ea1e5ce, type: 3}
       propertyPath: rotationLerp
-      value: 32
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 5097876329781188437, guid: d9e6cbd56faa6da4eadc6c3b8ea1e5ce, type: 3}
       propertyPath: rotationPower
@@ -90144,6 +90144,10 @@ PrefabInstance:
       propertyPath: _weaponAudio
       value: 
       objectReference: {fileID: 2088145941}
+    - target: {fileID: 7993704638813485174, guid: d9e6cbd56faa6da4eadc6c3b8ea1e5ce, type: 3}
+      propertyPath: _id
+      value: 4a70b3bb-20bf-4118-a625-24a3b961ddc0
+      objectReference: {fileID: 0}
     - target: {fileID: 7993704638813485174, guid: d9e6cbd56faa6da4eadc6c3b8ea1e5ce, type: 3}
       propertyPath: _equipSound
       value: 
