@@ -87953,6 +87953,14 @@ PrefabInstance:
       value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 5097876329781188437, guid: d9e6cbd56faa6da4eadc6c3b8ea1e5ce, type: 3}
+      propertyPath: rotationLerp
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097876329781188437, guid: d9e6cbd56faa6da4eadc6c3b8ea1e5ce, type: 3}
+      propertyPath: rotationPower
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097876329781188437, guid: d9e6cbd56faa6da4eadc6c3b8ea1e5ce, type: 3}
       propertyPath: staminaRegenerationRate
       value: 7
       objectReference: {fileID: 0}
