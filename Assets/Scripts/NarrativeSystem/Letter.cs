@@ -11,7 +11,7 @@ namespace FragileReflection
         public void letterOpen()
         {
             _isActive = true;
-            GameEvents.SwitchMap("UI");
+            States.instance.Push<LetterState>();
             letterAction?.Invoke(true);
             base.StopAllCoroutines();
             textIndex = 0;
@@ -23,7 +23,6 @@ namespace FragileReflection
         public void letterClose()
         {
             _isActive = false;
-            GameEvents.SwitchMap("Player");
             letterAction?.Invoke(false);
         }
         private void OnEnable()
@@ -33,6 +32,7 @@ namespace FragileReflection
             NarrativeData.instance.letterPrev.onClick.AddListener(buttonBack);
             NarrativeData.instance.letterClose.onClick.AddListener(letterClose);
 
+            GameEvents.onExit += letterClose;
             letterAction += updateUI;
         }
         private void OnDisable()
@@ -41,6 +41,7 @@ namespace FragileReflection
             NarrativeData.instance.letterPrev.onClick.RemoveListener(buttonBack);
             NarrativeData.instance.letterClose.onClick.RemoveListener(letterClose);
 
+            GameEvents.onExit += letterClose;
             letterAction -= updateUI;
         }
         

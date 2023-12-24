@@ -7,12 +7,14 @@ namespace WeaponSystem
     public abstract class Weapon : MonoBehaviour
     {
         [SerializeField] protected ScriptableWeapon _weaponType; //назначаем мы
+        [SerializeField] protected AudioClip _equipSound;
         public ScriptableWeapon WeaponType { //аксесят другие классы
             get
             {
                 return _weaponType;
             } 
         }
+        public AudioClip equipSound => _equipSound;
        
         protected bool _canShoot = true;
         protected int _bulletsLeft;

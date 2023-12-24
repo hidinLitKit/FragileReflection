@@ -11,7 +11,6 @@ namespace FragileReflection
 		protected override void OnEnable()
 		{
 			base.OnEnable();
-			Time.timeScale = 0;
 			GameEvents.SwitchMap(uiInputMap);
 			GameEvents.onExit += GameContinue;
 			_continueButton.onClick.AddListener(GameContinue);
@@ -20,7 +19,6 @@ namespace FragileReflection
 		protected override void OnDisable()
 		{
 			base.OnDisable();
-			Time.timeScale = 1;
 			GameEvents.SwitchMap(playerInputMap);
 			GameEvents.onExit -= GameContinue;
 			_continueButton.onClick.RemoveListener(GameContinue);

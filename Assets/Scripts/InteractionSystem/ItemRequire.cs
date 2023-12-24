@@ -7,11 +7,13 @@ namespace FragileReflection
     public class ItemRequire : Interactable, IDataPersistence
     {
         [SerializeField] private KeyObject key;
+        [SerializeField] private AudioClip _unlockSND;
         [SerializeField] private string _lockedMes;
         [SerializeField] private string _unlockedMes = "...";
         [SerializeField] private bool _doesDissapear = false;
         [SerializeField] private bool _isLocked = true;
-        [SerializeField] private string _id;
+
+        [SerializeField] private string _id; //for debug only
 
         public delegate void OnInteract();
         public OnInteract InteractEvent;
@@ -33,6 +35,7 @@ namespace FragileReflection
         {
             _isLocked = !_isLocked;
             if (_doesDissapear) ObjectState.LayerChange(gameObject, ObjectState.UnactiveLayer);
+            AudioEvents.instance.PlaySound( AudioEvents.instance.keyUseAudio ,_unlockSND);
             InteractEvent?.Invoke();
         }
 
