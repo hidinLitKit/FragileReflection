@@ -12,6 +12,7 @@ namespace FragileReflection
     {
         
         [SerializeField] private ItemObject item;
+        [SerializeField] private AudioClip _pickClip;
         [SerializeField] private int _amount;
         [Tooltip("Text that's being displayed when character sees object")]
         [SerializeField] private string _message;
@@ -44,6 +45,7 @@ namespace FragileReflection
             GameInventory.instance.inventory.AddItem(_item, _amount);
             _isActive = false;
             ObjectState.LayerChange(gameObject, ObjectState.UnactiveLayer);
+            AudioEvents.instance.PlaySound(AudioEvents.instance.pickAudio, _pickClip);
         }
         public void LoadData(GameData data)
         {
