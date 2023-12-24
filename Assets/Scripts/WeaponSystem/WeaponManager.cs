@@ -13,8 +13,6 @@ namespace WeaponSystem
         public Weapon currentWeapon = null;
         public PlayerAnimController playerAnimController;
 
-        private int _unactiveLayer = 9; 
-
 
         void Start()
         {
@@ -65,10 +63,10 @@ namespace WeaponSystem
         {
             foreach(Weapon weapon in weapons)
             {
-                LayerChange(weapon.gameObject, _unactiveLayer);
+                ObjectState.LayerChange(weapon.gameObject, ObjectState.UnactiveLayer);
                 if (currentWeapon!=null && weapon.WeaponType == currentWeapon.WeaponType)
                 {
-                    LayerChange(weapon.gameObject, 0);
+                    ObjectState.LayerChange(weapon.gameObject, ObjectState.DefaultLayer);
                     AudioEvents.instance.PlaySound(AudioEvents.instance.weaponEquipAudio, weapon.equipSound);
                 }
             }
@@ -97,14 +95,6 @@ namespace WeaponSystem
         {
             if (currentWeapon.GetType() == typeof(Pistol)) playerAnimController.PistolReload();
            
-        }
-        private void LayerChange(GameObject obj, int lay)
-        {
-            obj.layer = lay;
-            foreach(Transform chld in obj.transform)
-            {
-                chld.gameObject.layer = lay;
-            }
         }
     }
 }

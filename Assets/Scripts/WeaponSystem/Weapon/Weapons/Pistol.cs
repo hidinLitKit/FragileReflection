@@ -33,6 +33,8 @@ namespace FragileReflection
             weaponRay.TakeShot();//можно передать WeaponType для звуков
             _canShoot = false;
             _canReload = true;
+
+            WeaponSound(_attackSound);
             
             _bulletsLeft--;
             Debug.Log("Bullets left: " + _bulletsLeft);
@@ -80,7 +82,7 @@ namespace FragileReflection
             return _inventoryWeapon.AmmoLeft() > 0;
             
         }
-
+        
         public void LoadData(GameData data)
         {
             int _ammoLeft ;

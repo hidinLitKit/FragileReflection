@@ -7,7 +7,11 @@ namespace WeaponSystem
     public abstract class Weapon : MonoBehaviour
     {
         [SerializeField] protected ScriptableWeapon _weaponType; //назначаем мы
+        [SerializeField] protected AudioSource _weaponAudio;
         [SerializeField] protected AudioClip _equipSound;
+        [SerializeField] protected AudioClip _attackSound;
+        [SerializeField] protected AudioClip _reloadSound;
+        [SerializeField] protected AudioClip _noAmmoSound;
         public ScriptableWeapon WeaponType { //аксесят другие классы
             get
             {
@@ -48,7 +52,11 @@ namespace WeaponSystem
             Debug.Log("Realoading finished");
         }
 
-
+        protected void WeaponSound(AudioClip clip)
+        {
+            _weaponAudio.clip = clip;
+            _weaponAudio.Play();
+        }
 
     }
 }
