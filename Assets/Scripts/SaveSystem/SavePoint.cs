@@ -21,6 +21,7 @@ namespace FragileReflection
             if (_justSaved) return;
             _justSaved = true;
             DataPersistenceManager.instance.SaveGame();
+            AudioEvents.instance.PlaySound(AudioEvents.instance.saveAudio);
             StartCoroutine(saveCD());
         }
         private IEnumerator saveCD()

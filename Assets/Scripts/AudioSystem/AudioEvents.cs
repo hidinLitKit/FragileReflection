@@ -11,7 +11,9 @@ namespace FragileReflection
         public AudioSource pickAudio => _pickAudio;
         public AudioSource weaponEquipAudio => _weaponEquipAudio;
         public AudioSource doorAudio => _doorAudio;
+        public AudioSource saveAudio => _saveAudio;
 
+        [SerializeField] private AudioSource _saveAudio;
         [SerializeField] private AudioSource _doorAudio;
         [SerializeField] private AudioSource _weaponEquipAudio;
         [SerializeField] private AudioSource _keyUseAudio;
@@ -30,6 +32,10 @@ namespace FragileReflection
         {
             if (clip == null) return;
             source.clip = clip;
+            source.Play();
+        }
+        public void PlaySound(AudioSource source)
+        {
             source.Play();
         }
     }
