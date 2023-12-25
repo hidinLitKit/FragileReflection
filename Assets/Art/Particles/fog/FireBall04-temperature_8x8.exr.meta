@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -50,7 +51,7 @@ TextureImporter:
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
+  alphaUsage: 2
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 8
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -123,6 +129,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -135,6 +142,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -147,6 +155,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -159,6 +168,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1519,73 +1529,72 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FireBall04-temperature_8x8_36: 1015096772
-      FireBall04-temperature_8x8_43: 1110431227
-      FireBall04-temperature_8x8_6: -219211021
+      FireBall04-temperature_8x8_0: 1502007733
+      FireBall04-temperature_8x8_1: -1318742178
+      FireBall04-temperature_8x8_10: -304413705
+      FireBall04-temperature_8x8_11: 1498345239
+      FireBall04-temperature_8x8_12: -1856502027
       FireBall04-temperature_8x8_13: -461838531
       FireBall04-temperature_8x8_14: -968575698
-      FireBall04-temperature_8x8_25: -1430872892
-      FireBall04-temperature_8x8_62: -535790909
-      FireBall04-temperature_8x8_32: -1374252664
+      FireBall04-temperature_8x8_15: 423463987
+      FireBall04-temperature_8x8_16: -658898103
+      FireBall04-temperature_8x8_17: 1581250213
+      FireBall04-temperature_8x8_18: -52371991
+      FireBall04-temperature_8x8_19: 1314426103
+      FireBall04-temperature_8x8_2: -210964179
+      FireBall04-temperature_8x8_20: -51420308
+      FireBall04-temperature_8x8_21: -1824399066
+      FireBall04-temperature_8x8_22: -278474615
       FireBall04-temperature_8x8_23: 2018714589
-      FireBall04-temperature_8x8_53: 1439456825
       FireBall04-temperature_8x8_24: 2093662392
+      FireBall04-temperature_8x8_25: -1430872892
+      FireBall04-temperature_8x8_26: 180402007
+      FireBall04-temperature_8x8_27: 971304824
+      FireBall04-temperature_8x8_28: -737248403
+      FireBall04-temperature_8x8_29: -227201523
+      FireBall04-temperature_8x8_3: -563834991
+      FireBall04-temperature_8x8_30: -395255349
+      FireBall04-temperature_8x8_31: -1560925445
+      FireBall04-temperature_8x8_32: -1374252664
+      FireBall04-temperature_8x8_33: 1330691954
       FireBall04-temperature_8x8_34: -1075633526
       FireBall04-temperature_8x8_35: 125937912
-      FireBall04-temperature_8x8_28: -737248403
-      FireBall04-temperature_8x8_50: 1629906397
-      FireBall04-temperature_8x8_46: -1474713622
-      FireBall04-temperature_8x8_33: 1330691954
-      FireBall04-temperature_8x8_51: -163875755
-      FireBall04-temperature_8x8_63: 1581840076
-      FireBall04-temperature_8x8_61: -336808425
+      FireBall04-temperature_8x8_36: 1015096772
+      FireBall04-temperature_8x8_37: -709511724
+      FireBall04-temperature_8x8_38: -1312335899
+      FireBall04-temperature_8x8_39: 2008826737
+      FireBall04-temperature_8x8_4: -1535207240
       FireBall04-temperature_8x8_40: 2034343763
-      FireBall04-temperature_8x8_58: -135282195
       FireBall04-temperature_8x8_41: 2073524901
-      FireBall04-temperature_8x8_22: -278474615
-      FireBall04-temperature_8x8_11: 1498345239
-      FireBall04-temperature_8x8_19: 1314426103
-      FireBall04-temperature_8x8_1: -1318742178
-      FireBall04-temperature_8x8_18: -52371991
-      FireBall04-temperature_8x8_29: -227201523
-      FireBall04-temperature_8x8_56: -284882577
+      FireBall04-temperature_8x8_42: 1593385729
+      FireBall04-temperature_8x8_43: 1110431227
+      FireBall04-temperature_8x8_44: -1715751334
+      FireBall04-temperature_8x8_45: 1811923299
+      FireBall04-temperature_8x8_46: -1474713622
+      FireBall04-temperature_8x8_47: 1817348557
       FireBall04-temperature_8x8_48: -723806156
       FireBall04-temperature_8x8_49: 323683767
-      FireBall04-temperature_8x8_42: 1593385729
-      FireBall04-temperature_8x8_45: 1811923299
-      FireBall04-temperature_8x8_31: -1560925445
-      FireBall04-temperature_8x8_44: -1715751334
-      FireBall04-temperature_8x8_2: -210964179
-      FireBall04-temperature_8x8_39: 2008826737
-      FireBall04-temperature_8x8_0: 1502007733
-      FireBall04-temperature_8x8_37: -709511724
-      FireBall04-temperature_8x8_9: -173697815
-      FireBall04-temperature_8x8_26: 180402007
-      FireBall04-temperature_8x8_47: 1817348557
-      FireBall04-temperature_8x8_17: 1581250213
-      FireBall04-temperature_8x8_52: -1952201021
       FireBall04-temperature_8x8_5: -1583272280
-      FireBall04-temperature_8x8_16: -658898103
-      FireBall04-temperature_8x8_4: -1535207240
-      FireBall04-temperature_8x8_3: -563834991
-      FireBall04-temperature_8x8_57: 2145127016
-      FireBall04-temperature_8x8_38: -1312335899
-      FireBall04-temperature_8x8_30: -395255349
-      FireBall04-temperature_8x8_12: -1856502027
-      FireBall04-temperature_8x8_8: 513651696
-      FireBall04-temperature_8x8_10: -304413705
-      FireBall04-temperature_8x8_7: 394595168
-      FireBall04-temperature_8x8_15: 423463987
+      FireBall04-temperature_8x8_50: 1629906397
+      FireBall04-temperature_8x8_51: -163875755
+      FireBall04-temperature_8x8_52: -1952201021
+      FireBall04-temperature_8x8_53: 1439456825
       FireBall04-temperature_8x8_54: 529342944
       FireBall04-temperature_8x8_55: 325789244
-      FireBall04-temperature_8x8_21: -1824399066
-      FireBall04-temperature_8x8_20: -51420308
+      FireBall04-temperature_8x8_56: -284882577
+      FireBall04-temperature_8x8_57: 2145127016
+      FireBall04-temperature_8x8_58: -135282195
       FireBall04-temperature_8x8_59: 1358516363
-      FireBall04-temperature_8x8_27: 971304824
+      FireBall04-temperature_8x8_6: -219211021
       FireBall04-temperature_8x8_60: 1275299642
-  spritePackingTag: 
+      FireBall04-temperature_8x8_61: -336808425
+      FireBall04-temperature_8x8_62: -535790909
+      FireBall04-temperature_8x8_63: 1581840076
+      FireBall04-temperature_8x8_7: 394595168
+      FireBall04-temperature_8x8_8: 513651696
+      FireBall04-temperature_8x8_9: -173697815
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
