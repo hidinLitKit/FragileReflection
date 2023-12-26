@@ -68,7 +68,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.83806425
-        functionName: NewEvent
+        functionName: step
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

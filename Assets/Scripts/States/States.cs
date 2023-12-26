@@ -86,6 +86,11 @@ namespace FragileReflection
 			m_currentState.Enter();
 			
 		}
+		private void PlayStateSound()
+		{
+			if (m_disableSource.clip != null) m_disableSource.Play();
+			if(m_enableSource.clip != null) m_enableSource.Play(); 
+		}
 	}
 }
 
