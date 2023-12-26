@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9ec7fa216f8624d9a04329b9418d0e, type: 3}
   m_Name: MediumMedkit
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 4
   unique: 0
   Name: 
   Description: 
