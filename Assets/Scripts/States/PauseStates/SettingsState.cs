@@ -10,6 +10,8 @@ namespace FragileReflection
 		[SerializeField] private Button _returnButton;
         [SerializeField] private Button _graphicsButton;
 		[SerializeField] private Button _volumeButton;
+		[SerializeField] private Button _controllButton;
+
 		protected override void OnEnable()
 		{
 			base.OnEnable();
@@ -20,6 +22,7 @@ namespace FragileReflection
 			_returnButton.onClick.AddListener(Return);
 			_graphicsButton.onClick.AddListener(Graphics);
 			_volumeButton.onClick.AddListener(Volume);
+			_controllButton.onClick.AddListener(Controll);
 		}
 
 		protected override void OnDisable()
@@ -30,18 +33,27 @@ namespace FragileReflection
 			_returnButton.onClick.RemoveListener(Return);
 			_graphicsButton.onClick.RemoveListener(Graphics);
 			_volumeButton.onClick.RemoveListener(Volume);
+			_controllButton.onClick.RemoveListener(Controll);
 		}
+
 		public void Return()
 		{
 			States.instance.Pop();
 		}
+
 		public void Graphics()
         {
 			States.instance.Push<GraphicsSettingsState>();
         }
+
 		public void Volume()
         {
 			States.instance.Push<VolumeSettingsState>();
         }
+
+		public void Controll()
+		{
+			States.instance.Push<ControllSettingsState>();
+		}
 	}
 }
