@@ -35,7 +35,7 @@ namespace FragileReflection
         {
             _isLocked = !_isLocked;
             if (_doesDissapear) ObjectState.LayerChange(gameObject, ObjectState.UnactiveLayer);
-            AudioEvents.instance.PlaySound( AudioEvents.instance.keyUseAudio ,_unlockSND);
+            SFXManager.instance.PlaySound(_unlockSND);
             InteractEvent?.Invoke();
         }
 

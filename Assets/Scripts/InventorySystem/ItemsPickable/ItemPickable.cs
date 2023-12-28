@@ -45,7 +45,7 @@ namespace FragileReflection
             GameInventory.instance.inventory.AddItem(_item, _amount);
             _isActive = false;
             ObjectState.LayerChange(gameObject, ObjectState.UnactiveLayer);
-            AudioEvents.instance.PlaySound(AudioEvents.instance.pickAudio, _pickClip);
+            SFXManager.instance.PlaySound(_pickClip);
         }
         public void LoadData(GameData data)
         {

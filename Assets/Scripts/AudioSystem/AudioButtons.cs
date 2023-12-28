@@ -12,11 +12,15 @@ namespace FragileReflection
         [SerializeField] private AudioSource _clickSound;
         public void Initialize()
         {
-            _button.onClick.AddListener(_clickSound.Play);
+            _button.onClick.AddListener(PlayClickSound);
         }
         public void Purify()
         {
-            _button.onClick.RemoveListener(_clickSound.Play);
+            _button.onClick.RemoveListener(PlayClickSound);
+        }
+        private void PlayClickSound()
+        {
+            _clickSound.PlayOneShot(_clickSound.clip);
         }
     }
     public class AudioButtons : MonoBehaviour

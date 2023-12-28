@@ -271,14 +271,14 @@ AnimatorStateMachine:
     m_Position: {x: 260, y: 440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8692720550350699469}
-    m_Position: {x: -150, y: 350, z: 0}
+    m_Position: {x: -150, y: 360, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -3431296577213306420}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -110, y: 450, z: 0}
+  m_AnyStatePosition: {x: -130, y: 450, z: 0}
   m_EntryPosition: {x: -140, y: -60, z: 0}
   m_ExitPosition: {x: 80, y: -210, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -874,15 +874,7 @@ BlendTree:
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: -203655887218126122, guid: e5888618af4efce449232bcc991610b7, type: 3}
-    m_Threshold: 0
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: WalkXdir
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 363cb8e22939634448a8b69c9d92a5dd, type: 3}
-    m_Threshold: 0.35
+    m_Threshold: -7
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -897,16 +889,8 @@ BlendTree:
     m_DirectBlendParameter: WalkXdir
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 363cb8e22939634448a8b69c9d92a5dd, type: 3}
-    m_Threshold: 1.5
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: WalkXdir
-    m_Mirror: 0
-  - serializedVersion: 2
     m_Motion: {fileID: -203655887218126122, guid: 1d45f5da6e6a2474eba943ebc3526bcd, type: 3}
-    m_Threshold: 2
+    m_Threshold: 7
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -914,8 +898,8 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: WalkXdir
   m_BlendParameterY: WalkXdir
-  m_MinThreshold: 0
-  m_MaxThreshold: 2
+  m_MinThreshold: -7
+  m_MaxThreshold: 7
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0

@@ -24,7 +24,7 @@ namespace FragileReflection
         {
             StopAllCoroutines();
             GameEvents.UIFade();
-            AudioEvents.instance.PlaySound(AudioEvents.instance.doorAudio, _doorClip);
+            SFXManager.instance.PlaySound(_doorClip);
             StartCoroutine(TP());
         }
         IEnumerator TP()

@@ -8,6 +8,7 @@ namespace FragileReflection
     {
         [SerializeField] private string _message = "сохранить игру";
         [SerializeField] private string _savedMessage = "сохранено";
+        [SerializeField] private AudioClip _saveClip;
         private bool _justSaved = false;
         private float _saveCD = 7f;
 
@@ -21,7 +22,7 @@ namespace FragileReflection
             if (_justSaved) return;
             _justSaved = true;
             DataPersistenceManager.instance.SaveGame();
-            AudioEvents.instance.PlaySound(AudioEvents.instance.saveAudio);
+            SFXManager.instance.PlaySound(_saveClip);
             StartCoroutine(saveCD());
         }
         private IEnumerator saveCD()

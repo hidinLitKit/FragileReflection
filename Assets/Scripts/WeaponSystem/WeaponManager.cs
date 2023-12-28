@@ -67,7 +67,7 @@ namespace WeaponSystem
                 if (currentWeapon!=null && weapon.WeaponType == currentWeapon.WeaponType)
                 {
                     ObjectState.LayerChange(weapon.gameObject, ObjectState.DefaultLayer);
-                    AudioEvents.instance.PlaySound(AudioEvents.instance.weaponEquipAudio, weapon.equipSound);
+                    SFXManager.instance.PlaySound(weapon.equipSound);
                 }
             }
         }
