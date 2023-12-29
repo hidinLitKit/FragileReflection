@@ -32,6 +32,7 @@ namespace WeaponSystem
             if(_bulletsLeft == 0)
             {
                 Debug.Log("No ammo sound");
+                if(_noAmmoSound!=null) _weaponAudio.PlayOneShot(_noAmmoSound);
                 return false;
             }
             return _canShoot;
@@ -54,8 +55,12 @@ namespace WeaponSystem
 
         protected void WeaponSound(AudioClip clip)
         {
-            _weaponAudio.clip = clip;
-            _weaponAudio.Play();
+            _weaponAudio.PlayOneShot(clip);
+        }
+        protected void WeaponSoundRandom(List<AudioClip> clips)
+        {
+            int _rnd = Random.Range(0, clips.Count);
+            WeaponSound(clips[_rnd]);
         }
 
     }

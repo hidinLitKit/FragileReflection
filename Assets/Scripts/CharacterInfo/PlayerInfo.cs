@@ -11,6 +11,7 @@ namespace FragileReflection
         [Header("Health")]
         [SerializeField] private float maxHealth;
         [Range(0, 100)][SerializeField] private float health;
+        [SerializeField] private PlayerSounds _sounds;
 
         public float Health => health;
         public float MaxHealth => maxHealth;
@@ -82,7 +83,7 @@ namespace FragileReflection
             if (isDead) return;
 
             health -= damage;
-
+            _sounds.TakeHit();
             if (health <= 0)
                 Die();
 

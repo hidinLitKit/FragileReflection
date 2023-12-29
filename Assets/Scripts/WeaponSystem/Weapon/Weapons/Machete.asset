@@ -19,4 +19,4 @@ MonoBehaviour:
   RecoilRadius: 0
   Magazine: 0
   chance: 100
-  CrossHair: {fileID: 0}
+  CrossHair: {fileID: 21300000, guid: 49f55f510ce15fb4f954255ccc5a1ac3, type: 3}

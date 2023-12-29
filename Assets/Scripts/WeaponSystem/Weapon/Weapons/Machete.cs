@@ -6,6 +6,7 @@ namespace FragileReflection
 {
     public class Machete : Weapon
     {
+        [SerializeField] private List<AudioClip> _attackRnd; 
         private Collider _attackCollider;
         private void Awake()
         {
@@ -28,6 +29,7 @@ namespace FragileReflection
         public override void Fire()
         {
             if (!CanShoot()) return;
+            WeaponSoundRandom(_attackRnd);
             _canShoot = false;
             _attackCollider.enabled = true;
            StartCoroutine(RateCD(_weaponType.RateOfFire));

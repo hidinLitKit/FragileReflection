@@ -62,7 +62,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 00000000010000000100000000000000000000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.36276716
+        functionName: AttackStuggle
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 1
       maskSource: {fileID: 31900000, guid: d385d1fd9b3f4b643b72dd562256a1f3, type: 2}

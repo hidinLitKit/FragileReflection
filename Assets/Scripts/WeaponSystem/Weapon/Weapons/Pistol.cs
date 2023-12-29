@@ -29,7 +29,7 @@ namespace FragileReflection
         }
         public override void Fire()
         {
-            if (!CanShoot()) return;
+            if (!CanShoot()) { return; }
             weaponRay.TakeShot();//можно передать WeaponType для звуков
             _canShoot = false;
             _canReload = true;
@@ -54,6 +54,7 @@ namespace FragileReflection
         {
             CanReload();
             StopAllCoroutines();
+            WeaponSound(_reloadSound);
             _isReloading = true;
             _canReload = false;
             _canShoot = false;
