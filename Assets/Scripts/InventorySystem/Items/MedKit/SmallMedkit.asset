@@ -18,5 +18,5 @@ MonoBehaviour:
   Description: "\u041F\u043E\u043C\u043E\u0433\u0443\u0442 \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
     \u043A\u0440\u043E\u0432\u044C, \u043F\u043E\u043B\u0435\u0437\u043D\u0430\u044F
     \u0448\u0442\u0443\u043A\u0430."
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 89d5bd47031f0bb4daaa5b8045996760, type: 3}
   healAmmount: 25

@@ -16,6 +16,6 @@ MonoBehaviour:
   unique: 1
   Name: Pistol
   Description: 
-  image: {fileID: 21300000, guid: 3e3defce554308643b141096e01c6ea3, type: 3}
+  image: {fileID: 21300000, guid: 3770c06638328e8438151714f14cf526, type: 3}
   weaponType: {fileID: 11400000, guid: 07295905c33819d4b92a51f9390e912b, type: 2}
   ammo: {fileID: 11400000, guid: 0d50cb341e17c9a4084e52ae139325df, type: 2}
