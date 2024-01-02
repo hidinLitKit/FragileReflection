@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8f3cac1b5025b4caedfafc5b552815, type: 3}
   m_Name: MacheteItem
   m_EditorClassIdentifier: 
-  ID: 13
+  ID: 9
   unique: 1
   Name: "\u041C\u0430\u0447\u0435\u0442\u0435"
-  Description: "\u043D\u0435\u043C\u043D\u043E\u0433\u043E \u0440\u0436\u0430\u0432\u044B\u0439,
-    \u043D\u043E \u043B\u0443\u0447\u0448\u0435 \u0447\u0435\u043C \u043D\u0438\u0447\u0435\u0433\u043E"
-  image: {fileID: 21300000, guid: 6e6c61bc9b0362141bb62a6cdc470f67, type: 3}
+  Description: "\u041D\u0435\u043C\u043D\u043E\u0433\u043E \u0440\u0436\u0430\u0432\u044B\u0439,
+    \u043D\u043E \u043B\u0443\u0447\u0448\u0435 \u0447\u0435\u043C \u043D\u0438\u0447\u0435\u0433\u043E."
+  image: {fileID: 21300000, guid: 0ed195f011637bf4c8d08585f67ba380, type: 3}
   weaponType: {fileID: 11400000, guid: b712ecdc51f222f41b3652c0844cf592, type: 2}
   ammo: {fileID: 0}

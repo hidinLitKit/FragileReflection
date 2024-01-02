@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55dcd6337ce02947ba14805e5c4a8b7, type: 3}
   m_Name: YenCoinKey
   m_EditorClassIdentifier: 
-  ID: 11
+  ID: 0
   unique: 1
-  Name: 100 yen
-  Description: Just some money left in my pocket.
+  Name: "100 \u0439\u0435\u043D"
+  Description: "\u041F\u0440\u043E\u0441\u0442\u043E \u043D\u0435\u043C\u043D\u043E\u0433\u043E
+    \u043C\u043E\u043D\u0435\u0442 \u0437\u0430\u0432\u0430\u043B\u044F\u0432\u0448\u0438\u0435\u0441\u044F
+    \u0432 \u043A\u0430\u0440\u043C\u0430\u043D\u0435."
   image: {fileID: 21300000, guid: 1debfd85ada84634a9974f234c194ce3, type: 3}
