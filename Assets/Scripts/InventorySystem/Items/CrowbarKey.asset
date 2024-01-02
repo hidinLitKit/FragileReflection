@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55dcd6337ce02947ba14805e5c4a8b7, type: 3}
   m_Name: CrowbarKey
   m_EditorClassIdentifier: 
-  ID: 10
+  ID: 7
   unique: 1
-  Name: Crowbar
-  Description: I can use it to tear off those wooden planks.
+  Name: "\u041C\u043E\u043D\u0438\u0442\u043E\u0440\u043E\u0432\u043A\u0430"
+  Description: "\u042F \u043C\u043E\u0433\u0443 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C
+    \u0435\u0433\u043E, \u0447\u0442\u043E\u0431\u044B \u043E\u0442\u043E\u0440\u0432\u0430\u0442\u044C
+    \u0434\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u044B\u0435 \u0434\u043E\u0441\u043A\u0438."
   image: {fileID: 21300000, guid: 6e6c61bc9b0362141bb62a6cdc470f67, type: 3}
