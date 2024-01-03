@@ -10,6 +10,8 @@ namespace FragileReflection
         public void AttackHit()
         {
             controller.AttackPlayer();
+            controller._audioController.PlayAudio(false, EnemySounds.Attacking, true);
+
         }
     }
 }
