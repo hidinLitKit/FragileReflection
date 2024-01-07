@@ -17,7 +17,7 @@ namespace FragileReflection
 		{
 			base.OnEnable();
 			
-			GameEvents.onExit += Resume;
+			UIEvents.onExit += Resume;
 			_newgameButton.onClick.AddListener(Resume);
 			_loadSaveButton.onClick.AddListener(Resume);
 			_settingsButton.onClick.AddListener(Settings);
@@ -28,7 +28,7 @@ namespace FragileReflection
 		{
 			base.OnDisable();
 			
-			GameEvents.onExit -= Resume;
+			UIEvents.onExit -= Resume;
 			_newgameButton.onClick.RemoveListener(Resume);
 			_loadSaveButton.onClick.RemoveListener(Resume);
 			_settingsButton.onClick.RemoveListener(Settings);

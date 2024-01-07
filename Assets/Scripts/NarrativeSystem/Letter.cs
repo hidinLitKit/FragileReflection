@@ -32,7 +32,9 @@ namespace FragileReflection
             NarrativeData.instance.letterPrev.onClick.AddListener(buttonBack);
             NarrativeData.instance.letterClose.onClick.AddListener(letterClose);
 
-            GameEvents.onExit += letterClose;
+            UIEvents.onExit += letterClose;
+            UIEvents.onRight += buttonNext;
+            UIEvents.onLeft += buttonBack;
             letterAction += updateUI;
         }
         private void OnDisable()
@@ -41,7 +43,9 @@ namespace FragileReflection
             NarrativeData.instance.letterPrev.onClick.RemoveListener(buttonBack);
             NarrativeData.instance.letterClose.onClick.RemoveListener(letterClose);
 
-            GameEvents.onExit += letterClose;
+            UIEvents.onExit += letterClose;
+            UIEvents.onRight -= buttonNext;
+            UIEvents.onLeft -= buttonBack;
             letterAction -= updateUI;
         }
         

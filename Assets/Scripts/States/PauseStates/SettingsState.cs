@@ -18,7 +18,7 @@ namespace FragileReflection
 			Time.timeScale = 0;
 			GameEvents.SwitchMap(uiInputMap);
 
-			GameEvents.onExit += Return;
+			UIEvents.onExit += Return;
 			_returnButton.onClick.AddListener(Return);
 			_graphicsButton.onClick.AddListener(Graphics);
 			_volumeButton.onClick.AddListener(Volume);
@@ -29,7 +29,7 @@ namespace FragileReflection
 		{
 			base.OnDisable();
 
-			GameEvents.onExit -= Return;
+			UIEvents.onExit -= Return;
 			_returnButton.onClick.RemoveListener(Return);
 			_graphicsButton.onClick.RemoveListener(Graphics);
 			_volumeButton.onClick.RemoveListener(Volume);

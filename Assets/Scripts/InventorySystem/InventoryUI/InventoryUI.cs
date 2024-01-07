@@ -53,12 +53,22 @@ namespace FragileReflection
             GameEvents.onSuccesUse += InventoryUpdate;
             GameEvents.onWeaponReload += UpdateSlots;
             GameEvents.onPickItem += UpdateSlots;
+
+            UIEvents.onLeft += moveLeft;
+            UIEvents.onRight += moveRight;
+            UIEvents.onPrimary += useItem;
+            UIEvents.onSecondary += examineItem;
         }
         private void OnDisable()
         {
             GameEvents.onSuccesUse -= InventoryUpdate;
             GameEvents.onWeaponReload -= UpdateSlots;
             GameEvents.onPickItem -= UpdateSlots;
+
+            UIEvents.onLeft -= moveLeft;
+            UIEvents.onRight -= moveRight;
+            UIEvents.onPrimary -= useItem;
+            UIEvents.onSecondary -= examineItem;
         }
         public void CreateSlots()
         {
@@ -122,6 +132,7 @@ namespace FragileReflection
         {
             //если мы кликнули по кнопке вызывается этот метод
             _database.Items[ _currentItem.item.ID].Use();
+            UpdateSlots();
         }
 
         private void InventoryUpdate(int num)

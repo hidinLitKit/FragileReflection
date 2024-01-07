@@ -18,7 +18,7 @@ namespace FragileReflection
 			Time.timeScale = 0;
 			GameEvents.SwitchMap(uiInputMap);
 			
-			GameEvents.onExit += Resume;
+			UIEvents.onExit += Resume;
 			_continueButton.onClick.AddListener(Resume);
 			_settingsButton.onClick.AddListener(Settings);
 			_exitButton.onClick.AddListener(GotoMainMenu);
@@ -30,7 +30,7 @@ namespace FragileReflection
 			Time.timeScale = 1;
 			GameEvents.SwitchMap(playerInputMap);
 			
-			GameEvents.onExit -= Resume;
+			UIEvents.onExit -= Resume;
 			_continueButton.onClick.RemoveListener(Resume);
 			_settingsButton.onClick.RemoveListener(Settings);
 			_exitButton.onClick.RemoveListener(GotoMainMenu);

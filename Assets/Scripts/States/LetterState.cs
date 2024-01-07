@@ -12,7 +12,7 @@ namespace FragileReflection
 		{
 			base.OnEnable();
 			GameEvents.SwitchMap(uiInputMap);
-			GameEvents.onExit += GameContinue;
+			UIEvents.onExit += GameContinue;
 			_continueButton.onClick.AddListener(GameContinue);
 		}
 
@@ -20,7 +20,7 @@ namespace FragileReflection
 		{
 			base.OnDisable();
 			GameEvents.SwitchMap(playerInputMap);
-			GameEvents.onExit -= GameContinue;
+			UIEvents.onExit -= GameContinue;
 			_continueButton.onClick.RemoveListener(GameContinue);
 		}
 		public void GameContinue()

@@ -10,7 +10,7 @@ namespace FragileReflection
 		{
 			base.OnEnable();
 			GameEvents.SwitchMap(uiInputMap);
-			GameEvents.onExit += GameContinue;
+			UIEvents.onExit += GameContinue;
 		}
 
 		protected override void OnDisable()
@@ -18,7 +18,7 @@ namespace FragileReflection
 			base.OnDisable();
 			Time.timeScale = 1;
 			GameEvents.SwitchMap(playerInputMap);
-			GameEvents.onExit -= GameContinue;
+			UIEvents.onExit -= GameContinue;
 		}
 		public void GameContinue()
 		{

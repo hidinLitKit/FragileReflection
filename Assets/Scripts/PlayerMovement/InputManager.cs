@@ -24,10 +24,28 @@ namespace FragileReflection
             GameEvents.onMapSwitched -= ToogleActionMaps;
             GameEvents.onMapSwitched -= CursorController;
         }
+
         public void OnExit(InputValue value)
         {
-            GameEvents.ExitPressed();
+            UIEvents.ExitPressed();
         }
+        public void OnPrimary(InputValue value)
+        {
+            UIEvents.PrimaryPressed();
+        }
+        public void OnSecondary(InputValue value)
+        {
+            UIEvents.SecondaryPressed();
+        }
+        public void OnRight(InputValue value)
+        {
+            UIEvents.RightPressed();
+        }
+        public void OnLeft(InputValue value)
+        {
+            UIEvents.LeftPressed();
+        }
+
         public static void ToogleActionMaps(string inputMap)
         {
             Debug.Log(inputMap + " enabled");

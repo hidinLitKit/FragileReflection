@@ -585,6 +585,42 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c069696-e8ec-4712-8cf4-d0ae6030cb31"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""289bdb31-7e3e-449c-b8b1-655473866f7e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Primary"",
+                    ""type"": ""Button"",
+                    ""id"": ""13c89889-23bc-43f4-996f-a73840371cc3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Secondary"",
+                    ""type"": ""Button"",
+                    ""id"": ""b5dddfe5-5cb2-4bea-a5fa-1302a3598c23"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1027,6 +1063,50 @@ namespace UnityEngine.InputSystem
                     ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""01974cf8-ee9b-4442-a65b-ac3a5c1584a8"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad037799-d9d1-4fc5-8a86-fadacd8a71d2"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dff572cd-2292-4541-b7cc-0fa561d5e31b"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Primary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6aedee66-0767-4287-90c2-ce034c55274e"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Secondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1143,6 +1223,10 @@ namespace UnityEngine.InputSystem
             m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
             m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
             m_UI_Exit = m_UI.FindAction("Exit", throwIfNotFound: true);
+            m_UI_Right = m_UI.FindAction("Right", throwIfNotFound: true);
+            m_UI_Left = m_UI.FindAction("Left", throwIfNotFound: true);
+            m_UI_Primary = m_UI.FindAction("Primary", throwIfNotFound: true);
+            m_UI_Secondary = m_UI.FindAction("Secondary", throwIfNotFound: true);
             // DeathMap
             m_DeathMap = asset.FindActionMap("DeathMap", throwIfNotFound: true);
             m_DeathMap_Newaction = m_DeathMap.FindAction("New action", throwIfNotFound: true);
@@ -1392,6 +1476,10 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_UI_TrackedDevicePosition;
         private readonly InputAction m_UI_TrackedDeviceOrientation;
         private readonly InputAction m_UI_Exit;
+        private readonly InputAction m_UI_Right;
+        private readonly InputAction m_UI_Left;
+        private readonly InputAction m_UI_Primary;
+        private readonly InputAction m_UI_Secondary;
         public struct UIActions
         {
             private @NewInput m_Wrapper;
@@ -1407,6 +1495,10 @@ namespace UnityEngine.InputSystem
             public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
             public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
             public InputAction @Exit => m_Wrapper.m_UI_Exit;
+            public InputAction @Right => m_Wrapper.m_UI_Right;
+            public InputAction @Left => m_Wrapper.m_UI_Left;
+            public InputAction @Primary => m_Wrapper.m_UI_Primary;
+            public InputAction @Secondary => m_Wrapper.m_UI_Secondary;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1449,6 +1541,18 @@ namespace UnityEngine.InputSystem
                 @Exit.started += instance.OnExit;
                 @Exit.performed += instance.OnExit;
                 @Exit.canceled += instance.OnExit;
+                @Right.started += instance.OnRight;
+                @Right.performed += instance.OnRight;
+                @Right.canceled += instance.OnRight;
+                @Left.started += instance.OnLeft;
+                @Left.performed += instance.OnLeft;
+                @Left.canceled += instance.OnLeft;
+                @Primary.started += instance.OnPrimary;
+                @Primary.performed += instance.OnPrimary;
+                @Primary.canceled += instance.OnPrimary;
+                @Secondary.started += instance.OnSecondary;
+                @Secondary.performed += instance.OnSecondary;
+                @Secondary.canceled += instance.OnSecondary;
             }
 
             private void UnregisterCallbacks(IUIActions instance)
@@ -1486,6 +1590,18 @@ namespace UnityEngine.InputSystem
                 @Exit.started -= instance.OnExit;
                 @Exit.performed -= instance.OnExit;
                 @Exit.canceled -= instance.OnExit;
+                @Right.started -= instance.OnRight;
+                @Right.performed -= instance.OnRight;
+                @Right.canceled -= instance.OnRight;
+                @Left.started -= instance.OnLeft;
+                @Left.performed -= instance.OnLeft;
+                @Left.canceled -= instance.OnLeft;
+                @Primary.started -= instance.OnPrimary;
+                @Primary.performed -= instance.OnPrimary;
+                @Primary.canceled -= instance.OnPrimary;
+                @Secondary.started -= instance.OnSecondary;
+                @Secondary.performed -= instance.OnSecondary;
+                @Secondary.canceled -= instance.OnSecondary;
             }
 
             public void RemoveCallbacks(IUIActions instance)
@@ -1618,6 +1734,10 @@ namespace UnityEngine.InputSystem
             void OnTrackedDevicePosition(InputAction.CallbackContext context);
             void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
             void OnExit(InputAction.CallbackContext context);
+            void OnRight(InputAction.CallbackContext context);
+            void OnLeft(InputAction.CallbackContext context);
+            void OnPrimary(InputAction.CallbackContext context);
+            void OnSecondary(InputAction.CallbackContext context);
         }
         public interface IDeathMapActions
         {
