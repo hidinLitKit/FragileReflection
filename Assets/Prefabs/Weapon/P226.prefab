@@ -108,10 +108,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5458122834813246222}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.50597507, y: 0.5364327, z: -0.50231427, w: 0.4515636}
+  m_LocalRotation: {x: 0.5059762, y: 0.5364335, z: -0.50231355, w: 0.45156208}
   m_LocalPosition: {x: 0.00025119, y: -0.00057433615, z: -0.00020048773}
-  m_LocalScale: {x: 0.024341073, y: 0.024341075, z: 0.024341077}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.014911501, y: 0.0149115035, z: 0.014911506}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6132562104523766204}
   - {fileID: 1659231847907588098}
@@ -131,8 +131,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponType: {fileID: 11400000, guid: 07295905c33819d4b92a51f9390e912b, type: 2}
+  _weaponAudio: {fileID: 0}
+  _equipSound: {fileID: 8300000, guid: 35f24b5aa2b149345a1a1e0c81f33051, type: 3}
+  _attackSound: {fileID: 8300000, guid: d8d7fb828a821684f81a3518b12cc59b, type: 3}
+  _reloadSound: {fileID: 8300000, guid: fa95b4d91bd33b54cbf34c0638826981, type: 3}
+  _noAmmoSound: {fileID: 8300000, guid: 2a09671181d778242b4c520c0ba7ac22, type: 3}
   ammoLeft: 0
+  weaponRay: {fileID: 0}
   _inventoryWeapon: {fileID: 11400000, guid: 4e7431a2ca1cba3419c0b6721ff9995c, type: 2}
+  _id: 4a70b3bb-20bf-4118-a625-24a3b961ddc0
 --- !u!1 &6905630550696636218
 GameObject:
   m_ObjectHideFlags: 0

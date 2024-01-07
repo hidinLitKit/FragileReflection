@@ -44,6 +44,30 @@ namespace FragileReflection
                 }
             }
         }
+        public void RemoveItem(int id, int ammount)
+        {
+            for (int i = 0; i < Container.Items.Count; i++)
+            {
+                if (Container.Items[i].item.ID == id)
+                {
+                    Container.Items[i].amount -= ammount;
+                    if (Container.Items[i].amount <= 0) Debug.LogWarning($"Ammount of {Container.Items[i]} is lower than 0");
+                    return;
+                }
+            }
+        }
+        public void RemoveItem(ItemObject item, int ammount)
+        {
+            for (int i = 0; i < Container.Items.Count; i++)
+            {
+                if (Container.Items[i].item.ID == item.ID)
+                {
+                    Container.Items[i].amount -= ammount;
+                    if (Container.Items[i].amount <= 0) Debug.LogWarning($"Ammount of {Container.Items[i]} is lower than 0");
+                    return;
+                }
+            }
+        }
         public bool ContainsObject(ItemObject itm)
         {
             for (int i = 0; i < Container.Items.Count; i++)
@@ -55,6 +79,18 @@ namespace FragileReflection
                 }
             }
             return false;
+        }
+        public int ItemAmmont(ItemObject itm)
+        { 
+            for (int i = 0; i < Container.Items.Count; i++)
+                {
+                    if (Container.Items[i].item.ID == itm.ID)
+                    {
+                        return Container.Items[i].amount;
+                    }
+                }
+            Debug.LogWarning("Item doesn't exist that is strange");
+            return -1;
         }
 
     }

@@ -15,7 +15,7 @@ namespace FragileReflection
 
         public override void Use()
         {
-            GameEvents.UseMedkit(healAmmount);
+            MedkitManager.instance.TryHeal(this);
         }
 
         

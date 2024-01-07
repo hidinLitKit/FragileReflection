@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4918079254549574704}
   - component: {fileID: 6659946899583275350}
   - component: {fileID: 1484169669179172452}
+  - component: {fileID: 1165046350938255528}
   m_Layer: 0
   m_Name: EnemyRegular2
   m_TagString: Untagged
@@ -132,8 +133,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.7028923, y: 2.8971245, z: 2.5480576}
-  m_Center: {x: 0, y: 1.4173483, z: 1.1164799}
+  m_Size: {x: 0.76844406, y: 2.8971245, z: 2.3266773}
+  m_Center: {x: 0.00810051, y: 1.4173483, z: 1.0057898}
 --- !u!114 &4918079254549574704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,10 +168,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 5
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -255,12 +256,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388e5ad867ee2b44da9f920869caa817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preAttack: {fileID: 8300000, guid: 0265a43929052324eb01819d0e1a0e8e, type: 3}
-  patrolling: {fileID: 8300000, guid: 66beec501d4591740a03b3046a37d84d, type: 3}
-  chasing: {fileID: 8300000, guid: feba4514b0ec5a54b8f20ab52e5292c4, type: 3}
-  attacking: {fileID: 8300000, guid: 0265a43929052324eb01819d0e1a0e8e, type: 3}
-  stuggle: {fileID: 8300000, guid: f1529fe64614fc6478e446d0d869c8da, type: 3}
-  dying: {fileID: 8300000, guid: f1529fe64614fc6478e446d0d869c8da, type: 3}
+  preAttack: {fileID: 8300000, guid: 260281c6ddd4e0a4a88b3ce34e8e1b80, type: 3}
+  patrolling: {fileID: 8300000, guid: 0aeb5fa0c1090d04f94f36374822b909, type: 3}
+  chasing: {fileID: 8300000, guid: 8d4c7b2687e12394492c6b39a9663075, type: 3}
+  attacking: {fileID: 8300000, guid: 0e334ad8d8ee6ee4aba1e93b04ccddff, type: 3}
+  stuggle: {fileID: 8300000, guid: febe4adb5ec2ad240be92c0c537f9260, type: 3}
+  dying: {fileID: 8300000, guid: 343946b8e4d798147aeacc5a6c8178a5, type: 3}
+--- !u!114 &1165046350938255528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734869331818330929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2172d9a2cfbeca49ae3088534ea4047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaces: []
 --- !u!1001 &66766275608681469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -496,6 +510,9 @@ PrefabInstance:
       addedObject: {fileID: 6614158708794284956}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f8c26c8121d424a41869d430cacc3dc1, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 3758077213896011609}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f8c26c8121d424a41869d430cacc3dc1, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 4245011154403262863}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f8c26c8121d424a41869d430cacc3dc1, type: 3}
       insertIndex: -1
@@ -547,12 +564,12 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
-  m_Height: 1.85
+  m_Radius: 0.36
+  m_Height: 2.13
   m_Direction: 1
   m_Center: {x: 0, y: 0.77, z: 0}
 --- !u!114 &6614158708794284956
@@ -569,6 +586,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   k: 1
   enemyHealth: {fileID: 4515426020040858308}
+--- !u!114 &3758077213896011609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877175271385245356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a308123eee6a04a9925a8e8f1dc5cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 4146087284031611726}
 --- !u!114 &4245011154403262863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,12 +613,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyController: {fileID: 0}
   audioClips:
-  - {fileID: 8300000, guid: 6e640a505c749ad4eb1e11b812ddc243, type: 3}
-  - {fileID: 8300000, guid: 8a86e5dcfc3b93340b539d3a528801a7, type: 3}
-  - {fileID: 8300000, guid: 838d775d565d8af4f93c5130f0c5950f, type: 3}
-  - {fileID: 8300000, guid: 125de7ed6be34eb448b32ff99474df56, type: 3}
-  - {fileID: 8300000, guid: 5482ee76143588447b4060803ff8314d, type: 3}
-  audioSource: {fileID: 0}
+  - {fileID: 8300000, guid: 0c9ae3846e70d17479bb27d1567c086d, type: 3}
+  - {fileID: 8300000, guid: 6fd13f3b09f0a6e4c9de9a45eda7fd78, type: 3}
+  - {fileID: 8300000, guid: 24e0c21f6721e314b878a68b363b4361, type: 3}
+  - {fileID: 8300000, guid: 5aab73d3db6b69f4ca719dfe91a33407, type: 3}
+  - {fileID: 8300000, guid: 0428d186c09f055408d96257d05b2665, type: 3}
+  - {fileID: 8300000, guid: 2b86eb5639c452140bf766795c5a70a3, type: 3}
+  - {fileID: 8300000, guid: 3fe33d06a46a59a469fbc681b3d90c77, type: 3}
+  audioSource: {fileID: 8013358547219508453}
 --- !u!82 &8013358547219508453
 AudioSource:
   m_ObjectHideFlags: 0
@@ -598,7 +630,7 @@ AudioSource:
   m_GameObject: {fileID: 877175271385245356}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3014014387310297751, guid: 6ec4f6f6fd9ab43459c73faf3a3b8135, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -609,10 +641,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 5
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
